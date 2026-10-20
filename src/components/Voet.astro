@@ -1,6 +1,7 @@
 ---
 import { site, url, waHoi, categorieen } from '../data/site';
 import Merk from './Merk.astro';
+import { categorieVanUrl } from '../data/catalogus';
 const jaar = new Date().getFullYear();
 ---
 <footer class="bg-nacht text-as">
@@ -10,9 +11,9 @@ const jaar = new Date().getFullYear();
       <p class="mt-6 max-w-xs">Handgemaakte teakhouten meubels, online en op bestelling. Maatwerk zonder meerprijs, alleen duurzaam hout.</p>
     </div>
     <div class="md:col-span-3">
-      <p class="font-kop text-base font-bold text-wit">Webshop</p>
+      <p class="font-kop text-base font-bold text-wit"><a href={url('collectie/')} class="no-underline hover:text-blad-licht">Collectie</a></p>
       <ul class="mt-4 grid grid-cols-2 gap-x-6 gap-y-1.5">
-        {categorieen.map(([t, href]) => <li><a href={href} class="link link-licht">{t}</a></li>)}
+        {categorieen.map(([t, href]) => <li><a href={categorieVanUrl(href)} class="link link-licht">{t}</a></li>)}
       </ul>
     </div>
     <div class="md:col-span-3">

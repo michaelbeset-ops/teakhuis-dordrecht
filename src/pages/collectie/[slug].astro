@@ -1,0 +1,80 @@
+---
+import Base from '../../layouts/Base.astro';
+import Kop from '../../components/Kop.astro';
+import Voet from '../../components/Voet.astro';
+import Kruimel from '../../components/Kruimel.astro';
+import ProductKaart from '../../components/ProductKaart.astro';
+import { url } from '../../data/site';
+import { catPaginas, categorieHref, vanaf, type CatPagina } from '../../data/catalogus';
+
+export function getStaticPaths() {
+  return catPaginas.map((pagina) => ({ params: { slug: pagina.cat.slug }, props: { pagina } }));
+}
+const { pagina } = Astro.props as { pagina: CatPagina };
+const { cat, hoofd, subs, producten } = pagina;
+const n = producten.length;
+const kruimel: [string, string?][] = hoofd ? [['Collectie', url('collectie/')], [hoofd.naam, categorieHref(hoofd)], [cat.naam]] : [['Collectie', url('collectie/')], [cat.naam]];
+const ouder = hoofd ?? cat;
+---
+<Base title={`${cat.naam} | Teakhuis`} description={`${cat.naam} bij Teakhuis: ${n} ${n === 1 ? 'product' : 'producten'} met prijs. Vrijwel alles kan ook op jouw maat, zonder meerprijs.`}>
+  <Kop thuis={false} />
+  <main id="inhoud" class="pb-20 md:pb-28">
+    <section class="wrap pt-8 md:pt-12">
+      <Kruimel stappen={kruimel} />
+      <div class="mt-8 flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
+        <div>
+          <h1 class="text-4xl">{cat.naam}</h1>
+          <p class="num mt-4 text-grijs">{n} {n === 1 ? 'product' : 'producten'}{hoofd ? ` in ${hoofd.naam.toLowerCase()}` : ''}</p>
+        </div>
+        {n > 1 && (
+          <label class="flex items-center gap-3 text-sm font-bold">
+            Sorteren
+            <select class="veld min-h-11 w-auto py-0 text-sm" data-sorteer>
+              <option value="standaard">Zoals in de webshop</option>
+              <option value="naam">Naam A tot Z</option>
+              <option value="laag">Prijs laag naar hoog</option>
+              <option value="hoog">Prijs hoog naar laag</option>
+            </select>
+          </label>
+        )}
+      </div>
+      {subs.length > 0 && (
+        <nav aria-label={`Soorten ${ouder.naam.toLowerCase()}`} class="mt-8 flex gap-x-6 overflow-x-auto border-b border-lijn-2 [scrollbar-width:thin]">
+          <a href={categorieHref(ouder)} class={`-mb-px flex-none whitespace-nowrap border-b-2 py-3 text-sm font-bold no-underline transition-colors hover:text-inkt ${!hoofd ? 'border-blad text-inkt' : 'border-transparent text-grijs'}`} aria-current={!hoofd ? 'page' : undefined}>Alles</a>
+          {subs.map((s) => (
+            <a href={categorieHref(s)} class={`-mb-px flex-none whitespace-nowrap border-b-2 py-3 text-sm font-bold no-underline transition-colors hover:text-inkt ${s.id === cat.id ? 'border-blad text-inkt' : 'border-transparent text-grijs'}`} aria-current={s.id === cat.id ? 'page' : undefined}>{s.naam}</a>
+          ))}
+        </nav>
+      )}
+    </section>
+
+    <section class="wrap mt-10 md:mt-12" aria-labelledby="producten-kop">
+      <h2 id="producten-kop" class="sr-only">Producten in {cat.naam.toLowerCase()}</h2>
+      <ul class="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-4 lg:gap-y-12" data-grid>
+        {producten.map((p, i) => (
+          <li data-naam={p.titel.toLowerCase()} data-prijs={vanaf(p)} data-i={i}>
+            <ProductKaart p={p} lazy={i >= 4} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  </main>
+  <Voet />
+
+  <script>
+    // Sorteren zonder herladen: de lijst-items opnieuw ordenen.
+    const kies = document.querySelector<HTMLSelectElement>('[data-sorteer]');
+    const grid = document.querySelector<HTMLElement>('[data-grid]');
+    if (kies && grid) {
+      const items = [...grid.children] as HTMLElement[];
+      const nl = new Intl.Collator('nl', { numeric: true });
+      const regels: Record<string, (a: HTMLElement, b: HTMLElement) => number> = {
+        standaard: (a, b) => +a.dataset.i! - +b.dataset.i!,
+        naam: (a, b) => nl.compare(a.dataset.naam!, b.dataset.naam!),
+        laag: (a, b) => +a.dataset.prijs! - +b.dataset.prijs! || nl.compare(a.dataset.naam!, b.dataset.naam!),
+        hoog: (a, b) => +b.dataset.prijs! - +a.dataset.prijs! || nl.compare(a.dataset.naam!, b.dataset.naam!),
+      };
+      kies.addEventListener('change', () => grid.append(...items.sort(regels[kies.value])));
+    }
+  </script>
+</Base>

@@ -1,0 +1,134 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Kop from '../../components/Kop.astro';
+import Voet from '../../components/Voet.astro';
+import Kruimel from '../../components/Kruimel.astro';
+import GeenFoto from '../../components/GeenFoto.astro';
+import { url } from '../../data/site';
+import { groepen, producten, categorieHref, eersteFoto, breedtes, type Product, type Categorie } from '../../data/catalogus';
+
+// Per categorie de foto van het eerste product dat er een heeft.
+const omslag = (ps: Product[]) => { for (const p of ps) { const f = eersteFoto(p); if (f) return f; } };
+const metSubs = groepen.filter((g) => g.subs.length);
+const los = groepen.filter((g) => !g.subs.length);
+const aantal = (n: number) => `${n} ${n === 1 ? 'product' : 'producten'}`;
+---
+<Base title="Collectie | Teakhuis" description={`Alle ${producten.length} producten van Teakhuis: tafels, kasten, zitmeubelen, slaapkamer, badkamer, tuin en meer. Vrijwel alles ook op maat, zonder meerprijs.`}>
+  <Kop thuis={false} />
+  <main id="inhoud">
+    <section class="wrap pb-12 pt-8 md:pb-16 md:pt-12">
+      <Kruimel stappen={[['Collectie']]} />
+      <div class="mt-8 grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:items-end lg:gap-x-12">
+        <div class="lg:col-span-7">
+          <h1 class="text-4xl">Collectie.</h1>
+          <p class="mt-5 max-w-xl text-lg text-grijs">Alle <span class="num">{producten.length}</span> producten uit de webshop. Vrijwel alles kan ook op jouw maat, zonder meerprijs.</p>
+        </div>
+        <form role="search" class="lg:col-span-5" data-zoek onsubmit="return false">
+          <label for="zoekveld" class="text-sm font-bold">Zoek op naam</label>
+          <div class="relative mt-2">
+            <svg viewBox="0 0 24 24" class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-grijs" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
+            <input id="zoekveld" type="search" autocomplete="off" placeholder="Bijvoorbeeld Bayakayu of eettafel" class="veld pl-12" data-zoekveld />
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="wrap hidden pb-20" data-resultaten aria-labelledby="zoek-kop">
+      <h2 id="zoek-kop" class="border-t border-lijn-2 pt-6 font-kop text-xl" aria-live="polite" data-zoek-kop></h2>
+      <ul class="mt-6 grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-2 lg:grid-cols-3" data-zoek-lijst></ul>
+    </section>
+
+    <div data-overzicht>
+      {metSubs.map((g, gi) => (
+        <section class={`py-14 md:py-20 ${gi % 2 ? '' : 'bg-mist'}`} aria-labelledby={`g-${g.hoofd.slug}`}>
+          <div class="wrap">
+            <div class="flex flex-wrap items-end justify-between gap-x-8 gap-y-3 border-b border-lijn-2 pb-5">
+              <div>
+                <h2 id={`g-${g.hoofd.slug}`} class="text-3xl">{g.hoofd.naam}</h2>
+                <p class="num mt-2 text-sm text-grijs">{aantal(g.producten.length)} in {g.subs.length} soorten</p>
+              </div>
+              <a href={categorieHref(g.hoofd)} class="link text-sm font-bold">Alle {g.hoofd.naam.toLowerCase()} bekijken</a>
+            </div>
+            <ul class="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-4">
+              {g.subs.map((s) => {
+                const f = omslag(s.producten);
+                return (
+                  <li>
+                    <a href={categorieHref(s.cat)} class="product">
+                      <div class={`beeld aspect-[4/3] ${gi % 2 ? '' : 'bg-wit!'}`}>
+                        {f ? <Image src={f} alt="" quality={68} widths={breedtes(f, [240, 360, 480])} sizes="(min-width: 1280px) 290px, (min-width: 1024px) 23vw, (min-width: 640px) 31vw, 46vw" class="h-full w-full object-contain p-2 mix-blend-multiply" /> : <GeenFoto naam={s.cat.naam} />}
+                      </div>
+                      <h3 class="naam mt-3 text-base leading-snug md:text-lg">{s.cat.naam}</h3>
+                      <p class="num mt-1 text-sm text-grijs">{aantal(s.producten.length)}</p>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </section>
+      ))}
+
+      <section class="border-t border-lijn py-14 md:py-20" aria-labelledby="g-meer">
+        <div class="wrap">
+          <div class="border-b border-lijn-2 pb-5">
+            <h2 id="g-meer" class="text-3xl">Tuin, lampen en meer</h2>
+          </div>
+          <ul class="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-4">
+            {los.map((g) => {
+              const f = omslag(g.producten);
+              return (
+                <li>
+                  <a href={categorieHref(g.hoofd)} class="product">
+                    <div class="beeld aspect-[4/3]">
+                      {f ? <Image src={f} alt="" quality={68} widths={breedtes(f, [240, 360, 480])} sizes="(min-width: 1280px) 290px, (min-width: 1024px) 23vw, (min-width: 640px) 31vw, 46vw" class="h-full w-full object-contain p-2 mix-blend-multiply" /> : <GeenFoto naam={g.hoofd.naam} />}
+                    </div>
+                    <h3 class="naam mt-3 text-base leading-snug md:text-lg">{g.hoofd.naam}</h3>
+                    <p class="num mt-1 text-sm text-grijs">{aantal(g.producten.length)}</p>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Voet />
+
+  <script define:vars={{ index: url('collectie/zoek.json') }}>
+    // Zoeken: de kleine index (naam, link, thumbnail, prijs) wordt pas geladen als je gaat typen.
+    const veld = document.querySelector('[data-zoekveld]');
+    const blok = document.querySelector('[data-resultaten]');
+    const kop = document.querySelector('[data-zoek-kop]');
+    const lijst = document.querySelector('[data-zoek-lijst]');
+    const overzicht = document.querySelector('[data-overzicht]');
+    let data = null, laden = null;
+    const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const haal = () => (laden ??= fetch(index).then((r) => r.json()).then((d) => (data = d.map((x) => ({ ...x, z: norm(x.n + ' ' + x.c) })))));
+    const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const toon = async () => {
+      const q = norm(veld.value.trim());
+      if (q.length < 2) { blok.classList.add('hidden'); overzicht.classList.remove('hidden'); return; }
+      await haal();
+      if (norm(veld.value.trim()) !== q) return;
+      const woorden = q.split(/\s+/);
+      const hits = data.filter((x) => woorden.every((w) => x.z.includes(w)));
+      const max = 60;
+      kop.textContent = hits.length ? `${hits.length} ${hits.length === 1 ? 'product' : 'producten'} gevonden` : `Niets gevonden voor "${veld.value.trim()}". Probeer een ander woord, of app ons je vraag.`;
+      lijst.innerHTML = hits.slice(0, max).map((x) => `
+        <li><a href="${x.u}" class="product flex items-center gap-4 border-b border-lijn py-3">
+          <span class="beeld block h-16 w-20 flex-none">${x.f ? `<img src="${x.f}" alt="" width="80" height="64" loading="lazy" class="h-full w-full object-contain p-1 mix-blend-multiply">` : ''}</span>
+          <span class="min-w-0"><span class="naam block font-kop font-bold leading-snug">${esc(x.n)}</span>
+          <span class="mt-0.5 block text-sm text-grijs"><span class="num font-bold text-inkt">v.a. ${x.p}</span> · ${esc(x.c)}</span></span>
+        </a></li>`).join('') + (hits.length > max ? `<li class="py-3 text-sm text-grijs">en nog ${hits.length - max}, typ verder om te verfijnen</li>` : '');
+      blok.classList.remove('hidden');
+      overzicht.classList.add('hidden');
+    };
+    veld.addEventListener('focus', haal, { once: true });
+    veld.addEventListener('input', toon);
+    const q = new URLSearchParams(location.search).get('q');
+    if (q) { veld.value = q; toon(); }
+  </script>
+</Base>

@@ -4,7 +4,11 @@ import Base from '../layouts/Base.astro';
 import Kop from '../components/Kop.astro';
 import Voet from '../components/Voet.astro';
 import Icoon from '../components/Icoon.astro';
-import { site, producten, categorieen, maatwerk, reviews, waHoi, waMet } from '../data/site';
+import { site, producten, categorieen, maatwerk, reviews, waHoi, waMet, url } from '../data/site';
+import { productVanUrl, productHref, categorieVanUrl } from '../data/catalogus';
+
+// Homepage-producten linken naar de eigen productpagina's in de collectie.
+const intern = (href: string) => { const p = productVanUrl(href); return p ? productHref(p) : href; };
 
 import hero from '../assets/hero-trapezium-detail.jpg';
 import han from '../assets/han.jpg';
@@ -79,13 +83,13 @@ const omschrijving = 'Handgemaakte teakhouten meubels van duurzaam hout, online 
         <div class="md:max-w-[22rem] lg:max-w-[30rem] xl:max-w-[34rem]">
           <p class="text-sm font-bold text-blad-diep">Teakhouten meubels, online en op bestelling</p>
           <h1 class="mt-4 text-hero">Maatwerk zonder meer&shy;prijs.</h1>
-          <p class="mt-5 max-w-lg text-lg text-grijs md:text-xl">Handgemaakte meubels van duurzaam teak. Kies uit de webshop of laat je meubel op maat tekenen.</p>
+          <p class="mt-5 max-w-lg text-lg text-grijs md:text-xl">Handgemaakte meubels van duurzaam teak. Kies uit de collectie of laat je meubel op maat tekenen.</p>
           <div class="mt-8 flex flex-wrap gap-3">
             <a href="#aanvragen" class="knop knop-blad">Maatwerk aanvragen<Icoon naam="pijl" /></a>
             <a href="#collectie" class="knop knop-rand">Bekijk de collectie</a>
           </div>
         </div>
-        <p class="mt-8 text-xs text-grijs">In beeld: <a href={producten[3].href} class="link font-semibold text-inkt">Tuintafel trapezium</a>, live edge van gerecycled teak</p>
+        <p class="mt-8 text-xs text-grijs">In beeld: <a href={intern(producten[3].href)} class="link font-semibold text-inkt">Tuintafel trapezium</a>, live edge van gerecycled teak</p>
       </div>
     </section>
 
@@ -123,15 +127,15 @@ const omschrijving = 'Handgemaakte teakhouten meubels van duurzaam hout, online 
       <div class="wrap">
         <div class="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <h2 class="rijs text-4xl">Uit de webshop.</h2>
+            <h2 class="rijs text-4xl">Uit de collectie.</h2>
             <p class="rijs mt-4 max-w-lg text-grijs" style="--d:.08s">Een greep uit de collectie. Vrijwel alles kan ook op jouw maat, zonder meerprijs.</p>
           </div>
-          <a href={site.shop} class="rijs knop knop-inkt" style="--d:.1s">Alle meubels in de webshop<Icoon naam="pijl" /></a>
+          <a href={url('collectie/')} class="rijs knop knop-inkt" style="--d:.1s">Bekijk de hele collectie<Icoon naam="pijl" /></a>
         </div>
         <ul class="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 md:gap-x-6 lg:grid-cols-4 lg:gap-y-14">
           {producten.map((p, i) => (
             <li class="rijs" style={`--d:${(i % 4) * .06}s`}>
-              <a href={p.href} class="product">
+              <a href={intern(p.href)} class="product">
                 <div class="beeld aspect-[4/3]">
                   <Image src={pFoto(p.id)} alt={alts[p.id]} quality={72} widths={[320, 480, 640, 800]} sizes="(min-width: 1280px) 290px, (min-width: 1024px) 23vw, 46vw" class={`h-full w-full ${snede[p.id]}`} />
                 </div>
@@ -147,8 +151,8 @@ const omschrijving = 'Handgemaakte teakhouten meubels van duurzaam hout, online 
           ))}
         </ul>
         <div class="rijs mt-14 flex flex-wrap items-baseline gap-x-6 gap-y-3 border-t border-lijn-2 pt-6">
-          <p class="font-kop font-bold">Meer in de webshop:</p>
-          {categorieen.map(([t, href]) => <a href={href} class="link text-sm font-bold">{t}</a>)}
+          <p class="font-kop font-bold">Meer in de collectie:</p>
+          {categorieen.map(([t, href]) => <a href={categorieVanUrl(href)} class="link text-sm font-bold">{t}</a>)}
         </div>
       </div>
     </section>

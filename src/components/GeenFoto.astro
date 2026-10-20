@@ -1,0 +1,11 @@
+---
+// Product zonder foto: het huisje uit hun logo op het lichte vlak, met de productnaam.
+interface Props { naam: string; groot?: boolean }
+const { naam, groot = false } = Astro.props;
+---
+<div class="flex h-full w-full flex-col items-center justify-center gap-3 bg-mist p-4 text-center" role="img" aria-label={`${naam}, nog zonder foto`}>
+  <svg viewBox="0 0 40 30" class={groot ? 'h-16 w-20' : 'h-9 w-12'} aria-hidden="true">
+    <path d="M6 17 20 5l14 12M11 13v12h18V13" fill="none" stroke="#6aab35" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" />
+  </svg>
+  <span class={`font-kop font-bold text-grijs ${groot ? 'text-xl' : 'text-sm'}`}>{naam}</span>
+</div>

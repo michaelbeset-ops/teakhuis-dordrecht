@@ -1,0 +1,16 @@
+---
+import { url } from '../data/site';
+interface Props { stappen: [string, string?][] }
+const { stappen } = Astro.props;
+const alles: [string, string?][] = [['Home', url('')], ...stappen];
+---
+<nav aria-label="Kruimelpad" class="text-xs font-semibold text-grijs">
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
+    {alles.map(([t, href], i) => (
+      <li class="flex min-w-0 items-center gap-2">
+        {i > 0 && <span aria-hidden="true" class="text-lijn-2">/</span>}
+        {href ? <a href={href} class="no-underline transition-colors hover:text-blad-diep">{t}</a> : <span aria-current="page" class="text-inkt">{t}</span>}
+      </li>
+    ))}
+  </ol>
+</nav>

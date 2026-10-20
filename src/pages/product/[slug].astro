@@ -1,0 +1,307 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Kop from '../../components/Kop.astro';
+import Voet from '../../components/Voet.astro';
+import Kruimel from '../../components/Kruimel.astro';
+import Icoon from '../../components/Icoon.astro';
+import GeenFoto from '../../components/GeenFoto.astro';
+import ProductKaart from '../../components/ProductKaart.astro';
+import { site, url } from '../../data/site';
+import {
+  producten, categorie, categorieHref, productHref, fotosVan, breedte, breedtes, euro, vanaf, schoon, platteTekst, hoofdletter, isMeubel,
+  type Product,
+} from '../../data/catalogus';
+import kleurBlank from '../../assets/kleur-blank.jpg';
+import kleurThee from '../../assets/kleur-thee.jpg';
+import kleurKoloniaal from '../../assets/kleur-koloniaal.jpg';
+import kleurWit from '../../assets/kleur-wit.jpg';
+
+export function getStaticPaths() {
+  return producten.map((p) => ({ params: { slug: `${p.slug}-${p.id}` }, props: { p } }));
+}
+const { p } = Astro.props as { p: Product };
+
+const cat = categorie(p.categorieId);
+const hoofd = p.kruimel.length > 1 ? categorie(p.kruimel[0].id) : undefined;
+const fotos = fotosVan(p);
+const tekst = schoon(p.omschrijving);
+const verwant = producten.filter((x) => x.categorieId === p.categorieId && x.id !== p.id).slice(0, 8);
+const aantalCat = producten.filter((x) => x.categorieId === p.categorieId).length;
+
+// Houtkleuren zoals op de homepage (hun vier leverbare kleuren), met het staaltje erbij.
+const houtkleuren = [
+  { naam: 'Blank teak', img: kleurBlank, sleutel: 'blankteak' },
+  { naam: 'Thee kleur', img: kleurThee, sleutel: 'theekleur' },
+  { naam: 'Koloniale kleur', img: kleurKoloniaal, sleutel: 'kolonialekleur' },
+  { naam: 'Wit', img: kleurWit, sleutel: 'wit' },
+];
+const sleutel = (s: string) => s.toLowerCase().replace(/[^a-z]/g, '');
+const staalVoor = (k: string) => houtkleuren.find((h) => sleutel(k) === h.sleutel || sleutel(k) === `${h.sleutel}teak`)?.img;
+const isMango = /mango/i.test(p.titel + ' ' + p.kruimel.map((k) => k.naam).join(' ') + ' ' + p.kleuren.join(' '));
+const kleurIsHout = p.kleuren.length > 0 && p.kleuren.every((k) => staalVoor(k));
+
+// Varianten: start bij de goedkoopste combinatie, zodat de getoonde prijs de "v.a."-prijs is.
+const heeftVar = p.varianten.length > 0;
+const start = heeftVar ? [...p.varianten].sort((a, b) => a.prijs - b.prijs)[0] : undefined;
+const startKleur = start?.kleur ?? p.kleuren[0];
+const startMaat = start?.maat ?? p.maten[0];
+const startPrijs = start ? start.prijs : vanaf(p);
+const matenAlsKnop = p.maten.length <= 6 && p.maten.every((m) => m.length <= 26);
+
+const zelfUrl = new URL(productHref(p), Astro.site).href;
+const regels = (k?: string, m?: string, prijs?: number | null) => [
+  `Hallo Teakhuis, ik wil graag bestellen:`,
+  p.titel,
+  ...(k ? [`Kleur: ${hoofdletter(k)}`] : []),
+  ...(m ? [`Maat: ${m}`] : []),
+  `Prijs: ${prijs == null ? 'graag een prijsopgave' : euro(prijs)}`,
+  zelfUrl,
+].join('\n');
+const eersteBericht = regels(startKleur, startMaat, startPrijs);
+const onderwerp = `Bestelling: ${p.titel}`;
+const varData = { k: p.kleuren.length > 0, m: p.maten.length > 0, v: p.varianten.map((v) => [v.kleur, v.maat, v.prijs]), vast: vanaf(p), titel: p.titel, wa: site.wa, mail: site.mail, onderwerp };
+
+const omschr = platteTekst(p.omschrijving);
+const beschrijving = `${p.titel}, ${heeftVar ? 'v.a. ' : ''}${euro(vanaf(p))}. ${omschr ? omschr.slice(0, 110).replace(/\s\S*$/, '') + '.' : `${cat.naam} van Teakhuis.`} Bestel via WhatsApp of mail.`;
+const kruimel: [string, string?][] = [['Collectie', url('collectie/')], ...(hoofd ? [[hoofd.naam, categorieHref(hoofd)] as [string, string]] : []), [cat.naam, categorieHref(cat)], [p.titel]];
+---
+<Base title={`${p.titel} | Teakhuis`} description={beschrijving}>
+  <Kop thuis={false} />
+  <main id="inhoud">
+    <div class="wrap pt-8 md:pt-10">
+      <Kruimel stappen={kruimel} />
+    </div>
+
+    <section class="wrap grid grid-cols-1 gap-y-10 pb-20 pt-6 md:pt-8 lg:grid-cols-12 lg:gap-x-12 lg:pb-28">
+      <!-- Fotogalerij: hoofdfoto, pijlen/vegen/toetsen, klik = groter -->
+      <div class="min-w-0 lg:sticky lg:top-6 lg:col-span-7 lg:self-start" data-galerij>
+        {fotos.length ? (
+          <>
+            <div class="relative aspect-[4/3] overflow-hidden rounded-sm bg-mist" role="group" aria-roledescription="fotogalerij" aria-label={`Foto's van ${p.titel}`} tabindex={fotos.length > 1 ? 0 : undefined} data-podium>
+              {fotos.map((f, i) => (
+                <button type="button" class={`absolute inset-0 h-full w-full cursor-zoom-in ${i ? 'hidden' : ''}`} data-dia={i} aria-label={`Foto ${i + 1} van ${fotos.length} groter bekijken`}>
+                  <Image src={f} alt={i ? '' : p.titel} quality={74} widths={breedtes(f, [400, 600, 800])} sizes="(min-width: 1280px) 700px, (min-width: 1024px) 55vw, 100vw" loading={i ? 'lazy' : 'eager'} fetchpriority={i ? undefined : 'high'} class="h-full w-full object-contain p-3 mix-blend-multiply md:p-6" />
+                </button>
+              ))}
+              {fotos.length > 1 && (
+                <>
+                  <button type="button" class="absolute left-2 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-wit/90 text-inkt shadow-sm transition-colors hover:bg-inkt hover:text-wit" aria-label="Vorige foto" data-stap="-1"><Icoon naam="pijl" class="h-5 w-5 rotate-180" /></button>
+                  <button type="button" class="absolute right-2 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-wit/90 text-inkt shadow-sm transition-colors hover:bg-inkt hover:text-wit" aria-label="Volgende foto" data-stap="1"><Icoon naam="pijl" class="h-5 w-5" /></button>
+                  <p class="num absolute bottom-2 right-3 rounded-sm bg-wit/90 px-2 py-0.5 text-xs font-bold" aria-live="polite" data-teller>1 / {fotos.length}</p>
+                </>
+              )}
+            </div>
+            {fotos.length > 1 && (
+              <ul class="mt-3 grid grid-cols-5 gap-2 sm:grid-cols-6" aria-label="Alle foto's">
+                {fotos.map((f, i) => (
+                  <li>
+                    <button type="button" class="block aspect-[4/3] w-full overflow-hidden rounded-sm border-2 border-transparent bg-mist transition-colors hover:border-inkt aria-current:border-blad" aria-current={i ? 'false' : 'true'} aria-label={`Toon foto ${i + 1}`} data-duim={i}>
+                      <Image src={f} alt="" quality={60} widths={[Math.min(160, breedte(f))]} sizes="120px" loading="lazy" class="h-full w-full object-contain p-1 mix-blend-multiply" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </>
+        ) : (
+          <div class="aspect-[4/3] overflow-hidden rounded-sm"><GeenFoto naam={p.titel} groot /></div>
+        )}
+      </div>
+
+      <!-- Productinfo en bestellen -->
+      <div class="min-w-0 lg:col-span-5">
+        <p><a href={categorieHref(cat)} class="text-sm font-bold text-blad-diep no-underline hover:underline">{cat.naam}</a></p>
+        <h1 class="mt-2 text-3xl hyphens-auto">{p.titel}</h1>
+
+        <form class="mt-6" data-bestel onsubmit="return false">
+          <p class="num font-kop text-3xl font-bold" aria-live="polite" data-prijs>{euro(startPrijs)}</p>
+          {heeftVar && <p class="mt-1 text-sm text-grijs" data-uitvoering>Prijs voor de gekozen uitvoering, v.a. {euro(vanaf(p))}</p>}
+
+          {p.kleuren.length > 0 && (
+            <fieldset class="mt-7">
+              <legend class="text-sm font-bold">{kleurIsHout ? 'Houtkleur' : 'Uitvoering'}</legend>
+              <div class="mt-3 flex flex-wrap gap-2">
+                {p.kleuren.map((k) => {
+                  const st = staalVoor(k);
+                  return (
+                    <label class={`kleur ${st ? '' : 'pl-4'}`}>
+                      <input type="radio" name="kleur" value={k} checked={k === startKleur} class="sr-only" />
+                      {st && <Image src={st} alt="" quality={70} widths={[64]} sizes="26px" class="staal object-cover" />}
+                      {hoofdletter(k)}
+                    </label>
+                  );
+                })}
+              </div>
+            </fieldset>
+          )}
+
+          {p.maten.length > 0 && (
+            matenAlsKnop ? (
+              <fieldset class="mt-7">
+                <legend class="text-sm font-bold">Maat</legend>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  {p.maten.map((m) => (
+                    <label class="kleur num pl-4"><input type="radio" name="maat" value={m} checked={m === startMaat} class="sr-only" />{m}</label>
+                  ))}
+                </div>
+              </fieldset>
+            ) : (
+              <label class="mt-7 block">
+                <span class="text-sm font-bold">Maat</span>
+                <select name="maat" class="veld num mt-2">
+                  {p.maten.map((m) => <option value={m} selected={m === startMaat}>{m}</option>)}
+                </select>
+              </label>
+            )
+          )}
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <a href={`${site.wa}?text=${encodeURIComponent(eersteBericht)}`} class="knop knop-blad" data-wa><Icoon naam="wa" />Bestellen via WhatsApp</a>
+            <a href={`mailto:${site.mail}?subject=${encodeURIComponent(onderwerp)}&body=${encodeURIComponent(eersteBericht)}`} class="knop knop-rand" data-mail>Mail ons</a>
+          </div>
+          <p class="mt-3 text-xs text-grijs">Je bericht staat klaar met dit product, je keuze en de prijs. Verstuur je het, dan nemen we contact met je op.</p>
+        </form>
+
+        {isMeubel(p) && (
+          <div class="mt-9 border-t border-lijn-2 pt-6">
+            <p class="flex items-center gap-2 font-kop text-lg font-bold"><Icoon naam="vink" class="h-5 w-5 flex-none text-blad-diep" />Maatwerk zonder meerprijs</p>
+            <p class="mt-2 text-sm text-grijs">Vrijwel alles kan ook op jouw maat. Wij tekenen het uit en sturen je een prijsvoorstel.</p>
+            {!kleurIsHout && !isMango && (
+              <div class="mt-4">
+                <p class="text-xs font-bold">Onze houtkleuren</p>
+                <ul class="mt-2 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                  {houtkleuren.map((h) => <li class="flex items-center gap-2"><Image src={h.img} alt="" quality={70} widths={[64]} sizes="26px" class="staal object-cover" />{h.naam}</li>)}
+                </ul>
+              </div>
+            )}
+            <a href={url('#aanvragen')} class="link mt-4 inline-block text-sm font-bold">Maatwerk aanvragen</a>
+          </div>
+        )}
+
+        {tekst && (
+          <div class="mt-9 border-t border-lijn-2 pt-6">
+            <h2 class="font-kop text-lg">Over dit product</h2>
+            <div class="omschrijving mt-3 text-grijs [overflow-wrap:anywhere] [&_p+p]:mt-3 [&_strong]:font-bold [&_strong]:text-inkt" set:html={tekst} />
+          </div>
+        )}
+      </div>
+    </section>
+
+    {verwant.length > 0 && (
+      <section class="bg-mist py-16 md:py-24" aria-labelledby="verwant">
+        <div class="wrap">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <h2 id="verwant" class="text-3xl">Meer {cat.naam.toLowerCase()}</h2>
+            {aantalCat > 9 && <a href={categorieHref(cat)} class="link text-sm font-bold">Alle {aantalCat} bekijken</a>}
+          </div>
+          <ul class="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-4">
+            {verwant.map((x) => <li><ProductKaart p={x} /></li>)}
+          </ul>
+        </div>
+      </section>
+    )}
+  </main>
+  <Voet />
+
+  {fotos.length > 0 && (
+    <dialog class="m-0 h-dvh max-h-none w-screen max-w-none bg-wit p-0 backdrop:bg-inkt/80" aria-label={`Foto's van ${p.titel}, groot`} data-groot>
+      <div class="relative flex h-full w-full items-center justify-center p-4 md:p-12" data-groot-vlak>
+        <img src="" alt={p.titel} class="max-h-full max-w-full object-contain" data-groot-img />
+        <button type="button" class="absolute right-3 top-3 grid h-12 w-12 place-items-center rounded-full bg-mist text-inkt transition-colors hover:bg-inkt hover:text-wit" aria-label="Sluiten" data-sluit>
+          <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+        {fotos.length > 1 && (
+          <>
+            <button type="button" class="absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full bg-mist text-inkt transition-colors hover:bg-inkt hover:text-wit" aria-label="Vorige foto" data-stap="-1"><Icoon naam="pijl" class="h-5 w-5 rotate-180" /></button>
+            <button type="button" class="absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full bg-mist text-inkt transition-colors hover:bg-inkt hover:text-wit" aria-label="Volgende foto" data-stap="1"><Icoon naam="pijl" class="h-5 w-5" /></button>
+          </>
+        )}
+      </div>
+    </dialog>
+  )}
+
+  <script type="application/json" id="varianten" set:html={JSON.stringify(varData).replace(/</g, '\\u003c')} />
+  <script>
+    // Galerij: één foto tegelijk, pijlen, duimnagels, toetsen en vegen; klik opent hem groot.
+    const gal = document.querySelector<HTMLElement>('[data-galerij]');
+    const podium = gal?.querySelector<HTMLElement>('[data-podium]');
+    const groot = document.querySelector<HTMLDialogElement>('[data-groot]');
+    if (gal && podium) {
+      const dias = [...podium.querySelectorAll<HTMLButtonElement>('[data-dia]')];
+      const duimen = [...gal.querySelectorAll<HTMLButtonElement>('[data-duim]')];
+      const teller = podium.querySelector('[data-teller]');
+      const grootImg = groot?.querySelector<HTMLImageElement>('[data-groot-img]');
+      let nu = 0;
+      const grootste = (img: HTMLImageElement) => (img.srcset ? img.srcset.split(',').at(-1)!.trim().split(' ')[0] : img.src);
+      const zet = (i: number) => {
+        nu = (i + dias.length) % dias.length;
+        dias.forEach((d, j) => d.classList.toggle('hidden', j !== nu));
+        duimen.forEach((d, j) => d.setAttribute('aria-current', String(j === nu)));
+        if (teller) teller.textContent = `${nu + 1} / ${dias.length}`;
+        if (groot?.open && grootImg) grootImg.src = grootste(dias[nu].querySelector('img')!);
+      };
+      const veeg = (el: HTMLElement) => {
+        let x0: number | null = null;
+        el.addEventListener('pointerdown', (e) => { x0 = e.clientX; });
+        el.addEventListener('pointerup', (e) => {
+          if (x0 === null) return;
+          const dx = e.clientX - x0; x0 = null;
+          if (Math.abs(dx) > 40 && dias.length > 1) { zet(nu + (dx < 0 ? 1 : -1)); el.dataset.geveegd = '1'; setTimeout(() => delete el.dataset.geveegd, 50); }
+        });
+      };
+      podium.querySelectorAll<HTMLElement>('[data-stap]').forEach((b) => b.addEventListener('click', () => zet(nu + Number(b.dataset.stap))));
+      duimen.forEach((b, i) => b.addEventListener('click', () => zet(i)));
+      podium.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') zet(nu + 1); if (e.key === 'ArrowLeft') zet(nu - 1); });
+      veeg(podium);
+      if (groot && grootImg) {
+        dias.forEach((d) => d.addEventListener('click', () => {
+          if (podium.dataset.geveegd) return;
+          grootImg.src = grootste(d.querySelector('img')!);
+          groot.showModal();
+        }));
+        groot.querySelectorAll<HTMLElement>('[data-stap]').forEach((b) => b.addEventListener('click', () => zet(nu + Number(b.dataset.stap))));
+        groot.querySelector('[data-sluit]')!.addEventListener('click', () => groot.close());
+        groot.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') zet(nu + 1); if (e.key === 'ArrowLeft') zet(nu - 1); });
+        groot.addEventListener('click', (e) => { if (e.target === groot.querySelector('[data-groot-vlak]')) groot.close(); });
+        groot.addEventListener('close', () => dias[nu].focus());
+        veeg(groot);
+      }
+    }
+
+    // Prijs en bestelbericht volgen de gekozen kleur en maat (varianten uit de webshop).
+    type Data = { k: boolean; m: boolean; v: [string | null, string | null, number][]; vast: number; titel: string; wa: string; mail: string; onderwerp: string };
+    const d: Data = JSON.parse(document.getElementById('varianten')!.textContent!);
+    const form = document.querySelector<HTMLFormElement>('[data-bestel]');
+    if (form) {
+      const prijsEl = form.querySelector('[data-prijs]')!;
+      const uitv = form.querySelector('[data-uitvoering]');
+      const wa = form.querySelector<HTMLAnchorElement>('[data-wa]')!;
+      const mail = form.querySelector<HTMLAnchorElement>('[data-mail]')!;
+      const euro = (n: number) => {
+        const [e, c] = n.toFixed(2).split('.');
+        return `€ ${e.replace(/\B(?=(\d{3})+(?!\d))/g, '.')},${c === '00' ? '-' : c}`;
+      };
+      const hoofd = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+      const vanafTekst = uitv?.textContent ?? '';
+      const werk = () => {
+        const f = new FormData(form);
+        const k = (f.get('kleur') as string) || null;
+        const m = (f.get('maat') as string) || null;
+        let prijs: number | null = d.vast;
+        if (d.v.length) {
+          const hit = d.v.find(([vk, vm]) => (vk === null || vk === k) && (vm === null || vm === m));
+          prijs = hit ? hit[2] : null;
+        }
+        prijsEl.textContent = prijs === null ? 'Prijs op aanvraag' : euro(prijs);
+        if (uitv) uitv.textContent = prijs === null ? 'Deze combinatie staat niet in de webshop. Vraag ons gerust naar de prijs.' : vanafTekst;
+        const link = location.origin + location.pathname;
+        const t = ['Hallo Teakhuis, ik wil graag bestellen:', d.titel, ...(k ? [`Kleur: ${hoofd(k)}`] : []), ...(m ? [`Maat: ${m}`] : []), `Prijs: ${prijs === null ? 'graag een prijsopgave' : euro(prijs)}`, link].join('\n');
+        wa.href = `${d.wa}?text=${encodeURIComponent(t)}`;
+        mail.href = `mailto:${d.mail}?subject=${encodeURIComponent(d.onderwerp)}&body=${encodeURIComponent(t)}`;
+      };
+      form.addEventListener('change', werk);
+      werk();
+    }
+  </script>
+</Base>

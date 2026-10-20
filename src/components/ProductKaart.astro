@@ -1,0 +1,18 @@
+---
+// Catalogusregel: foto op papier, naam, "v.a."-prijs zoals in hun eigen overzichten.
+import { Image } from 'astro:assets';
+import { type Product, eersteFoto, breedtes, productHref, euro, vanaf } from '../data/catalogus';
+import GeenFoto from './GeenFoto.astro';
+interface Props { p: Product; lazy?: boolean }
+const { p, lazy = true } = Astro.props;
+const foto = eersteFoto(p);
+---
+<a href={productHref(p)} class="product">
+  <div class="beeld aspect-[4/3]">
+    {foto
+      ? <Image src={foto} alt={p.titel} quality={70} widths={breedtes(foto, [240, 360, 480])} sizes="(min-width: 1280px) 290px, (min-width: 1024px) 23vw, (min-width: 640px) 31vw, 46vw" loading={lazy ? 'lazy' : 'eager'} class="h-full w-full object-contain p-2 mix-blend-multiply" />
+      : <GeenFoto naam={p.titel} />}
+  </div>
+  <h3 class="naam mt-3 text-base leading-snug md:text-lg">{p.titel}</h3>
+  <p class="num mt-1.5 text-sm font-bold">v.a. {euro(vanaf(p))}</p>
+</a>

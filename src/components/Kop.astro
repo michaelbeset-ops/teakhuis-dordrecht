@@ -5,14 +5,15 @@ import Merk from './Merk.astro';
 interface Props { thuis?: boolean }
 const { thuis = true } = Astro.props;
 const h = (id: string) => (thuis ? `#${id}` : url(`#${id}`));
-const nav = [['collectie', 'Collectie'], ['maatwerk', 'Maatwerk'], ['aanvragen', 'Aanvragen'], ['teakhuis', 'Over Teakhuis'], ['contact', 'Contact']];
+// Collectie is een eigen pagina; de rest zijn secties op de homepage.
+const nav = [[url('collectie/'), 'Collectie'], [h('maatwerk'), 'Maatwerk'], [h('aanvragen'), 'Aanvragen'], [h('teakhuis'), 'Over Teakhuis'], [h('contact'), 'Contact']];
 ---
 <header class="relative z-40 border-b border-lijn bg-wit">
   <div class="wrap flex h-20 items-center justify-between gap-6 md:h-24">
     <Merk />
     <nav aria-label="Hoofdmenu" class="hidden lg:block">
       <ul class="flex gap-8 text-[.9375rem] font-bold">
-        {nav.map(([id, t]) => <li><a href={h(id)} class="text-inkt no-underline transition-colors duration-200 hover:text-blad-diep">{t}</a></li>)}
+        {nav.map(([href, t]) => <li><a href={href} class="text-inkt no-underline transition-colors duration-200 hover:text-blad-diep">{t}</a></li>)}
       </ul>
     </nav>
     <div class="flex items-center gap-5">
@@ -27,7 +28,7 @@ const nav = [['collectie', 'Collectie'], ['maatwerk', 'Maatwerk'], ['aanvragen',
   </div>
   <nav id="menu-nav" aria-label="Menu" class="absolute inset-x-0 top-full hidden border-b border-lijn bg-wit lg:hidden" data-menu>
     <ul class="wrap pb-8 pt-2">
-      {nav.map(([id, t]) => <li><a href={h(id)} class="block border-b border-lijn py-4 font-kop text-2xl font-bold text-inkt no-underline">{t}</a></li>)}
+      {nav.map(([href, t]) => <li><a href={href} class="block border-b border-lijn py-4 font-kop text-2xl font-bold text-inkt no-underline">{t}</a></li>)}
       <li><a href={site.shop} class="block border-b border-lijn py-4 font-kop text-2xl font-bold text-blad-diep no-underline">Naar de webshop</a></li>
       <li class="pt-6"><a href={site.telHref} class="num font-bold text-grijs no-underline">{site.tel}</a></li>
     </ul>
