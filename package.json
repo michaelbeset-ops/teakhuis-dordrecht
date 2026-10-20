@@ -1,0 +1,25 @@
+{
+  "name": "teakhuis-dordrecht",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "dev": "astro dev --port 4447",
+    "build": "astro build",
+    "preview": "astro preview --port 4447",
+    "astro": "astro"
+  },
+  "allowScripts": { "esbuild": true },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.5",
+    "tailwindcss": "^4.3.3",
+    "@fontsource/arvo": "^5.2.0",
+    "@fontsource-variable/mulish": "^5.2.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0",
+    "sharp": "^0.35.5"
+  }
+}

@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+import kopUrl from '@fontsource/arvo/files/arvo-latin-700-normal.woff2?url';
+import sansUrl from '@fontsource-variable/mulish/files/mulish-latin-wght-normal.woff2?url';
+import { site, url } from '../data/site';
+
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {site.voorstel && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="theme-color" content={site.themeColor} />
+    <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
+    <link rel="preload" as="font" type="font/woff2" href={kopUrl} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={sansUrl} crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(url('og.jpg'), Astro.site).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).href} />
+    <meta property="og:site_name" content={site.naam} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>document.documentElement.classList.add('js')</script>
+  </head>
+  <body class="min-h-dvh pb-14 md:pb-0">
+    {site.voorstel && (
+      <div class="relative z-50 bg-inkt text-wit">
+        <p class="wrap py-2 text-xs font-medium leading-snug" style="font-family: system-ui, sans-serif">
+          Ontwerpvoorstel van Sitefront voor {site.naam}. Dit is niet de officiële website.{" "}
+          <a href="https://www.sitefront.nl" class="font-bold text-blad-licht underline underline-offset-2">sitefront.nl</a>
+        </p>
+      </div>
+    )}
+    <a href="#inhoud" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:bg-wit focus:px-4 focus:py-2 focus:text-inkt">Naar de inhoud</a>
+    <slot />
+    <script>
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+      document.querySelectorAll('.rijs').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

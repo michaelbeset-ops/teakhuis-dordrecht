@@ -1,0 +1,39 @@
+---
+import { site, url, waHoi, categorieen } from '../data/site';
+import Merk from './Merk.astro';
+const jaar = new Date().getFullYear();
+---
+<footer class="bg-nacht text-as">
+  <div class="wrap grid gap-x-10 gap-y-12 py-16 text-sm md:grid-cols-12 md:py-20">
+    <div class="md:col-span-4">
+      <Merk klein />
+      <p class="mt-6 max-w-xs">Handgemaakte teakhouten meubels, online en op bestelling. Maatwerk zonder meerprijs, alleen duurzaam hout.</p>
+    </div>
+    <div class="md:col-span-3">
+      <p class="font-kop text-base font-bold text-wit">Webshop</p>
+      <ul class="mt-4 grid grid-cols-2 gap-x-6 gap-y-1.5">
+        {categorieen.map(([t, href]) => <li><a href={href} class="link link-licht">{t}</a></li>)}
+      </ul>
+    </div>
+    <div class="md:col-span-3">
+      <p class="font-kop text-base font-bold text-wit">Contact</p>
+      <p class="mt-4"><a href={site.telHref} class="link link-licht num">{site.tel}</a></p>
+      <p class="mt-1.5"><a href={waHoi} class="link link-licht">WhatsApp</a></p>
+      <p class="mt-1.5"><a href={`mailto:${site.mail}`} class="link link-licht">{site.mail}</a></p>
+      <p class="mt-4">Bestellen kan online, per mail of telefonisch.</p>
+    </div>
+    <div class="md:col-span-2">
+      <p class="font-kop text-base font-bold text-wit">Volg ons</p>
+      <ul class="mt-4 space-y-1.5">
+        <li><a href={site.facebook} class="link link-licht">Facebook</a></li>
+        <li><a href={site.instagram} class="link link-licht">Instagram</a></li>
+        <li><a href={site.pinterest} class="link link-licht">Pinterest</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap flex flex-wrap items-center justify-between gap-x-8 gap-y-2 border-t border-lijn-d py-7 text-xs">
+    <p>© {jaar} {site.bv}</p>
+    <p class="flex gap-6"><a href={url('privacy/')} class="no-underline hover:text-blad-licht">Privacyverklaring</a><span>Website door Sitefront</span></p>
+  </div>
+  {site.voorstel && <p class="wrap pb-20 text-xs md:pb-8">Teksten, productfoto’s, prijzen en maatwerktekeningen van teakhuis.nl (stand 7 oktober 2026). Eén review van Google, de andere van jullie referentiepagina.</p>}
+</footer>

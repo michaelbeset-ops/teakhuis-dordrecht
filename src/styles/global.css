@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@import "@fontsource/arvo/400.css";
+@import "@fontsource/arvo/700.css";
+@import "@fontsource-variable/mulish/wght.css";
+
+@theme {
+  --color-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+
+  /* Wit papier zoals hun productfoto's, één Teakhuis-groen uit het logo (#6aab35), hout alleen uit de foto's. */
+  --color-wit: #ffffff;
+  --color-mist: #f3f3f1;        /* licht vlak */
+  --color-mist-2: #e8e8e4;
+  --color-inkt: #191a17;        /* tekst, 17:1 op wit */
+  --color-grijs: #5a5b55;       /* bijtekst, 6,7:1 op wit */
+  --color-blad: #6aab35;        /* logo-groen: vlakken en accenten */
+  --color-blad-licht: #8cc45c;  /* groen op donker */
+  --color-blad-diep: #3d6d1c;   /* groen als tekst op wit, 6,4:1 */
+  --color-nacht: #161814;       /* donkere secties */
+  --color-nacht-2: #22251f;
+  --color-as: #a9aba3;          /* bijtekst op nacht, 8:1 */
+  --color-lijn: #191a171f;
+  --color-lijn-2: #191a1740;
+  --color-lijn-d: #ffffff1f;
+
+  --font-kop: "Arvo", "Rockwell", Georgia, serif;
+  --font-sans: "Mulish Variable", "Segoe UI", system-ui, sans-serif;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.375rem;
+  --text-2xl: clamp(1.4rem, 1vw + 1.1rem, 1.85rem);
+  --text-3xl: clamp(1.75rem, 2.4vw + 1rem, 2.75rem);
+  --text-4xl: clamp(2rem, 3.6vw + 1rem, 3.9rem);
+  --text-hero: clamp(2.6rem, 4.6vw + 1.2rem, 6rem);
+
+  --radius-sm: 3px;
+  --radius-md: 8px;
+  --radius-full: 999px;
+
+  --ease-zacht: cubic-bezier(.22, .61, .36, 1);
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 5.5rem; background: var(--color-nacht); }
+  body {
+    background-color: var(--color-wit);
+    color: var(--color-inkt);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    font-weight: 450;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3 { font-family: var(--font-kop); font-weight: 700; line-height: 1.04; letter-spacing: -0.02em; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--color-blad); color: var(--color-inkt); }
+  :focus-visible { outline: 2px solid var(--color-blad-diep); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; }
+  }
+}
+
+@layer components {
+  .wrap { width: 100%; max-width: 80rem; margin-inline: auto; padding-inline: 1.25rem; }
+  @media (min-width: 768px) { .wrap { padding-inline: 2.5rem; } }
+
+  .num { font-variant-numeric: lining-nums tabular-nums; }
+
+  .knop { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 3.25rem; padding: 0 1.5rem; border-radius: var(--radius-sm); font-size: .9375rem; font-weight: 750; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color .25s var(--ease-zacht), color .25s var(--ease-zacht), border-color .25s var(--ease-zacht), transform .25s var(--ease-zacht); }
+  .knop svg { width: 1.15rem; height: 1.15rem; flex: none; }
+  .knop:active { transform: translateY(1px); }
+  .knop-blad { background: var(--color-blad); color: var(--color-inkt); }
+  .knop-blad:hover { background: #7dbd47; }
+  .knop-inkt { background: var(--color-inkt); color: var(--color-wit); }
+  .knop-inkt:hover { background: var(--color-blad-diep); }
+  .knop-rand { border: 1.5px solid var(--color-inkt); color: var(--color-inkt); }
+  .knop-rand:hover { background: var(--color-inkt); color: var(--color-wit); }
+  .knop-wit { border: 1.5px solid #ffffffa6; color: var(--color-wit); }
+  .knop-wit:hover { background: var(--color-wit); color: var(--color-inkt); border-color: var(--color-wit); }
+
+  .link { text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 100% 1.5px; background-position: 0 100%; background-repeat: no-repeat; padding-bottom: 1px; transition: color .25s; }
+  .link:hover { color: var(--color-blad-diep); }
+  .link-licht:hover { color: var(--color-blad-licht); }
+
+  /* Productkaart: foto, dan naam ...... prijs zoals een catalogusregel. */
+  .product { display: block; text-decoration: none; color: inherit; }
+  .product .beeld { overflow: hidden; background: var(--color-mist); border-radius: var(--radius-sm); }
+  .product img { transition: transform .9s var(--ease-zacht); }
+  .product:hover img { transform: scale(1.035); }
+  .product .naam { transition: color .2s; }
+  .product:hover .naam { color: var(--color-blad-diep); }
+
+  /* Maatwerk: schakelaar tekening / meubel. */
+  .wissel button[aria-pressed="true"] { background: var(--color-inkt); color: var(--color-wit); }
+  .tab[aria-selected="true"] { color: var(--color-inkt); border-color: var(--color-inkt); }
+  .tekening { filter: grayscale(1) contrast(1.05); mix-blend-mode: multiply; }
+
+  /* Aanvraag: velden in één regel tekst. */
+  .veld { width: 100%; min-height: 3.25rem; padding: 0 1rem; border: 1.5px solid var(--color-lijn-2); border-radius: var(--radius-sm); background: var(--color-wit); color: var(--color-inkt); font: inherit; font-weight: 600; transition: border-color .2s; }
+  .veld:hover, .veld:focus { border-color: var(--color-inkt); outline: none; }
+  .veld:focus-visible { outline: 2px solid var(--color-blad-diep); outline-offset: 2px; }
+  select.veld { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23191a17' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .85rem center; background-size: 1.1rem; padding-right: 2.6rem; }
+  .kleur { display: flex; align-items: center; gap: .6rem; min-height: 2.9rem; padding: 0 .95rem 0 .6rem; border: 1.5px solid var(--color-lijn-2); border-radius: var(--radius-full); font-size: .9375rem; font-weight: 650; cursor: pointer; transition: border-color .2s, background-color .2s; }
+  .kleur:hover { border-color: var(--color-inkt); }
+  .kleur:has(:checked) { border-color: var(--color-inkt); background: var(--color-mist); }
+  .kleur:has(:focus-visible) { outline: 2px solid var(--color-blad-diep); outline-offset: 2px; }
+  .staal { width: 1.6rem; height: 1.6rem; border-radius: 999px; box-shadow: inset 0 0 0 1px #0000002e; flex: none; }
+
+  .js .rijs { opacity: 0; transform: translateY(16px); transition: opacity .9s var(--ease-zacht), transform .9s var(--ease-zacht); transition-delay: var(--d, 0s); }
+  .js .rijs.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .js .rijs { opacity: 1; transform: none; transition: none; } }
+}

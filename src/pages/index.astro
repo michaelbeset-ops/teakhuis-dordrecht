@@ -1,0 +1,378 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Kop from '../components/Kop.astro';
+import Voet from '../components/Voet.astro';
+import Icoon from '../components/Icoon.astro';
+import { site, producten, categorieen, maatwerk, reviews, waHoi, waMet } from '../data/site';
+
+import hero from '../assets/hero-trapezium-detail.jpg';
+import han from '../assets/han.jpg';
+import productie from '../assets/productie-indonesie.jpg';
+import vikingDetail from '../assets/tuintafel-viking-detail.jpg';
+import kleurBlank from '../assets/kleur-blank.jpg';
+import kleurThee from '../assets/kleur-thee.jpg';
+import kleurKoloniaal from '../assets/kleur-koloniaal.jpg';
+import kleurWit from '../assets/kleur-wit.jpg';
+
+const pFotos = import.meta.glob<{ default: ImageMetadata }>('../assets/p-*.jpg', { eager: true });
+const pFoto = (id: string) => pFotos[`../assets/p-${id}.jpg`].default;
+// Beeldsnede per product: foto's op wit passend, showroomfoto's gevuld.
+const snede: Record<string, string> = {
+  'eettafel-viking': 'object-cover object-[50%_60%]',
+  'dressoir-bayakayu': 'object-cover object-[50%_70%]',
+  'eettafel-japura': 'object-cover object-[40%_60%]',
+  'tuintafel-trapezium': 'object-contain p-4 bg-wit',
+  'tv-dressoir-bayakayu': 'object-cover object-[50%_75%]',
+  'buffetkast-bonaparte': 'object-contain p-3 bg-wit',
+  'salontafel-bayakayu': 'object-cover object-[50%_70%]',
+  'tuintafel-viking': 'object-contain p-3 bg-wit',
+};
+const alts: Record<string, string> = {
+  'eettafel-viking': 'Eettafel Viking van gerecycled teak met grijs stalen onderstel en zes stoelen',
+  'dressoir-bayakayu': 'Dressoir Bayakayu van rustiek teak met donkergrijs stalen frame, vier lades en vier deuren',
+  'eettafel-japura': 'Robuuste eettafel Japura met dik teakhouten blad op een stalen V-poot, met leren stoelen',
+  'tuintafel-trapezium': 'Tuintafel trapezium met teakhouten live edge blad en mat zwarte trapeziumpoten',
+  'tv-dressoir-bayakayu': 'Laag tv-dressoir Bayakayu van rustiek teak met staal, deuren, lade en open vak',
+  'buffetkast-bonaparte': 'Buffetkast Bonaparte van onbehandeld oud teakhout met glazen deuren boven',
+  'salontafel-bayakayu': 'Salontafel Bayakayu van rustiek teak met staal en lades, op een vachtkleed',
+  'tuintafel-viking': 'Tuintafel Viking met bank, latten van gerecycled teak op zwart staal',
+};
+
+// Eigen maatwerkprojecten: hun tekening voor de werkplaats en het meubel dat ervan gemaakt is.
+const mwFotos = import.meta.glob<{ default: ImageMetadata }>('../assets/mw-*.jpg', { eager: true });
+const mw = (n: string) => mwFotos[`../assets/mw-${n}.jpg`].default;
+const projecten = [
+  { id: 'kledingkast', naam: 'Kledingkast', maat: 'binnenkant met hang- en leggedeelte, lades op metalen rails', pos: 'object-[50%_35%]' },
+  { id: 'tv', naam: 'Tv-meubel', maat: '210 cm, drie lades op metalen rails, smoke white', pos: 'object-[50%_50%]' },
+  { id: 'wand', naam: 'Wandmeubel', maat: 'Lage kast van 216 cm met hoge kast van 114 cm', pos: 'object-[60%_50%]' },
+  { id: 'bureau', naam: 'Hoekbureau', maat: 'Vier delen, 220 en 180 cm', pos: 'object-[50%_55%]' },
+];
+const stappen = [
+  ['Een goed begin is het halve werk', 'We beginnen altijd met een gesprek: wat zoek je, welke stijl vind je mooi?'],
+  ['Aan de slag met schetsen', 'Je krijgt de schetsen digitaal, samen met een prijsopgave. Geen verrassingen achteraf.'],
+  ['De definitieve schets', 'Klopt alles, dan gaat de tekening naar onze producenten. Je betaalt dan 20% aan.'],
+  ['Gemaakt in Indonesië', 'Direct bij onze producenten, zonder tussenpersonen of groothandels.'],
+  ['Thuis geleverd', 'Je op maat gemaakte meubel wordt bij je thuis afgeleverd.'],
+];
+const kleuren = [
+  { naam: 'Blank teak', img: kleurBlank },
+  { naam: 'Thee kleur', img: kleurThee },
+  { naam: 'Koloniale kleur', img: kleurKoloniaal },
+  { naam: 'Wit', img: kleurWit },
+];
+const eersteBericht = 'Hallo Teakhuis, ik wil graag een kledingkast op maat, in Blank teak. Kunnen jullie een voorstel maken?';
+
+const titel = 'Teakhuis | Teakhouten meubels op maat, zonder meerprijs';
+const omschrijving = 'Handgemaakte teakhouten meubels van duurzaam hout, online en op bestelling. Eettafels, kasten, dressoirs en tuinmeubelen, ook op maat zonder meerprijs. Bel of app 06 40 22 08 97.';
+---
+<Base title={titel} description={omschrijving}>
+  <Kop />
+  <main id="inhoud">
+
+    <!-- 1. HERO: licht, het live-edge-blad van hun Tuintafel trapezium op wit -->
+    <section class="relative isolate overflow-hidden bg-wit md:min-h-[calc(100svh-6rem)]">
+      <div class="relative aspect-[16/11] w-full sm:aspect-[16/10] md:absolute md:inset-y-0 md:right-0 md:left-[34%] md:aspect-auto lg:left-[33%]">
+        <Image src={hero} alt="Hoek van een teakhouten tafelblad met live edge en zichtbare houtnerf op een mat zwarte stalen poot" quality={76} widths={[640, 960, 1280, 1600, 2000]} sizes="100vw" loading="eager" fetchpriority="high" class="h-full w-full -scale-x-100 object-cover object-[30%_20%] md:object-contain md:object-[0%_0%]" />
+      </div>
+      <div class="wrap relative pb-14 pt-8 md:flex md:min-h-[calc(100svh-6rem)] md:flex-col md:justify-end md:pb-12 md:pt-32">
+        <div class="md:max-w-[22rem] lg:max-w-[30rem] xl:max-w-[34rem]">
+          <p class="text-sm font-bold text-blad-diep">Teakhouten meubels, online en op bestelling</p>
+          <h1 class="mt-4 text-hero">Maatwerk zonder meer&shy;prijs.</h1>
+          <p class="mt-5 max-w-lg text-lg text-grijs md:text-xl">Handgemaakte meubels van duurzaam teak. Kies uit de webshop of laat je meubel op maat tekenen.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#aanvragen" class="knop knop-blad">Maatwerk aanvragen<Icoon naam="pijl" /></a>
+            <a href="#collectie" class="knop knop-rand">Bekijk de collectie</a>
+          </div>
+        </div>
+        <p class="mt-8 text-xs text-grijs">In beeld: <a href={producten[3].href} class="link font-semibold text-inkt">Tuintafel trapezium</a>, live edge van gerecycled teak</p>
+      </div>
+    </section>
+
+    <!-- 2. ONLINE EN OP BESTELLING -->
+    <section id="teakhuis" class="border-t border-lijn py-20 md:py-32">
+      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-6">
+          <h2 class="rijs text-4xl">Sinds 2007 in teak. Nu online en op bestelling.</h2>
+          <p class="rijs mt-7 max-w-xl text-lg" style="--d:.08s">We verkopen via de webshop, per mail en telefonisch. Zo heeft onze adviseur per klant meer aandacht en werken we nog voordeliger. Alle maatwerk is nog steeds mogelijk.</p>
+          <div class="rijs mt-9 flex items-center gap-5" style="--d:.12s">
+            <Image src={han} alt="Han Rietdijk aan zijn bureau met een laptop en meubeltekeningen" quality={80} widths={[160, 192]} sizes="96px" class="h-24 w-[4.5rem] flex-none rounded-sm object-cover object-top" />
+            <div>
+              <p class="font-kop text-lg font-bold">Han Rietdijk</p>
+              <p class="text-sm text-grijs">Adviseur, bezorger en service</p>
+              <a href={site.telHref} class="link num mt-1 inline-block text-sm font-bold text-blad-diep">{site.tel}</a>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 lg:col-start-8">
+          <figure class="rijs" style="--d:.1s">
+            <Image src={productie} alt="Productie van teakhouten meubels: een paneel in een blauwe lijmpers, met stapels teakhout op de vloer" quality={72} widths={[480, 720, 1000]} sizes="(min-width: 1024px) 40vw, 100vw" class="aspect-[16/10] w-full rounded-sm object-cover" />
+            <figcaption class="mt-3 text-xs text-grijs">Teak in productie</figcaption>
+          </figure>
+          <dl class="rijs mt-8 divide-y divide-lijn border-y border-lijn" style="--d:.15s">
+            <div class="grid grid-cols-[9rem_1fr] gap-4 py-4 max-sm:grid-cols-1 max-sm:gap-1"><dt class="font-kop font-bold">Met de hand</dt><dd class="text-grijs">Elk meubel gemaakt door vakmensen bij lokale producenten.</dd></div>
+            <div class="grid grid-cols-[9rem_1fr] gap-4 py-4 max-sm:grid-cols-1 max-sm:gap-1"><dt class="font-kop font-bold">Duurzaam hout</dt><dd class="text-grijs">SVLK-gecertificeerd plantagehout en gerecycled teak.</dd></div>
+            <div class="grid grid-cols-[9rem_1fr] gap-4 py-4 max-sm:grid-cols-1 max-sm:gap-1"><dt class="font-kop font-bold">Zelf op bezoek</dt><dd class="text-grijs">Twee keer per jaar bij onze producenten, om de productie te controleren.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. COLLECTIE: echte producten uit hun webshop, elk naar de eigen productpagina -->
+    <section id="collectie" class="bg-mist py-20 md:py-28">
+      <div class="wrap">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <h2 class="rijs text-4xl">Uit de webshop.</h2>
+            <p class="rijs mt-4 max-w-lg text-grijs" style="--d:.08s">Een greep uit de collectie. Vrijwel alles kan ook op jouw maat, zonder meerprijs.</p>
+          </div>
+          <a href={site.shop} class="rijs knop knop-inkt" style="--d:.1s">Alle meubels in de webshop<Icoon naam="pijl" /></a>
+        </div>
+        <ul class="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 md:gap-x-6 lg:grid-cols-4 lg:gap-y-14">
+          {producten.map((p, i) => (
+            <li class="rijs" style={`--d:${(i % 4) * .06}s`}>
+              <a href={p.href} class="product">
+                <div class="beeld aspect-[4/3]">
+                  <Image src={pFoto(p.id)} alt={alts[p.id]} quality={72} widths={[320, 480, 640, 800]} sizes="(min-width: 1280px) 290px, (min-width: 1024px) 23vw, 46vw" class={`h-full w-full ${snede[p.id]}`} />
+                </div>
+                <p class="mt-4 text-xs font-bold text-blad-diep">{p.soort}</p>
+                <h3 class="naam mt-1 text-lg leading-tight md:text-xl">{p.naam}</h3>
+                <p class="mt-2 hidden min-h-[3.2em] text-sm text-grijs sm:block">{p.regel}</p>
+                <p class="mt-3 flex items-baseline justify-between gap-3 border-t border-lijn-2 pt-3 text-sm">
+                  <span class="num font-bold">{p.prijs}</span>
+                  <span class="inline-flex items-center gap-1 font-bold text-blad-diep max-sm:sr-only">Bekijk<Icoon naam="pijl" class="h-4 w-4" /></span>
+                </p>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="rijs mt-14 flex flex-wrap items-baseline gap-x-6 gap-y-3 border-t border-lijn-2 pt-6">
+          <p class="font-kop font-bold">Meer in de webshop:</p>
+          {categorieen.map(([t, href]) => <a href={href} class="link text-sm font-bold">{t}</a>)}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MAATWERK: van hun eigen tekening naar het meubel -->
+    <section id="maatwerk" class="py-20 md:py-32" data-mw>
+      <div class="wrap">
+        <div class="grid grid-cols-1 gap-y-6 lg:grid-cols-12 lg:gap-x-12">
+          <h2 class="rijs text-4xl lg:col-span-6">Eerst getekend, dan gemaakt.</h2>
+          <p class="rijs text-lg text-grijs lg:col-span-5 lg:col-start-8 lg:pt-3" style="--d:.08s">Elk maatwerkmeubel begint als tekening met jouw maten. Die gaat zo naar de meubelmakers. Vier projecten die we eerder maakten:</p>
+        </div>
+
+        <div class="rijs mt-12" style="--d:.1s">
+          <div role="tablist" aria-label="Maatwerkprojecten" class="flex flex-wrap gap-x-5 border-b border-lijn-2 md:gap-x-8">
+            {projecten.map((p, i) => (
+              <button type="button" role="tab" id={`tab-${p.id}`} aria-controls={`paneel-${p.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} class="tab -mb-px flex-none whitespace-nowrap border-b-2 border-transparent py-3 font-kop text-base font-bold text-grijs transition-colors hover:text-inkt aria-selected:border-blad aria-selected:text-inkt md:text-lg" data-tab={p.id}>{p.naam}</button>
+            ))}
+          </div>
+          {projecten.map((p, i) => (
+            <div role="tabpanel" id={`paneel-${p.id}`} aria-labelledby={`tab-${p.id}`} class={`mt-8 ${i ? 'hidden' : ''}`} data-paneel={p.id} data-toon="tekening">
+              <div class="wissel mb-4 inline-flex rounded-sm border border-lijn-2 p-1 md:hidden" role="group" aria-label="Wissel tussen tekening en meubel">
+                <button type="button" aria-pressed="true" class="min-h-10 rounded-[2px] px-4 text-sm font-bold" data-zet="tekening">Tekening</button>
+                <button type="button" aria-pressed="false" class="min-h-10 rounded-[2px] px-4 text-sm font-bold" data-zet="meubel">Meubel</button>
+              </div>
+              <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <figure class="flex flex-col" data-deel="tekening">
+                  <div class="aspect-[4/3] rounded-sm border border-lijn bg-wit p-4 md:p-6">
+                    <Image src={mw(`${p.id}-tekening`)} alt={`Potloodtekening met maten van de ${p.naam.toLowerCase()}`} quality={78} widths={[480, 720, 1000]} sizes="(min-width: 768px) 45vw, 100vw" class="tekening h-full w-full object-contain" />
+                  </div>
+                  <figcaption class="mt-3 text-xs text-grijs">Tekening: {p.maat}</figcaption>
+                </figure>
+                <figure class="flex flex-col max-md:hidden" data-deel="meubel">
+                  <Image src={mw(`${p.id}-meubel`)} alt={`De ${p.naam.toLowerCase()} van teak, gemaakt naar de tekening`} quality={74} widths={[480, 720, 1000]} sizes="(min-width: 768px) 45vw, 100vw" class={`aspect-[4/3] w-full rounded-sm object-cover ${p.pos}`} />
+                  <figcaption class="mt-3 text-xs text-grijs">Het meubel</figcaption>
+                </figure>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-20 grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-12">
+          <div class="lg:col-span-4">
+            <h3 class="rijs text-3xl">Zo gaat het.</h3>
+            <p class="rijs mt-4 text-grijs" style="--d:.06s">Je krijgt binnen één werkdag een voorstel op maat.</p>
+            <a href="#aanvragen" class="rijs knop knop-blad mt-7" style="--d:.1s">Maatwerk aanvragen<Icoon naam="pijl" /></a>
+          </div>
+          <ol class="lg:col-span-7 lg:col-start-6">
+            {stappen.map(([t, z], i) => (
+              <li class="rijs grid grid-cols-[2.75rem_1fr] gap-x-4 border-t border-lijn-2 py-5 last:border-b md:grid-cols-[3.5rem_1fr_1.2fr] md:gap-x-6" style={`--d:${i * .05}s`}>
+                <span class="num font-kop text-2xl font-bold text-blad-diep">{i + 1}</span>
+                <p class="font-kop text-lg font-bold leading-snug">{t}</p>
+                <p class="text-grijs max-md:col-start-2 max-md:mt-1">{z}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. WOW: maatwerk aanvragen, eindigt in een ingevuld WhatsApp-bericht -->
+    <section id="aanvragen" class="bg-mist py-20 md:py-28" data-aanvraag>
+      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-4">
+          <h2 class="rijs text-4xl">Maatwerk aanvragen.</h2>
+          <p class="rijs mt-6 text-lg text-grijs" style="--d:.08s">Welk meubel, welke maten, welke kleur hout. Wij tekenen het uit en sturen je een prijsvoorstel.</p>
+          <figure class="rijs mt-10 max-lg:hidden" style="--d:.12s">
+            <Image src={mw('kledingkast-tekening')} alt="" quality={70} widths={[480]} sizes="30vw" class="tekening aspect-[4/3] w-full object-contain opacity-80" />
+          </figure>
+        </div>
+        <form class="rijs rounded-md bg-wit p-5 sm:p-8 lg:col-span-8 lg:p-10" style="--d:.1s" data-form onsubmit="return false">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <label class="block">
+              <span class="text-sm font-bold">Welk meubel?</span>
+              <select name="meubel" class="veld mt-2">
+                {maatwerk.meubels.map((m) => <option value={m}>{m[0].toUpperCase() + m.slice(1)}</option>)}
+              </select>
+            </label>
+            <fieldset>
+              <legend class="text-sm font-bold">Maten in cm <span class="font-medium text-grijs">(als je ze weet)</span></legend>
+              <div class="mt-2 grid grid-cols-3 gap-2">
+                <label><span class="sr-only">Breedte in cm</span><input name="b" inputmode="numeric" placeholder="Breed" class="veld num max-sm:px-2.5" /></label>
+                <label><span class="sr-only">Diepte in cm</span><input name="d" inputmode="numeric" placeholder="Diep" class="veld num max-sm:px-2.5" /></label>
+                <label><span class="sr-only">Hoogte in cm</span><input name="h" inputmode="numeric" placeholder="Hoog" class="veld num max-sm:px-2.5" /></label>
+              </div>
+            </fieldset>
+          </div>
+          <fieldset class="mt-7">
+            <legend class="text-sm font-bold">Kleur van het hout</legend>
+            <div class="mt-3 flex flex-wrap gap-2">
+              {kleuren.map((k, i) => (
+                <label class="kleur">
+                  <input type="radio" name="kleur" value={k.naam} checked={i === 0} class="sr-only" />
+                  <Image src={k.img} alt="" quality={70} widths={[64]} sizes="26px" class="staal object-cover" />
+                  {k.naam}
+                </label>
+              ))}
+              <label class="kleur pl-4"><input type="radio" name="kleur" value="" class="sr-only" />Weet ik nog niet</label>
+            </div>
+          </fieldset>
+          <fieldset class="mt-7">
+            <legend class="text-sm font-bold">Ander materiaal erin verwerkt?</legend>
+            <div class="mt-3 flex flex-wrap gap-2">
+              {maatwerk.extra.map((x) => (
+                <label class="kleur pl-4"><input type="checkbox" name="extra" value={x} class="sr-only" />{x[0].toUpperCase() + x.slice(1)}</label>
+              ))}
+            </div>
+          </fieldset>
+          <label class="mt-7 block">
+            <span class="text-sm font-bold">Nog iets dat we moeten weten? <span class="font-medium text-grijs">(mag leeg)</span></span>
+            <input name="wens" class="veld mt-2" placeholder="Bijvoorbeeld: extra lade, open vak, strakke poten" />
+          </label>
+          <div class="mt-8 border-t border-lijn pt-7">
+            <p class="text-sm font-bold">Je bericht aan Teakhuis</p>
+            <p class="mt-3 rounded-sm bg-mist p-5" data-bericht aria-live="polite">{eersteBericht}</p>
+            <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a href={waMet(eersteBericht)} class="knop knop-blad" data-stuur><Icoon naam="wa" />Verstuur via WhatsApp</a>
+              <a href={`mailto:${site.mail}?subject=${encodeURIComponent('Maatwerk aanvraag')}&body=${encodeURIComponent(eersteBericht)}`} class="link text-sm font-bold" data-mail>Liever per mail</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 6. WAAROM TEAK: donker, met de nerf van de Tuintafel Viking -->
+    <section class="relative isolate overflow-hidden bg-nacht text-wit">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <div class="relative min-h-[14rem] overflow-hidden sm:min-h-[20rem] lg:order-2 lg:min-h-full">
+          <Image src={vikingDetail} alt="Close-up van de latten van gerecycled teak op het zwarte stalen frame van de Tuintafel Viking" quality={72} widths={[640, 960, 1280]} sizes="(min-width: 1024px) 50vw, 100vw" class="absolute inset-0 h-full w-full origin-top-left scale-[1.55] object-cover object-[0%_0%]" />
+        </div>
+        <div class="px-5 py-20 md:px-10 md:py-28 lg:pl-[max(2.5rem,calc((100vw-80rem)/2+2.5rem))] lg:pr-16">
+          <h2 class="rijs text-4xl">Waarom teak?</h2>
+          <dl class="mt-10 space-y-7">
+            <div class="rijs" style="--d:.05s"><dt class="font-kop text-2xl font-bold text-blad-licht">Sterk</dt><dd class="mt-1 text-as">Teak wordt nog steeds gebruikt in de scheepsbouw. Het kan wel tegen een stootje.</dd></div>
+            <div class="rijs" style="--d:.1s"><dt class="font-kop text-2xl font-bold text-blad-licht">Warm</dt><dd class="mt-1 text-as">Een strak teakhouten meubel geeft een modern interieur een gezellige sfeer.</dd></div>
+            <div class="rijs" style="--d:.15s"><dt class="font-kop text-2xl font-bold text-blad-licht">Duurzaam</dt><dd class="mt-1 text-as">Gerecycled teak uit oude huizen en gebouwen op Oost-Java, en plantagehout met SVLK-certificaat.</dd></div>
+            <div class="rijs" style="--d:.2s"><dt class="font-kop text-2xl font-bold text-blad-licht">Weinig onderhoud</dt><dd class="mt-1 text-as">Door de dichtheid en de natuurlijke oliën in het hout.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. REFERENTIES EN CONTACT -->
+    <section class="py-20 md:py-28">
+      <div class="wrap">
+        <blockquote class="rijs max-w-4xl">
+          <p class="font-kop text-3xl font-bold leading-[1.2]">“{reviews[0].tekst}”</p>
+          <footer class="mt-5 text-sm text-grijs"><span class="font-bold text-inkt">{reviews[0].naam}</span> · {reviews[0].bron}</footer>
+        </blockquote>
+        <div class="mt-16 grid gap-x-10 gap-y-10 md:grid-cols-3">
+          {reviews.slice(1).map((r, i) => (
+            <blockquote class="rijs border-t-2 border-inkt pt-6" style={`--d:${i * .08}s`}>
+              <p class="text-lg">“{r.tekst}”</p>
+              <footer class="mt-4 text-sm text-grijs"><span class="font-bold text-inkt">{r.naam}</span> · {r.bron}</footer>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-blad py-20 text-inkt md:py-24">
+      <div class="wrap grid grid-cols-1 items-end gap-y-10 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-7">
+          <h2 class="rijs text-4xl">Bel, app of mail ons.</h2>
+          <p class="rijs mt-5 max-w-xl text-lg" style="--d:.08s">Vragen over een meubel, een maat of een levering? Wij horen graag wat jouw wensen zijn.</p>
+        </div>
+        <div class="rijs flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:col-span-5 lg:justify-end" style="--d:.1s">
+          <a href={waHoi} class="knop knop-inkt"><Icoon naam="wa" />WhatsApp</a>
+          <a href={site.telHref} class="knop knop-rand"><Icoon naam="tel" /><span class="num">{site.tel}</span></a>
+          <a href={`mailto:${site.mail}`} class="knop knop-rand">{site.mail}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Voet />
+
+  <script define:vars={{ wa: site.wa, mail: site.mail }}>
+    // Maatwerk-tabs en wissel tekening/meubel (mobiel).
+    const mwSec = document.querySelector('[data-mw]');
+    if (mwSec) {
+      const tabs = [...mwSec.querySelectorAll('[data-tab]')];
+      const kies = (t) => {
+        tabs.forEach((b) => { const aan = b === t; b.setAttribute('aria-selected', String(aan)); b.tabIndex = aan ? 0 : -1; mwSec.querySelector(`[data-paneel="${b.dataset.tab}"]`).classList.toggle('hidden', !aan); });
+      };
+      tabs.forEach((b, i) => {
+        b.addEventListener('click', () => kies(b));
+        b.addEventListener('keydown', (e) => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (d) { const n = tabs[(i + d + tabs.length) % tabs.length]; kies(n); n.focus(); } });
+      });
+      mwSec.querySelectorAll('[data-paneel]').forEach((p) => {
+        p.querySelectorAll('[data-zet]').forEach((k) => k.addEventListener('click', () => {
+          const z = k.dataset.zet;
+          p.querySelectorAll('[data-zet]').forEach((x) => x.setAttribute('aria-pressed', String(x === k)));
+          p.querySelectorAll('[data-deel]').forEach((f) => f.classList.toggle('max-md:hidden', f.dataset.deel !== z));
+        }));
+      });
+    }
+
+    // Maatwerk aanvragen: alles wat je kiest komt in één zin, die WhatsApp opent.
+    const f = document.querySelector('[data-form]');
+    if (f) {
+      const bericht = document.querySelector('[data-bericht]');
+      const stuur = document.querySelector('[data-stuur]');
+      const mailA = document.querySelector('[data-mail]');
+      const maak = () => {
+        const d = new FormData(f);
+        const meubel = d.get('meubel');
+        const m = ['b', 'd', 'h'].map((k) => String(d.get(k) || '').replace(/[^\d,.]/g, '').slice(0, 5));
+        const lab = ['breed', 'diep', 'hoog'];
+        const maten = m.map((v, i) => (v ? `${v} cm ${lab[i]}` : '')).filter(Boolean);
+        const kleur = d.get('kleur');
+        const extra = d.getAll('extra');
+        const wens = String(d.get('wens') || '').trim().slice(0, 300);
+        let t = `Hallo Teakhuis, ik wil graag een ${meubel} op maat`;
+        if (maten.length) t += `, ${maten.join(', ')}`;
+        if (kleur) t += `, in ${kleur}`;
+        t += '.';
+        if (extra.length) t += ` Graag met ${extra.length > 1 ? extra.slice(0, -1).join(', ') + ' en ' + extra.at(-1) : extra[0]} erin verwerkt.`;
+        if (wens) t += ` ${wens.replace(/[.!?]?$/, '.')}`;
+        t += ' Kunnen jullie een voorstel maken?';
+        bericht.textContent = t;
+        stuur.href = `${wa}?text=${encodeURIComponent(t)}`;
+        mailA.href = `mailto:${mail}?subject=${encodeURIComponent('Maatwerk aanvraag: ' + meubel)}&body=${encodeURIComponent(t)}`;
+      };
+      f.addEventListener('input', maak);
+      f.addEventListener('change', maak);
+    }
+  </script>
+</Base>

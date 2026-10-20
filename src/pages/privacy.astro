@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Kop from '../components/Kop.astro';
+import Voet from '../components/Voet.astro';
+import { site, url } from '../data/site';
+---
+<Base title={`Privacyverklaring | ${site.naam}`} description={`Hoe ${site.naam} omgaat met je gegevens.`}>
+  <Kop thuis={false} />
+  <main id="inhoud" class="wrap grid gap-y-10 pb-28 pt-16 md:grid-cols-12 md:gap-x-8 lg:pt-24">
+    <div class="md:col-span-4">
+      <p><a href={url('')} class="link text-sm font-bold">Terug naar de homepage</a></p>
+      <h1 class="mt-10 text-3xl">Privacy&shy;verklaring</h1>
+    </div>
+    <div class="max-w-2xl space-y-10 md:col-span-7 md:col-start-6 md:pt-20">
+      <section>
+        <h2 class="text-xl">Wie wij zijn</h2>
+        <p class="mt-3 text-grijs">{site.bv}, telefoon en WhatsApp: <span class="num whitespace-nowrap">{site.tel}</span>. E-mail: {site.mail}. [[AANLEVEREN: adres en KvK-nummer]]</p>
+      </section>
+      <section>
+        <h2 class="text-xl">Welke gegevens</h2>
+        <p class="mt-3 text-grijs">Als je belt, mailt of een WhatsApp-bericht stuurt, krijgen wij je naam, telefoonnummer of e-mailadres en je vraag. Bestel je een meubel, dan ook je adres voor de levering. Die gegevens gebruiken we alleen om je te adviseren, een voorstel te maken en je meubel te leveren.</p>
+        <p class="mt-3 text-grijs">Het aanvraagformulier op deze website verstuurt zelf niets en slaat niets op. Het opent WhatsApp of je mailprogramma met een ingevuld bericht; er wordt pas iets verstuurd als je dat daar zelf doet.</p>
+      </section>
+      <section>
+        <h2 class="text-xl">Hoe lang</h2>
+        <p class="mt-3 text-grijs">We bewaren je gegevens niet langer dan nodig. [[AANLEVEREN: bewaartermijn, ook voor garantie en administratie]]</p>
+      </section>
+      <section>
+        <h2 class="text-xl">Cookies</h2>
+        <p class="mt-3 text-grijs">Deze website plaatst geen cookies en gebruikt geen statistieken of advertenties. Links naar de webshop, WhatsApp, Facebook, Instagram en Pinterest openen een aparte pagina of app van die dienst.</p>
+      </section>
+      <section>
+        <h2 class="text-xl">Je rechten</h2>
+        <p class="mt-3 text-grijs">Je mag altijd vragen welke gegevens wij van je hebben, en vragen om ze aan te passen of te verwijderen. Mail daarvoor naar {site.mail}. Ben je het niet eens met hoe wij met je gegevens omgaan, dan kun je een klacht indienen bij de Autoriteit Persoonsgegevens.</p>
+      </section>
+    </div>
+  </main>
+  <Voet />
+</Base>

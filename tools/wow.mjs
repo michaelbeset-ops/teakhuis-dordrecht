@@ -1,0 +1,14 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
+await p.goto('http://localhost:4447/sitefront/teakhuis-dordrecht/#aanvragen', { waitUntil: 'networkidle' });
+await p.evaluate(() => document.querySelectorAll('.rijs').forEach((e) => e.classList.add('in')));
+await p.selectOption('select[name=meubel]', 'tv-meubel');
+await p.fill('input[name=b]', '210'); await p.fill('input[name=d]', '50'); await p.fill('input[name=h]', '55');
+await p.click('label:has(input[value="Thee kleur"])'); await p.click('label:has(input[value="metaal"])'); await p.click('label:has(input[value="glas"])');
+await p.fill('input[name=wens]', 'Met een doorvoergat voor de kabels');
+await p.waitForTimeout(300);
+console.log(await p.textContent('[data-bericht]')); console.log(decodeURIComponent(await p.getAttribute('[data-stuur]', 'href')));
+await p.locator('#aanvragen').screenshot({ path: 'shots/wow-1440.png' });
+await p.click('[data-tab="wand"]'); await p.waitForTimeout(200);
+await p.locator('#maatwerk').screenshot({ path: 'shots/_maatwerk-tab.png' });
+await b.close();
