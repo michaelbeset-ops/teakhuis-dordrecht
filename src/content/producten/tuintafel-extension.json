@@ -1,0 +1,35 @@
+{
+  "titel": "Tuintafel extension",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 699,
+  "prijsTonen": true,
+  "omschrijving": "Handige verlengbare tuintafel van prachtig gerecycled teak. Deze tafel is te verlengen met 1 of 2 losse aanzetbladen van 50 cm.\n\nLeverbaar in iedere gewenste afmeting, maatwerk is mogelijk.\n\nLevertijd ca. 3 maanden",
+  "fotos": [
+    "../../assets/producten/32707/1.jpg",
+    "../../assets/producten/32707/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B120/170/220 x D90 x H77",
+      "prijs": 699
+    },
+    {
+      "label": "B150/200/250 x D90 x H77",
+      "prijs": 789
+    },
+    {
+      "label": "B180/230/280 x D90 x H77",
+      "prijs": 869
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Gerecycled teak geborsteld",
+    "Gerecycled teak glad"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 13,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/32707/tuinmeubelen/tuintafel-extension"
+}

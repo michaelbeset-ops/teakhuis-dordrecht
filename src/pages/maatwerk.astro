@@ -1,0 +1,171 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Kop from '../components/Kop.astro';
+import Voet from '../components/Voet.astro';
+import Icoon from '../components/Icoon.astro';
+import Kruimel from '../components/Kruimel.astro';
+import MaatwerkProjecten from '../components/MaatwerkProjecten.astro';
+import { site, url, absoluut, waHoi, houtkleuren, maatwerkExtra, stappen } from '../data/site';
+import { kruimelSchema } from '../data/seo';
+import tekening from '../assets/mw-kledingkast-tekening.jpg';
+
+// Meubels die Teakhuis zelf noemt op de maatwerkpagina's en in de webshopcategorieen.
+const meubels = ['Kledingkast', 'Tv-meubel', 'Eettafel', 'Dressoir', 'Buffetkast', 'Boekenkast', 'Vitrinekast', 'Bureau', 'Salontafel', 'Badkamermeubel', 'Bed', 'Tuintafel', 'Iets anders'];
+const dienst = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Teakhouten meubels op maat',
+  serviceType: 'Maatwerk meubels',
+  provider: { '@id': `${absoluut('')}#organisatie` },
+  areaServed: { '@type': 'Country', name: 'Nederland' },
+  description: 'Teakhouten meubels op maat, met de hand gemaakt door producenten in Indonesië. Maatwerk zonder meerprijs.',
+};
+---
+<Base title="Teakhouten meubels op maat, zonder meerprijs | Teakhuis" description="Laat je teakhouten meubel op maat maken: kledingkast, tv-meubel, eettafel, dressoir of badkamermeubel. Eerst een tekening en prijsopgave, maatwerk zonder meerprijs." schema={[dienst, kruimelSchema([['Maatwerk']], absoluut('maatwerk/'))]}>
+  <Kop />
+  <main id="inhoud">
+    <section class="wrap pb-16 pt-6 md:pb-24 md:pt-8">
+      <Kruimel stappen={[['Maatwerk']]} />
+      <div class="mt-10 grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-7">
+          <p class="label text-blad-diep">Maatwerk zonder meerprijs</p>
+          <h1 class="mt-4 text-hero">Jouw maten. <span class="cursief">Onze vakmensen.</span></h1>
+          <p class="mt-6 max-w-xl text-lg text-grijs md:text-xl">Een kast die precies in de nis past, een eettafel voor tien, een tv-meubel van 210 cm. Wij tekenen het uit, jij krijgt een prijsopgave, en pas als alles klopt gaat het naar onze producenten in Indonesië.</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#aanvragen" class="knop knop-blad">Stel je meubel samen<Icoon naam="pijl" /></a>
+            <a href={waHoi} class="knop knop-rand"><Icoon naam="wa" />Stuur een foto of schets</a>
+          </div>
+        </div>
+        <figure class="lg:col-span-5">
+          <div class="aspect-[4/3] rounded-sm bg-wit p-5">
+            <Image src={tekening} alt="Potloodtekening van een kledingkast op maat, met maten en aantekeningen voor de werkplaats" quality={78} widths={[480, 720, 1000]} sizes="(min-width: 1024px) 40vw, 100vw" loading="eager" class="tekening h-full w-full object-contain" />
+          </div>
+          <figcaption class="mt-3 text-xs text-grijs">Zo gaat een tekening naar de werkplaats</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Het proces in vijf stappen (hun eigen werkwijze) -->
+    <section class="bg-nacht py-20 text-wit md:py-28" aria-labelledby="proces-kop">
+      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-4">
+          <h2 id="proces-kop" class="text-4xl">Zo gaat het.</h2>
+          <p class="mt-5 max-w-sm text-as">Geen verrassingen achteraf. Je ziet eerst de tekening en de prijs, en beslist dan.</p>
+        </div>
+        <ol class="lg:col-span-7 lg:col-start-6">
+          {stappen.map(([t, z], i) => (
+            <li class="grid grid-cols-[3rem_1fr] gap-x-4 border-t border-lijn-d py-6 last:border-b md:grid-cols-[4rem_1fr_1.3fr] md:gap-x-8">
+              <span class="num font-kop text-3xl text-blad-licht">{i + 1}</span>
+              <p class="font-kop text-xl leading-snug">{t}</p>
+              <p class="text-as max-md:col-start-2 max-md:mt-1">{z}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- Projecten -->
+    <section class="bg-wit py-20 md:py-28" aria-labelledby="proj-kop">
+      <div class="wrap">
+        <div class="grid grid-cols-1 gap-y-6 lg:grid-cols-12 lg:gap-x-12">
+          <h2 id="proj-kop" class="text-4xl lg:col-span-6">Eerder gemaakt.</h2>
+          <p class="text-lg text-grijs lg:col-span-5 lg:col-start-8">Vier maatwerkprojecten: de tekening met de maten van de klant, en het meubel dat ervan gemaakt is.</p>
+        </div>
+        <MaatwerkProjecten />
+      </div>
+    </section>
+
+    <!-- Samenstellen: komt als regel in de offerteaanvraag -->
+    <section id="aanvragen" class="py-20 md:py-28" aria-labelledby="aanvraag-kop">
+      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-4">
+          <h2 id="aanvraag-kop" class="text-4xl">Stel je meubel samen.</h2>
+          <p class="mt-5 text-lg text-grijs">Welk meubel, welke maten, welke kleur hout. Het komt in je offerteaanvraag, waar je eventueel nog meer meubels aan toevoegt.</p>
+          <p class="mt-6 text-sm text-grijs">Liever even bellen? <a href={site.telHref} class="num font-bold text-inkt underline underline-offset-2">{site.tel}</a></p>
+        </div>
+        <form class="rounded-md bg-wit p-5 sm:p-8 lg:col-span-8 lg:p-10" data-maatwerk novalidate>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <label class="block">
+              <span class="text-sm font-bold">Welk meubel?</span>
+              <select name="meubel" class="veld mt-2">
+                {meubels.map((m) => <option value={m}>{m}</option>)}
+              </select>
+            </label>
+            <fieldset>
+              <legend class="text-sm font-bold">Maten in cm <span class="font-medium text-grijs">(wat je weet)</span></legend>
+              <div class="mt-2 grid grid-cols-3 gap-2">
+                <label><span class="sr-only">Breedte in cm</span><input name="b" inputmode="numeric" maxlength="4" placeholder="Breed" class="veld num max-sm:px-2.5" /></label>
+                <label><span class="sr-only">Diepte in cm</span><input name="d" inputmode="numeric" maxlength="4" placeholder="Diep" class="veld num max-sm:px-2.5" /></label>
+                <label><span class="sr-only">Hoogte in cm</span><input name="h" inputmode="numeric" maxlength="4" placeholder="Hoog" class="veld num max-sm:px-2.5" /></label>
+              </div>
+            </fieldset>
+          </div>
+          <fieldset class="mt-8">
+            <legend class="text-sm font-bold">Kleur van het hout</legend>
+            <div class="mt-3 flex flex-wrap gap-2">
+              {houtkleuren.map((k, i) => (
+                <label class="kies met-staal">
+                  <input type="radio" name="kleur" value={k.naam} checked={i === 0} class="sr-only" />
+                  <Image src={k.img} alt="" quality={70} widths={[64]} sizes="28px" class="staal object-cover" />
+                  {k.naam}
+                </label>
+              ))}
+              <label class="kies"><input type="radio" name="kleur" value="Weet ik nog niet" class="sr-only" />Weet ik nog niet</label>
+            </div>
+          </fieldset>
+          <fieldset class="mt-8">
+            <legend class="text-sm font-bold">Ander materiaal erin verwerkt?</legend>
+            <div class="mt-3 flex flex-wrap gap-2">
+              {maatwerkExtra.map((x) => (
+                <label class="kies"><input type="checkbox" name="extra" value={x} class="sr-only" />{x[0].toUpperCase() + x.slice(1)}</label>
+              ))}
+            </div>
+          </fieldset>
+          <label class="mt-8 block">
+            <span class="text-sm font-bold">Wat moeten we nog weten? <span class="font-medium text-grijs">(mag leeg)</span></span>
+            <textarea name="wens" maxlength="500" class="veld mt-2" placeholder="Bijvoorbeeld: drie lades, open vak voor de versterker, strakke poten"></textarea>
+          </label>
+          <div class="mt-8 flex flex-col gap-3 border-t border-lijn pt-7 sm:flex-row sm:items-center">
+            <button type="submit" class="knop knop-inkt"><Icoon naam="lijst" />Zet in offerteaanvraag</button>
+            <a href={waHoi} class="knop knop-rand" data-wa><Icoon naam="wa" />Of via WhatsApp</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <Voet />
+
+  <script define:vars={{ offerte: url('offerte/'), hier: url('maatwerk/'), wa: site.wa }}>
+    window.__mw = { offerte, hier, wa };
+  </script>
+  <script>
+    import { voegToe, regelTekst, type Regel } from '../scripts/offerte';
+    const { offerte, hier, wa } = (window as any).__mw as { offerte: string; hier: string; wa: string };
+    const f = document.querySelector<HTMLFormElement>('[data-maatwerk]');
+    if (f) {
+      const waA = f.querySelector<HTMLAnchorElement>('[data-wa]')!;
+      const regel = (): Omit<Regel, 'id'> => {
+        const d = new FormData(f);
+        const cm = (k: string) => String(d.get(k) ?? '').replace(/\D/g, '').slice(0, 4);
+        const m = [['B', cm('b')], ['D', cm('d')], ['H', cm('h')]].filter(([, v]) => v);
+        const meubel = String(d.get('meubel'));
+        return {
+          slug: `maatwerk-${meubel.toLowerCase()}`,
+          titel: meubel === 'Iets anders' ? 'Meubel op maat' : `${meubel} op maat`,
+          href: hier,
+          eigenMaat: m.length ? m.map(([k, v]) => `${k} ${v}`).join(' x ') + ' cm' : undefined,
+          kleur: (d.get('kleur') as string) || undefined,
+          extra: d.getAll('extra').map(String),
+          aantal: 1,
+          opmerking: String(d.get('wens') ?? '').trim().slice(0, 500) || undefined,
+        };
+      };
+      const werk = () => { waA.href = `${wa}?text=${encodeURIComponent(`Hallo Teakhuis, ik wil graag een meubel op maat:\n${regelTekst({ ...regel(), id: '' })}\nKunnen jullie een voorstel maken?`)}`; };
+      f.addEventListener('input', werk);
+      f.addEventListener('change', werk);
+      f.addEventListener('submit', (e) => { e.preventDefault(); voegToe(regel()); location.href = offerte; });
+      werk();
+    }
+  </script>
+</Base>

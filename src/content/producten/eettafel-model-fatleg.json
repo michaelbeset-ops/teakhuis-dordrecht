@@ -1,0 +1,67 @@
+{
+  "titel": "eettafel model Fatleg",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 649,
+  "prijsTonen": true,
+  "omschrijving": "ssss",
+  "fotos": [
+    "../../assets/producten/206/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "100x100cm h=78cm",
+      "prijs": 649
+    },
+    {
+      "label": "120x120cm h=78cm",
+      "prijs": 699
+    },
+    {
+      "label": "140x140cm h=78cm",
+      "prijs": 799
+    },
+    {
+      "label": "140x80cm h=78cm",
+      "prijs": 649
+    },
+    {
+      "label": "160x90cm h=78cm",
+      "prijs": 699
+    },
+    {
+      "label": "180x100cm h=78cm",
+      "prijs": 779
+    },
+    {
+      "label": "200x100cm h=78cm",
+      "prijs": 869
+    },
+    {
+      "label": "220x100cm h=78cm",
+      "prijs": 929
+    },
+    {
+      "label": "240x100cm h=78cm",
+      "prijs": 989
+    },
+    {
+      "label": "260x100cm h=78cm",
+      "prijs": 1049
+    },
+    {
+      "label": "280x100cm h=78cm",
+      "prijs": 1149
+    },
+    {
+      "label": "300x100cm h=78cm",
+      "prijs": 1249
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 76,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/206/teak-eettafels/eettafel-model-fatleg"
+}

@@ -1,11 +1,39 @@
 ---
 import '../styles/global.css';
-import kopUrl from '@fontsource/arvo/files/arvo-latin-700-normal.woff2?url';
+import kopUrl from '@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2?url';
 import sansUrl from '@fontsource-variable/mulish/files/mulish-latin-wght-normal.woff2?url';
-import { site, url } from '../data/site';
+import { site, url, absoluut } from '../data/site';
 
-interface Props { title: string; description: string; }
-const { title, description } = Astro.props;
+interface Props {
+  title: string;
+  description: string;
+  /** Absolute URL van de deelafbeelding; standaard de algemene og.jpg. */
+  ogImage?: string;
+  ogType?: 'website' | 'product';
+  /** Extra structured data (JSON-LD), bijvoorbeeld Product of BreadcrumbList. */
+  schema?: object[];
+  noindex?: boolean;
+}
+const { title, description, ogImage, ogType = 'website', schema = [], noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site).href;
+
+// Organisatie op elke pagina: geen winkeladres (geen showroom meer), wel telefoon, mail en sociale profielen.
+const organisatie = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${absoluut('')}#organisatie`,
+  name: site.bv,
+  alternateName: site.naam,
+  url: absoluut(''),
+  logo: absoluut('logo.png'),
+  email: site.mail,
+  telephone: site.telHref.replace('tel:', ''),
+  foundingDate: '2007',
+  sameAs: [site.facebook, site.instagram, site.pinterest].filter(Boolean),
+  contactPoint: { '@type': 'ContactPoint', telephone: site.telHref.replace('tel:', ''), email: site.mail, contactType: 'customer service', availableLanguage: 'Dutch' },
+};
+const jsonld = [organisatie, ...schema];
+const robots = noindex || site.voorstel ? 'noindex, nofollow' : 'index, follow, max-image-preview:large';
 ---
 <!doctype html>
 <html lang="nl">
@@ -14,21 +42,25 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    {site.voorstel && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="robots" content={robots} />
+    {!site.voorstel && <link rel="canonical" href={canonical} />}
     <meta name="theme-color" content={site.themeColor} />
     <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
+    <link rel="apple-touch-icon" href={url('logo.png')} />
+    <link rel="sitemap" href={url('sitemap-index.xml')} />
     <link rel="preload" as="font" type="font/woff2" href={kopUrl} crossorigin />
     <link rel="preload" as="font" type="font/woff2" href={sansUrl} crossorigin />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="nl_NL" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(url('og.jpg'), Astro.site).href} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).href} />
+    <meta property="og:image" content={ogImage ?? absoluut('og.jpg')} />
+    {!ogImage && <meta property="og:image:width" content="1200" />}
+    {!ogImage && <meta property="og:image:height" content="630" />}
+    <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={site.naam} />
     <meta name="twitter:card" content="summary_large_image" />
+    {!site.voorstel && <script type="application/ld+json" set:html={JSON.stringify(jsonld.length === 1 ? jsonld[0] : jsonld).replace(/</g, '\\u003c')} />}
     <script is:inline>document.documentElement.classList.add('js')</script>
   </head>
   <body class="min-h-dvh pb-14 md:pb-0">

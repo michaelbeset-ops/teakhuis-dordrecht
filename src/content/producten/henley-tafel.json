@@ -1,0 +1,27 @@
+{
+  "titel": "Henley tafel",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 139,
+  "prijsTonen": true,
+  "omschrijving": "Handige opklaptafel van massief teak grade A/B\n\nUitsluitend op bestelling. Afwijkende afmetingen mogelijk op aanvraag",
+  "fotos": [
+    "../../assets/producten/31069/1.jpg",
+    "../../assets/producten/31069/2.jpg",
+    "../../assets/producten/31069/3.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B70xD70xH75"
+    },
+    {
+      "label": "B120xD80xH75"
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 8,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/31069/tuinmeubelen/henley-tafel"
+}

@@ -1,0 +1,27 @@
+{
+  "titel": "set bijzet tafeltjes",
+  "categorie": "kleinmeubelen",
+  "prijsVanaf": 449,
+  "prijsTonen": true,
+  "omschrijving": "Dit setje bestaat uit: 1x tafeltje van 30x30x30cm, 1 x tafeltje van 40x40x40cm, 1x tafeltje van 50x50x50cm.\n\nIn blank teakhout of de koloniale kleur. De dikte van het hout is ongeveer 2cm",
+  "fotos": [
+    "../../assets/producten/2438/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "set bijzettafeltjes blank teakhout",
+      "prijs": 449
+    },
+    {
+      "label": "set bijzettafeltjes koloniale kleur",
+      "prijs": 499
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 33,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/187/2438/kleinmeubelen/set-bijzet-tafeltjes"
+}

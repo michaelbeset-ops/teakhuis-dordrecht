@@ -1,0 +1,51 @@
+{
+  "titel": "eettafel model Opium met houtsnijwerk",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 839,
+  "prijsTonen": true,
+  "omschrijving": "Prachtige eettafel met houtsnijwerk rondom uitgewerkt. In de kleuren: koloniaal,thee kleur of blank teakhout. Maatwerk zonder meerprijs!",
+  "fotos": [
+    "../../assets/producten/154/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "160x90cm h=78cm",
+      "prijs": 839
+    },
+    {
+      "label": "180x90/95/100cm h=78cm",
+      "prijs": 889
+    },
+    {
+      "label": "200x90/95/100cm h=78cm",
+      "prijs": 999
+    },
+    {
+      "label": "220x90/95/100cm h=78cm",
+      "prijs": 1099
+    },
+    {
+      "label": "240x90/95/100cm h=78cm",
+      "prijs": 1149
+    },
+    {
+      "label": "260x90/95/100cm h=78cm",
+      "prijs": 1219
+    },
+    {
+      "label": "280x90/95/100cm h=78cm",
+      "prijs": 1309
+    },
+    {
+      "label": "300x90/95/100cm h=78cm",
+      "prijs": 1399
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 352,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/154/teak-eettafels/eettafel-model-opium-met-houtsnijwerk"
+}

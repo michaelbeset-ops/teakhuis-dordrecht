@@ -1,0 +1,62 @@
+---
+// Eigen maatwerkprojecten van Teakhuis: hun tekening voor de werkplaats naast het meubel dat ervan gemaakt is.
+import { Image } from 'astro:assets';
+const mwFotos = import.meta.glob<{ default: ImageMetadata }>('../assets/mw-*.jpg', { eager: true });
+const mw = (n: string) => mwFotos[`../assets/mw-${n}.jpg`].default;
+const projecten = [
+  { id: 'kledingkast', naam: 'Kledingkast', maat: 'binnenkant met hang- en leggedeelte, lades op metalen rails', pos: 'object-[50%_35%]' },
+  { id: 'tv', naam: 'Tv-meubel', maat: '210 cm, drie lades op metalen rails, smoke white', pos: 'object-[50%_50%]' },
+  { id: 'wand', naam: 'Wandmeubel', maat: 'lage kast van 216 cm met hoge kast van 114 cm', pos: 'object-[60%_50%]' },
+  { id: 'bureau', naam: 'Hoekbureau', maat: 'vier delen, 220 en 180 cm', pos: 'object-[50%_55%]' },
+];
+---
+<div data-mw>
+  <div class="rijs mt-12" style="--d:.1s">
+          <div role="tablist" aria-label="Maatwerkprojecten" class="flex gap-x-5 overflow-x-auto border-b border-lijn-2 [scrollbar-width:none] md:gap-x-8">
+            {projecten.map((p, i) => (
+              <button type="button" role="tab" id={`tab-${p.id}`} aria-controls={`paneel-${p.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} class="-mb-px flex-none whitespace-nowrap border-b-2 border-transparent py-3 font-kop text-lg text-grijs transition-colors hover:text-inkt aria-selected:border-blad aria-selected:text-inkt md:text-xl" data-tab={p.id}>{p.naam}</button>
+            ))}
+          </div>
+          {projecten.map((p, i) => (
+            <div role="tabpanel" id={`paneel-${p.id}`} aria-labelledby={`tab-${p.id}`} class={`mt-8 ${i ? 'hidden' : ''}`} data-paneel={p.id}>
+              <div class="mb-4 inline-flex rounded-sm border border-lijn-2 p-1 md:hidden" role="group" aria-label="Wissel tussen tekening en meubel">
+                <button type="button" aria-pressed="true" class="min-h-10 rounded-[2px] px-4 text-sm font-bold aria-pressed:bg-inkt aria-pressed:text-wit" data-zet="tekening">Tekening</button>
+                <button type="button" aria-pressed="false" class="min-h-10 rounded-[2px] px-4 text-sm font-bold aria-pressed:bg-inkt aria-pressed:text-wit" data-zet="meubel">Meubel</button>
+              </div>
+              <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <figure class="flex flex-col" data-deel="tekening">
+                  <div class="aspect-[4/3] rounded-sm border border-lijn bg-wit p-4 md:p-6">
+                    <Image src={mw(`${p.id}-tekening`)} alt={`Potloodtekening met maten van de ${p.naam.toLowerCase()}`} quality={78} widths={[480, 720, 1000]} sizes="(min-width: 768px) 45vw, 100vw" class="tekening h-full w-full object-contain" />
+                  </div>
+                  <figcaption class="mt-3 text-xs text-grijs">Tekening: {p.maat}</figcaption>
+                </figure>
+                <figure class="flex flex-col max-md:hidden" data-deel="meubel">
+                  <Image src={mw(`${p.id}-meubel`)} alt={`De ${p.naam.toLowerCase()} van teak, gemaakt naar de tekening`} quality={74} widths={[480, 720, 1000]} sizes="(min-width: 768px) 45vw, 100vw" class={`aspect-[4/3] w-full rounded-sm object-cover ${p.pos}`} />
+                  <figcaption class="mt-3 text-xs text-grijs">Het meubel</figcaption>
+                </figure>
+              </div>
+            </div>
+          ))}
+        </div>
+</div>
+
+  <script>
+    // Maatwerk-tabs en wissel tekening/meubel (mobiel).
+    document.querySelectorAll<HTMLElement>('[data-mw]').forEach((mwSec) => {
+      const tabs = [...mwSec.querySelectorAll<HTMLButtonElement>('[data-tab]')];
+      const kies = (t: HTMLButtonElement) => {
+        tabs.forEach((b) => { const aan = b === t; b.setAttribute('aria-selected', String(aan)); b.tabIndex = aan ? 0 : -1; mwSec.querySelector(`[data-paneel="${b.dataset.tab}"]`)!.classList.toggle('hidden', !aan); });
+      };
+      tabs.forEach((b, i) => {
+        b.addEventListener('click', () => kies(b));
+        b.addEventListener('keydown', (e) => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (d) { const n = tabs[(i + d + tabs.length) % tabs.length]; kies(n); n.focus(); } });
+      });
+      mwSec.querySelectorAll<HTMLElement>('[data-paneel]').forEach((p) => {
+        p.querySelectorAll<HTMLButtonElement>('[data-zet]').forEach((k) => k.addEventListener('click', () => {
+          const z = k.dataset.zet;
+          p.querySelectorAll('[data-zet]').forEach((x) => x.setAttribute('aria-pressed', String(x === k)));
+          p.querySelectorAll<HTMLElement>('[data-deel]').forEach((f) => f.classList.toggle('max-md:hidden', f.dataset.deel !== z));
+        }));
+      });
+    });
+  </script>

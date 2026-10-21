@@ -1,0 +1,28 @@
+{
+  "titel": "Venice Dressoir klassiek 3 deurs",
+  "categorie": "dressoirs",
+  "prijsVanaf": 899,
+  "prijsTonen": true,
+  "omschrijving": "Mooi handgeschilderd dressoir met gerecycled teakhouten bovenkant of witte bovenkant\nMAATWERK MOGELIJK!",
+  "fotos": [
+    "../../assets/producten/4424/1.png",
+    "../../assets/producten/4424/2.png"
+  ],
+  "maten": [
+    {
+      "label": "b180 x d55 x h95 teaktop",
+      "prijs": 949
+    },
+    {
+      "label": "b180 x d55 x h95 wit",
+      "prijs": 899
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 377,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/246/4424/dressoirs/venice-dressoir-klassiek-3-deurs"
+}

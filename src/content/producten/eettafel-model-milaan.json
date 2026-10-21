@@ -1,0 +1,51 @@
+{
+  "titel": "Eettafel model Milaan",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 679,
+  "prijsTonen": true,
+  "omschrijving": "Mooi strak vormgegeven eettafel.\nPoten zijn hol 30 x 12 cm",
+  "fotos": [
+    "../../assets/producten/4577/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "160 x 90 x 78",
+      "prijs": 679
+    },
+    {
+      "label": "180 x 95 x 78",
+      "prijs": 739
+    },
+    {
+      "label": "200 x 100 x 78",
+      "prijs": 789
+    },
+    {
+      "label": "220 x 100 x 78",
+      "prijs": 849
+    },
+    {
+      "label": "240 x 100 x 78",
+      "prijs": 899
+    },
+    {
+      "label": "260 x 100 x 78",
+      "prijs": 959
+    },
+    {
+      "label": "280 x 100 x 78",
+      "prijs": 1019
+    },
+    {
+      "label": "300 x 100 x 78",
+      "prijs": 1099
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 72,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4577/teak-eettafels/eettafel-model-milaan"
+}

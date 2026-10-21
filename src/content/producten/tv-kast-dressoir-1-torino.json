@@ -1,0 +1,31 @@
+{
+  "titel": "TV kast/dressoir 1 Torino",
+  "categorie": "teak-tv-kasten",
+  "prijsVanaf": 549,
+  "prijsTonen": true,
+  "omschrijving": "Deze kast kan geleverd worden in de kleur: koloniaal,thee en balnk teakhout. In elke maat te leveren.",
+  "fotos": [
+    "../../assets/producten/2598/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "h=50cm d=50cm br=200cm",
+      "prijs": 939
+    },
+    {
+      "label": "h=50cm d=50cm br=150cm",
+      "prijs": 739
+    },
+    {
+      "label": "h=50cm d=50cm br=120cm",
+      "prijs": 549
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 406,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/174/2598/teak-tv-kasten/tv-kast-dressoir-1-torino"
+}

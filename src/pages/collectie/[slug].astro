@@ -4,8 +4,10 @@ import Kop from '../../components/Kop.astro';
 import Voet from '../../components/Voet.astro';
 import Kruimel from '../../components/Kruimel.astro';
 import ProductKaart from '../../components/ProductKaart.astro';
-import { url } from '../../data/site';
-import { catPaginas, categorieHref, vanaf, type CatPagina } from '../../data/catalogus';
+import Icoon from '../../components/Icoon.astro';
+import { url, absoluut } from '../../data/site';
+import { catPaginas, categorieHref, productHref, omschrijvingHtml, platteTekst, type CatPagina } from '../../data/catalogus';
+import { kruimelSchema, type Stap } from '../../data/seo';
 
 export function getStaticPaths() {
   return catPaginas.map((pagina) => ({ params: { slug: pagina.cat.slug }, props: { pagina } }));
@@ -13,51 +15,84 @@ export function getStaticPaths() {
 const { pagina } = Astro.props as { pagina: CatPagina };
 const { cat, hoofd, subs, producten } = pagina;
 const n = producten.length;
-const kruimel: [string, string?][] = hoofd ? [['Collectie', url('collectie/')], [hoofd.naam, categorieHref(hoofd)], [cat.naam]] : [['Collectie', url('collectie/')], [cat.naam]];
 const ouder = hoofd ?? cat;
+const kruimel: Stap[] = hoofd ? [['Collectie', url('collectie/')], [hoofd.naam, categorieHref(hoofd)], [cat.naam]] : [['Collectie', url('collectie/')], [cat.naam]];
+const intro = omschrijvingHtml(cat.intro);
+const maatwerk = producten.filter((p) => p.maatwerk).length;
+const zelf = absoluut(`collectie/${cat.slug}/`);
+const beschrijving = cat.intro
+  ? platteTekst(cat.intro).slice(0, 155).replace(/\s\S*$/, '') + '.'
+  : `${cat.naam} van teakhout bij Teakhuis: ${n} ${n === 1 ? 'ontwerp' : 'ontwerpen'}${maatwerk ? ', vrijwel allemaal ook op maat zonder meerprijs' : ''}. Met de hand gemaakt. Vraag vrijblijvend een offerte aan.`;
+const lijstSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: cat.naam,
+  numberOfItems: n,
+  itemListElement: producten.slice(0, 50).map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(productHref(p), Astro.site).href, name: p.titel })),
+};
 ---
-<Base title={`${cat.naam} | Teakhuis`} description={`${cat.naam} bij Teakhuis: ${n} ${n === 1 ? 'product' : 'producten'} met prijs. Vrijwel alles kan ook op jouw maat, zonder meerprijs.`}>
-  <Kop thuis={false} />
+<Base title={`${cat.naam}${/teak/i.test(cat.naam) ? '' : ' van teakhout'}${maatwerk ? ', ook op maat' : ''} | Teakhuis`} description={beschrijving} schema={[lijstSchema, kruimelSchema(kruimel, zelf)]}>
+  <Kop />
   <main id="inhoud" class="pb-20 md:pb-28">
-    <section class="wrap pt-8 md:pt-12">
+    <section class="wrap pt-6 md:pt-8">
       <Kruimel stappen={kruimel} />
-      <div class="mt-8 flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
-        <div>
+      <div class="mt-10 grid grid-cols-1 gap-y-6 lg:grid-cols-12 lg:items-end lg:gap-x-12">
+        <div class="lg:col-span-7">
           <h1 class="text-4xl">{cat.naam}</h1>
-          <p class="num mt-4 text-grijs">{n} {n === 1 ? 'product' : 'producten'}{hoofd ? ` in ${hoofd.naam.toLowerCase()}` : ''}</p>
+          {intro
+            ? <div class="tekst mt-5 max-w-xl text-lg text-grijs" set:html={intro} />
+            : <p class="mt-5 max-w-xl text-lg text-grijs">{n} {n === 1 ? 'ontwerp' : 'ontwerpen'}{hoofd ? ` in ${hoofd.naam.toLowerCase()}` : ''}.{maatwerk > 0 && ' Zie je de juiste maat niet? Bijna alles maken we ook op jouw maat, zonder meerprijs.'}</p>}
         </div>
         {n > 1 && (
-          <label class="flex items-center gap-3 text-sm font-bold">
-            Sorteren
-            <select class="veld min-h-11 w-auto py-0 text-sm" data-sorteer>
-              <option value="standaard">Zoals in de webshop</option>
-              <option value="naam">Naam A tot Z</option>
-              <option value="laag">Prijs laag naar hoog</option>
-              <option value="hoog">Prijs hoog naar laag</option>
-            </select>
-          </label>
+          <div class="flex flex-wrap items-center justify-between gap-4 lg:col-span-5 lg:justify-end">
+            <p class="num text-sm text-grijs lg:hidden">{n} {n === 1 ? 'product' : 'producten'}</p>
+            <label class="flex items-center gap-3 text-sm font-bold">
+              Sorteren
+              <select class="veld min-h-11 w-auto py-0 text-sm" data-sorteer>
+                <option value="standaard">Aanbevolen</option>
+                <option value="naam">Naam A tot Z</option>
+                <option value="laag">Prijs laag naar hoog</option>
+                <option value="hoog">Prijs hoog naar laag</option>
+              </select>
+            </label>
+          </div>
         )}
       </div>
       {subs.length > 0 && (
-        <nav aria-label={`Soorten ${ouder.naam.toLowerCase()}`} class="mt-8 flex gap-x-6 overflow-x-auto border-b border-lijn-2 [scrollbar-width:thin]">
-          <a href={categorieHref(ouder)} class={`-mb-px flex-none whitespace-nowrap border-b-2 py-3 text-sm font-bold no-underline transition-colors hover:text-inkt ${!hoofd ? 'border-blad text-inkt' : 'border-transparent text-grijs'}`} aria-current={!hoofd ? 'page' : undefined}>Alles</a>
-          {subs.map((s) => (
-            <a href={categorieHref(s)} class={`-mb-px flex-none whitespace-nowrap border-b-2 py-3 text-sm font-bold no-underline transition-colors hover:text-inkt ${s.id === cat.id ? 'border-blad text-inkt' : 'border-transparent text-grijs'}`} aria-current={s.id === cat.id ? 'page' : undefined}>{s.naam}</a>
-          ))}
+        <nav aria-label={`Soorten ${ouder.naam.toLowerCase()}`} class="-mx-5 mt-10 overflow-x-auto px-5 [scrollbar-width:none] md:mx-0 md:px-0">
+          <ul class="flex gap-2">
+            <li><a href={categorieHref(ouder)} class={`flex min-h-10 items-center whitespace-nowrap rounded-full border px-4 text-sm font-bold no-underline transition-colors ${!hoofd ? 'border-inkt bg-inkt text-papier' : 'border-lijn-2 text-inkt hover:border-inkt'}`} aria-current={!hoofd ? 'page' : undefined}>Alles</a></li>
+            {subs.map((s) => (
+              <li><a href={categorieHref(s)} class={`flex min-h-10 items-center whitespace-nowrap rounded-full border px-4 text-sm font-bold no-underline transition-colors ${s.slug === cat.slug ? 'border-inkt bg-inkt text-papier' : 'border-lijn-2 text-inkt hover:border-inkt'}`} aria-current={s.slug === cat.slug ? 'page' : undefined}>{s.naam}</a></li>
+            ))}
+          </ul>
         </nav>
       )}
     </section>
 
-    <section class="wrap mt-10 md:mt-12" aria-labelledby="producten-kop">
-      <h2 id="producten-kop" class="sr-only">Producten in {cat.naam.toLowerCase()}</h2>
-      <ul class="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-4 lg:gap-y-12" data-grid>
+    <section class="wrap mt-10 md:mt-12" aria-label={`${cat.naam}: alle producten`}>
+      <ul class="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-4 lg:gap-y-14" data-grid>
         {producten.map((p, i) => (
-          <li data-naam={p.titel.toLowerCase()} data-prijs={vanaf(p)} data-i={i}>
-            <ProductKaart p={p} lazy={i >= 4} />
+          <li data-naam={p.titel.toLowerCase()} data-prijs={p.prijsTonen && p.prijsVanaf ? p.prijsVanaf : 999999} data-i={i}>
+            <ProductKaart p={p} lazy={i >= 4} kop="h2" />
           </li>
         ))}
       </ul>
     </section>
+
+    {maatwerk > 0 && (
+      <section class="wrap mt-20 md:mt-28">
+        <div class="grid grid-cols-1 items-center gap-6 rounded-md bg-nacht p-7 text-wit sm:p-10 md:grid-cols-12 md:p-12">
+          <div class="md:col-span-8">
+            <h2 class="text-3xl">{cat.naam} op maat?</h2>
+            <p class="mt-3 max-w-xl text-as">Kies een ontwerp en geef je eigen maten door, of beschrijf wat je zoekt. Je krijgt een tekening en een prijs, zonder meerprijs voor maatwerk.</p>
+          </div>
+          <div class="md:col-span-4 md:text-right">
+            <a href={url('maatwerk/')} class="knop knop-blad">Over maatwerk<Icoon naam="pijl" /></a>
+          </div>
+        </div>
+      </section>
+    )}
   </main>
   <Voet />
 
@@ -72,7 +107,7 @@ const ouder = hoofd ?? cat;
         standaard: (a, b) => +a.dataset.i! - +b.dataset.i!,
         naam: (a, b) => nl.compare(a.dataset.naam!, b.dataset.naam!),
         laag: (a, b) => +a.dataset.prijs! - +b.dataset.prijs! || nl.compare(a.dataset.naam!, b.dataset.naam!),
-        hoog: (a, b) => +b.dataset.prijs! - +a.dataset.prijs! || nl.compare(a.dataset.naam!, b.dataset.naam!),
+        hoog: (a, b) => (+b.dataset.prijs! % 999999) - (+a.dataset.prijs! % 999999) || nl.compare(a.dataset.naam!, b.dataset.naam!),
       };
       kies.addEventListener('change', () => grid.append(...items.sort(regels[kies.value])));
     }

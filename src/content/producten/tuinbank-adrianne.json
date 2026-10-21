@@ -1,0 +1,43 @@
+{
+  "titel": "Tuinbank Adrianne",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 399,
+  "prijsTonen": true,
+  "omschrijving": "Handige tuinbank, passend bij tuintafel Adrianne, uitgevoerd in massief gerecycled teak.\n\nleverbaar in iedere afmeting, maatwerk is mogelijk!\n\nLevertijd ca. 3 maanden",
+  "fotos": [
+    "../../assets/producten/32783/1.jpg",
+    "../../assets/producten/32783/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B160 x D40 x H45",
+      "prijs": 399
+    },
+    {
+      "label": "B180 x D40 x H45",
+      "prijs": 429
+    },
+    {
+      "label": "B200 x D40 x H45",
+      "prijs": 459
+    },
+    {
+      "label": "B220 x D40 x H45",
+      "prijs": 489
+    },
+    {
+      "label": "B240 x D40 x H45",
+      "prijs": 519
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Gerecycled teak glad",
+    "Gerecycled teak geborsteld"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 325,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/32783/tuinmeubelen/tuinbank-adrianne"
+}

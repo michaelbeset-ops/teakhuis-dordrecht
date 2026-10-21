@@ -1,0 +1,37 @@
+{
+  "titel": "Bistro tafel",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 199,
+  "prijsTonen": true,
+  "omschrijving": "Stevige en degelijke tuintafel met vierkante poten.\nGemaakt van massief teak grade A/B\n\nUitsluitend op bestelling. Afwijkende afmetingen mogelijk, prijs op aanvraag",
+  "fotos": [
+    "../../assets/producten/31058/1.jpg",
+    "../../assets/producten/31058/2.jpg",
+    "../../assets/producten/31058/3.jpg",
+    "../../assets/producten/31058/4.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B80xD80xH78"
+    },
+    {
+      "label": "B140xD80xH78"
+    },
+    {
+      "label": "B180xD90xH78"
+    },
+    {
+      "label": "B200 x D95 x H78"
+    },
+    {
+      "label": "B220 x D100 x H78"
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 7,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/31058/tuinmeubelen/bistro-tafel"
+}

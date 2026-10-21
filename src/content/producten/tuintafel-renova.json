@@ -1,0 +1,54 @@
+{
+  "titel": "Tuintafel Renova",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 499,
+  "prijsTonen": true,
+  "omschrijving": "Fraaie, degelijke tuintafel met schuine afgerond poten.\n\nUitgevoerd in A grade nieuw teak. De top is volledig 3 cm massief.\n\nLeverbaar in iedere gewenste afmeting. Maatwerk is mogelijk!\n\nLevertijd ca. 3 maanden",
+  "fotos": [
+    "../../assets/producten/32799/1.jpg",
+    "../../assets/producten/32799/2.jpg",
+    "../../assets/producten/32799/3.jpg",
+    "../../assets/producten/32799/4.jpg",
+    "../../assets/producten/32799/5.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B100 x D100 x H77",
+      "prijs": 499
+    },
+    {
+      "label": "B160 x D90 x H77",
+      "prijs": 619
+    },
+    {
+      "label": "B180 x D90 x H77",
+      "prijs": 669
+    },
+    {
+      "label": "B200 x D95 x H77",
+      "prijs": 759
+    },
+    {
+      "label": "B220 x D95 x H77",
+      "prijs": 839
+    },
+    {
+      "label": "B250 x D100 x H77",
+      "prijs": 959
+    },
+    {
+      "label": "B300 x D100 x H77",
+      "prijs": 1079
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Nieuw teak glad",
+    "Nieuw teak geborsteld"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 326,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/32799/tuinmeubelen/tuintafel-renova"
+}

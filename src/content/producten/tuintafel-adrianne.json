@@ -1,0 +1,43 @@
+{
+  "titel": "Tuintafel Adrianne",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 739,
+  "prijsTonen": true,
+  "omschrijving": "Stevige en degelijke tuintafel met massieve 3 cm top en massieve teakhouten onderstel.\n\nUitgevoerd in prachtig gerecycled teak, leverbaar in iedere gewenste afmeting.\n\nMaatwerk is mogelijk!\n\nLevertijd ca. 3 maanden",
+  "fotos": [
+    "../../assets/producten/32767/1.jpg",
+    "../../assets/producten/32767/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B160 x D90 x H75",
+      "prijs": 739
+    },
+    {
+      "label": "B180 x D90 x H75",
+      "prijs": 779
+    },
+    {
+      "label": "B200 x D95 x H75",
+      "prijs": 839
+    },
+    {
+      "label": "B220 x D95 x H75",
+      "prijs": 899
+    },
+    {
+      "label": "B240 x D100 x H75",
+      "prijs": 989
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Gerecycled teak geborsteld",
+    "Gerecycled teak glad"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 324,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/32767/tuinmeubelen/tuintafel-adrianne"
+}

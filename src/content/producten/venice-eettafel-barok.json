@@ -1,0 +1,35 @@
+{
+  "titel": "Venice eettafel Barok",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 519,
+  "prijsTonen": true,
+  "omschrijving": "Eettafel met sierlijke poten. Onderkant handgeschilderd wit, top geborsteld teak. In alle maten leverbaar, ook met glad teakhouten top.\n\nMaatwerk mogelijk!",
+  "fotos": [
+    "../../assets/producten/4205/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "b160 x d90 x h78",
+      "prijs": 519
+    },
+    {
+      "label": "b180 x d90 x h78",
+      "prijs": 579
+    },
+    {
+      "label": "b200 x d100 x h78",
+      "prijs": 659
+    },
+    {
+      "label": "b220 x d100 x h78",
+      "prijs": 729
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 357,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4205/teak-eettafels/venice-eettafel-barok"
+}

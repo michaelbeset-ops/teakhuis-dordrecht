@@ -1,0 +1,96 @@
+{
+  "titel": "Eettafel klassiek",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 319,
+  "prijsTonen": true,
+  "omschrijving": "Mooie klassieke eettafel. Tapse poten met inkeping en standaard 3 cm overhang.\n3 cm top en 6 cm regel. Vrije ruimte onder de tafel is 69 cm",
+  "fotos": [
+    "../../assets/producten/229/1.jpg",
+    "../../assets/producten/229/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "70x70cm h=78cm",
+      "prijs": 319
+    },
+    {
+      "label": "80x80cm h=78cm",
+      "prijs": 349
+    },
+    {
+      "label": "90x90cm h=78cm",
+      "prijs": 389
+    },
+    {
+      "label": "120x80cm h=78cm",
+      "prijs": 439
+    },
+    {
+      "label": "140x90cm h=78cm",
+      "prijs": 479
+    },
+    {
+      "label": "150x90cm h=78cm",
+      "prijs": 489
+    },
+    {
+      "label": "160x90cm h=78cm",
+      "prijs": 499
+    },
+    {
+      "label": "180x90cm h=78cm",
+      "prijs": 519
+    },
+    {
+      "label": "200x100cm h=78cm",
+      "prijs": 569
+    },
+    {
+      "label": "220x100cm h=78cm",
+      "prijs": 609
+    },
+    {
+      "label": "240x100cm h=78cm",
+      "prijs": 649
+    },
+    {
+      "label": "260x100cm h=78cm",
+      "prijs": 709
+    },
+    {
+      "label": "280x100cm h=78cm",
+      "prijs": 769
+    },
+    {
+      "label": "300x100cm h=78cm",
+      "prijs": 809
+    },
+    {
+      "label": "100x100 cm h=78",
+      "prijs": 459
+    },
+    {
+      "label": "120 x 120 cm h = 78",
+      "prijs": 489
+    },
+    {
+      "label": "140 x 140 cm h = 78",
+      "prijs": 569
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Blank onbehandeld teak",
+    "Theekleur",
+    "Koloniale kleur",
+    "Wit",
+    "Gerecycled teak",
+    "Milaan kleur",
+    "Geborsteld teak"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 73,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/229/teak-eettafels/eettafel-klassiek"
+}

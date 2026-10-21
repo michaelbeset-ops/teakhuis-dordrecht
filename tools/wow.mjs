@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
+const b = await chromium.launch({ executablePath: process.env.CHROME || '/opt/pw-browsers/chromium' }); const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 await p.goto('http://localhost:4447/sitefront/teakhuis-dordrecht/#aanvragen', { waitUntil: 'networkidle' });
 await p.evaluate(() => document.querySelectorAll('.rijs').forEach((e) => e.classList.add('in')));
 await p.selectOption('select[name=meubel]', 'tv-meubel');

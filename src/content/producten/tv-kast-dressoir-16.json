@@ -1,0 +1,31 @@
+{
+  "titel": "Tv kast/dressoir 16",
+  "categorie": "dressoirs",
+  "prijsVanaf": 919,
+  "prijsTonen": true,
+  "omschrijving": "Dit dressoir is te leveren in de kleuren: koloniaal, thee en blank teakhout. In elke andere maat ook te leveren.",
+  "fotos": [
+    "../../assets/producten/2333/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "h=90cm br=150cm d=50cm 3 deuren",
+      "prijs": 919
+    },
+    {
+      "label": "h=90cm br=180cm d=50cm 3 deuren",
+      "prijs": 1019
+    },
+    {
+      "label": "h=90cm br=200cm d=50cm 4 deuren",
+      "prijs": 1099
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 365,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/246/2333/dressoirs/tv-kast-dressoir-16"
+}

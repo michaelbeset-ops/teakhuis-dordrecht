@@ -1,0 +1,72 @@
+{
+  "titel": "Eettafel blokpoot met aanzetstuk",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 419,
+  "prijsTonen": true,
+  "omschrijving": "Strakke eettafel met 8 cm. dikke massieve poten en een blad van 3cm dik.\nTe verlengen dmv een aanzetblad. ook leverbaar met 2 aanzetbladen, prijs hiervan op aanvraag.\nIn gladde of robuuste uitvoering te leveren. Op elke maat te leveren zonder meerprijs! In de kleuren: koloniaal, thee kleur of blank teakhout.\nOverige maten: prijs op aanvraag.\n\nToeslag voor 10 cm. dikke poten = € 60,-",
+  "fotos": [
+    "../../assets/producten/3515/1.jpg",
+    "../../assets/producten/3515/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "70x70x78/120x70x78",
+      "prijs": 419
+    },
+    {
+      "label": "80x80x78/130x80x78",
+      "prijs": 459
+    },
+    {
+      "label": "90x90x78/140x90x78",
+      "prijs": 479
+    },
+    {
+      "label": "120x80x78/170x80x78",
+      "prijs": 499
+    },
+    {
+      "label": "130x80x78/180x80x78",
+      "prijs": 519
+    },
+    {
+      "label": "140x90x78/190x90x78",
+      "prijs": 549
+    },
+    {
+      "label": "150x90x78/200x90x78",
+      "prijs": 579
+    },
+    {
+      "label": "160x90x78/210x90x78",
+      "prijs": 599
+    },
+    {
+      "label": "180x95x78/230x95x78",
+      "prijs": 649
+    },
+    {
+      "label": "200x95x78/250x95x78",
+      "prijs": 689
+    },
+    {
+      "label": "220x100x78/270x100x78",
+      "prijs": 749
+    },
+    {
+      "label": "240x100x78/290x100x78",
+      "prijs": 809
+    },
+    {
+      "label": "260x100x78/310x100x78",
+      "prijs": 849
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 75,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/3515/teak-eettafels/eettafel-blokpoot-met-aanzetstuk"
+}

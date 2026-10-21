@@ -1,0 +1,64 @@
+{
+  "titel": "Eettafel Dijawa",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 699,
+  "prijsTonen": true,
+  "omschrijving": "Prachtige eettafel met ambachtelijke houten verbindingen\nRobuust of geborsteld afgewerkte 5 cm. dikke top en 12 centimeter dikke poten\nAlles massief!\n\nGlad afgewerkt~en maatwerk mogelijk",
+  "fotos": [
+    "../../assets/producten/4556/1.jpg",
+    "../../assets/producten/4556/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "130 x 80 x 78",
+      "prijs": 699
+    },
+    {
+      "label": "140 x 80 x 78",
+      "prijs": 779
+    },
+    {
+      "label": "150 x 90 x 78",
+      "prijs": 849
+    },
+    {
+      "label": "160 x 90 x 78",
+      "prijs": 969
+    },
+    {
+      "label": "180 x 90/95/100 x 78",
+      "prijs": 1089
+    },
+    {
+      "label": "200 x 90/95/100",
+      "prijs": 1179
+    },
+    {
+      "label": "220 x 90/95/100",
+      "prijs": 1269
+    },
+    {
+      "label": "240 x 100 x 78",
+      "prijs": 1379
+    },
+    {
+      "label": "260 x 100 x 78",
+      "prijs": 1489
+    },
+    {
+      "label": "280 x 100 x 78",
+      "prijs": 1599
+    },
+    {
+      "label": "300 x 100 x 78",
+      "prijs": 1689
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 81,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4556/teak-eettafels/eettafel-dijawa"
+}

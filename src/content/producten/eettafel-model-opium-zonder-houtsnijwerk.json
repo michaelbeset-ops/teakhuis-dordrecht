@@ -1,0 +1,71 @@
+{
+  "titel": "eettafel model Opium zonder houtsnijwerk",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 499,
+  "prijsTonen": true,
+  "omschrijving": "eettafel met elegante poten, glad afgewerkt. Op elke maat te leveren. In de kleuren, koloniaal, thee kleur of blank teakhout.",
+  "fotos": [
+    "../../assets/producten/143/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "90x90cm h=78cm",
+      "prijs": 499
+    },
+    {
+      "label": "100x100cm h=78cm",
+      "prijs": 519
+    },
+    {
+      "label": "120x80cm h=78cm",
+      "prijs": 549
+    },
+    {
+      "label": "130x80cm h=78cm",
+      "prijs": 599
+    },
+    {
+      "label": "140x90cm h=78cm",
+      "prijs": 639
+    },
+    {
+      "label": "160x90cm h=78cm",
+      "prijs": 739
+    },
+    {
+      "label": "180x90/95/100cm h=78cm",
+      "prijs": 769
+    },
+    {
+      "label": "200x90/95/100cm h=78cm",
+      "prijs": 849
+    },
+    {
+      "label": "220x90/95/100cm h=78cm",
+      "prijs": 949
+    },
+    {
+      "label": "240x90/95/100cm h=78cm",
+      "prijs": 1049
+    },
+    {
+      "label": "260x90/95/100cm h=78cm",
+      "prijs": 1099
+    },
+    {
+      "label": "280x90/95/100cm h=78cm",
+      "prijs": 1159
+    },
+    {
+      "label": "300x90/95/100cm h=78cm",
+      "prijs": 1229
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 351,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/143/teak-eettafels/eettafel-model-opium-zonder-houtsnijwerk"
+}

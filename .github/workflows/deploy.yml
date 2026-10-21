@@ -1,0 +1,54 @@
+# Bouwt de site en zet hem op GitHub Pages bij elke wijziging op main, ook als die uit het beheersysteem (/admin) komt.
+name: Site bouwen en publiceren
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Snel na elkaar opslaan in het beheer: alleen de nieuwste versie hoeft live, die bevat alle wijzigingen.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Zolang het eigen domein nog niet gekoppeld is: preview op michaelbeset-ops.github.io/teakhuis-dordrecht.
+      # Na het koppelen in Settings > Secrets and variables > Actions > Variables: SITE_URL=https://teakhuis.nl en BASE_PATH=/
+      SITE_URL: ${{ vars.SITE_URL || 'https://michaelbeset-ops.github.io' }}
+      BASE_PATH: ${{ vars.BASE_PATH || '/teakhuis-dordrecht' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # De geoptimaliseerde productfoto's bewaren tussen builds: scheelt minuten per wijziging.
+      - uses: actions/cache@v4
+        with:
+          path: node_modules/.astro
+          key: astro-assets-${{ hashFiles('src/assets/**') }}
+          restore-keys: astro-assets-
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

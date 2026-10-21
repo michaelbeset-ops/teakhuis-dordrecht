@@ -1,0 +1,76 @@
+{
+  "titel": "Venice eettafel met blokpoten of tapse poten",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 299,
+  "prijsTonen": true,
+  "omschrijving": "Handgeschilderd witte eettafel met teakhouten top.\n\nLeverbaar met vierkante poten of tapse poten.\n\nAlle maten leverbaar, maatwerk mogelijk!",
+  "fotos": [
+    "../../assets/producten/4235/1.png",
+    "../../assets/producten/4235/2.png"
+  ],
+  "maten": [
+    {
+      "label": "70 x 70 x 78",
+      "prijs": 299
+    },
+    {
+      "label": "80 x 80 x 78",
+      "prijs": 319
+    },
+    {
+      "label": "90 x 90 x 78",
+      "prijs": 359
+    },
+    {
+      "label": "120 x 80 x 78",
+      "prijs": 409
+    },
+    {
+      "label": "130 x 80 x 78",
+      "prijs": 459
+    },
+    {
+      "label": "140 x 80 x 78",
+      "prijs": 509
+    },
+    {
+      "label": "160 x 90 x 78",
+      "prijs": 589
+    },
+    {
+      "label": "180 x 90/95/100 x 78",
+      "prijs": 639
+    },
+    {
+      "label": "200 x 90/95/100 x 78",
+      "prijs": 699
+    },
+    {
+      "label": "220 x 90/95/100 x 78",
+      "prijs": 775
+    },
+    {
+      "label": "240 x 90/95/100 x 78",
+      "prijs": 889
+    },
+    {
+      "label": "260 x 90/95/100 x 78",
+      "prijs": 979
+    },
+    {
+      "label": "280 x 90/95/100 x 78",
+      "prijs": 1069
+    },
+    {
+      "label": "300 x 90/95/100 x 78",
+      "prijs": 1159
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 354,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4235/teak-eettafels/venice-eettafel-met-blokpoten-of-tapse-poten"
+}

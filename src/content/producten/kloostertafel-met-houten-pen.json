@@ -1,0 +1,51 @@
+{
+  "titel": "Kloostertafel met houten pen",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 969,
+  "prijsTonen": true,
+  "omschrijving": "Mooie oude kloostertafel met robuust blad van 5 cm dik",
+  "fotos": [
+    "../../assets/producten/4568/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "160 x 90 x 79",
+      "prijs": 969
+    },
+    {
+      "label": "180 x 90/95/100 x 78",
+      "prijs": 1119
+    },
+    {
+      "label": "200 x 90/95/100 x 78",
+      "prijs": 1209
+    },
+    {
+      "label": "220 x 90/95/100 x 78",
+      "prijs": 1319
+    },
+    {
+      "label": "240 x 100 x 78",
+      "prijs": 1409
+    },
+    {
+      "label": "260 x 100 x 78",
+      "prijs": 1549
+    },
+    {
+      "label": "280 x 100 x 78",
+      "prijs": 1669
+    },
+    {
+      "label": "300 x 100 x 78",
+      "prijs": 1759
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 80,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4568/teak-eettafels/kloostertafel-met-houten-pen"
+}

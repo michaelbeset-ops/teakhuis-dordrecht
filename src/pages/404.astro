@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import Kop from '../components/Kop.astro';
+import Voet from '../components/Voet.astro';
+import Icoon from '../components/Icoon.astro';
+import { url } from '../data/site';
+import { groepen, categorieHref } from '../data/catalogus';
+---
+<Base title="Pagina niet gevonden | Teakhuis" description="Deze pagina bestaat niet (meer)." noindex>
+  <Kop />
+  <main id="inhoud" class="wrap pb-28 pt-16 md:pt-24">
+    <p class="label text-blad-diep">404</p>
+    <h1 class="mt-4 max-w-3xl text-hero">Deze pagina is <span class="cursief">er niet (meer).</span></h1>
+    <p class="mt-6 max-w-lg text-lg text-grijs">Misschien is het meubel uit de collectie gehaald, of is de link veranderd. Zoek het op, of kies een categorie.</p>
+    <form action={url('collectie/')} method="get" role="search" class="mt-8 flex max-w-lg gap-2">
+      <label for="q" class="sr-only">Zoek in de collectie</label>
+      <input id="q" name="q" type="search" class="veld" placeholder="Bijvoorbeeld eettafel" />
+      <button class="knop knop-inkt" type="submit">Zoeken</button>
+    </form>
+    <ul class="mt-12 flex flex-wrap gap-2">
+      {groepen.map((g) => <li><a href={categorieHref(g.hoofd)} class="flex min-h-10 items-center rounded-full border border-lijn-2 px-4 text-sm font-bold no-underline hover:border-inkt">{g.hoofd.naam}</a></li>)}
+    </ul>
+    <a href={url('')} class="link mt-12 inline-flex items-center gap-2 font-bold">Naar de homepage<Icoon naam="pijl" class="h-4 w-4" /></a>
+  </main>
+  <Voet />
+</Base>

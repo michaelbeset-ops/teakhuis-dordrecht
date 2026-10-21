@@ -1,0 +1,27 @@
+{
+  "titel": "Dressoir Venice",
+  "categorie": "dressoirs",
+  "prijsVanaf": 699,
+  "prijsTonen": true,
+  "omschrijving": "Handgeschildert wit dressoir met geborsteld teakhouten bovenkant.\n\nIn diverse maten leverbaar. ook leverbaar met gladde teakhouten bovenkant.\n\nMaatwerk mogelijk!",
+  "fotos": [
+    "../../assets/producten/4214/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "b150 x d45 x h80",
+      "prijs": 699
+    },
+    {
+      "label": "b180 x d45 x h80",
+      "prijs": 799
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 376,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/246/4214/dressoirs/dressoir-venice"
+}

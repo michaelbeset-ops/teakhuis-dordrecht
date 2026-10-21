@@ -1,0 +1,28 @@
+{
+  "titel": "Beaufort bank",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 199,
+  "prijsTonen": true,
+  "omschrijving": "Mooie degelijke tuinbank van goede kwaliteit teak.\nGrade A/B\nAfmetingen 150 breed en 180 breed zijn uitverkocht. Uitsluitend nog op bestelling verkrijgbaar met een levertijd van ca. 2 maanden!",
+  "fotos": [
+    "../../assets/producten/29712/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B120"
+    },
+    {
+      "label": "B150"
+    },
+    {
+      "label": "B180"
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 3,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/29712/tuinmeubelen/beaufort-bank"
+}

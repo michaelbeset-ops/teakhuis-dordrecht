@@ -1,0 +1,30 @@
+{
+  "titel": "Glass on wood",
+  "categorie": "accessoires",
+  "prijsVanaf": 59,
+  "prijsTonen": true,
+  "omschrijving": "Glazen bol op maat gesmolten op een stuk boomstronk. Erg bijzonder en zeer decoratief.\n\nVerkrijgbaar in 2 afmetingen",
+  "fotos": [
+    "../../assets/producten/4892/1.jpg",
+    "../../assets/producten/4892/2.jpg",
+    "../../assets/producten/4892/3.jpg",
+    "../../assets/producten/4892/4.jpg",
+    "../../assets/producten/4892/5.jpg",
+    "../../assets/producten/4892/6.jpg"
+  ],
+  "maten": [
+    {
+      "label": "klein ca. 30 cm hoog"
+    },
+    {
+      "label": "groot ca. 55 cm hoog"
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [],
+  "maatwerk": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 26,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/221/4892/accessoires/glass-on-wood"
+}

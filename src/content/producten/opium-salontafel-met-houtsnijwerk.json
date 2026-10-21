@@ -1,0 +1,107 @@
+{
+  "titel": "Opium salontafel met houtsnijwerk",
+  "categorie": "teak-salontafels",
+  "prijsVanaf": 269,
+  "prijsTonen": true,
+  "omschrijving": "Prachtig houtsnijwerk rondom uitgevoerd, te leveren in de kleuren: koloniaal, thee en blank teakhout.",
+  "fotos": [
+    "../../assets/producten/1075/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "50x50cm h=36cm",
+      "prijs": 269
+    },
+    {
+      "label": "60x60cm h=36cm",
+      "prijs": 289
+    },
+    {
+      "label": "70x70cm h=36cm",
+      "prijs": 319
+    },
+    {
+      "label": "80x80cm h=36cm",
+      "prijs": 379
+    },
+    {
+      "label": "90x90cm h=36cm",
+      "prijs": 419
+    },
+    {
+      "label": "100x100cm h=36cm",
+      "prijs": 469
+    },
+    {
+      "label": "100x60cm h=36cm",
+      "prijs": 409
+    },
+    {
+      "label": "110x70cm h=36cm",
+      "prijs": 439
+    },
+    {
+      "label": "120x80cm h=36cm",
+      "prijs": 509
+    },
+    {
+      "label": "130x80cm h=36cm",
+      "prijs": 539
+    },
+    {
+      "label": "140x80cm h=36cm",
+      "prijs": 569
+    },
+    {
+      "label": "50x50cm h=45cm",
+      "prijs": 279
+    },
+    {
+      "label": "60x60cm h=45cm",
+      "prijs": 299
+    },
+    {
+      "label": "70x70cm h=45cm",
+      "prijs": 329
+    },
+    {
+      "label": "80x80cm h=45cm",
+      "prijs": 389
+    },
+    {
+      "label": "90x90cm h=45cm",
+      "prijs": 429
+    },
+    {
+      "label": "100x100cm h=45cm",
+      "prijs": 479
+    },
+    {
+      "label": "100x60cm h=45cm",
+      "prijs": 419
+    },
+    {
+      "label": "110x70cm h=45cm",
+      "prijs": 449
+    },
+    {
+      "label": "120x80cm h=45cm",
+      "prijs": 519
+    },
+    {
+      "label": "130x80cm h=45cm",
+      "prijs": 549
+    },
+    {
+      "label": "140x80cm h=45cm",
+      "prijs": 579
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 330,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/1075/teak-salontafels/opium-salontafel-met-houtsnijwerk"
+}

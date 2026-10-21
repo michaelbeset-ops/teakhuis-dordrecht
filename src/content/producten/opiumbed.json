@@ -1,0 +1,35 @@
+{
+  "titel": "Opiumbed",
+  "categorie": "teak-bedden",
+  "prijsVanaf": 979,
+  "prijsTonen": true,
+  "omschrijving": "Dit bet wordt geleverd met houtenlatten bodem. In de kleuren: koloniaal, thee of blank teakhout. Kan op elke andere maat geleverd worden.",
+  "fotos": [
+    "../../assets/producten/2533/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "140x200cm",
+      "prijs": 979
+    },
+    {
+      "label": "160x200cm",
+      "prijs": 1049
+    },
+    {
+      "label": "180x200cm",
+      "prijs": 1099
+    },
+    {
+      "label": "200x200cm",
+      "prijs": 1149
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 273,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/182/2533/teak-bedden/opiumbed"
+}

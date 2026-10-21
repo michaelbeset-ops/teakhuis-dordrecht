@@ -1,0 +1,68 @@
+{
+  "titel": "salontafel model Napels",
+  "categorie": "teak-salontafels",
+  "prijsVanaf": 199,
+  "prijsTonen": true,
+  "omschrijving": "prachtige salontafen gemaakt van opgeborsteld hout en ingewassen met een white wash. Te leveren in elke maat, in de kleuren: koloniaal, thee of blank teakhout.",
+  "fotos": [
+    "../../assets/producten/1078/1.jpg",
+    "../../assets/producten/1078/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "40x40cm h=45cm",
+      "prijs": 199
+    },
+    {
+      "label": "50x50cm h=45cm",
+      "prijs": 279
+    },
+    {
+      "label": "60x60cm h=45cm",
+      "prijs": 309
+    },
+    {
+      "label": "70x70cm h=45cm",
+      "prijs": 379
+    },
+    {
+      "label": "80x80cm h=45cm",
+      "prijs": 399
+    },
+    {
+      "label": "90x90cm h=45cm",
+      "prijs": 469
+    },
+    {
+      "label": "100x100cm h=45cm",
+      "prijs": 499
+    },
+    {
+      "label": "100x60cm h=45cm",
+      "prijs": 449
+    },
+    {
+      "label": "110x70cm h=45cm",
+      "prijs": 485
+    },
+    {
+      "label": "120x70cm h=45cm",
+      "prijs": 549
+    },
+    {
+      "label": "130x80cm h=45cm",
+      "prijs": 609
+    },
+    {
+      "label": "140x80cm h=45cm",
+      "prijs": 659
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 337,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/1078/teak-salontafels/salontafel-model-napels"
+}

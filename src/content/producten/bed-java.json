@@ -1,0 +1,35 @@
+{
+  "titel": "Bed Java",
+  "categorie": "teak-bedden",
+  "prijsVanaf": 1299,
+  "prijsTonen": true,
+  "omschrijving": "Fraai vormgegeven bed te leveren in blank teak of koloniaal (foto)\nIn iedere gewenste maat te maken.",
+  "fotos": [
+    "../../assets/producten/4056/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "matrasmaat 140 x 200",
+      "prijs": 1299
+    },
+    {
+      "label": "matrasmaat 160 x 200",
+      "prijs": 1399
+    },
+    {
+      "label": "matrasmaat 180 x 200",
+      "prijs": 1479
+    },
+    {
+      "label": "matrasmaat 200 x 200",
+      "prijs": 1559
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 274,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/182/4056/teak-bedden/bed-java"
+}

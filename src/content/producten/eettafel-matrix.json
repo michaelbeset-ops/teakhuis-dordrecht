@@ -1,0 +1,44 @@
+{
+  "titel": "Eettafel MATRIX",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 1149,
+  "prijsTonen": true,
+  "omschrijving": "Elips vormige tafel met 5 cm blad van uitgevoerd in massief teakhout.\nZowel mogelijk in oud gerecycled teak, ruw of glad, als in nieuw teakhout.\n\nMaatwerk is mogelijk!",
+  "fotos": [
+    "../../assets/producten/4980/1.jpg",
+    "../../assets/producten/4980/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B200 x D120 x H78",
+      "prijs": 1149
+    },
+    {
+      "label": "B220 x D120 x H79",
+      "prijs": 1259
+    },
+    {
+      "label": "B240 x D120 x H78",
+      "prijs": 1379
+    },
+    {
+      "label": "B260 x D120 x H78",
+      "prijs": 1489
+    },
+    {
+      "label": "B280 x D130 x H78",
+      "prijs": 1599
+    },
+    {
+      "label": "B300 x D130 x H78",
+      "prijs": 1749
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 74,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4980/teak-eettafels/eettafel-matrix"
+}

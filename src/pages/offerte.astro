@@ -1,0 +1,197 @@
+---
+// Offerteaanvraag: de lijst die de bezoeker op productpagina's samenstelde, plus contactgegevens.
+// Versturen gaat via Web3Forms (sleutel in het beheer, Instellingen). Zonder sleutel opent het mailprogramma met
+// hetzelfde bericht, zodat een aanvraag nooit verloren gaat.
+import Base from '../layouts/Base.astro';
+import Kop from '../components/Kop.astro';
+import Voet from '../components/Voet.astro';
+import Icoon from '../components/Icoon.astro';
+import { site, url } from '../data/site';
+const cfg = { key: site.web3formsKey, mail: site.mail, wa: site.wa, collectie: url('collectie/') };
+---
+<Base title="Je offerteaanvraag | Teakhuis" description="Stel je offerteaanvraag samen en verstuur hem vrijblijvend naar Teakhuis." noindex>
+  <Kop />
+  <main id="inhoud" class="pb-24 md:pb-32">
+    <section class="wrap pt-10 md:pt-16">
+      <p class="label text-blad-diep">Vrijblijvend</p>
+      <h1 class="mt-3 text-4xl">Je offerteaanvraag</h1>
+      <p class="mt-4 max-w-xl text-lg text-grijs">Controleer je keuzes en laat weten hoe we je kunnen bereiken. Je krijgt een offerte met tekening en prijs. Pas daarna beslis je.</p>
+    </section>
+
+    <div class="wrap mt-10 grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-14">
+      <!-- De lijst -->
+      <section class="lg:col-span-7" aria-labelledby="lijst-kop">
+        <div class="flex items-baseline justify-between gap-4 border-b border-lijn-2 pb-4">
+          <h2 id="lijst-kop" class="font-kop text-2xl">Meubels <span class="num text-grijs" data-n></span></h2>
+          <a href={url('collectie/')} class="link text-sm font-bold">Meer toevoegen</a>
+        </div>
+        <ul class="min-h-[9rem]" data-lijst aria-live="polite"></ul>
+        <div class="py-10" data-leeg hidden>
+          <p class="font-kop text-2xl">Je aanvraag is nog leeg.</p>
+          <p class="mt-3 max-w-md text-grijs">Kies in de collectie een meubel en zet het met je maat en kleur in je aanvraag. Of beschrijf hiernaast wat je zoekt, dan tekenen we het voor je.</p>
+          <a href={url('collectie/')} class="knop knop-inkt mt-6">Naar de collectie<Icoon naam="pijl" /></a>
+        </div>
+      </section>
+
+      <!-- Gegevens en versturen -->
+      <section class="lg:col-span-5" aria-labelledby="gegevens-kop">
+        <form class="rounded-md bg-wit p-5 sm:p-8 lg:sticky lg:top-28" data-aanvraag novalidate>
+          <h2 id="gegevens-kop" class="font-kop text-2xl">Je gegevens</h2>
+          <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <label class="block sm:col-span-2"><span class="text-sm font-bold">Naam</span><input name="naam" autocomplete="name" required class="veld mt-1.5" /></label>
+            <label class="block"><span class="text-sm font-bold">E-mail</span><input name="email" type="email" autocomplete="email" required class="veld mt-1.5" /></label>
+            <label class="block"><span class="text-sm font-bold">Telefoon <span class="font-medium text-grijs">(handig)</span></span><input name="telefoon" type="tel" autocomplete="tel" class="veld mt-1.5" /></label>
+            <label class="block"><span class="text-sm font-bold">Postcode</span><input name="postcode" autocomplete="postal-code" maxlength="7" class="veld mt-1.5 uppercase" /></label>
+            <label class="block"><span class="text-sm font-bold">Plaats</span><input name="plaats" autocomplete="address-level2" class="veld mt-1.5" /></label>
+            <label class="block sm:col-span-2"><span class="text-sm font-bold">Vragen of wensen <span class="font-medium text-grijs">(mag leeg)</span></span><textarea name="bericht" maxlength="2000" class="veld mt-1.5" placeholder="Bijvoorbeeld: ik zoek een tv-meubel van 210 cm breed in thee kleur"></textarea></label>
+            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          </div>
+          <p class="mt-4 hidden text-sm font-bold text-[#a3301f]" role="alert" data-fout></p>
+          <button type="submit" class="knop knop-blad mt-6 w-full" data-verstuur>Offerte aanvragen<Icoon naam="pijl" /></button>
+          <a href={site.wa} class="knop knop-rand mt-3 w-full" data-wa><Icoon naam="wa" />Of stuur via WhatsApp</a>
+          <p class="mt-4 text-xs text-grijs">We gebruiken je gegevens alleen voor deze aanvraag. Lees de <a href={url('privacy/')} class="underline underline-offset-2">privacyverklaring</a>.</p>
+        </form>
+
+        <div class="rounded-md bg-wit p-6 sm:p-8" data-bedankt hidden tabindex="-1">
+          <Icoon naam="vink" class="h-9 w-9 text-blad-diep" />
+          <h2 class="mt-4 font-kop text-3xl">Bedankt, je aanvraag is verstuurd.</h2>
+          <p class="mt-3 text-grijs">We nemen contact met je op. Liever eerst even overleggen? Bel of app <a href={site.telHref} class="num font-bold text-inkt underline underline-offset-2">{site.tel}</a>.</p>
+          <a href={url('collectie/')} class="knop knop-rand mt-6">Verder kijken</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Voet />
+
+  <template id="regel-sjabloon">
+    <li class="grid grid-cols-[4.5rem_1fr] gap-x-4 gap-y-3 border-b border-lijn py-5 sm:grid-cols-[6rem_1fr_auto]">
+      <a class="block aspect-square overflow-hidden rounded-sm bg-wit" data-r-link><img alt="" class="h-full w-full object-contain p-1.5" data-r-foto /></a>
+      <div class="min-w-0">
+        <a class="font-bold leading-snug text-inkt no-underline hover:text-blad-diep" data-r-titel></a>
+        <dl class="mt-1.5 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-sm text-grijs" data-r-details></dl>
+      </div>
+      <div class="col-start-2 flex items-center gap-3 sm:col-start-3 sm:row-start-1 sm:flex-col sm:items-end sm:justify-between">
+        <div class="flex h-10 items-center rounded-sm border border-lijn-2 bg-wit" role="group" aria-label="Aantal">
+          <button type="button" class="grid h-full w-9 place-items-center hover:text-blad-diep" aria-label="Eén minder" data-r-min>−</button>
+          <span class="num w-7 text-center text-sm font-bold" data-r-aantal></span>
+          <button type="button" class="grid h-full w-9 place-items-center hover:text-blad-diep" aria-label="Eén meer" data-r-plus>+</button>
+        </div>
+        <button type="button" class="text-sm font-semibold text-grijs underline underline-offset-2 hover:text-inkt" data-r-weg>Verwijderen</button>
+      </div>
+    </li>
+  </template>
+
+  <script type="application/json" id="aanvraag-cfg" set:html={JSON.stringify(cfg)} />
+  <script>
+    import { lijst, wijzig, verwijder, leeg, opWijziging, regelTekst } from '../scripts/offerte';
+
+    const cfg = JSON.parse(document.getElementById('aanvraag-cfg')!.textContent!) as { key: string; mail: string; wa: string; collectie: string };
+    const ul = document.querySelector<HTMLUListElement>('[data-lijst]')!;
+    const leegBlok = document.querySelector<HTMLElement>('[data-leeg]')!;
+    const nEl = document.querySelector<HTMLElement>('[data-n]')!;
+    const sjabloon = document.querySelector<HTMLTemplateElement>('#regel-sjabloon')!;
+    const form = document.querySelector<HTMLFormElement>('[data-aanvraag]')!;
+    const fout = form.querySelector<HTMLElement>('[data-fout]')!;
+    const knop = form.querySelector<HTMLButtonElement>('[data-verstuur]')!;
+    const wa = form.querySelector<HTMLAnchorElement>('[data-wa]')!;
+    const bedankt = document.querySelector<HTMLElement>('[data-bedankt]')!;
+
+    const toon = () => {
+      const l = lijst();
+      ul.replaceChildren();
+      leegBlok.hidden = l.length > 0;
+      nEl.textContent = l.length ? `(${l.reduce((n, r) => n + r.aantal, 0)})` : '';
+      for (const r of l) {
+        const li = sjabloon.content.firstElementChild!.cloneNode(true) as HTMLLIElement;
+        const a = li.querySelector<HTMLAnchorElement>('[data-r-link]')!;
+        const t = li.querySelector<HTMLAnchorElement>('[data-r-titel]')!;
+        a.href = t.href = r.href;
+        a.setAttribute('aria-label', r.titel);
+        const img = li.querySelector<HTMLImageElement>('[data-r-foto]')!;
+        if (r.foto) img.src = r.foto; else img.remove();
+        t.textContent = r.titel;
+        const dl = li.querySelector('[data-r-details]')!;
+        const rij = (k: string, v?: string) => { if (!v) return; const dt = document.createElement('dt'); dt.textContent = k; const dd = document.createElement('dd'); dd.textContent = v; dd.className = 'text-inkt'; dl.append(dt, dd); };
+        rij('Maat', r.eigenMaat ? `${r.eigenMaat} (eigen maat)` : r.maat);
+        rij('Kleur', r.kleur);
+        rij('Extra', r.extra?.join(', '));
+        rij('Wens', r.opmerking);
+        rij('Indicatie', r.indicatie);
+        li.querySelector('[data-r-aantal]')!.textContent = String(r.aantal);
+        li.querySelector('[data-r-min]')!.addEventListener('click', () => (r.aantal > 1 ? wijzig(r.id, { aantal: r.aantal - 1 }) : verwijder(r.id)));
+        li.querySelector('[data-r-plus]')!.addEventListener('click', () => wijzig(r.id, { aantal: Math.min(99, r.aantal + 1) }));
+        li.querySelector('[data-r-weg]')!.addEventListener('click', () => verwijder(r.id));
+        ul.append(li);
+      }
+      zetWa();
+    };
+
+    const berichtTekst = () => {
+      const f = new FormData(form);
+      const l = lijst();
+      const delen = [
+        l.length ? `Graag een offerte voor:\n\n${l.map((r, i) => regelTekst(r, i)).join('\n\n')}` : 'Graag een offerte.',
+        String(f.get('bericht') ?? '').trim() ? `\nVragen of wensen:\n${String(f.get('bericht')).trim()}` : '',
+        `\nNaam: ${f.get('naam') || ''}\nE-mail: ${f.get('email') || ''}\nTelefoon: ${f.get('telefoon') || ''}\nPostcode en plaats: ${[f.get('postcode'), f.get('plaats')].filter(Boolean).join(' ')}`,
+      ];
+      return delen.filter(Boolean).join('\n');
+    };
+    const zetWa = () => { wa.href = `${cfg.wa}?text=${encodeURIComponent(`Hallo Teakhuis, ${berichtTekst().replace(/^Graag/, 'graag')}`)}`; };
+    form.addEventListener('input', () => { fout.classList.add('hidden'); form.querySelectorAll('[aria-invalid]').forEach((v) => v.removeAttribute('aria-invalid')); zetWa(); });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const f = new FormData(form);
+      const naam = form.querySelector<HTMLInputElement>('[name="naam"]')!;
+      const email = form.querySelector<HTMLInputElement>('[name="email"]')!;
+      const fouten: string[] = [];
+      if (!String(f.get('naam')).trim()) { naam.setAttribute('aria-invalid', 'true'); fouten.push('je naam'); }
+      if (!/^\S+@\S+\.\S+$/.test(String(f.get('email')).trim())) { email.setAttribute('aria-invalid', 'true'); fouten.push('een geldig e-mailadres'); }
+      if (!lijst().length && !String(f.get('bericht')).trim()) fouten.push('een meubel of je wensen');
+      if (fouten.length) {
+        fout.textContent = `Vul nog ${fouten.join(' en ')} in.`;
+        fout.classList.remove('hidden');
+        (form.querySelector('[aria-invalid="true"]') as HTMLElement | null)?.focus();
+        return;
+      }
+      if (f.get('botcheck')) return;
+      const onderwerp = `Offerteaanvraag van ${String(f.get('naam')).trim()}`;
+      const tekst = berichtTekst();
+
+      // Geen formuliersleutel ingesteld: het mailprogramma neemt het over.
+      if (!cfg.key) {
+        location.href = `mailto:${cfg.mail}?subject=${encodeURIComponent(onderwerp)}&body=${encodeURIComponent(tekst)}`;
+        return;
+      }
+      knop.disabled = true;
+      knop.textContent = 'Bezig met versturen...';
+      try {
+        const r = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ access_key: cfg.key, subject: onderwerp, from_name: 'Website Teakhuis', name: f.get('naam'), email: f.get('email'), replyto: f.get('email'), phone: f.get('telefoon'), message: tekst, botcheck: '' }),
+        });
+        const j = await r.json();
+        if (!j.success) throw new Error(j.message);
+        leeg();
+        form.hidden = true;
+        bedankt.hidden = false;
+        bedankt.focus();
+      } catch {
+        fout.innerHTML = '';
+        fout.append('Versturen lukte niet. Probeer het nog eens, of ');
+        const m = document.createElement('a');
+        m.href = `mailto:${cfg.mail}?subject=${encodeURIComponent(onderwerp)}&body=${encodeURIComponent(tekst)}`;
+        m.className = 'underline';
+        m.textContent = 'stuur hem per mail';
+        fout.append(m, '.');
+        fout.classList.remove('hidden');
+        knop.disabled = false;
+        knop.textContent = 'Offerte aanvragen';
+      }
+    });
+
+    opWijziging(toon);
+    toon();
+  </script>
+</Base>

@@ -1,0 +1,31 @@
+{
+  "titel": "geslotenkast Le Matin",
+  "categorie": "geslotenkasten",
+  "prijsVanaf": 1399,
+  "prijsTonen": true,
+  "omschrijving": "Mooie super afgewerkte moderne teakkast. Met dempers op de deuren en gemaakt van 1e kwaliteit teakhout.",
+  "fotos": [
+    "../../assets/producten/3275/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "afm. 210x110x45cm",
+      "prijs": 1399
+    },
+    {
+      "label": "afm. 210x120x45cm",
+      "prijs": 1459
+    },
+    {
+      "label": "afm. 210x140x45cm",
+      "prijs": 1559
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 474,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/189/3275/geslotenkasten/geslotenkast-le-matin"
+}

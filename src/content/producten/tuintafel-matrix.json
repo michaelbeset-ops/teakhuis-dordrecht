@@ -1,0 +1,30 @@
+{
+  "titel": "Tuintafel Matrix",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 849,
+  "prijsTonen": true,
+  "omschrijving": "Stevige tuintafel met massief teakhouten spinpoot en 4 cm top\n\nIedere afmeting is mogelijk, ook leverbaar met stalen (mat zwarte) matrix poot\n\nMaatwerk is mogelijk!\n\nLevertijd ca. 3 maanden",
+  "fotos": [
+    "../../assets/producten/32760/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "Diameter 120 x H76",
+      "prijs": 849
+    },
+    {
+      "label": "Diameter 150 x H76",
+      "prijs": 949
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Gerecycled teak glad",
+    "Gerecycled teak geborsteld"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 323,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/32760/tuinmeubelen/tuintafel-matrix"
+}

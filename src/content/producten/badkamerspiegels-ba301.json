@@ -1,0 +1,42 @@
+{
+  "titel": "badkamerspiegels BA301",
+  "categorie": "badkamer-spiegels",
+  "prijsVanaf": 219,
+  "prijsTonen": true,
+  "omschrijving": "Mooi afgwerkte spiegel voor de badkamer. Wordt geleverd met losse lichtkoof en los planchet, zonder de verlichting.\nLeverbaar in iedere gewenste afmeting.",
+  "fotos": [
+    "../../assets/producten/2956/1.jpg",
+    "../../assets/producten/2956/2.jpg",
+    "../../assets/producten/2956/3.jpg"
+  ],
+  "maten": [
+    {
+      "label": "h=70cm br=70cm d=13cm"
+    },
+    {
+      "label": "h=80cm br=80cm d=13cm"
+    },
+    {
+      "label": "h=90cm br=70cm d=13cm"
+    },
+    {
+      "label": "h=90 cm br=90cm d=13cm"
+    },
+    {
+      "label": "h=70cm br=112cm d=13cm"
+    },
+    {
+      "label": "h=70cm br=120cm d=13cm"
+    },
+    {
+      "label": "h=70cm br=150cm d=13cm"
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 311,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/205/2956/badkamer-spiegels/badkamerspiegels-ba301"
+}

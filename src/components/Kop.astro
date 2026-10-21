@@ -1,50 +1,157 @@
 ---
 import { url, waHoi, site } from '../data/site';
+import { groepen, categorieHref } from '../data/catalogus';
 import Icoon from './Icoon.astro';
 import Merk from './Merk.astro';
-interface Props { thuis?: boolean }
-const { thuis = true } = Astro.props;
-const h = (id: string) => (thuis ? `#${id}` : url(`#${id}`));
-// Collectie is een eigen pagina; de rest zijn secties op de homepage.
-const nav = [[url('collectie/'), 'Collectie'], [h('maatwerk'), 'Maatwerk'], [h('aanvragen'), 'Aanvragen'], [h('teakhuis'), 'Over Teakhuis'], [h('contact'), 'Contact']];
+
+const pad = Astro.url.pathname;
+const actief = (p: string) => pad.startsWith(url(p));
+const nav: [string, string][] = [[url('maatwerk/'), 'Maatwerk'], [url('over-ons/'), 'Over ons'], [url('contact/'), 'Contact']];
 ---
-<header class="relative z-40 border-b border-lijn bg-wit">
-  <div class="wrap flex h-20 items-center justify-between gap-6 md:h-24">
-    <Merk />
-    <nav aria-label="Hoofdmenu" class="hidden lg:block">
-      <ul class="flex gap-8 text-[.9375rem] font-bold">
-        {nav.map(([href, t]) => <li><a href={href} class="text-inkt no-underline transition-colors duration-200 hover:text-blad-diep">{t}</a></li>)}
-      </ul>
-    </nav>
-    <div class="flex items-center gap-5">
-      <a href={site.telHref} class="num hidden text-[.9375rem] font-bold text-inkt no-underline transition-colors hover:text-blad-diep xl:block">{site.tel}</a>
-      <a href={site.shop} class="knop knop-rand hidden min-h-11 px-4 md:inline-flex">Webshop</a>
-      <a href={waHoi} class="knop knop-blad hidden min-h-11 px-4 md:inline-flex"><Icoon naam="wa" />WhatsApp</a>
+<!-- Bovenbalk: de drie beloftes van Teakhuis en het nummer -->
+<div class="bg-nacht text-as">
+  <div class="wrap flex h-10 items-center justify-between gap-6 text-xs font-semibold">
+    <ul class="flex min-w-0 items-center gap-x-8 overflow-hidden">
+      {site.usps.map((u, i) => (
+        <li class={`flex flex-none items-center gap-2 ${i ? 'max-md:hidden' : ''}`}><Icoon naam="vink" class="h-3.5 w-3.5 text-blad-licht" />{u}</li>
+      ))}
+    </ul>
+    <a href={site.telHref} class="num flex flex-none items-center gap-2 text-wit no-underline hover:text-blad-licht max-sm:hidden"><Icoon naam="tel" class="h-3.5 w-3.5" />{site.tel}</a>
+  </div>
+</div>
+
+<header class="sticky top-0 z-40 border-b border-lijn bg-papier/95 backdrop-blur-sm supports-[backdrop-filter]:bg-papier/85" data-kop>
+  <div class="wrap flex h-[4.5rem] items-center justify-between gap-4 md:h-20">
+    <div class="flex items-center gap-10 xl:gap-14">
+      <Merk />
+      <nav aria-label="Hoofdmenu" class="hidden lg:block">
+        <ul class="flex items-center gap-8 text-[.9375rem] font-bold">
+          <li class="relative" data-mega-li>
+            <button type="button" class={`flex items-center gap-1.5 py-6 transition-colors hover:text-blad-diep ${actief('collectie') || actief('product') ? 'text-blad-diep' : ''}`} aria-expanded="false" aria-controls="mega" data-mega-knop>
+              Collectie
+              <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+            </button>
+          </li>
+          {nav.map(([href, t]) => <li><a href={href} class={`no-underline transition-colors duration-200 hover:text-blad-diep ${actief(href.replace(url(''), '')) ? 'text-blad-diep' : 'text-inkt'}`} aria-current={actief(href.replace(url(''), '')) ? 'page' : undefined}>{t}</a></li>)}
+        </ul>
+      </nav>
+    </div>
+    <div class="flex items-center gap-1 sm:gap-2">
+      <a href={url('collectie/#zoeken')} class="grid h-11 w-11 place-items-center rounded-full text-inkt transition-colors hover:bg-zand" aria-label="Zoeken in de collectie">
+        <svg viewBox="0 0 24 24" class="h-[1.35rem] w-[1.35rem]" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
+      </a>
+      <a href={url('offerte/')} class="relative flex h-11 items-center gap-2 rounded-full px-3 font-bold text-inkt no-underline transition-colors hover:bg-zand sm:px-3.5" data-offerte-link>
+        <Icoon naam="lijst" class="h-[1.35rem] w-[1.35rem]" />
+        <span class="text-[.9375rem] max-sm:sr-only">Offerte</span>
+        <span class="num absolute right-0.5 top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-blad px-1 text-[.7rem] font-extrabold text-inkt sm:static sm:h-6 sm:min-w-6 sm:text-xs" data-offerte-teller hidden>0</span>
+        <span class="sr-only" data-offerte-sr></span>
+      </a>
+      <a href={waHoi} class="knop knop-blad ml-2 hidden min-h-11 px-4 xl:inline-flex"><Icoon naam="wa" />WhatsApp</a>
       <button type="button" class="grid h-11 w-11 place-items-center text-inkt lg:hidden" aria-expanded="false" aria-controls="menu-nav" data-menu-knop>
         <span class="sr-only">Menu</span>
-        <svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16" /></svg>
+        <svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16" data-open /></svg>
       </button>
     </div>
   </div>
-  <nav id="menu-nav" aria-label="Menu" class="absolute inset-x-0 top-full hidden border-b border-lijn bg-wit lg:hidden" data-menu>
-    <ul class="wrap pb-8 pt-2">
-      {nav.map(([href, t]) => <li><a href={href} class="block border-b border-lijn py-4 font-kop text-2xl font-bold text-inkt no-underline">{t}</a></li>)}
-      <li><a href={site.shop} class="block border-b border-lijn py-4 font-kop text-2xl font-bold text-blad-diep no-underline">Naar de webshop</a></li>
-      <li class="pt-6"><a href={site.telHref} class="num font-bold text-grijs no-underline">{site.tel}</a></li>
-    </ul>
+
+  <!-- Megamenu (desktop): alle hoofdcategorieen met hun soorten -->
+  <div id="mega" class="absolute inset-x-0 top-full hidden border-b border-lijn bg-papier shadow-[0_24px_40px_-24px_#1e1b1633] lg:block" hidden data-mega>
+    <div class="wrap grid grid-cols-12 gap-x-10 py-10">
+      <div class="col-span-9 grid grid-cols-4 gap-x-8 gap-y-8">
+        {groepen.map((g) => (
+          <div>
+            <a href={categorieHref(g.hoofd)} class="font-kop text-xl font-medium text-inkt no-underline hover:text-blad-diep">{g.hoofd.naam}</a>
+            {g.subs.length > 0 && (
+              <ul class="mt-2 space-y-1 text-sm">
+                {g.subs.slice(0, 7).map((s) => <li><a href={categorieHref(s.cat)} class="text-grijs no-underline hover:text-inkt">{s.cat.naam}</a></li>)}
+                {g.subs.length > 7 && <li><a href={categorieHref(g.hoofd)} class="font-bold text-blad-diep no-underline hover:underline">Alles bekijken</a></li>}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+      <div class="col-span-3 border-l border-lijn pl-10">
+        <p class="label text-blad-diep">Op maat</p>
+        <p class="mt-3 font-kop text-2xl leading-tight">Staat het er niet tussen? Wij tekenen het voor je.</p>
+        <a href={url('maatwerk/')} class="link mt-4 inline-block text-sm font-bold">Over maatwerk</a>
+        <a href={url('collectie/')} class="knop knop-inkt mt-8 w-full">Hele collectie<Icoon naam="pijl" /></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu (mobiel en tablet) -->
+  <nav id="menu-nav" aria-label="Menu" class="absolute inset-x-0 top-full max-h-[calc(100dvh-7rem)] overflow-y-auto border-b border-lijn bg-papier lg:hidden" hidden data-menu>
+    <div class="wrap pb-10 pt-2">
+      <details class="group border-b border-lijn" open>
+        <summary class="flex cursor-pointer list-none items-center justify-between py-4 font-kop text-2xl">
+          Collectie
+          <svg viewBox="0 0 24 24" class="h-5 w-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+        </summary>
+        <ul class="grid grid-cols-2 gap-x-4 gap-y-1 pb-5">
+          {groepen.map((g) => <li><a href={categorieHref(g.hoofd)} class="block py-1.5 font-semibold text-inkt no-underline">{g.hoofd.naam}</a></li>)}
+          <li class="col-span-2 pt-2"><a href={url('collectie/')} class="link text-sm font-bold">Hele collectie bekijken</a></li>
+        </ul>
+      </details>
+      <ul>
+        {nav.map(([href, t]) => <li><a href={href} class="block border-b border-lijn py-4 font-kop text-2xl text-inkt no-underline">{t}</a></li>)}
+        <li><a href={url('offerte/')} class="block border-b border-lijn py-4 font-kop text-2xl text-inkt no-underline">Mijn offerte</a></li>
+      </ul>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href={waHoi} class="knop knop-blad"><Icoon naam="wa" />WhatsApp</a>
+        <a href={site.telHref} class="knop knop-rand"><Icoon naam="tel" /><span class="num">{site.tel}</span></a>
+      </div>
+    </div>
   </nav>
 </header>
 
-<div class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-lijn bg-wit md:hidden">
+<!-- Onderbalk op mobiel: bellen en appen altijd binnen bereik -->
+<div class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-lijn bg-papier md:hidden">
   <a href={site.telHref} class="flex min-h-14 items-center justify-center gap-2.5 text-[.9375rem] font-bold text-inkt no-underline"><Icoon naam="tel" class="h-5 w-5 text-blad-diep" />Bellen</a>
   <a href={waHoi} class="flex min-h-14 items-center justify-center gap-2.5 bg-blad text-[.9375rem] font-bold text-inkt no-underline"><Icoon naam="wa" class="h-5 w-5" />WhatsApp</a>
 </div>
 
 <script>
+  import { aantal, opWijziging } from '../scripts/offerte';
+
+  // Teller in de offerte-knop, ook bijgewerkt als je in een ander tabblad iets toevoegt.
+  const teller = document.querySelector<HTMLElement>('[data-offerte-teller]');
+  const sr = document.querySelector<HTMLElement>('[data-offerte-sr]');
+  const zet = () => {
+    const n = aantal();
+    if (teller) { teller.textContent = String(n); teller.hidden = n === 0; }
+    if (sr) sr.textContent = n ? `, ${n} ${n === 1 ? 'product' : 'producten'}` : '';
+  };
+  zet();
+  opWijziging(zet);
+
+  // Mobiel menu
   const k = document.querySelector<HTMLButtonElement>('[data-menu-knop]');
   const m = document.querySelector<HTMLElement>('[data-menu]');
   if (k && m) {
-    k.addEventListener('click', () => { const o = k.getAttribute('aria-expanded') !== 'true'; k.setAttribute('aria-expanded', String(o)); m.classList.toggle('hidden', !o); });
-    m.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { k.setAttribute('aria-expanded', 'false'); m.classList.add('hidden'); }));
+    const zetMenu = (o: boolean) => { k.setAttribute('aria-expanded', String(o)); m.hidden = !o; document.body.style.overflow = o ? 'hidden' : ''; };
+    k.addEventListener('click', () => zetMenu(k.getAttribute('aria-expanded') !== 'true'));
+    m.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => zetMenu(false)));
+    addEventListener('keydown', (e) => { if (e.key === 'Escape' && !m.hidden) { zetMenu(false); k.focus(); } });
+  }
+
+  // Megamenu: opent bij hover (met korte vertraging) en bij klik/Enter; Escape of klik erbuiten sluit.
+  const knop = document.querySelector<HTMLButtonElement>('[data-mega-knop]');
+  const mega = document.querySelector<HTMLElement>('[data-mega]');
+  const li = document.querySelector<HTMLElement>('[data-mega-li]');
+  if (knop && mega && li) {
+    let t: number | undefined;
+    const open = (o: boolean) => {
+      knop.setAttribute('aria-expanded', String(o));
+      mega.hidden = !o;
+      knop.querySelector('svg')!.style.transform = o ? 'rotate(180deg)' : '';
+    };
+    knop.addEventListener('click', () => open(mega.hidden));
+    const fijn = matchMedia('(hover: hover)');
+    [li, mega].forEach((el) => {
+      el.addEventListener('mouseenter', () => { if (!fijn.matches) return; clearTimeout(t); t = window.setTimeout(() => open(true), 80); });
+      el.addEventListener('mouseleave', () => { if (!fijn.matches) return; clearTimeout(t); t = window.setTimeout(() => open(false), 220); });
+    });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape' && !mega.hidden) { open(false); knop.focus(); } });
+    document.addEventListener('click', (e) => { if (!mega.hidden && !mega.contains(e.target as Node) && !knop.contains(e.target as Node)) open(false); });
   }
 </script>

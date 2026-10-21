@@ -1,0 +1,43 @@
+{
+  "titel": "Teakbank model Klooster",
+  "categorie": "banken-teak",
+  "prijsVanaf": 339,
+  "prijsTonen": true,
+  "omschrijving": "Leuke teakbank te leveren in de kleuren: koloniaal, thee of blank teakhout. In de gladde of robuuste uitvoering.\n\nElke andere maat ook te leveren zonder meerprijs!",
+  "fotos": [
+    "../../assets/producten/1478/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "120x40cm h=45cm",
+      "prijs": 339
+    },
+    {
+      "label": "140x40cm h=45cm",
+      "prijs": 369
+    },
+    {
+      "label": "160x40cm h=45cm",
+      "prijs": 419
+    },
+    {
+      "label": "180x40cm h=45cm",
+      "prijs": 469
+    },
+    {
+      "label": "200x40cm h=45cm",
+      "prijs": 549
+    },
+    {
+      "label": "220x40cm h=45cm",
+      "prijs": 629
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 263,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/177/1478/banken-teak/teakbank-model-klooster"
+}

@@ -1,0 +1,27 @@
+{
+  "titel": "tv kast/dressoir 3 Brindisi",
+  "categorie": "dressoirs",
+  "prijsVanaf": 819,
+  "prijsTonen": true,
+  "omschrijving": "Dit dressoir is te leveren in de kleur: koloniaal, thee en blank teakhout. Kan in elke maat geleverd worden.",
+  "fotos": [
+    "../../assets/producten/2592/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "br=124cm h=120cm d=40cm",
+      "prijs": 949
+    },
+    {
+      "label": "br=124cm h=90cm d=40cm (3 laden)",
+      "prijs": 819
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 120,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/246/2592/dressoirs/tv-kast-dressoir-3-brindisi"
+}

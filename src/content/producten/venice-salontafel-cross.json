@@ -1,0 +1,55 @@
+{
+  "titel": "Venice salontafel Cross",
+  "categorie": "teak-salontafels",
+  "prijsVanaf": 219,
+  "prijsTonen": true,
+  "omschrijving": "Handgeschilderd witte salontafel met ruwe gerecycled teakhouten top. Ook mogelijk met glad afgewerkte top in lichte kleur teak.",
+  "fotos": [
+    "../../assets/producten/4357/1.png"
+  ],
+  "maten": [
+    {
+      "label": "50 x 50 x 45",
+      "prijs": 219
+    },
+    {
+      "label": "60 x 60 x 45",
+      "prijs": 239
+    },
+    {
+      "label": "70 x 70 x 45",
+      "prijs": 309
+    },
+    {
+      "label": "80 x 80 x 45",
+      "prijs": 379
+    },
+    {
+      "label": "100 x 60 x 45",
+      "prijs": 379
+    },
+    {
+      "label": "120 x 70 x 45",
+      "prijs": 479
+    },
+    {
+      "label": "90 x 90 x 45",
+      "prijs": 479
+    },
+    {
+      "label": "100 x 100 x 45",
+      "prijs": 599
+    },
+    {
+      "label": "140 x 80 x 45",
+      "prijs": 619
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 341,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/4357/teak-salontafels/venice-salontafel-cross"
+}

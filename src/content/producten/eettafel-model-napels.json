@@ -1,0 +1,88 @@
+{
+  "titel": "eettafel model Napels",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 395,
+  "prijsTonen": true,
+  "omschrijving": "eettafel gecombineerd met hoge kwaliteit RVS onderstel. Geleefd afgewerkt, ruw geborsteld en daarna in een white wash ingewassen. Op elke maat te leveren. In de kleuren: white wash, koloniaal, thee kleur of blank teakhout.",
+  "fotos": [
+    "../../assets/producten/176/1.jpg",
+    "../../assets/producten/176/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "70x70cm h=78cm",
+      "prijs": 395
+    },
+    {
+      "label": "80x80cm h=78cm",
+      "prijs": 489
+    },
+    {
+      "label": "90x90cm h=78cm",
+      "prijs": 539
+    },
+    {
+      "label": "120x120cm h=78cm",
+      "prijs": 939
+    },
+    {
+      "label": "140x140cm h=78cm",
+      "prijs": 1029
+    },
+    {
+      "label": "120x80cm h=78cm",
+      "prijs": 669
+    },
+    {
+      "label": "130x80cm h=78cm",
+      "prijs": 749
+    },
+    {
+      "label": "140x90cm h=78cm",
+      "prijs": 809
+    },
+    {
+      "label": "150x90cm h=78cm",
+      "prijs": 859
+    },
+    {
+      "label": "160x90cm h=78cm",
+      "prijs": 879
+    },
+    {
+      "label": "180x90/95/100cm h=78cm",
+      "prijs": 969
+    },
+    {
+      "label": "200x90/95/100cm h=78cm",
+      "prijs": 999
+    },
+    {
+      "label": "220x90/95/100cm h=78cm",
+      "prijs": 1099
+    },
+    {
+      "label": "240x90/95/100cm h=78cm",
+      "prijs": 1259
+    },
+    {
+      "label": "260x90/95/100cm h=78cm",
+      "prijs": 1359
+    },
+    {
+      "label": "280x90/95/100cm h=78cm",
+      "prijs": 1485
+    },
+    {
+      "label": "300x90/95/100cm h=78cm",
+      "prijs": 1609
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 353,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/176/teak-eettafels/eettafel-model-napels"
+}

@@ -1,18 +1,19 @@
 ---
-// Catalogusregel: foto op papier, naam, "v.a."-prijs zoals in hun eigen overzichten.
+// Catalogusregel: foto op wit, naam, "v.a."-prijs of "prijs op aanvraag", en of het ook op maat kan.
 import { Image } from 'astro:assets';
-import { type Product, eersteFoto, breedtes, productHref, euro, vanaf } from '../data/catalogus';
+import { type Product, eersteFoto, breedtes, productHref, prijsTekst, fotoKlas } from '../data/catalogus';
 import GeenFoto from './GeenFoto.astro';
-interface Props { p: Product; lazy?: boolean }
-const { p, lazy = true } = Astro.props;
+interface Props { p: Product; lazy?: boolean; kop?: 'h2' | 'h3' }
+const { p, lazy = true, kop: Kop = 'h3' } = Astro.props;
 const foto = eersteFoto(p);
 ---
-<a href={productHref(p)} class="product">
-  <div class="beeld aspect-[4/3]">
+<a href={productHref(p)} class="product group">
+  <div class="beeld relative aspect-square">
     {foto
-      ? <Image src={foto} alt={p.titel} quality={70} widths={breedtes(foto, [240, 360, 480])} sizes="(min-width: 1280px) 290px, (min-width: 1024px) 23vw, (min-width: 640px) 31vw, 46vw" loading={lazy ? 'lazy' : 'eager'} class="h-full w-full object-contain p-2 mix-blend-multiply" />
+      ? <Image src={foto} alt={p.titel} quality={70} widths={breedtes(foto, [240, 360, 480, 640])} sizes="(min-width: 1280px) 300px, (min-width: 1024px) 23vw, (min-width: 640px) 31vw, 46vw" loading={lazy ? 'lazy' : 'eager'} class={`h-full w-full ${fotoKlas(foto)}`} />
       : <GeenFoto naam={p.titel} />}
+    {p.maatwerk && <span class="absolute left-2 top-2 rounded-sm bg-papier/90 px-2 py-0.5 text-[.7rem] font-bold text-inkt sm:left-3 sm:top-3">Ook op maat</span>}
   </div>
-  <h3 class="naam mt-3 text-base leading-snug md:text-lg">{p.titel}</h3>
-  <p class="num mt-1.5 text-sm font-bold">v.a. {euro(vanaf(p))}</p>
+  <Kop class="naam mt-3 font-sans text-[.95rem] font-bold leading-snug tracking-normal sm:text-base">{p.titel}</Kop>
+  <p class="num mt-1 text-sm text-grijs">{prijsTekst(p)}</p>
 </a>

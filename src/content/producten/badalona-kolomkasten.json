@@ -1,0 +1,46 @@
+{
+  "titel": "Badalona Kolomkasten",
+  "categorie": "wastafelmeubels",
+  "prijsVanaf": 729,
+  "prijsTonen": true,
+  "omschrijving": "Mooi afgewerkte kolomkast passend bij de wastafelmeubels met soft close deuren.\n(Zonder rotan mand)\n\nMaatwerk mogelijk",
+  "fotos": [
+    "../../assets/producten/2844/1.jpg",
+    "../../assets/producten/2844/2.jpg",
+    "../../assets/producten/2844/3.jpg",
+    "../../assets/producten/2844/4.jpg",
+    "../../assets/producten/2844/5.jpg"
+  ],
+  "maten": [
+    {
+      "label": "H182 x B37 x D37, 2 lades achter de deuren, links"
+    },
+    {
+      "label": "H182 x B37 x D37, 2 lades achter de deuren, rechts",
+      "prijs": 769
+    },
+    {
+      "label": "H182 x B37 x D37, 2 deuren, 2 lades, links",
+      "prijs": 769
+    },
+    {
+      "label": "H182 x B37 x D37, 2 deuren, 2 lades, rechts",
+      "prijs": 769
+    },
+    {
+      "label": "H182 x B37 x D37, 2 deuren met open vak, links",
+      "prijs": 729
+    },
+    {
+      "label": "H182 x B37 x D37, 2 deuren met open vak, rechts",
+      "prijs": 729
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 281,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2844/wastafelmeubels/badalona-kolomkasten"
+}

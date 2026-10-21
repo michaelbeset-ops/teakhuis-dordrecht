@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import Kop from '../components/Kop.astro';
+import Voet from '../components/Voet.astro';
+import Icoon from '../components/Icoon.astro';
+import Kruimel from '../components/Kruimel.astro';
+import { site, url, absoluut, waHoi } from '../data/site';
+import { kruimelSchema } from '../data/seo';
+const contactSchema = { '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Contact Teakhuis', url: absoluut('contact/'), about: { '@id': `${absoluut('')}#organisatie` } };
+---
+<Base title="Contact | Teakhuis" description={`Neem contact op met Teakhuis: bel of app ${site.tel} of mail ${site.mail}. Teakhuis heeft geen showroom meer en levert uitsluitend op bestelling.`} schema={[contactSchema, kruimelSchema([['Contact']], absoluut('contact/'))]}>
+  <Kop />
+  <main id="inhoud" class="pb-24 md:pb-32">
+    <section class="wrap pt-6 md:pt-8">
+      <Kruimel stappen={[['Contact']]} />
+      <div class="mt-10 grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-6">
+          <h1 class="text-hero">Bel, app <span class="cursief">of mail ons.</span></h1>
+          <p class="mt-6 max-w-lg text-lg text-grijs">Vragen over een meubel, een maat of een levering? We denken graag met je mee. Teakhuis heeft geen showroom meer: we werken online, per mail en telefonisch, en leveren uitsluitend op bestelling.</p>
+        </div>
+        <ul class="divide-y divide-lijn-2 border-y border-lijn-2 lg:col-span-5 lg:col-start-8 lg:mt-4">
+          <li>
+            <a href={waHoi} class="group flex items-center gap-5 py-6 no-underline">
+              <span class="grid h-12 w-12 flex-none place-items-center rounded-full bg-blad text-inkt"><Icoon naam="wa" class="h-6 w-6" /></span>
+              <span class="min-w-0 flex-1"><span class="block text-sm text-grijs">WhatsApp, ook voor foto's en schetsen</span><span class="num block font-kop text-2xl group-hover:text-blad-diep">{site.tel}</span></span>
+              <Icoon naam="pijl" class="h-5 w-5 flex-none transition-transform group-hover:translate-x-1" />
+            </a>
+          </li>
+          <li>
+            <a href={site.telHref} class="group flex items-center gap-5 py-6 no-underline">
+              <span class="grid h-12 w-12 flex-none place-items-center rounded-full bg-zand text-inkt"><Icoon naam="tel" class="h-6 w-6" /></span>
+              <span class="min-w-0 flex-1"><span class="block text-sm text-grijs">Bellen</span><span class="num block font-kop text-2xl group-hover:text-blad-diep">{site.tel}</span></span>
+              <Icoon naam="pijl" class="h-5 w-5 flex-none transition-transform group-hover:translate-x-1" />
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${site.mail}`} class="group flex items-center gap-5 py-6 no-underline">
+              <span class="grid h-12 w-12 flex-none place-items-center rounded-full bg-zand text-inkt"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5" /><path d="m4 7 8 6 8-6" /></svg></span>
+              <span class="min-w-0 flex-1"><span class="block text-sm text-grijs">E-mail</span><span class="block break-all font-kop text-2xl group-hover:text-blad-diep">{site.mail}</span></span>
+              <Icoon naam="pijl" class="h-5 w-5 flex-none transition-transform group-hover:translate-x-1" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="wrap mt-20 md:mt-28">
+      <div class="grid grid-cols-1 items-center gap-6 rounded-md bg-nacht p-7 text-wit sm:p-10 md:grid-cols-12 md:p-12">
+        <div class="md:col-span-8">
+          <h2 class="text-3xl">Weet je al wat je wilt?</h2>
+          <p class="mt-3 max-w-xl text-as">Stel je meubel samen met maat en houtkleur en vraag direct een vrijblijvende offerte aan.</p>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row md:col-span-4 md:justify-end">
+          <a href={url('collectie/')} class="knop knop-blad">Naar de collectie</a>
+          <a href={url('maatwerk/')} class="knop knop-wit">Maatwerk</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Voet />
+</Base>
