@@ -1,0 +1,50 @@
+{
+  "titel": "sidetable Milaan",
+  "categorie": "sidetables",
+  "prijsVanaf": 299,
+  "prijsTonen": true,
+  "omschrijving": "Strakke sidetable met poten van 20x10cm ( hol). Kan in de kleuren: koloniaal, thee of blank teakhout. Glad of juist robuust uitgevoerd.",
+  "fotos": [
+    "../../assets/producten/1212/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "100x40cm h=78cm",
+      "prijs": 299
+    },
+    {
+      "label": "120x40cm h=78cm",
+      "prijs": 349
+    },
+    {
+      "label": "140x40cm h=78cm",
+      "prijs": 399
+    },
+    {
+      "label": "160x40cm h=78cm",
+      "prijs": 449
+    },
+    {
+      "label": "180x40cm h=78cm",
+      "prijs": 519
+    },
+    {
+      "label": "200x40cm h=78cm",
+      "prijs": 599
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Blank teak",
+    "Koloniale kleur",
+    "Wit",
+    "Milaan",
+    "Gerecycled teak",
+    "Geborsteld teak"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 91,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/1212/sidetables/sidetable-milaan"
+}

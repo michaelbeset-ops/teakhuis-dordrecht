@@ -1,0 +1,40 @@
+{
+  "titel": "Romantisch hemelbed",
+  "categorie": "teak-bedden",
+  "prijsVanaf": 1899,
+  "prijsTonen": true,
+  "omschrijving": "Schitterend handgemaakt hemelbed\nSuperdegelijk vakwerk\nFantastisch houtsnijwerk (zie detailfoto's)\n\nIn iedere gewenste maat leverbaar\nKoloniaal of blank teak",
+  "fotos": [
+    "../../assets/producten/4061/1.jpg",
+    "../../assets/producten/4061/2.jpg",
+    "../../assets/producten/4061/3.jpg",
+    "../../assets/producten/4061/4.jpg",
+    "../../assets/producten/4061/5.jpg",
+    "../../assets/producten/4061/6.jpg"
+  ],
+  "maten": [
+    {
+      "label": "matrasmaat 140 x 200",
+      "prijs": 1899
+    },
+    {
+      "label": "matrasmaat 160 x 200",
+      "prijs": 1999
+    },
+    {
+      "label": "matrasmaat 180 x 200",
+      "prijs": 2099
+    },
+    {
+      "label": "matrasmaat 200 x 200",
+      "prijs": 2199
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 275,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/182/4061/teak-bedden/romantisch-hemelbed"
+}

@@ -1,0 +1,45 @@
+{
+  "titel": "Eettafel Viking",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 899,
+  "prijsTonen": true,
+  "omschrijving": "Deze prachtige eettafel is een combinatie van oud gerecycled teakhout en staal.\n\nDeze sfeervolle meubels hebben een robuuste en stoere uitstraling.\n\nOok met deze collectie is maatwerk mogelijk!",
+  "fotos": [
+    "../../assets/producten/28682/1.jpg",
+    "../../assets/producten/28682/2.jpg",
+    "../../assets/producten/28682/3.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B160 x D90 x H78"
+    },
+    {
+      "label": "B180 x D100 x H78"
+    },
+    {
+      "label": "B200 x D100 x H78"
+    },
+    {
+      "label": "B220 x D100 x H78"
+    },
+    {
+      "label": "B240 x D100 x H78"
+    },
+    {
+      "label": "B250 x D100 x H78"
+    },
+    {
+      "label": "B260 x D100 x H78"
+    },
+    {
+      "label": "B280 x D100 x H78"
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": true,
+  "zichtbaar": true,
+  "volgorde": 78,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/28682/teak-eettafels/eettafel-viking"
+}

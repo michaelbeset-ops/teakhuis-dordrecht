@@ -1,0 +1,67 @@
+{
+  "titel": "eettafel model Lorenzo",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 629,
+  "prijsTonen": true,
+  "omschrijving": "Massieve eettafel met een blad van 5cm dik en poten van 20x10cm. In gladde of robuuste uitvoering te leveren. In de kleuren: koloniaal, thee kleur of blank teakhout. Maatwerk zonder meerprijs!",
+  "fotos": [
+    "../../assets/producten/121/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "120x80cm h=78cm",
+      "prijs": 629
+    },
+    {
+      "label": "130x80cm h=78cm",
+      "prijs": 689
+    },
+    {
+      "label": "140x90cm h=78cm",
+      "prijs": 769
+    },
+    {
+      "label": "150x90cm h=78cm",
+      "prijs": 829
+    },
+    {
+      "label": "160x90cm h=78cm",
+      "prijs": 889
+    },
+    {
+      "label": "180x90/95/100cm h=78cm",
+      "prijs": 1039
+    },
+    {
+      "label": "200x90/95/100cm h=78cm",
+      "prijs": 1149
+    },
+    {
+      "label": "220x90/95/100cm h=78cm",
+      "prijs": 1199
+    },
+    {
+      "label": "240x90/95/100cm h=78cm",
+      "prijs": 1299
+    },
+    {
+      "label": "260x90/95/100cm h=78cm",
+      "prijs": 1389
+    },
+    {
+      "label": "280x90/95/100cm h=78cm",
+      "prijs": 1539
+    },
+    {
+      "label": "300x90/95/100cm h=78cm",
+      "prijs": 1649
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 350,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/121/teak-eettafels/eettafel-model-lorenzo"
+}

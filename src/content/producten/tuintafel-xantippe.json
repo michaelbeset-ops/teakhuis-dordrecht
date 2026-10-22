@@ -1,0 +1,43 @@
+{
+  "titel": "Tuintafel Xantippe",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 595,
+  "prijsTonen": true,
+  "omschrijving": "Fraaie tuintafel gemaakt van prachtig massief gerecycled teak.\n\nLeverbaar in iedere gewenste afmeting, maatwerk is mogelijk\n\nLevertijd ca. 3 maanden",
+  "fotos": [
+    "../../assets/producten/32744/1.jpg",
+    "../../assets/producten/32744/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B160 x D90 x H77",
+      "prijs": 595
+    },
+    {
+      "label": "B180 x D90 x H77",
+      "prijs": 625
+    },
+    {
+      "label": "B200 x D95 x H77",
+      "prijs": 675
+    },
+    {
+      "label": "B220 x D95 x H77",
+      "prijs": 725
+    },
+    {
+      "label": "B240 x D100 x H77",
+      "prijs": 795
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Gerecycled teak geborsteld",
+    "Gerecycled teak nieuw"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 322,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/32744/tuinmeubelen/tuintafel-xantippe"
+}

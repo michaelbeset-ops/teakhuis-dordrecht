@@ -1,81 +1,124 @@
-// Productcatalogus: alle producten en categorieen uit hun webshop (import van teakhuis.nl, tools/import-shop.mjs).
-// Hier alleen ordenen, opschonen en formatteren; er wordt niets aan toegevoegd.
-import ruweProducten from './producten.json';
-import ruweCategorieen from './categorieen.json';
+// Productcatalogus uit de content collections (src/content/producten en src/content/categorieen), beheerd via /admin.
+// Hier alleen ordenen, koppelen en formatteren.
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+import sharp from 'sharp';
 import { url } from './site';
 
-export interface Variant { kleur: string | null; maat: string | null; prijs: number }
+export interface Categorie { slug: string; naam: string; hoofd: string; volgorde: number; intro: string; foto?: ImageMetadata; oudeId?: string }
+export interface Maat { label: string; prijs: number | null }
 export interface Product {
-  id: string; titel: string; slug: string; url: string; categorieId: string; categorieSlug: string;
-  kruimel: { naam: string; id: string }[]; prijsVanaf: string; omschrijving: string;
-  kleuren: string[]; maten: string[]; varianten: Variant[]; fotos: string[];
+  slug: string; titel: string; categorie: Categorie; hoofd?: Categorie;
+  prijsVanaf: number | null; prijsTonen: boolean; omschrijving: string;
+  fotos: ImageMetadata[]; maten: Maat[]; houtkleuren: boolean; uitvoeringen: string[];
+  maatwerk: boolean; uitgelicht: boolean; volgorde: number;
+  seoTitel?: string; seoOmschrijving?: string; oudeUrl?: string;
 }
-export interface Categorie { id: string; slug: string; naam: string }
 
-// Onzichtbare stuurtekens uit de oude webshop (bijv. U+009D in een maatlabel) weghalen.
-const stuur = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f-\u009f]/g;
-const netjes = (s: string) => s.replace(stuur, '').replace(/\s+/g, ' ').trim();
 export const hoofdletter = (s: string) => (s ? s[0].toUpperCase() + s.slice(1) : s);
+const nl = new Intl.Collator('nl', { numeric: true });
 
-export const producten: Product[] = (ruweProducten as any[]).map((p) => ({
-  ...p,
-  titel: netjes(p.titel),
-  kleuren: (p.kleuren ?? []).map(netjes),
-  maten: (p.maten ?? []).map(netjes),
-  varianten: (p.varianten ?? []).map((v: Variant) => ({ kleur: v.kleur ? netjes(v.kleur) : null, maat: v.maat ? netjes(v.maat) : null, prijs: v.prijs })),
-  fotos: p.fotos ?? [],
-}));
+const ruweCats = await getCollection('categorieen');
+export const categorieen: Categorie[] = ruweCats
+  .map((c) => ({ slug: c.id, ...c.data }))
+  .sort((a, b) => a.volgorde - b.volgorde || nl.compare(a.naam, b.naam));
+const catOpSlug = new Map(categorieen.map((c) => [c.slug, c]));
 
-// Namen in hun menu staan soms in kleine letters of aan elkaar; alleen de weergave rechtzetten.
-const naamFix: Record<string, string> = { '189': 'Gesloten kasten', '184': 'Cd-kasten' };
-export const categorieen: Categorie[] = (ruweCategorieen as Categorie[]).map((c) => ({ ...c, naam: naamFix[c.id] ?? hoofdletter(c.naam) }));
-const catOpId = new Map(categorieen.map((c) => [c.id, c]));
-export const categorie = (id: string) => catOpId.get(id)!;
+// Een product met een categorie die (nog) niet bestaat valt onder "Overig", zodat een verwijderde categorie de site niet breekt.
+const overig: Categorie = { slug: 'overig', naam: 'Overig', hoofd: '', volgorde: 999, intro: '' };
 
-// Prijzen: "629,-" uit de webshop naar een getal, en terug als "€ 1.149,-" of "€ 12,95".
-export const naarGetal = (s: string) => Number(s.replace(/\./g, '').replace(',-', '').replace(',', '.'));
+const ruweProducten = await getCollection('producten');
+export const producten: Product[] = ruweProducten
+  .filter((p) => p.data.zichtbaar)
+  .map((p) => {
+    const d = p.data;
+    const cat = catOpSlug.get(d.categorie) ?? overig;
+    const hoofd = cat.hoofd ? catOpSlug.get(cat.hoofd) : undefined;
+    // "Vanaf"-prijs: ingevuld veld, anders de laagste maatprijs.
+    const maatPrijzen = d.maten.map((m) => m.prijs).filter((x): x is number => typeof x === 'number' && x > 0);
+    const prijsVanaf = d.prijsVanaf && d.prijsVanaf > 0 ? d.prijsVanaf : maatPrijzen.length ? Math.min(...maatPrijzen) : null;
+    return { ...d, slug: p.id, titel: d.titel.trim(), categorie: cat, hoofd, prijsVanaf, maten: d.maten.map((m) => ({ label: m.label, prijs: m.prijs ?? null })) };
+  })
+  .sort((a, b) => a.volgorde - b.volgorde || nl.compare(a.titel, b.titel));
+
+if (producten.some((p) => p.categorie === overig)) categorieen.push(overig);
+export const categorie = (slug: string) => catOpSlug.get(slug) ?? overig;
+
+// Prijzen als "€ 1.149,-" of "€ 12,95".
 export const euro = (n: number) => {
   const heel = Math.round(n * 100) % 100 === 0;
   const [e, c] = n.toFixed(2).split('.');
   return `€ ${e.replace(/\B(?=(\d{3})+(?!\d))/g, '.')},${heel ? '-' : c}`;
 };
-export const vanaf = (p: Product) => naarGetal(p.prijsVanaf);
+export const toonPrijs = (p: Product) => p.prijsTonen && p.prijsVanaf !== null;
+export const prijsTekst = (p: Product) => (toonPrijs(p) ? `v.a. ${euro(p.prijsVanaf!)}` : 'Prijs op aanvraag');
 
-export const productHref = (p: Product) => url(`product/${p.slug}-${p.id}/`);
+export const productHref = (p: Product) => url(`product/${p.slug}/`);
 export const categorieHref = (c: Categorie) => url(`collectie/${c.slug}/`);
 
-// Foto's: alle originelen in src/assets/producten, Astro maakt er webp van.
-const fotoMods = import.meta.glob<{ default: ImageMetadata }>('../assets/producten/*/*.{jpg,png}', { eager: true });
-export const fotosVan = (p: Product): ImageMetadata[] => p.fotos.map((f) => fotoMods[`../assets/producten/${f}`]?.default).filter(Boolean);
-export const eersteFoto = (p: Product): ImageMetadata | undefined => fotosVan(p)[0];
 // Breedte lezen via .clone: direct img.width lezen laat Astro denken dat het origineel nodig is, en dan komen
-// alle 761 originele jpg's (70 MB) in dist naast de webp-versies.
+// alle originele jpg's (70 MB) in dist naast de webp-versies.
 export const breedte = (img: ImageMetadata) => ((img as any).clone ?? img).width as number;
-// Nooit groter maken dan het origineel (max ~700px breed).
+export const hoogte = (img: ImageMetadata) => ((img as any).clone ?? img).height as number;
+// Nooit groter maken dan het origineel.
 export const breedtes = (img: ImageMetadata, wens: number[]) => {
   const b = breedte(img);
   const w = wens.filter((x) => x < b);
   return [...w, Math.min(b, Math.max(...wens))].filter((x, i, a) => a.indexOf(x) === i);
 };
+export const eersteFoto = (p: Product) => p.fotos[0];
 
-// Menu zoals op teakhuis.nl: hoofdcategorie (kruimel[0]) met subcategorieen eronder.
-const menuVolgorde = ['228', '229', '230', '232', '235', '206', '212', '221', '187', '190'];
+// Staat de foto op een witte achtergrond (productfoto) of is het een sfeerfoto? Productfoto's tonen we passend met
+// witruimte, sfeerfoto's vullen het vlak. Bepaald aan de randpixels, zodat nieuwe foto's uit het beheer vanzelf goed gaan.
+const witCache = new Map<string, boolean>();
+const pad = (img: ImageMetadata) => (img as any).fsPath as string | undefined;
+async function bepaalWit(img: ImageMetadata) {
+  const f = pad(img);
+  if (!f || witCache.has(f)) return;
+  try {
+    const { data, info } = await sharp(f).resize(24, 24, { fit: 'fill' }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+    let licht = 0, rand = 0;
+    for (let y = 0; y < info.height; y++) for (let x = 0; x < info.width; x++) {
+      if (x > 1 && y > 1 && x < info.width - 2 && y < info.height - 2) continue;
+      const i = (y * info.width + x) * 3;
+      rand++;
+      if (data[i] > 232 && data[i + 1] > 232 && data[i + 2] > 232) licht++;
+    }
+    witCache.set(f, licht / rand > 0.6);
+  } catch {
+    witCache.set(f, true);
+  }
+}
+await Promise.all([...producten.flatMap((p) => p.fotos), ...categorieen.map((c) => c.foto)].filter(Boolean).map((f) => bepaalWit(f!)));
+export const opWit = (img: ImageMetadata) => witCache.get(pad(img) ?? '') ?? true;
+// Klassen voor een foto in een vierkant of liggend vlak.
+export const fotoKlas = (img: ImageMetadata, ruimte = 'p-3 sm:p-5') => (opWit(img) ? `object-contain ${ruimte}` : 'object-cover');
+
+// Menu: hoofdcategorieen met hun subcategorieen en producten.
 export interface Groep { hoofd: Categorie; subs: { cat: Categorie; producten: Product[] }[]; producten: Product[] }
 export const groepen: Groep[] = (() => {
   const m = new Map<string, Groep>();
+  const groep = (c: Categorie) => {
+    if (!m.has(c.slug)) m.set(c.slug, { hoofd: c, subs: [], producten: [] });
+    return m.get(c.slug)!;
+  };
+  for (const c of categorieen) if (!c.hoofd) groep(c);
   for (const p of producten) {
-    const [h, s] = p.kruimel;
-    if (!m.has(h.id)) m.set(h.id, { hoofd: categorie(h.id), subs: [], producten: [] });
-    const g = m.get(h.id)!;
+    const g = groep(p.hoofd ?? p.categorie);
     g.producten.push(p);
-    if (s) {
-      let sub = g.subs.find((x) => x.cat.id === s.id);
-      if (!sub) g.subs.push((sub = { cat: categorie(s.id), producten: [] }));
+    if (p.hoofd) {
+      let sub = g.subs.find((x) => x.cat.slug === p.categorie.slug);
+      if (!sub) g.subs.push((sub = { cat: p.categorie, producten: [] }));
       sub.producten.push(p);
     }
   }
-  const pos = (id: string) => { const i = menuVolgorde.indexOf(id); return i < 0 ? 99 : i; };
-  return [...m.values()].sort((a, b) => pos(a.hoofd.id) - pos(b.hoofd.id));
+  for (const g of m.values()) {
+    g.subs.sort((a, b) => a.cat.volgorde - b.cat.volgorde || nl.compare(a.cat.naam, b.cat.naam));
+    // Op de hoofdcategoriepagina per soort, in de volgorde van de soorten (eettafels voor bijzettafels).
+    const plek = new Map(g.subs.map((s, i) => [s.cat.slug, i]));
+    g.producten.sort((a, b) => (plek.get(a.categorie.slug) ?? -1) - (plek.get(b.categorie.slug) ?? -1));
+  }
+  return [...m.values()].filter((g) => g.producten.length).sort((a, b) => a.hoofd.volgorde - b.hoofd.volgorde);
 })();
 
 // Elke pagina /collectie/<slug>/: hoofdcategorieen en subcategorieen.
@@ -85,49 +128,11 @@ export const catPaginas: CatPagina[] = groepen.flatMap((g) => [
   ...g.subs.map((s) => ({ cat: s.cat, hoofd: g.hoofd, subs: g.subs.map((x) => x.cat), producten: s.producten })),
 ]);
 
-// Omschrijving: hun HTML (soms niet gesloten <p>) opnieuw opbouwen met alleen <p>, <br> en <strong>.
-export function schoon(html: string): string {
-  if (!html) return '';
-  const esc = (s: string) => s.replace(/&(?!(?:[a-z]+|#\d+);)/gi, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  const paras: string[] = [];
-  let cur = '';
-  let vet = false;
-  const breek = () => {
-    if (vet) { cur += '</strong>'; vet = false; }
-    const t = cur.replace(/^(?:\s|<br>)+|(?:\s|<br>)+$/g, '').replace(/<strong>\s*<\/strong>/g, '');
-    if (t.replace(/<\/?strong>|<br>|&nbsp;|\s/g, '')) paras.push(t);
-    cur = '';
-  };
-  for (const d of html.replace(stuur, '').split(/(<[^>]*>)/)) {
-    if (d.startsWith('<')) {
-      const m = d.match(/^<\s*(\/?)\s*([a-z0-9]+)/i);
-      if (!m) continue;
-      const tag = m[2].toLowerCase();
-      if (tag === 'p' || tag === 'div') breek();
-      else if (tag === 'br') cur += '<br>';
-      else if (tag === 'strong' || tag === 'b') {
-        if (m[1] && vet) { cur += '</strong>'; vet = false; }
-        else if (!m[1] && !vet) { cur += '<strong>'; vet = true; }
-      }
-    } else {
-      // Een harde regelovergang in hun tekst is een nieuwe alinea.
-      d.split(/\n/).forEach((r, i) => { if (i) breek(); cur += esc(r.replace(/\s+/g, ' ')); });
-    }
-  }
-  breek();
-  return paras.map((t) => `<p>${t}</p>`).join('');
-}
-export const platteTekst = (html: string) => schoon(html).replace(/<br>/g, ' ').replace(/<\/p><p>/g, ' ').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+// Omschrijving: markdown uit het beheersysteem. Een enkele Enter is een nieuwe regel, zoals de eigenaar het typt.
+// Ruwe HTML wordt niet doorgelaten.
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+export const omschrijvingHtml = (md: string) => (md ? (marked.parse(esc(md).replace(/&amp;(\w+;)/g, '&$1'), { breaks: true, async: false }) as string) : '');
+export const platteTekst = (md: string) => md.replace(/[*_#>`]/g, '').replace(/\s+/g, ' ').trim();
 
-// Producten van de oude homepage-links (teakhuis.nl url) terugvinden.
-export const productVanUrl = (href: string) => producten.find((p) => p.url === href);
-// Webshoplink van een categorie (…/<catId>/<slug>) naar de eigen categoriepagina.
-export const categorieVanUrl = (href: string) => {
-  const id = href.split('/').at(-2) ?? '';
-  const c = catOpId.get(id);
-  return c ? categorieHref(c) : href;
-};
-
-// Categorieen waar "maatwerk zonder meerprijs" en de houtkleuren bij horen (geen lampen, accessoires, onderhoud, natuursteen).
-const geenMeubel = new Set(['212', '221', '190', '211']);
-export const isMeubel = (p: Product) => !p.kruimel.some((k) => geenMeubel.has(k.id));
+// Houtkleuren en maatwerk horen bij meubels; foto's op wit krijgen mix-blend-multiply.
+export const ookOpMaat = (p: Product) => p.maatwerk;

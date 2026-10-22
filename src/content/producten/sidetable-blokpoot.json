@@ -1,0 +1,98 @@
+{
+  "titel": "Sidetable blokpoot",
+  "categorie": "sidetables",
+  "prijsVanaf": 169,
+  "prijsTonen": true,
+  "omschrijving": "Strakke sidetable met 8 cm blokpoten en 3 cm top met of zonder lades.\nLeverbaar in iedere gewenste afmeting in glad en nieuw teak of in gerecycled teak, glad of ruw.",
+  "fotos": [
+    "../../assets/producten/27441/1.jpg",
+    "../../assets/producten/27441/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B60 x D30 x H78",
+      "prijs": 169
+    },
+    {
+      "label": "B80 x D30 x H78",
+      "prijs": 189
+    },
+    {
+      "label": "B100 x D30 x H78",
+      "prijs": 219
+    },
+    {
+      "label": "B120 x D30 x H78",
+      "prijs": 239
+    },
+    {
+      "label": "B120 x D40 x H78",
+      "prijs": 289
+    },
+    {
+      "label": "B140 x D40 x H78",
+      "prijs": 329
+    },
+    {
+      "label": "B160 x D40 x H78",
+      "prijs": 359
+    },
+    {
+      "label": "B180 x D40 x H78",
+      "prijs": 399
+    },
+    {
+      "label": "B200 x D40 x H78",
+      "prijs": 439
+    },
+    {
+      "label": "B60 x D30 x H78 Met 1 lade",
+      "prijs": 189
+    },
+    {
+      "label": "B80 x D30 x H78 met lade",
+      "prijs": 209
+    },
+    {
+      "label": "B100 x D30 x H78 Met 2 lades",
+      "prijs": 249
+    },
+    {
+      "label": "B120 x D30 x H78 Met 2 lades",
+      "prijs": 269
+    },
+    {
+      "label": "B120 x D40 x H78 Met 2 lades",
+      "prijs": 319
+    },
+    {
+      "label": "B140 x D40 x H78 Met 2 lades",
+      "prijs": 359
+    },
+    {
+      "label": "B160 x D40 x H78 Met 3 lades",
+      "prijs": 409
+    },
+    {
+      "label": "B180 x D40 x H78 met 3 lades",
+      "prijs": 449
+    },
+    {
+      "label": "B200 x D40 x H78 met 4 lades",
+      "prijs": 509
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Blank Teak",
+    "Koloniaal",
+    "Milaan",
+    "Gerecycled teak",
+    "Geborsteld teak"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 85,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/27441/sidetables/sidetable-blokpoot"
+}

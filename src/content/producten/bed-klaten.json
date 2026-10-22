@@ -1,0 +1,37 @@
+{
+  "titel": "Bed Klaten",
+  "categorie": "teak-bedden",
+  "prijsVanaf": 1449,
+  "prijsTonen": true,
+  "omschrijving": "Modern bed, strak uitgevoerd met praktische grote lades voor veel opbergruimte.\n\nDit bed is leverbaar in iedere gewenste afmeting.\n\nMaatwerk is mogelijk!",
+  "fotos": [
+    "../../assets/producten/4853/1.jpg",
+    "../../assets/producten/4853/2.jpg",
+    "../../assets/producten/4853/3.jpg"
+  ],
+  "maten": [
+    {
+      "label": "140 x 200",
+      "prijs": 1449
+    },
+    {
+      "label": "160 x 200",
+      "prijs": 1529
+    },
+    {
+      "label": "180 x 200",
+      "prijs": 1609
+    },
+    {
+      "label": "200 x 200",
+      "prijs": 1699
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 276,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/182/4853/teak-bedden/bed-klaten"
+}

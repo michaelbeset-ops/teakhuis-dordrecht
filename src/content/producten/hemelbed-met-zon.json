@@ -1,0 +1,36 @@
+{
+  "titel": "hemelbed met zon",
+  "categorie": "teak-bedden",
+  "prijsVanaf": 1499,
+  "prijsTonen": true,
+  "omschrijving": "Dit hemelbed wordt geleverd compleet met houtenlatten bodem. Te leveren in de kleuren: koloniaal, thee en blank teakhout. Elke andere maat is ook mogelijk.",
+  "fotos": [
+    "../../assets/producten/2502/1.jpg",
+    "../../assets/producten/2502/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "140x200cm",
+      "prijs": 1499
+    },
+    {
+      "label": "160x200cm",
+      "prijs": 1599
+    },
+    {
+      "label": "180x200cm",
+      "prijs": 1699
+    },
+    {
+      "label": "200x200cm",
+      "prijs": 1799
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 270,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/182/2502/teak-bedden/hemelbed-met-zon"
+}

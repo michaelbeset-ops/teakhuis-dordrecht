@@ -1,0 +1,47 @@
+{
+  "titel": "Venice eettafel met bolpoten",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 629,
+  "prijsTonen": true,
+  "omschrijving": "Schitterende handgeschilderde tafel met gerecycled teakhouten top.\nAlle maten leverbaar, maatwerk mogelijk!",
+  "fotos": [
+    "../../assets/producten/4250/1.png"
+  ],
+  "maten": [
+    {
+      "label": "160 x 90 x 78",
+      "prijs": 629
+    },
+    {
+      "label": "180 x 95 x 78",
+      "prijs": 679
+    },
+    {
+      "label": "200 x 100 x 78",
+      "prijs": 739
+    },
+    {
+      "label": "220 x 100 x 78",
+      "prijs": 815
+    },
+    {
+      "label": "240 x 100 x 78",
+      "prijs": 929
+    },
+    {
+      "label": "260 x 100 x 78",
+      "prijs": 1019
+    },
+    {
+      "label": "280 x 100 x 78",
+      "prijs": 1109
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 355,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4250/teak-eettafels/venice-eettafel-met-bolpoten"
+}

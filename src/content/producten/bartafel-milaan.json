@@ -1,0 +1,58 @@
+{
+  "titel": "Bartafel Milaan",
+  "categorie": "bartafels",
+  "prijsVanaf": 759,
+  "prijsTonen": true,
+  "omschrijving": "Moderne strakke bartafel met holle poten gemaakt van massief teak. In iedere gewenste hoogte leverbaar.\nStandaard uitgevoerd met massieve 3 cm top.\nLeverbaar in glad nieuw teak en in gerecycled teak, glad of robuust afgerwerkt.",
+  "fotos": [
+    "../../assets/producten/32337/1.jpg",
+    "../../assets/producten/32337/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B160 x D90 x H105",
+      "prijs": 759
+    },
+    {
+      "label": "B180 x D90 x H105",
+      "prijs": 819
+    },
+    {
+      "label": "B200 x D95 x H105",
+      "prijs": 869
+    },
+    {
+      "label": "B220 x D100 x H105",
+      "prijs": 929
+    },
+    {
+      "label": "B240 x D100 x H105",
+      "prijs": 979
+    },
+    {
+      "label": "B260 x D100 x H105",
+      "prijs": 1039
+    },
+    {
+      "label": "B280 x D100 x H105",
+      "prijs": 1099
+    },
+    {
+      "label": "B300 x D100 x H105",
+      "prijs": 1179
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Blank teak",
+    "Koloniale kleur",
+    "Milaan kleur",
+    "Gerecycled teak",
+    "Geborsteld teak"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 101,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/176/32337/bartafels/bartafel-milaan"
+}

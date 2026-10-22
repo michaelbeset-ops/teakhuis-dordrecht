@@ -1,0 +1,43 @@
+{
+  "titel": "teakbank model blokpoot",
+  "categorie": "banken-teak",
+  "prijsVanaf": 299,
+  "prijsTonen": true,
+  "omschrijving": "Leuke teak bank met massieve poten te leveren in de kleuren: koloniaal, thee, wit of blank teakhout.\n\nElke maat te leveren, in gladde of robuuste uitvoering.",
+  "fotos": [
+    "../../assets/producten/1460/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "120x40cm h=45cm",
+      "prijs": 299
+    },
+    {
+      "label": "140x40cm h=45cm",
+      "prijs": 349
+    },
+    {
+      "label": "160x40cm h=45cm",
+      "prijs": 409
+    },
+    {
+      "label": "180x40cm h=45cm",
+      "prijs": 469
+    },
+    {
+      "label": "200x40cm h=45cm",
+      "prijs": 509
+    },
+    {
+      "label": "220x40cm h=45cm",
+      "prijs": 549
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 262,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/177/1460/banken-teak/teakbank-model-blokpoot"
+}

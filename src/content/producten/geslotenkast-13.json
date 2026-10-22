@@ -1,0 +1,31 @@
+{
+  "titel": "geslotenkast 13",
+  "categorie": "geslotenkasten",
+  "prijsVanaf": 779,
+  "prijsTonen": true,
+  "omschrijving": "geslotenkast met 2 of 3 legplanken. Te leveren in de kleuren: koloniaal, thee en blank teakhout. Maatwerk zonder meerprijs!",
+  "fotos": [
+    "../../assets/producten/1367/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "140x90x45cm",
+      "prijs": 779
+    },
+    {
+      "label": "150x90x45cm",
+      "prijs": 799
+    },
+    {
+      "label": "160x90x45cm",
+      "prijs": 839
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 463,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/189/1367/geslotenkasten/geslotenkast-13"
+}

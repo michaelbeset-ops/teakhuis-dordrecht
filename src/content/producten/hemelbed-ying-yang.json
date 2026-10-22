@@ -1,0 +1,35 @@
+{
+  "titel": "hemelbed Ying Yang",
+  "categorie": "teak-bedden",
+  "prijsVanaf": 1499,
+  "prijsTonen": true,
+  "omschrijving": "Dit hemelbed wordt geleverd met houten latten bodem. Te leveren in de kleuren: koloniaal, thee en blank teakhout. Op elke maat te leveren.",
+  "fotos": [
+    "../../assets/producten/2512/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "140x200cm",
+      "prijs": 1499
+    },
+    {
+      "label": "160x200cm",
+      "prijs": 1599
+    },
+    {
+      "label": "180x200cm",
+      "prijs": 1699
+    },
+    {
+      "label": "200x200cm",
+      "prijs": 1799
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 271,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/182/2512/teak-bedden/hemelbed-ying-yang"
+}

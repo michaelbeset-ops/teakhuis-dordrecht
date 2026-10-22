@@ -1,0 +1,33 @@
+{
+  "titel": "Hercules tafel",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 475,
+  "prijsTonen": true,
+  "omschrijving": "Prachtige stevige tuintafel. Massief teak grade A/B met 8 cm blokpoten\n\nUitsluitend op bestelling. Andere afmetingen mogelijk op aanvraag",
+  "fotos": [
+    "../../assets/producten/31081/1.jpg",
+    "../../assets/producten/31081/2.jpg",
+    "../../assets/producten/31081/3.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B160 x D90 x H78"
+    },
+    {
+      "label": "B180 x D90 x H78"
+    },
+    {
+      "label": "B200 x D95 x H78"
+    },
+    {
+      "label": "B220 x D95 x H78"
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 10,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/31081/tuinmeubelen/hercules-tafel"
+}

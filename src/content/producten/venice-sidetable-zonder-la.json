@@ -1,0 +1,69 @@
+{
+  "titel": "Venice sidetable zonder la",
+  "categorie": "sidetables",
+  "prijsVanaf": 269,
+  "prijsTonen": true,
+  "omschrijving": "Handgeschilderd witte sidetable met gerecycled teakhouten top.\nMet of zonder onderplank\nDiverse modellen poten en mogelijk, in alle maten leverbaar.\n\nMaatwerk mogelijk!",
+  "fotos": [
+    "../../assets/producten/4392/1.png",
+    "../../assets/producten/4392/2.png",
+    "../../assets/producten/4392/3.png"
+  ],
+  "maten": [
+    {
+      "label": "b100 x d35 x h78",
+      "prijs": 269
+    },
+    {
+      "label": "b120 x d40 x h78",
+      "prijs": 369
+    },
+    {
+      "label": "b140 x d40 x h78",
+      "prijs": 399
+    },
+    {
+      "label": "b160 x d40 x h78",
+      "prijs": 429
+    },
+    {
+      "label": "b180 x d40 x h78",
+      "prijs": 469
+    },
+    {
+      "label": "b200 x d40 x h78",
+      "prijs": 509
+    },
+    {
+      "label": "b100 x d35 x h78 met onderplank",
+      "prijs": 299
+    },
+    {
+      "label": "b120 x d40 x h78 met onderplank",
+      "prijs": 399
+    },
+    {
+      "label": "b140 x d40 x h78 met onderplank",
+      "prijs": 439
+    },
+    {
+      "label": "b160 x d40 x h78 met onderplank",
+      "prijs": 469
+    },
+    {
+      "label": "b180 x d40 x h78 met onderplank",
+      "prijs": 519
+    },
+    {
+      "label": "b200 x d40 x h78 met onderplank",
+      "prijs": 559
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 94,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/4392/sidetables/venice-sidetable-zonder-la"
+}

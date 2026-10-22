@@ -1,0 +1,19 @@
+{
+  "titel": "Stoel Java",
+  "categorie": "houten-stoelen",
+  "prijsVanaf": 109,
+  "prijsTonen": true,
+  "omschrijving": "Prachtige stevige stoel",
+  "fotos": [
+    "../../assets/producten/338/1.jpg",
+    "../../assets/producten/338/2.jpg"
+  ],
+  "maten": [],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 248,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/183/338/houten-stoelen/stoel-java"
+}

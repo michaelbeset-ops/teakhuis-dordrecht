@@ -1,0 +1,39 @@
+{
+  "titel": "Venice sidetable Double rack",
+  "categorie": "sidetables",
+  "prijsVanaf": 449,
+  "prijsTonen": true,
+  "omschrijving": "Prachtige hangeschilderde sidetable in robuuste uitvoering met gerecycled teakhouten bovenkant en ruime lades.\nIn diverse maten leverbaar, maatwerk mogelijk!",
+  "fotos": [
+    "../../assets/producten/4418/1.png"
+  ],
+  "maten": [
+    {
+      "label": "120 x 40 x 76",
+      "prijs": 449
+    },
+    {
+      "label": "140 x 40 x 76",
+      "prijs": 519
+    },
+    {
+      "label": "160 x 40 x 76",
+      "prijs": 559
+    },
+    {
+      "label": "180 x 40 x 76",
+      "prijs": 629
+    },
+    {
+      "label": "200 x 40 x 76",
+      "prijs": 669
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 97,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/4418/sidetables/venice-sidetable-double-rack"
+}

@@ -1,0 +1,39 @@
+{
+  "titel": "Venice sidetable robuust",
+  "categorie": "sidetables",
+  "prijsVanaf": 459,
+  "prijsTonen": true,
+  "omschrijving": "Prachtige hangeschilderde sidetable in robuuste uitvoering met gerecycled teakhouten bovenkant en ruime lades.\nIn diverse maten leverbaar, maatwerk mogelijk!",
+  "fotos": [
+    "../../assets/producten/4412/1.png"
+  ],
+  "maten": [
+    {
+      "label": "120 x 47 x 83 met 3 laden",
+      "prijs": 459
+    },
+    {
+      "label": "140 x 47 x 83 met 4 laden",
+      "prijs": 529
+    },
+    {
+      "label": "160 x 47 x 83 met 4 laden",
+      "prijs": 569
+    },
+    {
+      "label": "180 x 47 x 83 met 5 laden",
+      "prijs": 639
+    },
+    {
+      "label": "200 x 47 x 83 met 5 laden",
+      "prijs": 679
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 96,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/4412/sidetables/venice-sidetable-robuust"
+}

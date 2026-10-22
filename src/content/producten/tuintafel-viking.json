@@ -1,0 +1,40 @@
+{
+  "titel": "Tuintafel Viking",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 1029,
+  "prijsTonen": true,
+  "omschrijving": "Zeer stoere tuintafel met mat zwarte stalen poten.\n\nDe top is volledig massief 3 cm gerecycled teak.\n\nLeverbaar in iedere gewenste afmeting. Maatwerk is mogelijk.\n\nLevertijd ca. 3 maanden",
+  "fotos": [
+    "../../assets/producten/32717/1.jpg",
+    "../../assets/producten/32717/2.jpg",
+    "../../assets/producten/32717/3.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B160 x D90 x H75",
+      "prijs": 1029
+    },
+    {
+      "label": "B180 x D90 x H75",
+      "prijs": 1099
+    },
+    {
+      "label": "B200 x D95 x H75",
+      "prijs": 1169
+    },
+    {
+      "label": "B220 x D95 x H75",
+      "prijs": 1239
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Gerecycled teak glad",
+    "Gerecycled teak geborsteld"
+  ],
+  "maatwerk": true,
+  "uitgelicht": true,
+  "zichtbaar": true,
+  "volgorde": 14,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/32717/tuinmeubelen/tuintafel-viking"
+}

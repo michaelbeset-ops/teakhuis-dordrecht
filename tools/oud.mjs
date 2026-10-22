@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-const b = await chromium.launch();
+const b = await chromium.launch({ executablePath: process.env.CHROME || '/opt/pw-browsers/chromium' });
 for (const [w, h, n, u] of [[1440, 900, 'oud-home-1440', ''], [390, 844, 'oud-home-390', ''], [1440, 900, 'oud-uitverkoop-1440', 'webshop/etxFAX7uScLCTSM6mcUYWX/244/uitverkoop-voorraad'], [1440, 900, 'oud-proces-1440', 'maatwerk/het-proces'], [390, 844, 'oud-product-390', 'webshop/etxFAX7uScLCTSM6mcUYWX/164/132/teak-eettafels/eettafel-model-klooster']]) {
   const p = await (await b.newContext({ viewport: { width: w, height: h }, isMobile: w < 500, hasTouch: w < 500 })).newPage();
   await p.goto('https://teakhuis.nl/' + u, { waitUntil: 'networkidle' }).catch(() => {});

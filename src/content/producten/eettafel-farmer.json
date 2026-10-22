@@ -1,0 +1,44 @@
+{
+  "titel": "Eettafel Farmer",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 1549,
+  "prijsTonen": true,
+  "omschrijving": "Prachtige teak tafel met een blad van 6 cm dik, robuust uitgevoerd.\nGemaakt van 1e kwaliteit teakhout.\n\nEventueel ook glad te bestellen.\nMaatwerk mogelijk!",
+  "fotos": [
+    "../../assets/producten/4549/1.jpg",
+    "../../assets/producten/4549/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "220 x 100 x 78",
+      "prijs": 1549
+    },
+    {
+      "label": "240 x 100 x 78",
+      "prijs": 1619
+    },
+    {
+      "label": "260 x 100 x 78",
+      "prijs": 1739
+    },
+    {
+      "label": "280 x 100 x 78",
+      "prijs": 1879
+    },
+    {
+      "label": "300 x 100 x 78",
+      "prijs": 1989
+    },
+    {
+      "label": "350 x 100 x 78",
+      "prijs": 2429
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 83,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4549/teak-eettafels/eettafel-farmer"
+}

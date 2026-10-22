@@ -1,0 +1,39 @@
+{
+  "titel": "Tuinbank Viking",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 625,
+  "prijsTonen": true,
+  "omschrijving": "Stoer model tuinbank passend bij tuintafel Viking. Uitgevoerd in gerecycled teak, glad of geborsteld.\n\nLeverbaar in iedere afmeting, maatwerk is mogelijk\n\nLevertijd ca. 3 maanden",
+  "fotos": [
+    "../../assets/producten/32731/1.jpg",
+    "../../assets/producten/32731/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B160 x D40 x H45",
+      "prijs": 625
+    },
+    {
+      "label": "B180 x D40 x H45",
+      "prijs": 655
+    },
+    {
+      "label": "B200 x D40 x H45",
+      "prijs": 685
+    },
+    {
+      "label": "B220 x D40 x H45",
+      "prijs": 715
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Gerecycled teak glad",
+    "Gerecycled teak geborsteld"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 15,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/32731/tuinmeubelen/tuinbank-viking"
+}

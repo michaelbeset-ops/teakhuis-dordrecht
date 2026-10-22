@@ -1,0 +1,74 @@
+{
+  "titel": "Eettafel Robuust",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 599,
+  "prijsTonen": true,
+  "omschrijving": "Stoere robuuste eettafel standaard uitgevoerd met een massief 5 cm top en massief 10 cm blokpoten. Meerprijs voor 12 cm poten is 90 euro.\nLeverbaar in nieuw glad teak en in robuust gerecycled teak.\nVoorbeeld op de foto is B220 x D100 x H78 van gerecycled ruw teak met 12 cm blokpoten.",
+  "fotos": [
+    "../../assets/producten/32264/1.jpg",
+    "../../assets/producten/32264/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B100 x D100 x H78",
+      "prijs": 599
+    },
+    {
+      "label": "B160 x D90 x H78",
+      "prijs": 649
+    },
+    {
+      "label": "B120 x D120 x H78",
+      "prijs": 649
+    },
+    {
+      "label": "B180 x D90 x H78",
+      "prijs": 679
+    },
+    {
+      "label": "B200 x D95 x H78",
+      "prijs": 749
+    },
+    {
+      "label": "B220 x D100 x H78",
+      "prijs": 799
+    },
+    {
+      "label": "B240 x D100 x H78",
+      "prijs": 859
+    },
+    {
+      "label": "B260 x D100 x H78",
+      "prijs": 939
+    },
+    {
+      "label": "B280 x D100 x H78",
+      "prijs": 1019
+    },
+    {
+      "label": "B300 x D100 x H78",
+      "prijs": 1099
+    },
+    {
+      "label": "B140 x D140 x H78",
+      "prijs": 749
+    },
+    {
+      "label": "B160 x D160 x H78",
+      "prijs": 939
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Blank teak",
+    "Koloniale kleur",
+    "Milaan kleur",
+    "Gerecycled teak",
+    "Geborsteld teak"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 69,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/32264/teak-eettafels/eettafel-robuust"
+}

@@ -1,0 +1,51 @@
+{
+  "titel": "Closther table",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 819,
+  "prijsTonen": true,
+  "omschrijving": "In gladde of robuuste uitvoering te leveren. Maatwerk zonder meerprijs!\n\nIn de kleuren: koloniaal, thee kleur of blank teakhout.",
+  "fotos": [
+    "../../assets/producten/3784/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "160 x 90 x 78",
+      "prijs": 819
+    },
+    {
+      "label": "180 x 95 x 78",
+      "prijs": 869
+    },
+    {
+      "label": "200 x 100 x 78",
+      "prijs": 949
+    },
+    {
+      "label": "220 x 100 x 78",
+      "prijs": 1019
+    },
+    {
+      "label": "240 x 100 x78",
+      "prijs": 1099
+    },
+    {
+      "label": "260 x 100 x 78",
+      "prijs": 1179
+    },
+    {
+      "label": "280 x 100 x 78",
+      "prijs": 1279
+    },
+    {
+      "label": "300 x 100 x 78",
+      "prijs": 1379
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 82,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/3784/teak-eettafels/closther-table"
+}

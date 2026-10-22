@@ -1,0 +1,43 @@
+{
+  "titel": "Venice sidetable Barok",
+  "categorie": "sidetables",
+  "prijsVanaf": 249,
+  "prijsTonen": true,
+  "omschrijving": "Sidetable met sierlijk poten. Handgeschilderd wit, gecombineerd met geborsteld teakhouten bovenkant.\n\nMaatwerk mogelijk!",
+  "fotos": [
+    "../../assets/producten/4225/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "b100 x d35 x h78",
+      "prijs": 249
+    },
+    {
+      "label": "b120 x d40 x h78",
+      "prijs": 349
+    },
+    {
+      "label": "b140 x d40 x h78",
+      "prijs": 379
+    },
+    {
+      "label": "b160 x d40 x h78",
+      "prijs": 409
+    },
+    {
+      "label": "b180 x d40 x h78",
+      "prijs": 449
+    },
+    {
+      "label": "b200 x d40 x h78",
+      "prijs": 489
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 92,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/4225/sidetables/venice-sidetable-barok"
+}

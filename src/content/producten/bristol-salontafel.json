@@ -1,0 +1,29 @@
+{
+  "titel": "Bristol salontafel",
+  "categorie": "tuinmeubelen",
+  "prijsVanaf": 109,
+  "prijsTonen": true,
+  "omschrijving": "Salontafel voor de tuin van massief teak grade A/B met 5 cm blokpoten.\n\nUitsluitend op bestelling leverbaar. Overige afmetingen op aanvraag",
+  "fotos": [
+    "../../assets/producten/31074/1.jpg",
+    "../../assets/producten/31074/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B70 x D70 x H45"
+    },
+    {
+      "label": "B100 x D60 x H45"
+    },
+    {
+      "label": "B120 x D70 x H45"
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 9,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/206/31074/tuinmeubelen/bristol-salontafel"
+}

@@ -1,0 +1,78 @@
+{
+  "titel": "bartafel blokpoot met onderstel",
+  "categorie": "bartafels",
+  "prijsVanaf": 439,
+  "prijsTonen": true,
+  "omschrijving": "prachtige bartafel met onderstel voor de voetjes en de voor de stevigheid, standaard poten 8x8cmmet 8 cm poten. Voor 10 cm poten geldt een toeslag van 60 euro.\nLeverbaar in glad en robuust teak op iedere gewenste hoogte. Standaard uitgevoerd met 3 cm top en 6 cm regel.",
+  "fotos": [
+    "../../assets/producten/1280/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "80x80cm h=105cm met onderstel",
+      "prijs": 439
+    },
+    {
+      "label": "90x90cm h=105cm met onderstel",
+      "prijs": 479
+    },
+    {
+      "label": "100x100cm h=105cm met onderstel",
+      "prijs": 559
+    },
+    {
+      "label": "120x80cm h=105cm met onderstel",
+      "prijs": 539
+    },
+    {
+      "label": "140x90cm h=105cm met onderstel",
+      "prijs": 579
+    },
+    {
+      "label": "150x90cm h=105cm met onderstel",
+      "prijs": 599
+    },
+    {
+      "label": "160x90cm h=105cm met onderstel",
+      "prijs": 609
+    },
+    {
+      "label": "180x90cm h=105cm met onderstel",
+      "prijs": 629
+    },
+    {
+      "label": "200x95cm h=105cm met onderstel",
+      "prijs": 689
+    },
+    {
+      "label": "220x100cm h=105cm met onderstel",
+      "prijs": 739
+    },
+    {
+      "label": "240x100cm h=105cm met onderstel",
+      "prijs": 779
+    },
+    {
+      "label": "260x100cm h=105cm met onderstel",
+      "prijs": 849
+    },
+    {
+      "label": "280x100cm h=105cm met onderstel",
+      "prijs": 909
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Blank teak",
+    "Koloniale kleur",
+    "Wit",
+    "Milaan kleur",
+    "Gerecycled teak",
+    "Geborsteld teak"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 100,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/176/1280/bartafels/bartafel-blokpoot-met-onderstel"
+}

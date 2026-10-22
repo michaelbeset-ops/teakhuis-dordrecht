@@ -1,0 +1,82 @@
+{
+  "titel": "bartafel met blokpoten",
+  "categorie": "bartafels",
+  "prijsVanaf": 359,
+  "prijsTonen": true,
+  "omschrijving": "Bartafel met 8 cm blokpoten op de hoeken. Meerprijs voor 10 cm blokpoten is € 60,00\nStandaard heeft deze tafel een 3 cm top en een 6 cm regel. Leverbaar in iedere gewenste hoogte\nMaatwerk zonder meerprijs!",
+  "fotos": [
+    "../../assets/producten/1258/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "70x70cm h=105cm",
+      "prijs": 359
+    },
+    {
+      "label": "80x80cm h=105cm",
+      "prijs": 389
+    },
+    {
+      "label": "90x90cm h=105cm",
+      "prijs": 429
+    },
+    {
+      "label": "100x100cm h=105cm",
+      "prijs": 499
+    },
+    {
+      "label": "120x80cm h=105cm",
+      "prijs": 479
+    },
+    {
+      "label": "140x90cm h=105cm",
+      "prijs": 519
+    },
+    {
+      "label": "150x90cm h=105cm",
+      "prijs": 529
+    },
+    {
+      "label": "160x90cm h=105cm",
+      "prijs": 539
+    },
+    {
+      "label": "180x90cm h=105cm",
+      "prijs": 559
+    },
+    {
+      "label": "200x95cm h=105cm",
+      "prijs": 609
+    },
+    {
+      "label": "220x100cm h=105cm",
+      "prijs": 649
+    },
+    {
+      "label": "240x100cm h=105cm",
+      "prijs": 689
+    },
+    {
+      "label": "260x100cm h=105cm",
+      "prijs": 749
+    },
+    {
+      "label": "280x100cm h=105cm",
+      "prijs": 809
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Blank teak",
+    "Koloniale kleur",
+    "Wit",
+    "Milaan",
+    "Gerecycled teak",
+    "Geborsteld teak"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 99,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/176/1258/bartafels/bartafel-met-blokpoten"
+}

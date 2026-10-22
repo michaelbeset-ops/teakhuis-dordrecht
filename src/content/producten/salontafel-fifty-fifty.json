@@ -1,0 +1,51 @@
+{
+  "titel": "Salontafel Fifty-fifty",
+  "categorie": "teak-salontafels",
+  "prijsVanaf": 489,
+  "prijsTonen": true,
+  "omschrijving": "Praktische salontafel, mooi afgwerkt, met aan beide kanten 2 laden en een open vak. Gemaakt met stevige blokpoten. Net even anders!\nIn iedere afmeting en kleur te leveren.",
+  "fotos": [
+    "../../assets/producten/12471/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B70 x D70 x H45",
+      "prijs": 489
+    },
+    {
+      "label": "B80 x D80 x H45",
+      "prijs": 519
+    },
+    {
+      "label": "B90 x D90 x H45",
+      "prijs": 559
+    },
+    {
+      "label": "B100 x D60 x H45",
+      "prijs": 499
+    },
+    {
+      "label": "B110 x D70 x H45",
+      "prijs": 549
+    },
+    {
+      "label": "B120 x D70 x H45",
+      "prijs": 569
+    },
+    {
+      "label": "B130 x D80 x H45",
+      "prijs": 629
+    },
+    {
+      "label": "B140 x D80 x H45",
+      "prijs": 659
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 62,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/12471/teak-salontafels/salontafel-fifty-fifty"
+}

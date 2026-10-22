@@ -1,0 +1,47 @@
+{
+  "titel": "Venice salontafel Barok",
+  "categorie": "teak-salontafels",
+  "prijsVanaf": 239,
+  "prijsTonen": true,
+  "omschrijving": "Salontafel met sierlijke poten. Onderkant handgeschilderd wit, top geborsteld teak. In alle maten leverbaar, ook met glad teakhouten top.\n\nMaatwerk mogelijk!",
+  "fotos": [
+    "../../assets/producten/4210/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "b70 x d70 x h45",
+      "prijs": 239
+    },
+    {
+      "label": "b80 x d80 x h45",
+      "prijs": 309
+    },
+    {
+      "label": "b100 x d60 x h45",
+      "prijs": 309
+    },
+    {
+      "label": "b120x d70 x h45",
+      "prijs": 389
+    },
+    {
+      "label": "b90 x d90 x h45",
+      "prijs": 389
+    },
+    {
+      "label": "b100 x d100 x h45",
+      "prijs": 489
+    },
+    {
+      "label": "b140 x d80 x h45",
+      "prijs": 509
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 342,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/4210/teak-salontafels/venice-salontafel-barok"
+}

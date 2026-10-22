@@ -2,7 +2,7 @@
 import { chromium } from 'playwright'; import fs from 'node:fs'; import sharp from 'sharp';
 const font = fs.readFileSync('node_modules/@fontsource/arvo/files/arvo-latin-700-normal.woff2').toString('base64');
 const foto = (await sharp('src/assets/hero-trapezium-detail.jpg').resize(1400).jpeg({ quality: 82 }).toBuffer()).toString('base64');
-const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1200, height: 630 } });
+const b = await chromium.launch({ executablePath: process.env.CHROME || '/opt/pw-browsers/chromium' }); const p = await b.newPage({ viewport: { width: 1200, height: 630 } });
 await p.setContent(`<style>@font-face{font-family:A;src:url(data:font/woff2;base64,${font}) format('woff2')}
 body{margin:0;width:1200px;height:630px;background:#fff;color:#191a17;position:relative;overflow:hidden;font-family:system-ui}
 .f{position:absolute;right:0;top:0;width:900px;height:600px;object-fit:contain;object-position:0 0;transform:scaleX(-1)}

@@ -1,0 +1,173 @@
+# Beheersysteem Teakhuis (Sveltia CMS). Uitleg voor de eigenaar: zie BEHEER.md in de repository.
+backend:
+  name: github
+  repo: michaelbeset-ops/teakhuis-dordrecht
+  branch: main
+  # Inloggen met een GitHub-knop (zonder token) vraagt een kleine auth-dienst; zie BEHEER.md, "Inloggen".
+  # base_url: https://teakhuis-cms-auth.<account>.workers.dev
+  commit_messages:
+    create: 'Beheer: {{collection}} "{{slug}}" toegevoegd'
+    update: 'Beheer: {{collection}} "{{slug}}" bijgewerkt'
+    delete: 'Beheer: {{collection}} "{{slug}}" verwijderd'
+    uploadMedia: 'Beheer: foto "{{path}}" toegevoegd'
+    deleteMedia: 'Beheer: foto "{{path}}" verwijderd'
+
+site_url: https://teakhuis.nl
+display_url: https://teakhuis.nl
+logo_url: logo.png
+
+# Foto's van producten staan in src/assets/producten; Astro maakt er bij het bouwen kleine, snelle webp-versies van.
+# De globale map is alleen voor de mediabibliotheek; producten en categorieen hebben hun eigen (relatieve) map.
+media_folder: src/assets/producten
+public_folder: /src/assets/producten
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2400
+          height: 2400
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
+
+collections:
+  - name: producten
+    label: Producten
+    label_singular: Product
+    description: Alle meubels en accessoires. Een product verbergen kan met "Zichtbaar op de site"; verwijderen haalt het definitief weg.
+    folder: src/content/producten
+    format: json
+    extension: json
+    create: true
+    delete: true
+    slug: '{{titel}}'
+    identifier_field: titel
+    summary: '{{titel}} · {{categorie}}{{zichtbaar | ternary("", " · VERBORGEN")}}'
+    sortable_fields:
+      fields: [titel, volgorde, prijsVanaf]
+      default: { field: titel, direction: ascending }
+    view_filters:
+      - { label: Uitgelicht op homepage, field: uitgelicht, pattern: true }
+      - { label: Verborgen, field: zichtbaar, pattern: false }
+      - { label: Zonder prijs, field: prijsTonen, pattern: false }
+    view_groups:
+      - { label: Categorie, field: categorie }
+    # Relatief aan het productbestand, zodat Astro de foto's vindt en optimaliseert.
+    media_folder: ../../assets/producten
+    public_folder: ../../assets/producten
+    fields:
+      - { label: Naam, name: titel, widget: string, hint: 'Zoals hij op de site moet staan, bijv. "Eettafel Viking".' }
+      - label: Categorie
+        name: categorie
+        widget: relation
+        collection: categorieen
+        value_field: '{{slug}}'
+        search_fields: [naam]
+        display_fields: [naam]
+      - label: Foto's
+        name: fotos
+        widget: image
+        multiple: true
+        required: false
+        hint: De eerste foto is de hoofdfoto. Sleep om de volgorde te veranderen. Liefst groot (minstens 1500 pixels breed), op een witte achtergrond of als sfeerfoto.
+      - label: Vanaf-prijs (€)
+        name: prijsVanaf
+        widget: number
+        value_type: float
+        min: 0
+        required: false
+        hint: Laat leeg om de laagste maatprijs te gebruiken, of als er geen prijs is.
+      - { label: Prijs tonen, name: prijsTonen, widget: boolean, default: true, hint: 'Uit = "Prijs op aanvraag".' }
+      - label: Omschrijving
+        name: omschrijving
+        widget: markdown
+        required: false
+        buttons: [bold, italic, bulleted-list, link]
+        editor_components: []
+        minimal: true
+      - label: Standaardmaten
+        name: maten
+        widget: list
+        required: false
+        summary: '{{label}}{{prijs | ternary(" · € ", "")}}{{prijs}}'
+        hint: De maten waaruit een bezoeker kan kiezen. De prijs per maat is een indicatie (mag leeg).
+        fields:
+          - { label: Maat, name: label, widget: string, hint: 'Bijv. "B200 x D100 x H78".' }
+          - { label: Prijs vanaf (€), name: prijs, widget: number, value_type: float, min: 0, required: false }
+      - { label: Ook op maat leverbaar, name: maatwerk, widget: boolean, default: true, hint: 'Toont de keuze "Andere maat" waar de bezoeker eigen maten invult.' }
+      - { label: Keuze uit de vier houtkleuren, name: houtkleuren, widget: boolean, default: false, hint: 'Blank teak, Thee kleur, Koloniale kleur en Wit, met staaltjes.' }
+      - label: Andere uitvoeringen
+        name: uitvoeringen
+        widget: list
+        required: false
+        field: { label: Uitvoering, name: uitvoering, widget: string }
+        hint: Alleen als het product andere keuzes heeft dan de vier houtkleuren, bijv. "Gerecycled teak glad" en "Gerecycled teak geborsteld".
+      - { label: Uitgelicht op de homepage, name: uitgelicht, widget: boolean, default: false, hint: 'De eerste krijgt de grote plek. Kies er 7.' }
+      - { label: Zichtbaar op de site, name: zichtbaar, widget: boolean, default: true }
+      - { label: Volgorde, name: volgorde, widget: number, value_type: int, default: 999, hint: 'Lager = eerder in de lijst.' }
+      - { label: Titel in Google (optioneel), name: seoTitel, widget: string, required: false, hint: 'Leeg = de site maakt zelf een goede titel.' }
+      - { label: Omschrijving in Google (optioneel), name: seoOmschrijving, widget: text, required: false, hint: 'Leeg = de site maakt zelf een omschrijving. Ongeveer 150 tekens.' }
+      - { label: Oude webadres (niet wijzigen), name: oudeUrl, widget: string, required: false, readonly: true }
+
+  - name: categorieen
+    label: Categorieën
+    label_singular: Categorie
+    description: Hoofdcategorieën (zoals Tafels) en soorten daaronder (zoals Teak eettafels).
+    folder: src/content/categorieen
+    format: json
+    extension: json
+    create: true
+    delete: true
+    slug: '{{naam}}'
+    identifier_field: naam
+    summary: '{{naam}}{{hoofd | ternary(" · onder ", "")}}{{hoofd}}'
+    sortable_fields: [naam, volgorde]
+    media_folder: ../../assets/categorieen
+    public_folder: ../../assets/categorieen
+    fields:
+      - { label: Naam, name: naam, widget: string }
+      - label: Valt onder
+        name: hoofd
+        widget: relation
+        collection: categorieen
+        value_field: '{{slug}}'
+        search_fields: [naam]
+        display_fields: [naam]
+        required: false
+        hint: Leeg = hoofdcategorie in het menu.
+      - { label: Volgorde, name: volgorde, widget: number, value_type: int, default: 100 }
+      - { label: Introtekst, name: intro, widget: markdown, required: false, buttons: [bold, italic, link], editor_components: [], minimal: true, hint: 'Een paar zinnen bovenaan de categoriepagina. Goed voor Google.' }
+      - { label: Omslagfoto, name: foto, widget: image, required: false, hint: 'Optioneel. Zonder foto wordt een productfoto gebruikt.' }
+      - { label: Oud nummer (niet wijzigen), name: oudeId, widget: string, required: false, readonly: true }
+
+  - name: instellingen
+    label: Instellingen
+    editor:
+      preview: false
+    files:
+      - name: algemeen
+        label: Contactgegevens en formulier
+        file: src/data/instellingen.json
+        format: json
+        fields:
+          - { label: Telefoonnummer, name: telefoon, widget: string }
+          - { label: 'WhatsApp-nummer (internationaal, zonder +)', name: whatsapp, widget: string, hint: 'Bijv. 31640220897' }
+          - { label: E-mailadres, name: email, widget: string }
+          - { label: Web3Forms-sleutel, name: web3formsKey, widget: string, required: false, hint: 'Sleutel van web3forms.com. Leeg = offerteaanvragen openen het mailprogramma van de bezoeker.' }
+          - { label: Adres (voor de privacyverklaring), name: adres, widget: string, required: false }
+          - { label: KvK-nummer, name: kvk, widget: string, required: false }
+          - { label: Facebook, name: facebook, widget: string, required: false }
+          - { label: Instagram, name: instagram, widget: string, required: false }
+          - { label: Pinterest, name: pinterest, widget: string, required: false }
+          - label: Beloftes in de bovenbalk
+            name: usps
+            widget: list
+            field: { label: Belofte, name: usp, widget: string }
+            max: 3

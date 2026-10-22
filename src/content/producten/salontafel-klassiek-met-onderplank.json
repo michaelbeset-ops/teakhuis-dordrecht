@@ -1,0 +1,123 @@
+{
+  "titel": "salontafel Klassiek met onderplank",
+  "categorie": "teak-salontafels",
+  "prijsVanaf": 139,
+  "prijsTonen": true,
+  "omschrijving": "salontafel met taps toelopende poten met bewerking in poot. De uitvoering met laden is standaard voorzien van ringetjes op de laden. Andere grepen zijn mogelijk zonder meerprijs.",
+  "fotos": [
+    "../../assets/producten/12378/1.jpg",
+    "../../assets/producten/12378/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B40 X D40 X H45 zonder lade",
+      "prijs": 139
+    },
+    {
+      "label": "B50 X D50 x H45 zonder lade",
+      "prijs": 159
+    },
+    {
+      "label": "B60 x D60 x H45 zonder lade",
+      "prijs": 179
+    },
+    {
+      "label": "B70 X D70 X H45 zonder lade",
+      "prijs": 209
+    },
+    {
+      "label": "B80 X D80 X H45 zonder lade",
+      "prijs": 239
+    },
+    {
+      "label": "B90 X D90 X H45 zonder lade",
+      "prijs": 279
+    },
+    {
+      "label": "B100 X D100 X H45 zonder lade",
+      "prijs": 339
+    },
+    {
+      "label": "B100 X D60 X H45 zonder laden",
+      "prijs": 239
+    },
+    {
+      "label": "B110 X D70 X H45 zonder laden",
+      "prijs": 279
+    },
+    {
+      "label": "B120 X D70 X H45 zonder laden",
+      "prijs": 299
+    },
+    {
+      "label": "B130 X D80 X H45 zonder laden",
+      "prijs": 339
+    },
+    {
+      "label": "B140 X D80 X H45 zonder laden",
+      "prijs": 369
+    },
+    {
+      "label": "B40 X D40 X H45 met lade",
+      "prijs": 159
+    },
+    {
+      "label": "B50 X D50 X H45 met lade",
+      "prijs": 179
+    },
+    {
+      "label": "B60 X D60 X H45 met lade",
+      "prijs": 199
+    },
+    {
+      "label": "B70 X D70 X H45 met lade",
+      "prijs": 229
+    },
+    {
+      "label": "B80 X D80 X H45 met lade",
+      "prijs": 259
+    },
+    {
+      "label": "B90 X D90 X H45 met 2 laden",
+      "prijs": 299
+    },
+    {
+      "label": "B100 X D100 X H45 met 2 laden",
+      "prijs": 369
+    },
+    {
+      "label": "B100 X D60 X H45 met 2 laden",
+      "prijs": 269
+    },
+    {
+      "label": "B110 X D70 X H45 met 2 laden",
+      "prijs": 309
+    },
+    {
+      "label": "B120 X D70 X H45 met 2 laden",
+      "prijs": 329
+    },
+    {
+      "label": "B130 X D80 X H45 met 2 laden",
+      "prijs": 369
+    },
+    {
+      "label": "B140 X D80 X H45 met 2 laden",
+      "prijs": 399
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Blank teak",
+    "Wit",
+    "Koloniale kleur",
+    "Milaan kleur",
+    "Gerecycled teak",
+    "Geborsteld teak"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 64,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/12378/teak-salontafels/salontafel-klassiek-met-onderplank"
+}

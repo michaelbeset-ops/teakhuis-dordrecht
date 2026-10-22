@@ -1,0 +1,28 @@
+{
+  "titel": "Le Matin kolomkast",
+  "categorie": "wastafelmeubels",
+  "prijsVanaf": 849,
+  "prijsTonen": true,
+  "omschrijving": "Mooi afgwerkte kolomkast passend bij de Le Matin collectie uitgevoerd met soft close deuren.\nAchter beide deuren een lade en glazen planken\n\nMaatwerk is mogelijk!",
+  "fotos": [
+    "../../assets/producten/2895/1.jpg",
+    "../../assets/producten/2895/2.jpg",
+    "../../assets/producten/2895/3.jpg"
+  ],
+  "maten": [
+    {
+      "label": "h=182cm br=42cm d=42cm linksdraaiend"
+    },
+    {
+      "label": "h=182cm br=42cm d=42cm rechtsdraaiend",
+      "prijs": 849
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 288,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2895/wastafelmeubels/le-matin-kolomkast"
+}

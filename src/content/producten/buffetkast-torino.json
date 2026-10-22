@@ -1,0 +1,27 @@
+{
+  "titel": "buffetkast Torino",
+  "categorie": "teak-buffetkasten",
+  "prijsVanaf": 1710,
+  "prijsTonen": true,
+  "omschrijving": "Deze buffetkast kan geleverd worden in de diverse maten, in de kleuren: koloniaal, thee en blank teakhout.",
+  "fotos": [
+    "../../assets/producten/2545/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "h=220cm br=150cm d=42/50cm 3 deuren",
+      "prijs": 1710
+    },
+    {
+      "label": "h=220cm br=200cm d=42/50cm 4 deuren",
+      "prijs": 2050
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 437,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/172/2545/teak-buffetkasten/buffetkast-torino"
+}

@@ -1,0 +1,122 @@
+{
+  "titel": "Salontafel Klassiek",
+  "categorie": "teak-salontafels",
+  "prijsVanaf": 129,
+  "prijsTonen": true,
+  "omschrijving": "Fraaie klassieke salontafel met taps toelopende poten met inkeping.\nStandaard ringetjes op de lades. Op verzoek mogelijk met andere ladetrekkers",
+  "fotos": [
+    "../../assets/producten/12349/1.jpg"
+  ],
+  "maten": [
+    {
+      "label": "40x40cm h=45cm zonder lade",
+      "prijs": 129
+    },
+    {
+      "label": "50x50cm h=45cm zonder lade",
+      "prijs": 149
+    },
+    {
+      "label": "60x60cm h=45cm zonder lade",
+      "prijs": 169
+    },
+    {
+      "label": "70x70cm h=45cm zonder lade",
+      "prijs": 189
+    },
+    {
+      "label": "80x80cm h=45cm zonder lade",
+      "prijs": 219
+    },
+    {
+      "label": "90x90cm h=45cm zonder laden",
+      "prijs": 259
+    },
+    {
+      "label": "100x100cm h=45cm zonder laden",
+      "prijs": 309
+    },
+    {
+      "label": "100x60cm h=45cm zonder laden",
+      "prijs": 219
+    },
+    {
+      "label": "110x70cm h=45cm zonder laden",
+      "prijs": 259
+    },
+    {
+      "label": "120x70cm h=45cm zonder laden",
+      "prijs": 279
+    },
+    {
+      "label": "130x80cm h=45cm zonder laden",
+      "prijs": 309
+    },
+    {
+      "label": "140x80cm h=45cm zonder laden",
+      "prijs": 339
+    },
+    {
+      "label": "40x40cm h=45cm met lade",
+      "prijs": 149
+    },
+    {
+      "label": "50x50cm h=45cm met lade",
+      "prijs": 169
+    },
+    {
+      "label": "60x60cm h=45cm met lade",
+      "prijs": 189
+    },
+    {
+      "label": "70x70cm h=45cm met lade",
+      "prijs": 209
+    },
+    {
+      "label": "80x80cm h=45cm met lade",
+      "prijs": 239
+    },
+    {
+      "label": "90x90cm h=45cm met 2 laden",
+      "prijs": 279
+    },
+    {
+      "label": "100x100cm h=45cm met 2 laden",
+      "prijs": 339
+    },
+    {
+      "label": "100x60cm h=45cm met 2 laden",
+      "prijs": 249
+    },
+    {
+      "label": "110x70cm h=45cm met 2 laden",
+      "prijs": 289
+    },
+    {
+      "label": "120x70cm h=45cm, met 2 laden",
+      "prijs": 309
+    },
+    {
+      "label": "130x80cm h=45cm met 2 laden",
+      "prijs": 339
+    },
+    {
+      "label": "140x80cm h=45cm met 2 laden",
+      "prijs": 369
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Blank teak",
+    "Wit",
+    "Koloniale kleur",
+    "Gerecycled teak",
+    "Milaan kleur",
+    "Geborsteld teak"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 63,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/12349/teak-salontafels/salontafel-klassiek"
+}

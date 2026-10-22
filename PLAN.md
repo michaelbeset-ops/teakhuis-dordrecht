@@ -1,3 +1,28 @@
+# Teakhuis: klantsite (21-10-2026)
+
+Van ontwerpvoorstel naar volledige site. Opdracht: professionele site met sfeer, alle producten van de oude webshop met
+betere productpagina's, SEO, alles op aanvraag (maatwerk), en een beheersysteem om zelf producten toe te voegen en te
+verwijderen. Maatstaf voor het winkelgevoel: afzetbak.nl (configureren in stappen: kiezen, maat, aanvragen).
+
+## Richting
+- Warm linnen (#f6f3ed) in plaats van wit, diep warm zwart voor de donkere vlakken, Teakhuis-groen als enige accent.
+- Newsreader (redactionele serif, gewicht 500, cursief als accent) + Mulish. Lichtere koppen dan de standaard 800/900:
+  houten meubels vragen om rust; bewust afgeweken van de vuistregel.
+- Productfoto's op wit worden passend getoond op een wit vlak, sfeerfoto's vullen het vlak (automatisch gedetecteerd).
+
+## Opbouw
+Home, collectie, 37 categoriepagina's, 508 productpagina's, maatwerk, over ons, contact, offerte, privacy, 404,
+plus doorverwijzingen van alle oude webshop-adressen.
+
+## Productpagina
+Maat kiezen (standaardmaten met indicatieprijs, of "Andere maat" met eigen B/D/H), houtkleur, aantal en wensen.
+"Zet in offerteaanvraag" (lijst in de browser) of direct via WhatsApp. Offerte versturen via Web3Forms of mail.
+
+## Beheer
+Sveltia CMS, data als JSON per product in src/content, deploy via GitHub Actions. Zie BEHEER.md.
+
+---
+
 # Teakhuis (voorheen Dordrecht): ontwerpvoorstel (07-10-2026)
 
 ## Check vooraf

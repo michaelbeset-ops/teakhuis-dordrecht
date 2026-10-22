@@ -1,0 +1,96 @@
+{
+  "titel": "Blokpoot eettafel",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 299,
+  "prijsTonen": true,
+  "omschrijving": "Strakke tijdloze eettafel met 8 cm blokpoten op de hoeken. Meerprijs voor 10 cm blokpoten is € 60,00\nDeze tafel heeft een 3 cm top en een 6 cm regel. De vrije ruimte onder de tafel is 69 cm.",
+  "fotos": [
+    "../../assets/producten/31393/1.jpg",
+    "../../assets/producten/31393/2.jpg",
+    "../../assets/producten/31393/3.jpg",
+    "../../assets/producten/31393/4.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B70 x D70 x H78",
+      "prijs": 299
+    },
+    {
+      "label": "B80 x D80 x H78",
+      "prijs": 329
+    },
+    {
+      "label": "B90 x D90 x H78",
+      "prijs": 369
+    },
+    {
+      "label": "B120 x D80 x H78",
+      "prijs": 419
+    },
+    {
+      "label": "B100 x D100 x H78",
+      "prijs": 439
+    },
+    {
+      "label": "B140 x D90 x H78",
+      "prijs": 459
+    },
+    {
+      "label": "B150 x D90 x H78",
+      "prijs": 469
+    },
+    {
+      "label": "B160 x D90 x H78",
+      "prijs": 479
+    },
+    {
+      "label": "B120 x D120 x H78",
+      "prijs": 479
+    },
+    {
+      "label": "B180 x D90 x H78",
+      "prijs": 499
+    },
+    {
+      "label": "B200 x D100 x H78",
+      "prijs": 549
+    },
+    {
+      "label": "B140 x D140 x H78",
+      "prijs": 549
+    },
+    {
+      "label": "B220 x D100 x H78",
+      "prijs": 589
+    },
+    {
+      "label": "B240 x D100 x H78",
+      "prijs": 629
+    },
+    {
+      "label": "B260 x D100 x H78",
+      "prijs": 689
+    },
+    {
+      "label": "B280 x D100 x H78",
+      "prijs": 749
+    },
+    {
+      "label": "B300 x D100 x H78",
+      "prijs": 809
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Blank onbehandeld teak",
+    "Gerecycled onbehandeld teak",
+    "Milaan kleur",
+    "Koloniale kleur",
+    "Geborsteld teak"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 71,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/31393/teak-eettafels/blokpoot-eettafel"
+}

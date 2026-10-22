@@ -1,0 +1,40 @@
+---
+// Doorverwijzingen van de oude teakhuis.nl-adressen naar de nieuwe pagina's. GitHub Pages kent geen serverredirects,
+// daarom een kleine pagina met meta refresh en canonical: Google volgt die en geeft de waarde door aan de nieuwe pagina.
+import { url, absoluut } from '../data/site';
+import { producten, categorieen, productHref, categorieHref } from '../data/catalogus';
+
+export function getStaticPaths() {
+  const naar = new Map<string, string>();
+  const zet = (oud: string, nieuw: string) => {
+    const pad = oud.replace(/^\/+|\/+$/g, '');
+    if (pad && !naar.has(pad)) naar.set(pad, nieuw);
+  };
+  // Vaste pagina's van de oude site.
+  zet('webshop', url('collectie/'));
+  zet('maatwerk/kledingkast-op-maat', url('maatwerk/'));
+  zet('maatwerk/tv-meubel-maatwerk', url('maatwerk/'));
+  zet('maatwerk/voorbeelden-maatwerk-teakhout', url('maatwerk/'));
+  zet('maatwerk/het-proces', url('maatwerk/'));
+  zet('referenties', url('over-ons/#referenties'));
+  zet('leverbare-kleuren-teak', url('maatwerk/#aanvragen'));
+  // Elk product en elke categorie uit de oude webshop.
+  for (const p of producten) if (p.oudeUrl) zet(p.oudeUrl, productHref(p));
+  for (const c of categorieen) if (c.oudeId) zet(`webshop/etxFAX7uScLCTSM6mcUYWX/${c.oudeId}/${c.slug}`, categorieHref(c));
+  return [...naar].map(([oud, nieuw]) => ({ params: { oud }, props: { nieuw } }));
+}
+const { nieuw } = Astro.props as { nieuw: string };
+const doel = new URL(nieuw, absoluut('')).href;
+---
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <title>Deze pagina is verhuisd | Teakhuis</title>
+    <link rel="canonical" href={doel} />
+    <meta http-equiv="refresh" content={`0; url=${nieuw}`} />
+  </head>
+  <body style="font-family: system-ui, sans-serif; padding: 2rem">
+    <p>Deze pagina is verhuisd: <a href={nieuw}>ga verder naar de nieuwe pagina</a>.</p>
+  </body>
+</html>

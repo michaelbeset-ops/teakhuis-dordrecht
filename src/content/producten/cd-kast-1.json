@@ -1,0 +1,29 @@
+{
+  "titel": "CD kast 1",
+  "categorie": "cd-kasten",
+  "prijsVanaf": 449,
+  "prijsTonen": true,
+  "omschrijving": "CD kast met 2 deuren te leveren in blank teakhout of de koloniale kleur",
+  "fotos": [
+    "../../assets/producten/2484/1.jpg",
+    "../../assets/producten/2484/2.jpg",
+    "../../assets/producten/2484/3.jpg"
+  ],
+  "maten": [
+    {
+      "label": "h=145cm d=40cm br=40cm blank teakhout",
+      "prijs": 449
+    },
+    {
+      "label": "h=145cm d=40cm br=40cm koloniale kleur",
+      "prijs": 449
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 214,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/184/2484/cd-kasten/cd-kast-1"
+}

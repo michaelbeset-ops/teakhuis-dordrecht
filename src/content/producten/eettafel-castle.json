@@ -1,0 +1,50 @@
+{
+  "titel": "EETTAFEL CASTLE",
+  "categorie": "teak-eettafels",
+  "prijsVanaf": 1599,
+  "prijsTonen": true,
+  "omschrijving": "Prachtige eettafel van massief gerecycled teak\n\nUitgevoerd met 5 cm massief bovenblad.\n\nOok te leveren met ander onderstel\n\nMAATWERK ZONDER MEERPRIJS!",
+  "fotos": [
+    "../../assets/producten/4769/1.jpg",
+    "../../assets/producten/4769/2.jpg",
+    "../../assets/producten/4769/3.jpg",
+    "../../assets/producten/4769/4.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B200 x D95 x H78",
+      "prijs": 1599
+    },
+    {
+      "label": "B220 x D100 x H78",
+      "prijs": 1699
+    },
+    {
+      "label": "B240 x D100 x H78",
+      "prijs": 1799
+    },
+    {
+      "label": "B260 x D100 x H78",
+      "prijs": 1949
+    },
+    {
+      "label": "B280 x D100 x H78",
+      "prijs": 2099
+    },
+    {
+      "label": "B300 x D100 x H78",
+      "prijs": 2249
+    },
+    {
+      "label": "B350 x D100 x H78",
+      "prijs": 2699
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 79,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4769/teak-eettafels/eettafel-castle"
+}

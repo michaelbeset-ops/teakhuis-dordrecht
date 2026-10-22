@@ -1,0 +1,43 @@
+{
+  "titel": "Venice sidetable Vintage",
+  "categorie": "sidetables",
+  "prijsVanaf": 299,
+  "prijsTonen": true,
+  "omschrijving": "Sidetable met sierlijk poten uit grootmoeders tijd. Handgeschilderd wit, gecombineerd met geborsteld teakhouten bovenkant.\n\nMaatwerk mogelijk!",
+  "fotos": [
+    "../../assets/producten/4405/1.png"
+  ],
+  "maten": [
+    {
+      "label": "b100 x d35 x h78",
+      "prijs": 299
+    },
+    {
+      "label": "b120 x d40 x h78",
+      "prijs": 399
+    },
+    {
+      "label": "b140 x d40 x h78",
+      "prijs": 429
+    },
+    {
+      "label": "b160 x d40 x h78",
+      "prijs": 459
+    },
+    {
+      "label": "b180 x d40 x h78",
+      "prijs": 499
+    },
+    {
+      "label": "b200 x d40 x h78",
+      "prijs": 539
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 95,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/4405/sidetables/venice-sidetable-vintage"
+}

@@ -1,0 +1,57 @@
+{
+  "titel": "salonkisten",
+  "categorie": "salonkisten",
+  "prijsVanaf": 419,
+  "prijsTonen": true,
+  "omschrijving": "prachtige salonkist met 2 kleppen. In gladde uitvoering of robuust. Te leveren in de kleuren: koloniaal, thee of blank teakhout.",
+  "fotos": [
+    "../../assets/producten/1198/1.jpg",
+    "../../assets/producten/1198/2.jpg",
+    "../../assets/producten/1198/3.jpg"
+  ],
+  "maten": [
+    {
+      "label": "60x60cm h=48cm",
+      "prijs": 419
+    },
+    {
+      "label": "70x70cm h=48cm",
+      "prijs": 459
+    },
+    {
+      "label": "80x80cm h=48cm",
+      "prijs": 499
+    },
+    {
+      "label": "90x90cm h=48cm",
+      "prijs": 529
+    },
+    {
+      "label": "100x60cm h=48cm",
+      "prijs": 559
+    },
+    {
+      "label": "110x70cm h=48cm",
+      "prijs": 619
+    },
+    {
+      "label": "120x80cm h=48cm",
+      "prijs": 699
+    },
+    {
+      "label": "130x80cm h=48cm",
+      "prijs": 739
+    },
+    {
+      "label": "140x80cm h=48cm",
+      "prijs": 789
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 98,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/167/1198/salonkisten/salonkisten"
+}

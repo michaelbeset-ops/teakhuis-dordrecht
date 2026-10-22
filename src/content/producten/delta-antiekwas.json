@@ -1,0 +1,37 @@
+{
+  "titel": "Delta Antiekwas",
+  "categorie": "onderhoudsmiddelen",
+  "prijsVanaf": 18.95,
+  "prijsTonen": true,
+  "omschrijving": "Deze traditionele antiekwas is naar oudhollands recept gemaakt van zuivere bijenwas en carnaubawas. Geeft onderhoud en bescherming aan houten meubels. Kleine krasjes en putjes worden gecamoufleerd. Twee keer per jaar je meubels in de was zetten zorgt ervoor dat houten meubels als nieuw blijven. Delta antiekwas is verkrijgbaar in Naturel, middenbruin (licht koloniaal) en donkerbruin (donker koloniaal)\n\nAanbrengen met een zachte doek en na 15 minuten uitboenen.",
+  "fotos": [
+    "../../assets/producten/32666/1.jpg",
+    "../../assets/producten/32666/2.jpg",
+    "../../assets/producten/32666/3.jpg"
+  ],
+  "maten": [
+    {
+      "label": "1 blik van 375 ml incl. verzenden binnen Nederland",
+      "prijs": 18.95
+    },
+    {
+      "label": "2 blikken van 375 ml incl. verzenden binnen Nederland",
+      "prijs": 34.95
+    },
+    {
+      "label": "3 blikken van 375 ml incl. verzenden binnen Nederland",
+      "prijs": 59.23
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Naturel",
+    "Middenbruin",
+    "Donkerbruin"
+  ],
+  "maatwerk": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 319,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/190/32666/onderhoudsmiddelen/delta-antiekwas"
+}

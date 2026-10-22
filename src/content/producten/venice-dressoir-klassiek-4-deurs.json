@@ -1,0 +1,28 @@
+{
+  "titel": "Venice Dressoir klassiek 4 deurs",
+  "categorie": "dressoirs",
+  "prijsVanaf": 1059,
+  "prijsTonen": true,
+  "omschrijving": "Mooi handgeschilderd dressoir met gerecycled teakhouten bovenkant of witte bovenkant\nMAATWERK MOGELIJK!",
+  "fotos": [
+    "../../assets/producten/4428/1.jpg",
+    "../../assets/producten/4428/2.png"
+  ],
+  "maten": [
+    {
+      "label": "b235 x d55 x h95 teaktop",
+      "prijs": 1099
+    },
+    {
+      "label": "b235 x d55 x h95 wit",
+      "prijs": 1059
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 378,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/246/4428/dressoirs/venice-dressoir-klassiek-4-deurs"
+}

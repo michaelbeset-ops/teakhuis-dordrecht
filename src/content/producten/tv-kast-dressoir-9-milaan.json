@@ -1,0 +1,28 @@
+{
+  "titel": "TV kast/dressoir 9 Milaan",
+  "categorie": "dressoirs",
+  "prijsVanaf": 1319,
+  "prijsTonen": true,
+  "omschrijving": "Deze kast kan geleevrd worden in de kleuren: koloniaal, thee en blank teakhout. Kan in elke maat geleverd worden.",
+  "fotos": [
+    "../../assets/producten/2678/1.jpg",
+    "../../assets/producten/2678/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "h=85cm d=50cm br=200cm",
+      "prijs": 1319
+    },
+    {
+      "label": "b228 x d50 x h90",
+      "prijs": 1329
+    }
+  ],
+  "houtkleuren": true,
+  "uitvoeringen": [],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 118,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/246/2678/dressoirs/tv-kast-dressoir-9-milaan"
+}

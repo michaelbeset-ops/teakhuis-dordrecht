@@ -1,0 +1,98 @@
+{
+  "titel": "Sidetable klassiek met onderplank",
+  "categorie": "sidetables",
+  "prijsVanaf": 189,
+  "prijsTonen": true,
+  "omschrijving": "Fraaie klassieke sidetable met tapse poten met een inkeping. Op bestellIng ook zonder inkeping mogelijk. Leverbaar met en zonder lades in iedere gewenste afmeting. Diverse kleuren teak mogelijk, zowel ruw als glad afgewerkt.",
+  "fotos": [
+    "../../assets/producten/32056/1.jpg",
+    "../../assets/producten/32056/2.jpg"
+  ],
+  "maten": [
+    {
+      "label": "B60 x D30 x H78",
+      "prijs": 189
+    },
+    {
+      "label": "B80 x D30 x H78",
+      "prijs": 209
+    },
+    {
+      "label": "B100 x D30 x H78",
+      "prijs": 239
+    },
+    {
+      "label": "B120 x D30 x H78",
+      "prijs": 269
+    },
+    {
+      "label": "B120 x D40 x H78",
+      "prijs": 329
+    },
+    {
+      "label": "B140 x D40 x H78",
+      "prijs": 369
+    },
+    {
+      "label": "B160 x D40 x H78",
+      "prijs": 409
+    },
+    {
+      "label": "B180 x D40 x H78",
+      "prijs": 449
+    },
+    {
+      "label": "B200 x D40 x H78",
+      "prijs": 489
+    },
+    {
+      "label": "B60 x D30 x H78 Met lade",
+      "prijs": 209
+    },
+    {
+      "label": "B80 x D30 x H78 met lade",
+      "prijs": 229
+    },
+    {
+      "label": "B100 x D30 x H78 Met 2 lades",
+      "prijs": 269
+    },
+    {
+      "label": "B120 x D30 x H78 Met 2 lades",
+      "prijs": 299
+    },
+    {
+      "label": "B120 x D40 x H78 Met 2 lades",
+      "prijs": 359
+    },
+    {
+      "label": "B140 x D40 x H78 Met 2 lades",
+      "prijs": 399
+    },
+    {
+      "label": "B160 x D40 x H78 met 3 lades",
+      "prijs": 459
+    },
+    {
+      "label": "B180 x D40 x H78 met 3 lades",
+      "prijs": 499
+    },
+    {
+      "label": "B200 x D40 x H78 met 4 lades",
+      "prijs": 559
+    }
+  ],
+  "houtkleuren": false,
+  "uitvoeringen": [
+    "Blank Teak",
+    "Koloniaal",
+    "Milaan",
+    "Gerecycled teak",
+    "Geborsteld teak"
+  ],
+  "maatwerk": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 89,
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/32056/sidetables/sidetable-klassiek-met-onderplank"
+}
