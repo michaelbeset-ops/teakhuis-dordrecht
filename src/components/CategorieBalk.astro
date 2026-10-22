@@ -1,0 +1,37 @@
+---
+// Snel naar een categorie, zoals het menu van hun oude webshop: alle hoofdcategorieen naast elkaar met een productfoto.
+// Op mobiel schuift de rij met de vinger.
+import { Image } from 'astro:assets';
+import { url } from '../data/site';
+import { groepen, categorieHref, eersteFoto, opWit, breedtes } from '../data/catalogus';
+interface Props { actief?: string; class?: string }
+const { actief, class: cls = '' } = Astro.props;
+const foto = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(eersteFoto).find((f) => f && opWit(f)) ?? g.producten.map(eersteFoto).find(Boolean);
+---
+<nav aria-label="Categorieën" class={cls}>
+  <ul class="-mx-5 flex gap-2 overflow-x-auto px-5 pb-1 [scrollbar-width:none] md:mx-0 md:px-0 lg:flex-wrap lg:overflow-visible [&::-webkit-scrollbar]:hidden">
+    <li class="flex-none">
+      <a href={url('collectie/')} class={`flex h-14 items-center gap-2 rounded-full pl-2 pr-4 text-sm font-bold no-underline ring-1 transition-colors ${actief === 'alles' ? 'bg-nacht text-wit ring-nacht' : 'bg-wit text-inkt ring-lijn hover:ring-blad-diep'}`} aria-current={actief === 'alles' ? 'page' : undefined}>
+        <span class="grid h-10 w-10 place-items-center rounded-full bg-blad text-inkt">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5" /><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5" /><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5" /><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5" /></svg>
+        </span>
+        Alles
+      </a>
+    </li>
+    {groepen.map((g) => {
+      const f = foto(g);
+      const aan = actief === g.hoofd.slug;
+      return (
+        <li class="flex-none">
+          <a href={categorieHref(g.hoofd)} class={`group flex h-14 items-center gap-2 rounded-full pl-1.5 pr-4 text-sm font-bold no-underline ring-1 transition-colors ${aan ? 'bg-nacht text-wit ring-nacht' : 'bg-wit text-inkt ring-lijn hover:ring-blad-diep'}`} aria-current={aan ? 'page' : undefined}>
+            <span class="grid h-11 w-11 place-items-center overflow-hidden rounded-full bg-zand">
+              {f && <Image src={f} alt="" widths={breedtes(f, [96])} sizes="44px" quality={60} class={`h-full w-full ${opWit(f) ? 'object-contain p-1 mix-blend-multiply' : 'object-cover'}`} />}
+            </span>
+            <span class="whitespace-nowrap">{g.hoofd.naam}</span>
+            <span class={`num text-xs font-semibold ${aan ? 'text-as' : 'text-grijs'}`}>{g.producten.length}</span>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</nav>

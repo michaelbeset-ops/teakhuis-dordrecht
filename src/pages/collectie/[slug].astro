@@ -5,8 +5,9 @@ import Voet from '../../components/Voet.astro';
 import Kruimel from '../../components/Kruimel.astro';
 import ProductKaart from '../../components/ProductKaart.astro';
 import Icoon from '../../components/Icoon.astro';
+import CategorieBalk from '../../components/CategorieBalk.astro';
 import { url, absoluut } from '../../data/site';
-import { catPaginas, categorieHref, productHref, omschrijvingHtml, platteTekst, type CatPagina } from '../../data/catalogus';
+import { catPaginas, groepen, categorieHref, productHref, omschrijvingHtml, platteTekst, type CatPagina } from '../../data/catalogus';
 import { kruimelSchema, type Stap } from '../../data/seo';
 
 export function getStaticPaths() {
@@ -36,19 +37,67 @@ const lijstSchema = {
   <main id="inhoud" class="pb-20 md:pb-28">
     <section class="wrap pt-6 md:pt-8">
       <Kruimel stappen={kruimel} />
-      <div class="mt-10 grid grid-cols-1 gap-y-6 lg:grid-cols-12 lg:items-end lg:gap-x-12">
-        <div class="lg:col-span-7">
-          <h1 class="text-4xl">{cat.naam}</h1>
-          {intro
-            ? <div class="tekst mt-5 max-w-xl text-lg text-grijs" set:html={intro} />
-            : <p class="mt-5 max-w-xl text-lg text-grijs">{n} {n === 1 ? 'ontwerp' : 'ontwerpen'}{hoofd ? ` in ${hoofd.naam.toLowerCase()}` : ''}.{maatwerk > 0 && ' Zie je de juiste maat niet? Bijna alles maken we ook op jouw maat, zonder meerprijs.'}</p>}
+      <CategorieBalk actief={ouder.slug} class="mt-6 lg:hidden" />
+    </section>
+
+    <div class="wrap mt-8 grid grid-cols-1 gap-10 lg:mt-10 lg:grid-cols-12 lg:gap-12">
+      <!-- Zijmenu zoals in een webshop: alle categorieen, de huidige uitgeklapt -->
+      <aside class="hidden lg:col-span-3 lg:block" aria-label="Categorieën">
+        <div class="sticky top-28 rounded-[var(--radius-xl)] bg-wit p-5 ring-1 ring-lijn">
+          <p class="label text-grijs">Categorieën</p>
+          <ul class="mt-3 space-y-0.5">
+            <li><a href={url('collectie/')} class="flex items-center justify-between rounded-[var(--radius-sm)] px-3 py-2 text-sm font-semibold text-inkt no-underline hover:bg-zand">Hele collectie</a></li>
+            {groepen.map((g) => {
+              const open = g.hoofd.slug === ouder.slug;
+              return (
+                <li>
+                  <a href={categorieHref(g.hoofd)} class={`flex items-center justify-between rounded-[var(--radius-sm)] px-3 py-2 text-sm no-underline ${open && !hoofd ? 'bg-nacht font-bold text-wit' : open ? 'font-bold text-inkt hover:bg-zand' : 'font-semibold text-inkt hover:bg-zand'}`} aria-current={open && !hoofd ? 'page' : undefined}>
+                    {g.hoofd.naam}<span class={`num text-xs ${open && !hoofd ? 'text-as' : 'text-grijs'}`}>{g.producten.length}</span>
+                  </a>
+                  {open && g.subs.length > 0 && (
+                    <ul class="mb-2 ml-3 mt-1 space-y-0.5 border-l-2 border-blad pl-2">
+                      {g.subs.map((s) => (
+                        <li><a href={categorieHref(s.cat)} class={`flex items-center justify-between rounded-[var(--radius-sm)] px-3 py-1.5 text-sm no-underline ${s.cat.slug === cat.slug ? 'bg-zand font-bold text-inkt' : 'text-grijs hover:text-inkt'}`} aria-current={s.cat.slug === cat.slug ? 'page' : undefined}>{s.cat.naam}<span class="num text-xs">{s.producten.length}</span></a></li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+          <div class="mt-5 rounded-[var(--radius-md)] bg-zand p-4">
+            <p class="font-kop text-sm font-extrabold">Niet gevonden?</p>
+            <p class="mt-1 text-sm text-grijs">Wij maken het op jouw maat.</p>
+            <a href={url('maatwerk/')} class="mt-3 inline-flex text-sm font-bold text-blad-diep underline">Maatwerk aanvragen</a>
+          </div>
         </div>
+      </aside>
+
+      <div class="min-w-0 lg:col-span-9">
+        <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+          <div class="max-w-2xl">
+            <h1 class="text-4xl">{cat.naam}</h1>
+            {intro
+              ? <div class="tekst mt-4 text-lg text-grijs" set:html={intro} />
+              : <p class="mt-4 text-lg text-grijs">{n} {n === 1 ? 'ontwerp' : 'ontwerpen'}{hoofd ? ` in ${hoofd.naam.toLowerCase()}` : ''}.{maatwerk > 0 && ' Zie je de juiste maat niet? Bijna alles maken we ook op jouw maat, zonder meerprijs.'}</p>}
+          </div>
+        </div>
+        {subs.length > 0 && (
+          <nav aria-label={`Soorten ${ouder.naam.toLowerCase()}`} class="-mx-5 mt-6 overflow-x-auto px-5 [scrollbar-width:none] md:mx-0 md:px-0 lg:hidden">
+            <ul class="flex gap-2">
+              <li><a href={categorieHref(ouder)} class={`flex min-h-10 items-center whitespace-nowrap rounded-full px-4 text-sm font-bold no-underline ring-1 ${!hoofd ? 'bg-nacht text-wit ring-nacht' : 'bg-wit text-inkt ring-lijn'}`} aria-current={!hoofd ? 'page' : undefined}>Alles</a></li>
+              {subs.map((s) => (
+                <li><a href={categorieHref(s)} class={`flex min-h-10 items-center whitespace-nowrap rounded-full px-4 text-sm font-bold no-underline ring-1 ${s.slug === cat.slug ? 'bg-nacht text-wit ring-nacht' : 'bg-wit text-inkt ring-lijn'}`} aria-current={s.slug === cat.slug ? 'page' : undefined}>{s.naam}</a></li>
+              ))}
+            </ul>
+          </nav>
+        )}
         {n > 1 && (
-          <div class="flex flex-wrap items-center justify-between gap-4 lg:col-span-5 lg:justify-end">
-            <p class="num text-sm text-grijs lg:hidden">{n} {n === 1 ? 'product' : 'producten'}</p>
+          <div class="mt-6 flex items-center justify-between gap-4 border-y border-lijn py-3">
+            <p class="num text-sm font-semibold text-grijs">{n} {n === 1 ? 'product' : 'producten'}</p>
             <label class="flex items-center gap-3 text-sm font-bold">
-              Sorteren
-              <select class="veld min-h-11 w-auto py-0 text-sm" data-sorteer>
+              <span class="max-sm:sr-only">Sorteren</span>
+              <select class="veld min-h-10 w-auto rounded-full py-0 text-sm" data-sorteer>
                 <option value="standaard">Aanbevolen</option>
                 <option value="naam">Naam A tot Z</option>
                 <option value="laag">Prijs laag naar hoog</option>
@@ -57,32 +106,21 @@ const lijstSchema = {
             </label>
           </div>
         )}
-      </div>
-      {subs.length > 0 && (
-        <nav aria-label={`Soorten ${ouder.naam.toLowerCase()}`} class="-mx-5 mt-10 overflow-x-auto px-5 [scrollbar-width:none] md:mx-0 md:px-0">
-          <ul class="flex gap-2">
-            <li><a href={categorieHref(ouder)} class={`flex min-h-10 items-center whitespace-nowrap rounded-full border px-4 text-sm font-bold no-underline transition-colors ${!hoofd ? 'border-inkt bg-inkt text-papier' : 'border-lijn-2 text-inkt hover:border-inkt'}`} aria-current={!hoofd ? 'page' : undefined}>Alles</a></li>
-            {subs.map((s) => (
-              <li><a href={categorieHref(s)} class={`flex min-h-10 items-center whitespace-nowrap rounded-full border px-4 text-sm font-bold no-underline transition-colors ${s.slug === cat.slug ? 'border-inkt bg-inkt text-papier' : 'border-lijn-2 text-inkt hover:border-inkt'}`} aria-current={s.slug === cat.slug ? 'page' : undefined}>{s.naam}</a></li>
+        <section class="mt-8" aria-label={`${cat.naam}: alle producten`}>
+          <ul class="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-6 lg:gap-y-12" data-grid>
+            {producten.map((p, i) => (
+              <li data-naam={p.titel.toLowerCase()} data-prijs={p.prijsTonen && p.prijsVanaf ? p.prijsVanaf : 999999} data-i={i}>
+                <ProductKaart p={p} lazy={i >= 6} kop="h2" />
+              </li>
             ))}
           </ul>
-        </nav>
-      )}
-    </section>
-
-    <section class="wrap mt-10 md:mt-12" aria-label={`${cat.naam}: alle producten`}>
-      <ul class="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-4 lg:gap-y-14" data-grid>
-        {producten.map((p, i) => (
-          <li data-naam={p.titel.toLowerCase()} data-prijs={p.prijsTonen && p.prijsVanaf ? p.prijsVanaf : 999999} data-i={i}>
-            <ProductKaart p={p} lazy={i >= 4} kop="h2" />
-          </li>
-        ))}
-      </ul>
-    </section>
+        </section>
+      </div>
+    </div>
 
     {maatwerk > 0 && (
       <section class="wrap mt-20 md:mt-28">
-        <div class="grid grid-cols-1 items-center gap-6 rounded-md bg-nacht p-7 text-wit sm:p-10 md:grid-cols-12 md:p-12">
+        <div class="grid grid-cols-1 items-center gap-6 rounded-[var(--radius-xl)] bg-nacht p-7 text-wit sm:p-10 md:grid-cols-12 md:p-12">
           <div class="md:col-span-8">
             <h2 class="text-3xl">{cat.naam} op maat?</h2>
             <p class="mt-3 max-w-xl text-as">Kies een ontwerp en geef je eigen maten door, of beschrijf wat je zoekt. Je krijgt een tekening en een prijs, zonder meerprijs voor maatwerk.</p>

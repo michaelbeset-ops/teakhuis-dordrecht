@@ -25,6 +25,8 @@ export const site = {
   kvk: inst.kvk,
   adres: inst.adres,
   usps: inst.usps,
+  // Google-bedrijfsprofiel (reviews). Zoeklink, zodat hij ook werkt als de profiel-URL verandert.
+  google: inst.google || 'https://www.google.com/maps/search/?api=1&query=Teakhuis+Dordrecht',
   themeColor: '#f6f3ed',
   voorstel: import.meta.env.PUBLIC_VOORSTEL === '1',
 };
@@ -47,7 +49,7 @@ export const maatwerkExtra = ['metaal', 'glas', 'wielen'];
 export const reviews = [
   { tekst: 'We willen anderen ook laten weten dat maatwerk betaalbaar en mooi is. Dat heeft het Teakhuis bewezen!', naam: 'Peter en Majo A.', bron: 'over hun badkamermeubel' },
   { tekst: 'Een compliment voor de service en uw chauffeurs. … daarna hebben ze alles zeer zorgvuldig op zijn plek gezet.', naam: 'Gert-Jan H.', bron: 'referentie' },
-  { tekst: 'Meubels zijn naar eigen wens aan te passen omdat alles maatwerk is, personeel kan daardoor ook meedenken/ helpen met je keuze.', naam: 'Marco B.', bron: 'Google review' },
+  { tekst: 'Meubels zijn naar eigen wens aan te passen omdat alles maatwerk is, personeel kan daardoor ook meedenken/ helpen met je keuze.', naam: 'Marco B.', bron: 'Google review', google: true },
   { tekst: 'Vanmiddag hebben we onze meubels bezorgd gekregen. Ze zijn meer dan het wachten waard geweest.', naam: 'Jeanette v.d. S.', bron: 'referentie' },
 ];
 

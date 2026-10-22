@@ -6,13 +6,12 @@ import Voet from '../components/Voet.astro';
 import Icoon from '../components/Icoon.astro';
 import GeenFoto from '../components/GeenFoto.astro';
 import MaatwerkProjecten from '../components/MaatwerkProjecten.astro';
+import CategorieBalk from '../components/CategorieBalk.astro';
 import { site, url, waHoi, houtkleuren, reviews } from '../data/site';
 import { producten, groepen, categorieHref, productHref, eersteFoto, breedtes, prijsTekst, opWit, fotoKlas } from '../data/catalogus';
 
 import heroLive from '../assets/hero-trapezium-detail.jpg';
 import heroViking from '../assets/tuintafel-viking-detail.jpg';
-import fotoTafels from '../assets/p-eettafel-japura.jpg';
-import fotoKasten from '../assets/p-tv-dressoir-bayakayu.jpg';
 import productie from '../assets/productie-indonesie.jpg';
 import han from '../assets/han.jpg';
 
@@ -23,16 +22,20 @@ const dias = [
   { img: heroViking, alt: 'Latten van gerecycled teak op het zwarte stalen frame van een tuintafel', p: vind('tuintafel-viking'), naam: 'Tuintafel Viking' },
 ];
 
-// Grote kaarten voor de twee grootste groepen, kleinere tegels voor de rest.
-const tafels = groepen.find((g) => g.hoofd.slug === 'tafels');
-const kasten = groepen.find((g) => g.hoofd.slug === 'kasten');
-const groot = [
-  tafels && { g: tafels, foto: fotoTafels, alt: 'Teakhouten eettafel Japura met dik blad op een stalen V-poot en leren stoelen', klas: 'origin-left scale-[1.18] object-[30%_60%]', regel: 'Eettafels, salontafels, bijzettafels en bureaus.' },
-  kasten && { g: kasten, foto: fotoKasten, alt: 'Laag tv-meubel van rustiek teak en staal met deuren, lade en open vak op een houten vloer', klas: 'origin-bottom scale-[1.65] object-[50%_100%]', regel: 'Dressoirs, tv-meubels, buffet- en boekenkasten.' },
-].filter(Boolean) as { g: (typeof groepen)[number]; foto: ImageMetadata; alt: string; klas: string; regel: string }[];
+// Vier collagekaarten met eigen productfoto's op wit (geen showroomfoto's: er is geen winkel meer).
 const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(eersteFoto).find((x) => x && opWit(x));
-// Alleen categorieen met een rustige productfoto op wit; een eigen omslagfoto uit het beheer telt altijd.
-const klein = groepen.filter((g) => g !== tafels && g !== kasten && g.hoofd.slug !== 'onderhoudsmiddelen' && omslag(g)).slice(0, 6);
+const regels: Record<string, string> = {
+  tafels: 'Eettafels, salontafels, bijzettafels en bureaus.',
+  kasten: 'Dressoirs, tv-meubels, buffet- en boekenkasten.',
+  badkamermeubelen: 'Wastafelmeubels, spiegels en waskommen.',
+  tuinmeubelen: 'Tuintafels, banken en stoelen.',
+  slaapkamermeubels: 'Bedden en nachtkastjes.',
+  'teak-zitmeubelen': 'Stoelen, banken en barkrukken.',
+};
+const collage = groepen
+  .filter((g) => regels[g.hoofd.slug])
+  .slice(0, 4)
+  .map((g) => ({ g, fotos: [...new Set(g.producten.map(eersteFoto).filter((x): x is ImageMetadata => !!x && opWit(x)))].slice(0, 3) }));
 
 const populair = producten.filter((p) => p.uitgelicht).slice(0, 5);
 const regelVan = (p: (typeof producten)[number]) => [
@@ -79,11 +82,10 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
           </div>
         </div>
         <div class="flex flex-col gap-5 lg:col-span-4 lg:items-end lg:text-right">
-          <ul class="grid gap-2 text-sm text-wit/85">
-            <li class="flex items-center gap-2 lg:justify-end"><Icoon naam="liniaal" class="h-4 w-4 text-blad-licht" />Maatwerk zonder meerprijs</li>
-            <li class="flex items-center gap-2 lg:justify-end"><Icoon naam="blad" class="h-4 w-4 text-blad-licht" />Alleen duurzaam hout</li>
-          </ul>
-          <a href={site.telHref} class="num font-kop text-2xl font-extrabold text-wit no-underline hover:text-blad-licht">{site.tel}</a>
+          <a href={waHoi} class="group flex items-center gap-3 rounded-full bg-wit/10 py-1.5 pl-1.5 pr-5 text-left no-underline ring-1 ring-wit/20 backdrop-blur-md transition-colors hover:bg-wit/20">
+            <Image src={han} alt="" quality={80} widths={[112]} sizes="48px" class="h-12 w-12 flex-none rounded-full object-cover object-top ring-2 ring-blad" />
+            <span><span class="block text-xs text-wit/70">Persoonlijk advies van Han, eigenaar</span><span class="num block font-kop text-lg font-extrabold leading-tight text-wit group-hover:text-blad-licht">{site.tel}</span></span>
+          </a>
           <div class="flex items-center gap-3 lg:justify-end">
             {dias.map((d, i) => (
               <button type="button" class={`h-1.5 rounded-full transition-all ${i === 0 ? 'w-8 bg-wit' : 'w-4 bg-wit/40'}`} aria-label={`Toon foto ${i + 1}: ${d.naam}`} data-stip={i}></button>
@@ -97,13 +99,11 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
       </div>
     </section>
 
-    <!-- 2. Beloftes, zoals de vinkjesrij van afzetbak -->
-    <section class="border-b border-lijn bg-wit" aria-label="Waarom Teakhuis">
-      <ul class="wrap grid grid-cols-2 gap-x-6 gap-y-3 py-5 text-sm font-semibold md:flex md:flex-wrap md:justify-center md:gap-x-10">
-        {['Maatwerk zonder meerprijs', 'Met de hand gemaakt', 'Duurzaam teak', 'Vrijblijvende offerte'].map((t) => (
-          <li class="flex items-center gap-2"><span class="grid h-5 w-5 flex-none place-items-center rounded-full bg-blad text-inkt"><Icoon naam="vink" class="h-3 w-3" /></span>{t}</li>
-        ))}
-      </ul>
+    <!-- 2. Snel naar een categorie, zoals het menu van hun webshop -->
+    <section class="border-b border-lijn bg-wit py-5" aria-label="Snel naar een categorie">
+      <div class="wrap">
+        <CategorieBalk />
+      </div>
     </section>
 
     <!-- 3. CATEGORIEEN: twee grote fotokaarten met soorten eronder, daarna de rest als tegels -->
@@ -117,47 +117,60 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
       </div>
 
       <div class="mt-12 grid gap-10 md:grid-cols-2 md:gap-6 lg:gap-8">
-        {groot.map((k) => (
-          <div class="rijs">
-            <a href={categorieHref(k.g.hoofd)} class="group relative block aspect-[4/3] overflow-hidden rounded-[var(--radius-xl)] bg-nacht text-wit no-underline shadow-kaart md:aspect-[5/4] lg:aspect-[4/3]">
-              <div class={`absolute inset-0 ${k.klas.split(' ').filter((c) => c.startsWith('origin') || c.startsWith('scale')).join(' ')}`}>
-                <Image src={k.foto} alt={k.alt} quality={74} widths={[480, 800, 1200, 1600]} sizes="(min-width: 768px) 50vw, 100vw" class={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] ${k.klas.split(' ').filter((c) => c.startsWith('object')).join(' ')}`} />
-              </div>
-              <span aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-nacht/90 via-nacht/30 to-transparent"></span>
-              <span class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 sm:p-7">
+        {collage.map(({ g, fotos }) => (
+          <div class="rijs min-w-0">
+            <a href={categorieHref(g.hoofd)} class="group relative flex aspect-[4/3] flex-col overflow-hidden rounded-[var(--radius-xl)] bg-zand no-underline ring-1 ring-lijn transition-shadow hover:shadow-kaart md:aspect-[5/4] lg:aspect-[16/11]">
+              <span class="relative z-10 flex items-start justify-between gap-4 p-5 sm:p-7">
                 <span>
-                  <span class="label block text-wit/75">{k.g.producten.length} ontwerpen</span>
-                  <span class="mt-2 block font-kop text-3xl font-extrabold leading-none tracking-tight [font-stretch:110%] lg:text-[2.6rem]">{k.g.hoofd.naam}</span>
-                  <span class="mt-2 block max-w-sm text-sm text-wit/85 sm:text-base">{k.regel}</span>
+                  <span class="label block text-blad-diep">{g.producten.length} ontwerpen</span>
+                  <span class="mt-2 block font-kop text-3xl font-extrabold leading-none tracking-tight text-inkt [font-stretch:110%] lg:text-[2.4rem]">{g.hoofd.naam}</span>
+                  <span class="mt-2 block max-w-xs text-sm text-grijs sm:text-base">{regels[g.hoofd.slug]}</span>
                 </span>
-                <span aria-hidden="true" class="grid h-12 w-12 flex-none place-items-center rounded-full bg-wit text-inkt transition-transform group-hover:translate-x-1"><Icoon naam="pijl" class="h-5 w-5" /></span>
+                <span aria-hidden="true" class="grid h-12 w-12 flex-none place-items-center rounded-full bg-nacht text-wit transition-transform group-hover:translate-x-1"><Icoon naam="pijl" class="h-5 w-5" /></span>
+              </span>
+              <span class="relative mt-auto grid h-[58%] grid-cols-3 items-end gap-2 px-4 pb-4 sm:gap-3 sm:px-6 sm:pb-6">
+                {fotos.map((f, i) => (
+                  <span class={`block h-full min-w-0 overflow-hidden rounded-[var(--radius-md)] bg-wit shadow-zacht transition-transform duration-500 ${i === 1 ? 'group-hover:-translate-y-2' : 'group-hover:-translate-y-1'}`}>
+                    <Image src={f} alt="" quality={68} widths={breedtes(f, [240, 360, 480])} sizes="(min-width: 768px) 15vw, 30vw" class="h-full w-full object-contain p-2 sm:p-3" />
+                  </span>
+                ))}
               </span>
             </a>
-            <ul class="mt-5 flex flex-wrap gap-2" aria-label={`Soorten ${k.g.hoofd.naam.toLowerCase()}`}>
-              {k.g.subs.map((s) => <li><a href={categorieHref(s.cat)} class="flex min-h-10 items-center rounded-full bg-wit px-4 text-sm font-semibold text-inkt no-underline ring-1 ring-lijn transition-colors hover:ring-blad-diep">{s.cat.naam}</a></li>)}
+            <ul class="mt-4 flex flex-wrap gap-2" aria-label={`Soorten ${g.hoofd.naam.toLowerCase()}`}>
+              {g.subs.slice(0, 6).map((s) => <li><a href={categorieHref(s.cat)} class="flex min-h-10 items-center rounded-full bg-wit px-4 text-sm font-semibold text-inkt no-underline ring-1 ring-lijn transition-colors hover:ring-blad-diep">{s.cat.naam}</a></li>)}
+              {g.subs.length > 6 && <li><a href={categorieHref(g.hoofd)} class="flex min-h-10 items-center rounded-full px-4 text-sm font-bold text-blad-diep underline">+ {g.subs.length - 6} meer</a></li>}
             </ul>
           </div>
         ))}
       </div>
+    </section>
 
-      <ul class="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6 lg:gap-5">
-        {klein.map((g, i) => {
-          const f = omslag(g);
-          return (
-            <li class={`rijs min-w-0 ${klein.length % 2 && i === klein.length - 1 ? 'max-sm:hidden' : ''}`} style={`--d:${(i % 6) * .04}s`}>
-              <a href={categorieHref(g.hoofd)} class="group flex h-full flex-col overflow-hidden rounded-[var(--radius-md)] bg-zand no-underline ring-1 ring-lijn transition-shadow hover:shadow-kaart">
-                <div class="aspect-square overflow-hidden">
-                  {f ? <Image src={f} alt="" quality={66} widths={breedtes(f, [240, 360])} sizes="(min-width: 1024px) 200px, 45vw" class={`h-full w-full transition-transform duration-700 group-hover:scale-105 ${opWit(f) ? 'object-contain p-4 mix-blend-multiply' : 'object-cover'}`} /> : <GeenFoto naam={g.hoofd.naam} />}
-                </div>
-                <p class="mt-auto flex items-center justify-between gap-2 bg-wit px-3.5 py-3">
-                  <span class="min-w-0 font-kop text-[.82rem] font-extrabold leading-tight text-inkt [font-stretch:96%] hyphens-auto [overflow-wrap:break-word] sm:text-sm" lang="nl">{g.hoofd.naam}</span>
-                  <Icoon naam="pijl" class="h-4 w-4 flex-none text-blad-diep transition-transform group-hover:translate-x-0.5 max-sm:hidden" />
-                </p>
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+    <!-- 3b. PERSOONLIJK: Han is de eigenaar; geen winkel, dus voordeliger -->
+    <section class="wrap pb-20 lg:pb-28" aria-labelledby="han-kop">
+      <div class="grid items-center gap-10 overflow-hidden rounded-[var(--radius-xl)] bg-nacht p-6 text-wit sm:p-10 lg:grid-cols-12 lg:gap-14 lg:p-14">
+        <div class="flex items-center gap-6 lg:col-span-4 lg:flex-col lg:items-start">
+          <Image src={han} alt="Han Rietdijk, eigenaar van Teakhuis" quality={82} widths={[192]} sizes="(min-width: 1024px) 192px, 112px" class="h-36 w-28 flex-none rounded-[var(--radius-md)] object-cover object-top ring-4 ring-blad lg:h-64 lg:w-48" />
+          <div>
+            <p class="font-kop text-2xl font-extrabold">Han Rietdijk</p>
+            <p class="text-as">Eigenaar van Teakhuis</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <a href={waHoi} class="knop knop-blad min-h-11 px-4 text-sm"><Icoon naam="wa" />App Han</a>
+              <a href={site.telHref} class="knop knop-glas min-h-11 px-4 text-sm"><Icoon naam="tel" /><span class="num">{site.tel}</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-8">
+          <p class="label text-blad-licht">Persoonlijk en op bestelling</p>
+          <h2 id="han-kop" class="mt-4 text-4xl">Geen winkel. <span class="cursief">Wel een vast aanspreekpunt.</span></h2>
+          <p class="mt-5 max-w-2xl text-lg text-as">Teakhuis heeft geen showroom en geen voorraad meer. Je meubel wordt voor jou gemaakt, direct bij onze producenten in Indonesië. Omdat de kosten veel lager zijn, werken we voordeliger. En je hebt één aanspreekpunt: Han, van het eerste advies tot de bezorging.</p>
+          <dl class="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-lijn-d pt-8 sm:grid-cols-4">
+            <div><dt class="text-sm text-as">Sinds</dt><dd class="num mt-1 font-kop text-3xl font-extrabold">2007</dd></div>
+            <div><dt class="text-sm text-as">Ontwerpen</dt><dd class="num mt-1 font-kop text-3xl font-extrabold">{producten.length}</dd></div>
+            <div><dt class="text-sm text-as">Houtkleuren</dt><dd class="num mt-1 font-kop text-3xl font-extrabold">4</dd></div>
+            <div><dt class="text-sm text-as">Meerprijs maatwerk</dt><dd class="num mt-1 font-kop text-3xl font-extrabold text-blad-licht">€ 0</dd></div>
+          </dl>
+        </div>
+      </div>
     </section>
 
     <!-- 4. MEEST GEKOZEN: productregels zoals afzetbak, met maten en vanaf-prijs -->
@@ -266,15 +279,18 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
       </div>
     </section>
 
-    <!-- 8. OVER EN REVIEWS: slider met hun eigen referenties -->
+    <!-- 8. REVIEWS: echte reacties van klanten; de Google-review linkt naar het bedrijfsprofiel -->
     <section class="overflow-hidden bg-zand py-20 lg:py-28" aria-labelledby="ref-kop">
-      <div class="wrap grid gap-10 lg:grid-cols-12 lg:items-end">
+      <div class="wrap grid gap-8 lg:grid-cols-12 lg:items-end">
         <div class="lg:col-span-7">
-          <p class="label text-blad-diep">Sinds 2007</p>
+          <p class="label text-blad-diep">Ervaringen</p>
           <h2 id="ref-kop" class="mt-4 text-4xl">Wat klanten zeggen.</h2>
         </div>
-        <div class="flex items-center justify-between gap-4 lg:col-span-5 lg:justify-end">
-          <a href={url('over-ons/#referenties')} class="font-semibold underline underline-offset-2">Over Teakhuis</a>
+        <div class="flex flex-wrap items-center gap-3 lg:col-span-5 lg:justify-end">
+          <a href={site.google} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-full bg-wit py-2 pl-2 pr-5 no-underline shadow-zacht ring-1 ring-lijn transition-shadow hover:shadow-kaart">
+            <span class="grid h-9 w-9 place-items-center rounded-full bg-wit ring-1 ring-lijn"><Icoon naam="g" class="h-5 w-5" /></span>
+            <span class="text-sm font-bold text-inkt">Bekijk ons op Google<span class="sr-only"> (opent in een nieuw tabblad)</span></span>
+          </a>
           <div class="hidden gap-2 md:flex">
             <button type="button" class="grid h-11 w-11 place-items-center rounded-full bg-wit shadow-zacht ring-1 ring-lijn hover:bg-nacht hover:text-wit" aria-label="Vorige reviews" data-slider-terug><Icoon naam="pijl" class="h-4 w-4 rotate-180" /></button>
             <button type="button" class="grid h-11 w-11 place-items-center rounded-full bg-wit shadow-zacht ring-1 ring-lijn hover:bg-nacht hover:text-wit" aria-label="Volgende reviews" data-slider-verder><Icoon naam="pijl" class="h-4 w-4" /></button>
@@ -282,21 +298,38 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
         </div>
       </div>
       <ul class="slider mt-10 [--inzet:max(1.25rem,calc((100vw-84rem)/2+2.5rem))] px-[var(--inzet)] [scroll-padding-left:var(--inzet)]" data-slider>
-        <li class="flex w-[19rem] flex-col justify-between rounded-[var(--radius-xl)] bg-nacht p-7 text-wit sm:w-[24rem]">
+        <li class="flex w-[19rem] flex-col rounded-[var(--radius-xl)] bg-nacht p-7 text-wit sm:w-[23rem]">
           <div class="flex items-center gap-4">
-            <Image src={han} alt="Han Rietdijk" quality={80} widths={[128]} sizes="64px" class="h-16 w-16 rounded-full object-cover object-top" />
-            <div><p class="font-kop text-lg font-extrabold">Han Rietdijk</p><p class="text-sm text-as">Adviseur, bezorger en service</p></div>
+            <Image src={han} alt="Han Rietdijk" quality={80} widths={[128]} sizes="64px" class="h-16 w-16 rounded-full object-cover object-top ring-2 ring-blad" />
+            <div><p class="font-kop text-lg font-extrabold">Han Rietdijk</p><p class="text-sm text-as">Eigenaar van Teakhuis</p></div>
           </div>
-          <p class="mt-6 text-as">We hadden showrooms, nu werken we online en op bestelling. Zo is er meer tijd per klant en werken we voordeliger. Alle maatwerk is nog steeds mogelijk.</p>
-          <a href={site.telHref} class="num mt-6 font-kop text-xl font-extrabold text-blad-licht no-underline hover:underline">{site.tel}</a>
+          <p class="mt-6 flex-1 text-as">Bij Teakhuis spreek je de eigenaar zelf. Een vraag over een maat, een kleur of een levering? Bel of app gerust.</p>
+          <a href={waHoi} class="knop knop-blad mt-6 self-start"><Icoon naam="wa" />App Han</a>
         </li>
-        {reviews.map((r) => (
-          <li class="flex w-[19rem] flex-col rounded-[var(--radius-xl)] bg-wit p-7 shadow-zacht ring-1 ring-lijn sm:w-[24rem]">
-            <svg viewBox="0 0 32 24" class="h-6 w-8 text-blad" fill="currentColor" aria-hidden="true"><path d="M0 24V14C0 6 4 1 12 0v5c-4 1-6 4-6 8h6v11H0Zm20 0V14c0-8 4-13 12-14v5c-4 1-6 4-6 8h6v11H20Z" /></svg>
-            <blockquote class="mt-5 flex-1"><p class="text-lg">{r.tekst}</p></blockquote>
-            <p class="mt-6 text-sm text-grijs"><strong class="font-kop font-extrabold text-inkt">{r.naam}</strong><br />{r.bron[0].toUpperCase() + r.bron.slice(1)}</p>
-          </li>
-        ))}
+        {[...reviews].sort((x, y) => Number(!!(y as any).google) - Number(!!(x as any).google)).map((r) => {
+          const google = Boolean((r as any).google);
+          const Kaart = google ? 'a' : 'div';
+          return (
+            <li class="flex w-[19rem] sm:w-[23rem]">
+              <Kaart {...(google ? { href: site.google, target: '_blank', rel: 'noopener' } : {})} class={`flex w-full flex-col rounded-[var(--radius-xl)] bg-wit p-7 text-inkt no-underline shadow-zacht ring-1 ring-lijn ${google ? 'transition-shadow hover:shadow-kaart' : ''}`}>
+                <div class="flex items-center justify-between gap-3">
+                  <span class="flex gap-0.5 text-[#f4b400]" aria-label={google ? '5 van 5 sterren' : undefined}>
+                    {google ? [0, 1, 2, 3, 4].map(() => <Icoon naam="ster" class="h-4 w-4" />) : <svg viewBox="0 0 32 24" class="h-5 w-7 text-blad" fill="currentColor" aria-hidden="true"><path d="M0 24V14C0 6 4 1 12 0v5c-4 1-6 4-6 8h6v11H0Zm20 0V14c0-8 4-13 12-14v5c-4 1-6 4-6 8h6v11H20Z" /></svg>}
+                  </span>
+                  {google
+                    ? <span class="flex items-center gap-1.5 text-xs font-bold text-grijs"><Icoon naam="g" class="h-4 w-4" />Google</span>
+                    : <span class="text-xs font-bold text-grijs">Referentie</span>}
+                </div>
+                <blockquote class="mt-5 flex-1"><p class="text-[1.05rem] leading-relaxed">“{r.tekst}”</p></blockquote>
+                <div class="mt-6 flex items-center gap-3 border-t border-lijn pt-4">
+                  <span class="grid h-10 w-10 place-items-center rounded-full bg-zand font-kop text-sm font-extrabold text-blad-diep">{r.naam.split(/\s+/).filter((w) => /^\p{Lu}/u.test(w)).map((w) => w[0]).join('').slice(0, 2)}</span>
+                  <span class="text-sm"><strong class="block font-kop font-extrabold">{r.naam}</strong><span class="text-grijs">{google ? 'Review op Google' : r.bron === 'referentie' ? 'Via teakhuis.nl' : `Via teakhuis.nl, ${r.bron}`}</span></span>
+                  {google && <Icoon naam="pijl" class="ml-auto h-4 w-4 text-grijs" />}
+                </div>
+              </Kaart>
+            </li>
+          );
+        })}
       </ul>
     </section>
 
