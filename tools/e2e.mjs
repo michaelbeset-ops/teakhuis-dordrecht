@@ -7,7 +7,7 @@ const p = await ctx.newPage();
 const fouten = [];
 p.on('pageerror', (e) => fouten.push(e.message));
 await p.goto(base + 'product/eettafel-viking/', { waitUntil: 'networkidle' });
-await p.click('text=B200 x D100 x H78');
+await p.check('input[name="maat"][value="B200 x D100 x H78"]', { force: true });
 await p.click('text=Zet in offerteaanvraag');
 console.log('teller na 1:', await p.textContent('[data-offerte-teller]'));
 await p.click('text=Andere maat');
