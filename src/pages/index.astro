@@ -4,244 +4,376 @@ import Base from '../layouts/Base.astro';
 import Kop from '../components/Kop.astro';
 import Voet from '../components/Voet.astro';
 import Icoon from '../components/Icoon.astro';
-import ProductKaart from '../components/ProductKaart.astro';
 import GeenFoto from '../components/GeenFoto.astro';
 import MaatwerkProjecten from '../components/MaatwerkProjecten.astro';
 import { site, url, waHoi, houtkleuren, reviews } from '../data/site';
 import { producten, groepen, categorieHref, productHref, eersteFoto, breedtes, prijsTekst, opWit, fotoKlas } from '../data/catalogus';
 
-import heroFoto from '../assets/hero-trapezium-detail.jpg';
-import han from '../assets/han.jpg';
+import heroLive from '../assets/hero-trapezium-detail.jpg';
+import heroViking from '../assets/tuintafel-viking-detail.jpg';
+import fotoTafels from '../assets/p-eettafel-japura.jpg';
+import fotoKasten from '../assets/p-tv-dressoir-bayakayu.jpg';
 import productie from '../assets/productie-indonesie.jpg';
-import vikingDetail from '../assets/tuintafel-viking-detail.jpg';
+import han from '../assets/han.jpg';
 
-// Uitgelicht in het beheer; de eerste krijgt de grote plek.
-const uitgelicht = producten.filter((p) => p.uitgelicht).slice(0, 7);
-const [groot, ...rest] = uitgelicht;
-const grootFoto = groot ? eersteFoto(groot) : undefined;
-const trapezium = producten.find((p) => p.slug === 'tuintafel-trapezium');
+const vind = (slug: string) => producten.find((p) => p.slug === slug);
+// Twee foto's in de hero, elk met een uitsnede die alleen hout laat zien (de originelen staan op wit).
+const dias = [
+  { img: heroLive, alt: 'Live edge van een teakhouten tafelblad, de nerf en de natuurlijke rand van de boom groot in beeld', p: vind('tuintafel-trapezium'), naam: 'Tuintafel trapezium' },
+  { img: heroViking, alt: 'Latten van gerecycled teak op het zwarte stalen frame van een tuintafel', p: vind('tuintafel-viking'), naam: 'Tuintafel Viking' },
+];
 
+// Grote kaarten voor de twee grootste groepen, kleinere tegels voor de rest.
+const tafels = groepen.find((g) => g.hoofd.slug === 'tafels');
+const kasten = groepen.find((g) => g.hoofd.slug === 'kasten');
+const groot = [
+  tafels && { g: tafels, foto: fotoTafels, alt: 'Teakhouten eettafel Japura met dik blad op een stalen V-poot en leren stoelen', klas: 'origin-left scale-[1.18] object-[30%_60%]', regel: 'Eettafels, salontafels, bijzettafels en bureaus.' },
+  kasten && { g: kasten, foto: fotoKasten, alt: 'Laag tv-meubel van rustiek teak en staal met deuren, lade en open vak op een houten vloer', klas: 'origin-bottom scale-[1.65] object-[50%_100%]', regel: 'Dressoirs, tv-meubels, buffet- en boekenkasten.' },
+].filter(Boolean) as { g: (typeof groepen)[number]; foto: ImageMetadata; alt: string; klas: string; regel: string }[];
+const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(eersteFoto).find((x) => x && opWit(x));
+// Alleen categorieen met een rustige productfoto op wit; een eigen omslagfoto uit het beheer telt altijd.
+const klein = groepen.filter((g) => g !== tafels && g !== kasten && g.hoofd.slug !== 'onderhoudsmiddelen' && omslag(g)).slice(0, 6);
+
+const populair = producten.filter((p) => p.uitgelicht).slice(0, 5);
+const regelVan = (p: (typeof producten)[number]) => [
+  p.maten.length ? `${p.maten.length} ${p.maten.length === 1 ? 'maat' : 'maten'}` : '',
+  p.maatwerk ? 'ook op maat' : '',
+  p.houtkleuren ? '4 houtkleuren' : p.uitvoeringen.length ? `${p.uitvoeringen.length} uitvoeringen` : '',
+].filter(Boolean).join(' · ');
+
+const stappen = [
+  { icoon: 'lijst', t: 'Kies een ontwerp', z: 'Uit de collectie, of neem je eigen idee of een foto mee.' },
+  { icoon: 'liniaal', t: 'Maat en houtkleur', z: 'Een standaardmaat of je eigen maten. Maatwerk kost niets extra.' },
+  { icoon: 'praat', t: 'Tekening en offerte', z: 'Je krijgt een schets en een prijs. Klopt alles, dan betaal je 20% aan.' },
+  { icoon: 'huis', t: 'Gemaakt en geleverd', z: 'Met de hand gemaakt in Indonesië en bij je thuis afgeleverd.' },
+];
 
 const titel = 'Teakhouten meubels op maat, zonder meerprijs | Teakhuis';
 const omschrijving = 'Handgemaakte teakhouten meubels van duurzaam hout: eettafels, kasten, dressoirs, bedden en tuinmeubelen. Vrijwel alles op maat zonder meerprijs. Vraag vrijblijvend een offerte aan.';
+const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.naam, url: new URL(url(''), Astro.site).href, potentialAction: { '@type': 'SearchAction', target: `${new URL(url('collectie/'), Astro.site).href}?q={zoekterm}`, 'query-input': 'required name=zoekterm' } };
 ---
-<Base title={titel} description={omschrijving}>
+<Base title={titel} description={omschrijving} schema={[webSite]}>
   <Kop />
   <main id="inhoud">
 
-    <!-- 1. HERO: donker, de nerf van een live-edge tafelblad groot in beeld -->
-    <section class="relative isolate overflow-hidden bg-nacht text-wit">
-      <div class="grid min-h-[calc(100svh-7rem)] grid-cols-1 lg:grid-cols-12">
-        <div class="relative order-2 flex flex-col justify-end px-5 pb-14 pt-10 md:px-10 md:pb-16 lg:order-1 lg:col-span-6 lg:pb-20 lg:pl-[max(2.5rem,calc((100vw-84rem)/2+2.5rem))] lg:pr-12 lg:pt-24">
-          <p class="label text-blad-licht">Teakhouten meubels, sinds 2007</p>
-          <h1 class="mt-5 text-hero">Met de hand gemaakt. <span class="cursief text-[#e9d9bf]">Op jouw maat.</span></h1>
-          <p class="mt-6 max-w-lg text-lg text-as md:text-xl">Eettafels, kasten, dressoirs en meer van duurzaam teak. Kies een ontwerp, geef je eigen maten door en ontvang een vrijblijvende offerte.</p>
+    <!-- 1. HERO: schermvullend, de nerf van het hout groot in beeld; de menubalk zweeft erover -->
+    <section class="relative -mt-[4.75rem] flex min-h-[calc(100svh-2.25rem)] flex-col justify-end overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem]" aria-label="Welkom bij Teakhuis" data-hero>
+      {dias.map((d, i) => (
+        <div class={`dia absolute inset-0 overflow-hidden ${i === 0 ? 'aan' : ''}`} data-dia aria-hidden={i ? 'true' : undefined}>
+          <div class="absolute inset-0 origin-top-left scale-[1.85] sm:scale-[1.7]">
+            <Image src={d.img} alt={i ? '' : d.alt} quality={78} widths={[640, 960, 1280, 1600, 2000, 2600]} sizes="170vw" loading={i ? 'lazy' : 'eager'} fetchpriority={i ? undefined : 'high'} class="h-full w-full object-cover object-[0%_0%]" />
+          </div>
+        </div>
+      ))}
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-nacht via-nacht/45 to-nacht/25"></div>
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-nacht/70 via-nacht/20 to-transparent max-lg:hidden"></div>
+
+      <div class="wrap relative grid gap-10 pb-10 pt-36 lg:grid-cols-12 lg:items-end lg:pb-16">
+        <div class="lg:col-span-8">
+          <p class="label text-blad-licht">Teakhuis · teakhouten meubels sinds 2007</p>
+          <h1 class="mt-5 max-w-[13ch] text-[clamp(2.6rem,6.4vw,6.2rem)] leading-[.95]">Teak op maat, met de hand gemaakt.</h1>
+          <p class="mt-6 max-w-xl text-lg text-wit/85 md:text-xl">Eettafels, kasten, dressoirs en meer van duurzaam teak. Kies een ontwerp, geef je eigen maten door en ontvang een vrijblijvende offerte.</p>
           <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href={url('collectie/')} class="knop knop-blad">Bekijk de collectie<Icoon naam="pijl" /></a>
-            <a href={url('maatwerk/')} class="knop knop-wit">Iets eigens laten maken</a>
+            <a href={url('collectie/')} class="knop knop-blad">Kies je meubel<Icoon naam="pijl" /></a>
+            <a href={url('maatwerk/')} class="knop knop-glas">Iets op maat laten maken</a>
           </div>
-          <ul class="mt-12 grid max-w-xl grid-cols-1 gap-3 border-t border-lijn-d pt-6 text-sm text-as sm:grid-cols-3">
-            <li class="flex items-start gap-2"><Icoon naam="liniaal" class="mt-0.5 h-4 w-4 flex-none text-blad-licht" />Maatwerk zonder meerprijs</li>
-            <li class="flex items-start gap-2"><Icoon naam="blad" class="mt-0.5 h-4 w-4 flex-none text-blad-licht" />Alleen duurzaam hout</li>
-            <li class="flex items-start gap-2"><Icoon naam="huis" class="mt-0.5 h-4 w-4 flex-none text-blad-licht" />Thuis geleverd</li>
+        </div>
+        <div class="flex flex-col gap-5 lg:col-span-4 lg:items-end lg:text-right">
+          <ul class="grid gap-2 text-sm text-wit/85">
+            <li class="flex items-center gap-2 lg:justify-end"><Icoon naam="liniaal" class="h-4 w-4 text-blad-licht" />Maatwerk zonder meerprijs</li>
+            <li class="flex items-center gap-2 lg:justify-end"><Icoon naam="blad" class="h-4 w-4 text-blad-licht" />Alleen duurzaam hout</li>
           </ul>
-        </div>
-        <div class="relative order-1 aspect-[4/3] overflow-hidden sm:aspect-[16/10] lg:order-2 lg:col-span-6 lg:aspect-auto">
-          <Image src={heroFoto} alt="Hoek van een teakhouten tafelblad met live edge en zichtbare houtnerf op een mat zwarte stalen poot" quality={78} widths={[640, 960, 1280, 1600, 2000]} sizes="(min-width: 1024px) 50vw, 100vw" loading="eager" fetchpriority="high" class="absolute inset-0 h-full w-full origin-top-left scale-[2.1] object-cover object-[0%_0%] sm:scale-[1.9] lg:scale-[1.6]" />
-          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-nacht/50 via-transparent to-transparent lg:bg-gradient-to-r lg:from-nacht/40" aria-hidden="true"></div>
-          {trapezium && <a href={productHref(trapezium)} class="absolute bottom-4 right-4 rounded-sm bg-nacht/75 px-3 py-1.5 text-xs font-semibold text-wit no-underline backdrop-blur-sm hover:bg-nacht">In beeld: Tuintafel trapezium</a>}
-        </div>
-      </div>
-    </section>
-
-    <!-- 2. CATEGORIEEN: kies waar je naar zoekt -->
-    <section class="py-20 md:py-28" aria-labelledby="cat-kop">
-      <div class="wrap">
-        <div class="flex flex-wrap items-end justify-between gap-6">
-          <h2 id="cat-kop" class="rijs max-w-2xl text-4xl">Waar ben je <span class="cursief">naar op zoek?</span></h2>
-          <a href={url('collectie/')} class="rijs link text-sm font-bold">Hele collectie</a>
-        </div>
-        <ul class="mt-12 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6">
-          {groepen.slice(0, 8).map((g, i) => {
-            const f = g.hoofd.foto ?? g.producten.map(eersteFoto).find((x) => x && opWit(x)) ?? g.producten.map(eersteFoto).find(Boolean);
-            return (
-              <li class="rijs min-w-0" style={`--d:${(i % 4) * .05}s`}>
-                <a href={categorieHref(g.hoofd)} class="product">
-                  <div class="beeld aspect-square">
-                    {f ? <Image src={f} alt="" quality={68} widths={breedtes(f, [240, 360, 480])} sizes="(min-width: 1024px) 240px, (min-width: 640px) 31vw, 46vw" class={`h-full w-full ${fotoKlas(f, 'p-4')}`} /> : <GeenFoto naam={g.hoofd.naam} />}
-                  </div>
-                  <p class="mt-3 flex items-baseline justify-between gap-2">
-                    <span class="naam min-w-0 font-kop text-lg leading-tight hyphens-auto [overflow-wrap:anywhere] sm:text-xl" lang="nl">{g.hoofd.naam}</span>
-                    <span class="num text-xs text-grijs max-sm:hidden">{g.producten.length}</span>
-                  </p>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </section>
-
-    <!-- 3. ZO WERKT HET: van ontwerp naar offerte, zoals op de productpagina -->
-    <section class="border-y border-lijn bg-zand py-20 md:py-28" aria-labelledby="werkt-kop">
-      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
-        <div class="lg:col-span-4">
-          <h2 id="werkt-kop" class="rijs text-4xl">Zo vraag je een meubel aan.</h2>
-          <p class="rijs mt-5 max-w-sm text-lg text-grijs" style="--d:.06s">Alles wordt voor jou gemaakt. Daarom begint het met een offerte, niet met afrekenen.</p>
-        </div>
-        <ol class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:col-span-8">
-          {[
-            ['Kies een ontwerp', 'Uit de collectie, of neem je eigen idee mee.'],
-            ['Kies maat en houtkleur', 'Een standaardmaat of je eigen maten. Maatwerk kost niets extra.'],
-            ['Ontvang je offerte', 'Met tekening en prijs. Klopt alles, dan betaal je 20% aan.'],
-            ['Thuis geleverd', 'Met de hand gemaakt in Indonesië en bij je thuis afgeleverd.'],
-          ].map(([t, z], i) => (
-            <li class="rijs border-t-2 border-inkt pt-5" style={`--d:${i * .06}s`}>
-              <span class="num font-kop text-4xl text-blad-diep">{i + 1}</span>
-              <p class="mt-3 text-lg font-bold">{t}</p>
-              <p class="mt-1 text-grijs">{z}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-
-    <!-- 4. UITGELICHT: een grote, zes kleine -->
-    {groot && (
-      <section class="py-20 md:py-28" aria-labelledby="uit-kop">
-        <div class="wrap">
-          <div class="flex flex-wrap items-end justify-between gap-6">
-            <h2 id="uit-kop" class="rijs text-4xl">Uit de collectie.</h2>
-            <a href={url('collectie/')} class="rijs knop knop-rand">Alle {producten.length} meubels<Icoon naam="pijl" /></a>
+          <a href={site.telHref} class="num font-kop text-2xl font-extrabold text-wit no-underline hover:text-blad-licht">{site.tel}</a>
+          <div class="flex items-center gap-3 lg:justify-end">
+            {dias.map((d, i) => (
+              <button type="button" class={`h-1.5 rounded-full transition-all ${i === 0 ? 'w-8 bg-wit' : 'w-4 bg-wit/40'}`} aria-label={`Toon foto ${i + 1}: ${d.naam}`} data-stip={i}></button>
+            ))}
+            <button type="button" class="ml-1 grid h-8 w-8 place-items-center rounded-full bg-wit/15 text-wit ring-1 ring-wit/30 hover:bg-wit hover:text-inkt" aria-label="Pauzeer de foto's" aria-pressed="false" data-pauze>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" data-icoon-pauze /><path d="M8 5l11 7-11 7z" class="hidden" data-icoon-speel /></svg>
+            </button>
+            {dias[0].p && <a href={productHref(dias[0].p)} class="text-xs font-semibold text-wit/80 underline-offset-2 hover:underline" data-dia-link>In beeld: <span data-dia-naam>{dias[0].naam}</span></a>}
           </div>
-          <div class="mt-12 grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-12">
-            <a href={productHref(groot)} class="product rijs lg:col-span-6">
-              <div class="beeld aspect-square lg:aspect-auto lg:h-[calc(100%-5.5rem)]">
-                {grootFoto ? <Image src={grootFoto} alt={groot.titel} quality={74} widths={breedtes(grootFoto, [480, 720, 960, 1200])} sizes="(min-width: 1024px) 50vw, 100vw" class={`h-full w-full ${fotoKlas(grootFoto, 'p-6 md:p-10')}`} /> : <GeenFoto naam={groot.titel} groot />}
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Beloftes, zoals de vinkjesrij van afzetbak -->
+    <section class="border-b border-lijn bg-wit" aria-label="Waarom Teakhuis">
+      <ul class="wrap grid grid-cols-2 gap-x-6 gap-y-3 py-5 text-sm font-semibold md:flex md:flex-wrap md:justify-center md:gap-x-10">
+        {['Maatwerk zonder meerprijs', 'Met de hand gemaakt', 'Duurzaam teak', 'Vrijblijvende offerte'].map((t) => (
+          <li class="flex items-center gap-2"><span class="grid h-5 w-5 flex-none place-items-center rounded-full bg-blad text-inkt"><Icoon naam="vink" class="h-3 w-3" /></span>{t}</li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- 3. CATEGORIEEN: twee grote fotokaarten met soorten eronder, daarna de rest als tegels -->
+    <section class="wrap py-20 lg:py-28" aria-labelledby="cat-kop">
+      <div class="grid gap-6 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-7">
+          <p class="label text-blad-diep">De collectie</p>
+          <h2 id="cat-kop" class="mt-4 text-4xl">Alles voor in huis en tuin, <span class="cursief">op maat gemaakt.</span></h2>
+        </div>
+        <p class="text-lg text-grijs lg:col-span-5 lg:pb-1">{producten.length} ontwerpen in teak. Kies een categorie, of zoek direct op naam.</p>
+      </div>
+
+      <div class="mt-12 grid gap-10 md:grid-cols-2 md:gap-6 lg:gap-8">
+        {groot.map((k) => (
+          <div class="rijs">
+            <a href={categorieHref(k.g.hoofd)} class="group relative block aspect-[4/3] overflow-hidden rounded-[var(--radius-xl)] bg-nacht text-wit no-underline shadow-kaart md:aspect-[5/4] lg:aspect-[4/3]">
+              <div class={`absolute inset-0 ${k.klas.split(' ').filter((c) => c.startsWith('origin') || c.startsWith('scale')).join(' ')}`}>
+                <Image src={k.foto} alt={k.alt} quality={74} widths={[480, 800, 1200, 1600]} sizes="(min-width: 768px) 50vw, 100vw" class={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] ${k.klas.split(' ').filter((c) => c.startsWith('object')).join(' ')}`} />
               </div>
-              <div class="mt-4 flex items-baseline justify-between gap-4">
-                <div>
-                  <p class="label text-blad-diep">{groot.categorie.naam}</p>
-                  <h3 class="naam mt-1 text-3xl">{groot.titel}</h3>
-                </div>
-                <p class="num flex-none text-grijs">{prijsTekst(groot)}</p>
-              </div>
+              <span aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-nacht/90 via-nacht/30 to-transparent"></span>
+              <span class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 sm:p-7">
+                <span>
+                  <span class="label block text-wit/75">{k.g.producten.length} ontwerpen</span>
+                  <span class="mt-2 block font-kop text-3xl font-extrabold leading-none tracking-tight [font-stretch:110%] lg:text-[2.6rem]">{k.g.hoofd.naam}</span>
+                  <span class="mt-2 block max-w-sm text-sm text-wit/85 sm:text-base">{k.regel}</span>
+                </span>
+                <span aria-hidden="true" class="grid h-12 w-12 flex-none place-items-center rounded-full bg-wit text-inkt transition-transform group-hover:translate-x-1"><Icoon naam="pijl" class="h-5 w-5" /></span>
+              </span>
             </a>
-            <ul class="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-6 lg:col-span-6">
-              {rest.slice(0, 6).map((p, i) => <li class="rijs" style={`--d:${(i % 3) * .06}s`}><ProductKaart p={p} /></li>)}
+            <ul class="mt-5 flex flex-wrap gap-2" aria-label={`Soorten ${k.g.hoofd.naam.toLowerCase()}`}>
+              {k.g.subs.map((s) => <li><a href={categorieHref(s.cat)} class="flex min-h-10 items-center rounded-full bg-wit px-4 text-sm font-semibold text-inkt no-underline ring-1 ring-lijn transition-colors hover:ring-blad-diep">{s.cat.naam}</a></li>)}
             </ul>
           </div>
+        ))}
+      </div>
+
+      <ul class="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6 lg:gap-5">
+        {klein.map((g, i) => {
+          const f = omslag(g);
+          return (
+            <li class={`rijs min-w-0 ${klein.length % 2 && i === klein.length - 1 ? 'max-sm:hidden' : ''}`} style={`--d:${(i % 6) * .04}s`}>
+              <a href={categorieHref(g.hoofd)} class="group flex h-full flex-col overflow-hidden rounded-[var(--radius-md)] bg-zand no-underline ring-1 ring-lijn transition-shadow hover:shadow-kaart">
+                <div class="aspect-square overflow-hidden">
+                  {f ? <Image src={f} alt="" quality={66} widths={breedtes(f, [240, 360])} sizes="(min-width: 1024px) 200px, 45vw" class={`h-full w-full transition-transform duration-700 group-hover:scale-105 ${opWit(f) ? 'object-contain p-4 mix-blend-multiply' : 'object-cover'}`} /> : <GeenFoto naam={g.hoofd.naam} />}
+                </div>
+                <p class="mt-auto flex items-center justify-between gap-2 bg-wit px-3.5 py-3">
+                  <span class="min-w-0 font-kop text-[.82rem] font-extrabold leading-tight text-inkt [font-stretch:96%] hyphens-auto [overflow-wrap:break-word] sm:text-sm" lang="nl">{g.hoofd.naam}</span>
+                  <Icoon naam="pijl" class="h-4 w-4 flex-none text-blad-diep transition-transform group-hover:translate-x-0.5 max-sm:hidden" />
+                </p>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+
+    <!-- 4. MEEST GEKOZEN: productregels zoals afzetbak, met maten en vanaf-prijs -->
+    {populair.length > 0 && (
+      <section class="bg-zand py-20 lg:py-28" aria-labelledby="pop-kop">
+        <div class="wrap grid gap-10 lg:grid-cols-12 lg:gap-12">
+          <div class="lg:col-span-4">
+            <p class="label text-blad-diep">Populair</p>
+            <h2 id="pop-kop" class="mt-4 text-4xl">Meest gekozen.</h2>
+            <p class="mt-5 text-lg text-grijs">Deze ontwerpen worden het vaakst aangevraagd. Elk ervan kun je in je eigen maat en houtkleur laten maken.</p>
+            <a href={url('collectie/')} class="knop knop-inkt mt-8">Hele collectie<Icoon naam="pijl" /></a>
+          </div>
+          <ul class="grid gap-3 lg:col-span-8">
+            {populair.map((p, i) => {
+              const f = eersteFoto(p);
+              return (
+                <li class="rijs" style={`--d:${i * .05}s`}>
+                  <a href={productHref(p)} class="group flex items-stretch overflow-hidden rounded-[var(--radius-md)] bg-wit no-underline shadow-zacht ring-1 ring-lijn transition-all hover:-translate-y-0.5 hover:shadow-kaart">
+                    <div class="w-24 flex-none overflow-hidden bg-wit sm:w-36">
+                      {f ? <Image src={f} alt="" quality={66} widths={breedtes(f, [160, 300])} sizes="144px" class={`h-full w-full ${fotoKlas(f, 'p-2')}`} /> : <GeenFoto naam={p.titel} />}
+                    </div>
+                    <div class="flex min-w-0 flex-1 flex-wrap items-center justify-between gap-x-6 gap-y-1 px-4 py-4 sm:px-6">
+                      <div class="min-w-0">
+                        <p class="label text-[.68rem] text-grijs">{p.categorie.naam}</p>
+                        <h3 class="mt-1 font-kop text-lg font-extrabold leading-tight text-inkt group-hover:text-blad-diep sm:text-xl">{p.titel}</h3>
+                        {regelVan(p) && <p class="mt-1 text-sm text-grijs">{regelVan(p)}</p>}
+                      </div>
+                      <p class="flex items-center gap-3"><span class="num font-kop text-lg font-extrabold text-blad-diep">{prijsTekst(p)}</span><Icoon naam="pijl" class="h-4 w-4 text-grijs transition-transform group-hover:translate-x-1 group-hover:text-blad-diep" /></p>
+                    </div>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
     )}
 
-    <!-- 5. MAATWERK: van hun eigen tekening naar het meubel -->
-    <section id="maatwerk" class="bg-wit py-20 md:py-32">
+    <!-- 5. ZO WERKT HET: donker paneel met de stappen, zoals bij afzetbak en ZBN -->
+    <section class="wrap py-20 lg:py-28" aria-labelledby="werkt-kop">
+      <div class="relative isolate overflow-hidden rounded-[var(--radius-xl)] bg-nacht text-wit">
+        <div class="grid lg:grid-cols-12">
+          <div class="p-7 sm:p-10 lg:col-span-7 lg:p-16">
+            <p class="label text-blad-licht">Zo werkt het</p>
+            <h2 id="werkt-kop" class="mt-4 text-4xl">Van idee tot meubel, <span class="cursief">in vier stappen.</span></h2>
+            <p class="mt-5 max-w-lg text-lg text-as">Alles wordt voor jou gemaakt. Daarom begint het met een offerte, niet met afrekenen.</p>
+            <ol class="mt-12 grid gap-8 sm:grid-cols-2">
+              {stappen.map((s, i) => (
+                <li class="flex gap-4">
+                  <span class="relative grid h-14 w-14 flex-none place-items-center rounded-full bg-wit/10 text-blad-licht ring-1 ring-wit/15">
+                    <Icoon naam={s.icoon} class="h-6 w-6" />
+                    <span class="num absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-blad font-kop text-xs font-extrabold text-inkt">{i + 1}</span>
+                  </span>
+                  <span><span class="block font-kop text-lg font-extrabold">{s.t}</span><span class="mt-1 block text-sm text-as">{s.z}</span></span>
+                </li>
+              ))}
+            </ol>
+            <div class="mt-12 flex flex-col gap-3 sm:flex-row">
+              <a href={url('collectie/')} class="knop knop-blad">Begin met kiezen<Icoon naam="pijl" /></a>
+              <a href={url('maatwerk/')} class="knop knop-glas">Meer over maatwerk</a>
+            </div>
+          </div>
+          <div class="relative min-h-[18rem] lg:col-span-5">
+            <Image src={productie} alt="Productie van teakhouten meubels bij onze producenten: een paneel in een lijmpers, met stapels teakhout" quality={72} widths={[480, 720, 1000]} sizes="(min-width: 1024px) 40vw, 100vw" class="absolute inset-0 h-full w-full object-cover" />
+            <span aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-nacht/85 via-nacht/20 to-transparent lg:bg-gradient-to-r lg:from-nacht lg:via-nacht/30 lg:to-nacht/30"></span>
+            <p class="absolute bottom-5 left-5 right-5 text-sm text-wit/85 lg:left-auto lg:text-right">Bij onze producenten in Indonesië</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. MAATWERK: van hun eigen tekening naar het meubel -->
+    <section id="maatwerk" class="bg-wit py-20 lg:py-28">
       <div class="wrap">
         <div class="grid grid-cols-1 gap-y-6 lg:grid-cols-12 lg:gap-x-12">
           <div class="lg:col-span-6">
-            <p class="rijs label text-blad-diep">Maatwerk zonder meerprijs</p>
-            <h2 class="rijs mt-4 text-4xl">Eerst getekend, <span class="cursief">dan gemaakt.</span></h2>
+            <p class="label text-blad-diep">Maatwerk zonder meerprijs</p>
+            <h2 class="mt-4 text-4xl">Eerst getekend, <span class="cursief">dan gemaakt.</span></h2>
           </div>
-          <p class="rijs text-lg text-grijs lg:col-span-5 lg:col-start-8 lg:pt-10" style="--d:.08s">Elk maatwerkmeubel begint als tekening met jouw maten. Die gaat zo naar de meubelmakers. Vier projecten die we eerder maakten:</p>
+          <p class="text-lg text-grijs lg:col-span-5 lg:col-start-8 lg:pt-10">Elk maatwerkmeubel begint als tekening met jouw maten. Die gaat zo naar de meubelmakers. Vier projecten die we eerder maakten:</p>
         </div>
-
         <MaatwerkProjecten />
-        <div class="rijs mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
+        <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
           <a href={url('maatwerk/')} class="knop knop-inkt">Maatwerk aanvragen<Icoon naam="pijl" /></a>
           <p class="text-sm text-grijs">Of app je idee of een foto naar <a href={waHoi} class="num font-bold text-inkt underline underline-offset-2">{site.tel}</a></p>
         </div>
       </div>
     </section>
 
-    <!-- 6. HOUTKLEUREN -->
-    <section class="py-20 md:py-28" aria-labelledby="kleur-kop">
+    <!-- 7. HOUTKLEUREN -->
+    <section class="py-20 lg:py-28" aria-labelledby="kleur-kop">
       <div class="wrap grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-12">
         <div class="lg:col-span-4">
-          <h2 id="kleur-kop" class="rijs text-4xl">Vier kleuren teak.</h2>
-          <p class="rijs mt-5 max-w-sm text-grijs" style="--d:.06s">Elk meubel maken we in de kleur die bij jouw interieur past. Twijfel je? Kies "weet ik nog niet", dan denken we mee.</p>
+          <p class="label text-blad-diep">Afwerking</p>
+          <h2 id="kleur-kop" class="mt-4 text-4xl">Vier kleuren teak.</h2>
+          <p class="mt-5 max-w-sm text-grijs">Elk meubel maken we in de kleur die bij jouw interieur past. Twijfel je? Kies "weet ik nog niet", dan denken we mee.</p>
         </div>
-        <ul class="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:col-span-8">
+        <ul class="grid grid-cols-2 items-start gap-4 sm:grid-cols-4 lg:col-span-8">
           {houtkleuren.map((k, i) => (
-            <li class="rijs" style={`--d:${i * .06}s`}>
-              <Image src={k.img} alt={`Staal teakhout in ${k.naam.toLowerCase()}`} quality={80} widths={[256]} sizes="(min-width: 640px) 180px, 45vw" class="aspect-square w-full rounded-full object-cover shadow-[inset_0_0_0_1px_#0000001a]" />
-              <p class="mt-4 text-center font-kop text-xl">{k.naam}</p>
+            <li class="rijs overflow-hidden rounded-[var(--radius-md)] bg-wit ring-1 ring-lijn" style={`--d:${i * .05}s`}>
+              <Image src={k.img} alt={`Staal teakhout in ${k.naam.toLowerCase()}`} quality={80} widths={[256]} sizes="(min-width: 640px) 200px, 45vw" class="aspect-[4/3] w-full object-cover" />
+              <p class="px-4 py-3 font-kop font-extrabold">{k.naam}</p>
             </li>
           ))}
         </ul>
       </div>
     </section>
 
-    <!-- 7. WAAROM TEAK: donker, met de nerf van de Tuintafel Viking -->
-    <section class="relative isolate overflow-hidden bg-nacht text-wit">
-      <div class="grid grid-cols-1 lg:grid-cols-2">
-        <div class="relative min-h-[16rem] overflow-hidden sm:min-h-[22rem] lg:order-2 lg:min-h-full">
-          <Image src={vikingDetail} alt="Close-up van de latten van gerecycled teak op het zwarte stalen frame van de Tuintafel Viking" quality={72} widths={[640, 960, 1280]} sizes="(min-width: 1024px) 50vw, 100vw" class="absolute inset-0 h-full w-full origin-top-left scale-[1.75] object-cover object-[0%_0%]" />
-        </div>
-        <div class="px-5 py-20 md:px-10 md:py-28 lg:pl-[max(2.5rem,calc((100vw-84rem)/2+2.5rem))] lg:pr-16">
-          <h2 class="rijs text-4xl">Waarom <span class="cursief text-[#e9d9bf]">teak?</span></h2>
-          <dl class="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2">
-            <div class="rijs" style="--d:.05s"><dt class="font-kop text-2xl text-blad-licht">Sterk</dt><dd class="mt-1 text-as">Teak wordt nog steeds gebruikt in de scheepsbouw. Het kan wel tegen een stootje.</dd></div>
-            <div class="rijs" style="--d:.1s"><dt class="font-kop text-2xl text-blad-licht">Warm</dt><dd class="mt-1 text-as">Een strak teakhouten meubel geeft een modern interieur een gezellige sfeer.</dd></div>
-            <div class="rijs" style="--d:.15s"><dt class="font-kop text-2xl text-blad-licht">Duurzaam</dt><dd class="mt-1 text-as">Gerecycled teak uit oude huizen en gebouwen op Oost-Java, en plantagehout met SVLK-certificaat.</dd></div>
-            <div class="rijs" style="--d:.2s"><dt class="font-kop text-2xl text-blad-licht">Weinig onderhoud</dt><dd class="mt-1 text-as">Door de dichtheid en de natuurlijke oliën in het hout.</dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. OVER TEAKHUIS EN REFERENTIES -->
-    <section class="py-20 md:py-32" aria-labelledby="over-kop">
-      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
-        <div class="lg:col-span-6">
-          <h2 id="over-kop" class="rijs text-4xl">Sinds 2007 in teak. <span class="cursief">Nu online en op bestelling.</span></h2>
-          <p class="rijs mt-7 max-w-xl text-lg" style="--d:.08s">We hadden showrooms, nu werken we online, per mail en telefonisch. Zo heeft onze adviseur meer tijd per klant en werken we voordeliger. Alle maatwerk is nog steeds mogelijk.</p>
-          <div class="rijs mt-9 flex items-center gap-5" style="--d:.12s">
-            <Image src={han} alt="Han Rietdijk aan zijn bureau met een laptop en meubeltekeningen" quality={80} widths={[160, 192]} sizes="96px" class="h-24 w-[4.5rem] flex-none rounded-sm object-cover object-top" />
-            <div>
-              <p class="font-kop text-xl">Han Rietdijk</p>
-              <p class="text-sm text-grijs">Adviseur, bezorger en service</p>
-              <a href={site.telHref} class="link num mt-1 inline-block text-sm font-bold text-blad-diep">{site.tel}</a>
-            </div>
-          </div>
-          <a href={url('over-ons/')} class="rijs link mt-9 inline-block text-sm font-bold">Meer over Teakhuis</a>
-        </div>
-        <figure class="rijs lg:col-span-5 lg:col-start-8" style="--d:.1s">
-          <Image src={productie} alt="Productie van teakhouten meubels: een paneel in een lijmpers, met stapels teakhout op de vloer" quality={72} widths={[480, 720, 1000]} sizes="(min-width: 1024px) 40vw, 100vw" class="aspect-[4/3] w-full rounded-sm object-cover" />
-          <figcaption class="mt-3 text-xs text-grijs">Teak in productie bij onze producenten in Indonesië</figcaption>
-        </figure>
-      </div>
-
-      <div class="wrap mt-20 md:mt-28">
-        <blockquote class="rijs max-w-4xl">
-          <p class="font-kop text-3xl leading-[1.2] md:text-4xl">“{reviews[0].tekst}”</p>
-          <footer class="mt-5 text-sm text-grijs"><span class="font-bold text-inkt">{reviews[0].naam}</span>, {reviews[0].bron}</footer>
-        </blockquote>
-        <div class="mt-14 grid gap-x-10 gap-y-10 md:grid-cols-3">
-          {reviews.slice(1).map((r, i) => (
-            <blockquote class="rijs border-t-2 border-inkt pt-6" style={`--d:${i * .08}s`}>
-              <p class="text-lg">“{r.tekst}”</p>
-              <footer class="mt-4 text-sm text-grijs"><span class="font-bold text-inkt">{r.naam}</span>, {r.bron}</footer>
-            </blockquote>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- 9. CONTACT -->
-    <section class="bg-blad py-20 text-inkt md:py-24">
-      <div class="wrap grid grid-cols-1 items-end gap-y-10 lg:grid-cols-12 lg:gap-x-12">
+    <!-- 8. OVER EN REVIEWS: slider met hun eigen referenties -->
+    <section class="overflow-hidden bg-zand py-20 lg:py-28" aria-labelledby="ref-kop">
+      <div class="wrap grid gap-10 lg:grid-cols-12 lg:items-end">
         <div class="lg:col-span-7">
-          <h2 class="rijs text-4xl">Vragen? Bel, app of mail ons.</h2>
-          <p class="rijs mt-5 max-w-xl text-lg" style="--d:.08s">Over een meubel, een maat of een levering. We denken graag met je mee.</p>
+          <p class="label text-blad-diep">Sinds 2007</p>
+          <h2 id="ref-kop" class="mt-4 text-4xl">Wat klanten zeggen.</h2>
         </div>
-        <div class="rijs flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:col-span-5 lg:justify-end" style="--d:.1s">
-          <a href={waHoi} class="knop knop-inkt"><Icoon naam="wa" />WhatsApp</a>
-          <a href={site.telHref} class="knop knop-rand"><Icoon naam="tel" /><span class="num">{site.tel}</span></a>
+        <div class="flex items-center justify-between gap-4 lg:col-span-5 lg:justify-end">
+          <a href={url('over-ons/#referenties')} class="font-semibold underline underline-offset-2">Over Teakhuis</a>
+          <div class="hidden gap-2 md:flex">
+            <button type="button" class="grid h-11 w-11 place-items-center rounded-full bg-wit shadow-zacht ring-1 ring-lijn hover:bg-nacht hover:text-wit" aria-label="Vorige reviews" data-slider-terug><Icoon naam="pijl" class="h-4 w-4 rotate-180" /></button>
+            <button type="button" class="grid h-11 w-11 place-items-center rounded-full bg-wit shadow-zacht ring-1 ring-lijn hover:bg-nacht hover:text-wit" aria-label="Volgende reviews" data-slider-verder><Icoon naam="pijl" class="h-4 w-4" /></button>
+          </div>
         </div>
+      </div>
+      <ul class="slider mt-10 [--inzet:max(1.25rem,calc((100vw-84rem)/2+2.5rem))] px-[var(--inzet)] [scroll-padding-left:var(--inzet)]" data-slider>
+        <li class="flex w-[19rem] flex-col justify-between rounded-[var(--radius-xl)] bg-nacht p-7 text-wit sm:w-[24rem]">
+          <div class="flex items-center gap-4">
+            <Image src={han} alt="Han Rietdijk" quality={80} widths={[128]} sizes="64px" class="h-16 w-16 rounded-full object-cover object-top" />
+            <div><p class="font-kop text-lg font-extrabold">Han Rietdijk</p><p class="text-sm text-as">Adviseur, bezorger en service</p></div>
+          </div>
+          <p class="mt-6 text-as">We hadden showrooms, nu werken we online en op bestelling. Zo is er meer tijd per klant en werken we voordeliger. Alle maatwerk is nog steeds mogelijk.</p>
+          <a href={site.telHref} class="num mt-6 font-kop text-xl font-extrabold text-blad-licht no-underline hover:underline">{site.tel}</a>
+        </li>
+        {reviews.map((r) => (
+          <li class="flex w-[19rem] flex-col rounded-[var(--radius-xl)] bg-wit p-7 shadow-zacht ring-1 ring-lijn sm:w-[24rem]">
+            <svg viewBox="0 0 32 24" class="h-6 w-8 text-blad" fill="currentColor" aria-hidden="true"><path d="M0 24V14C0 6 4 1 12 0v5c-4 1-6 4-6 8h6v11H0Zm20 0V14c0-8 4-13 12-14v5c-4 1-6 4-6 8h6v11H20Z" /></svg>
+            <blockquote class="mt-5 flex-1"><p class="text-lg">{r.tekst}</p></blockquote>
+            <p class="mt-6 text-sm text-grijs"><strong class="font-kop font-extrabold text-inkt">{r.naam}</strong><br />{r.bron[0].toUpperCase() + r.bron.slice(1)}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- 9. OFFERTE: groen paneel zoals bij ZBN, met de drie manieren om te beginnen -->
+    <section class="wrap py-20 lg:py-28" aria-labelledby="offerte-kop">
+      <div class="grid overflow-hidden rounded-[var(--radius-xl)] bg-blad text-inkt shadow-kaart lg:grid-cols-12">
+        <div class="p-7 sm:p-10 lg:col-span-5 lg:p-14">
+          <p class="label">Vrijblijvende offerte</p>
+          <h2 id="offerte-kop" class="mt-4 text-4xl">Vertel ons wat je zoekt.</h2>
+          <p class="mt-5 text-lg">Kies een meubel, laat iets op maat tekenen of stuur een foto van wat je in gedachten hebt. Je krijgt een offerte met tekening en prijs.</p>
+          <p class="mt-10 font-semibold">Liever direct iemand spreken?</p>
+          <a href={site.telHref} class="num mt-1 inline-block font-kop text-3xl font-extrabold text-inkt no-underline hover:underline">{site.tel}</a>
+        </div>
+        <ul class="grid content-center gap-3 bg-wit p-5 sm:p-8 lg:col-span-7 lg:p-12">
+          {[
+            { href: url('collectie/'), icoon: 'lijst', t: 'Kies uit de collectie', z: 'Kies maat en houtkleur en zet het in je offerteaanvraag.' },
+            { href: url('maatwerk/'), icoon: 'liniaal', t: 'Laat iets op maat maken', z: 'Geef het meubel, de maten en de kleur door. Wij tekenen het uit.' },
+            { href: waHoi, icoon: 'wa', t: 'Stuur een foto via WhatsApp', z: 'Een foto of schets zegt vaak meer dan woorden.' },
+          ].map((a) => (
+            <li>
+              <a href={a.href} class="group flex items-center gap-5 rounded-[var(--radius-md)] p-4 no-underline ring-1 ring-lijn transition-all hover:bg-zand hover:ring-lijn-2 sm:p-5">
+                <span class="grid h-14 w-14 flex-none place-items-center rounded-full bg-nacht text-blad-licht"><Icoon naam={a.icoon} class="h-6 w-6" /></span>
+                <span class="min-w-0 flex-1"><span class="block font-kop text-lg font-extrabold text-inkt">{a.t}</span><span class="mt-0.5 block text-sm text-grijs">{a.z}</span></span>
+                <Icoon naam="pijl" class="h-5 w-5 flex-none text-inkt transition-transform group-hover:translate-x-1" />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   </main>
   <Voet />
 
+  <script>
+    // Hero: twee foto's die om de 7 seconden wisselen; pauzeerbaar, en stil bij "minder beweging".
+    const hero = document.querySelector<HTMLElement>('[data-hero]');
+    if (hero) {
+      const dias = [...hero.querySelectorAll<HTMLElement>('[data-dia]')];
+      const stippen = [...hero.querySelectorAll<HTMLButtonElement>('[data-stip]')];
+      const pauze = hero.querySelector<HTMLButtonElement>('[data-pauze]');
+      const naam = hero.querySelector<HTMLElement>('[data-dia-naam]');
+      const link = hero.querySelector<HTMLAnchorElement>('[data-dia-link]');
+      const info = [{ n: 'Tuintafel trapezium', h: link?.href }, { n: 'Tuintafel Viking', h: link?.href.replace('tuintafel-trapezium', 'tuintafel-viking') }];
+      let nu = 0;
+      let t: number | undefined;
+      const stil = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const zet = (i: number) => {
+        nu = (i + dias.length) % dias.length;
+        dias.forEach((d, j) => d.classList.toggle('aan', j === nu));
+        stippen.forEach((s, j) => { s.classList.toggle('w-8', j === nu); s.classList.toggle('bg-wit', j === nu); s.classList.toggle('w-4', j !== nu); s.classList.toggle('bg-wit/40', j !== nu); });
+        if (naam) naam.textContent = info[nu].n;
+        if (link && info[nu].h) link.href = info[nu].h!;
+      };
+      const start = () => { clearInterval(t); t = window.setInterval(() => zet(nu + 1), 7000); };
+      stippen.forEach((s, i) => s.addEventListener('click', () => { zet(i); if (pauze?.getAttribute('aria-pressed') !== 'true' && !stil) start(); }));
+      pauze?.addEventListener('click', () => {
+        const aan = pauze.getAttribute('aria-pressed') === 'true';
+        pauze.setAttribute('aria-pressed', String(!aan));
+        pauze.setAttribute('aria-label', aan ? "Pauzeer de foto's" : "Speel de foto's af");
+        pauze.querySelector('[data-icoon-pauze]')!.classList.toggle('hidden', !aan);
+        pauze.querySelector('[data-icoon-speel]')!.classList.toggle('hidden', aan);
+        if (aan) start(); else clearInterval(t);
+      });
+      if (stil && pauze) {
+        pauze.setAttribute('aria-pressed', 'true');
+        pauze.setAttribute('aria-label', "Speel de foto's af");
+        pauze.querySelector('[data-icoon-pauze]')!.classList.add('hidden');
+        pauze.querySelector('[data-icoon-speel]')!.classList.remove('hidden');
+      } else start();
+    }
+
+    // Reviewslider: pijlen schuiven één kaart op.
+    const slider = document.querySelector<HTMLElement>('[data-slider]');
+    if (slider) {
+      const stap = () => (slider.firstElementChild as HTMLElement).offsetWidth + 20;
+      document.querySelector('[data-slider-terug]')?.addEventListener('click', () => slider.scrollBy({ left: -stap(), behavior: 'smooth' }));
+      document.querySelector('[data-slider-verder]')?.addEventListener('click', () => slider.scrollBy({ left: stap(), behavior: 'smooth' }));
+    }
+  </script>
 </Base>

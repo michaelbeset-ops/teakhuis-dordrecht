@@ -16,6 +16,9 @@ export interface Product {
 }
 
 export const hoofdletter = (s: string) => (s ? s[0].toUpperCase() + s.slice(1) : s);
+// Titels uit de oude webshop staan soms in kapitalen ("EETTAFEL CASTLE") of beginnen klein; alleen de weergave rechtzetten.
+// Woorden met cijfers (typenummers als JSWD 345) blijven zoals ze zijn.
+const netteTitel = (t: string) => hoofdletter(t.trim().replace(/\b\p{Lu}{3,}\b/gu, (w) => (/^(?:BA|JS|SVLK|XL|XXL)$/.test(w) ? w : w[0] + w.slice(1).toLowerCase())));
 const nl = new Intl.Collator('nl', { numeric: true });
 
 const ruweCats = await getCollection('categorieen');
@@ -37,7 +40,7 @@ export const producten: Product[] = ruweProducten
     // "Vanaf"-prijs: ingevuld veld, anders de laagste maatprijs.
     const maatPrijzen = d.maten.map((m) => m.prijs).filter((x): x is number => typeof x === 'number' && x > 0);
     const prijsVanaf = d.prijsVanaf && d.prijsVanaf > 0 ? d.prijsVanaf : maatPrijzen.length ? Math.min(...maatPrijzen) : null;
-    return { ...d, slug: p.id, titel: d.titel.trim(), categorie: cat, hoofd, prijsVanaf, maten: d.maten.map((m) => ({ label: m.label, prijs: m.prijs ?? null })) };
+    return { ...d, slug: p.id, titel: netteTitel(d.titel), categorie: cat, hoofd, prijsVanaf, maten: d.maten.map((m) => ({ label: m.label, prijs: m.prijs ?? null })) };
   })
   .sort((a, b) => a.volgorde - b.volgorde || nl.compare(a.titel, b.titel));
 

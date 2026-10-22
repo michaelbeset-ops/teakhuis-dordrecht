@@ -120,11 +120,11 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
         <div class="mt-5 flex flex-wrap items-baseline gap-x-3 gap-y-1">
           {prijzen ? (
             <>
-              <p class="num font-kop text-3xl" data-prijs>{maten.length && maten[0].prijs ? euro(maten[0].prijs) : prijsTekst(p)}</p>
+              <p class="num font-kop text-3xl font-extrabold" data-prijs>{maten.length && maten[0].prijs ? euro(maten[0].prijs) : prijsTekst(p)}</p>
               <p class="text-sm text-grijs" data-prijs-uitleg>{maten.some((m) => m.prijs) ? 'indicatie voor de gekozen maat' : 'indicatieprijs'}</p>
             </>
           ) : (
-            <p class="font-kop text-3xl">Prijs op aanvraag</p>
+            <p class="font-kop text-3xl font-extrabold">Prijs op aanvraag</p>
           )}
         </div>
         <p class="mt-2 text-sm text-grijs">Je krijgt eerst een vrijblijvende offerte met de precieze prijs.</p>

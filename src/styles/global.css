@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
-@import "@fontsource-variable/newsreader/opsz.css";
-@import "@fontsource-variable/newsreader/opsz-italic.css";
+@import "@fontsource-variable/archivo/wdth.css";
 @import "@fontsource-variable/mulish/wght.css";
 
 @theme {
@@ -10,27 +9,30 @@
   --radius-*: initial;
   --shadow-*: initial;
 
-  /* Warm linnen als ondergrond (hun productfoto's op wit worden met multiply vanzelf warm), één Teakhuis-groen uit het
-     logo als accent, en een diep warm zwart voor de donkere vlakken. Het hout zelf komt alleen uit de foto's. */
+  /* Licht en fris zoals ZBN, met de doe-knoppen van afzetbak: wit met een warme ijstint voor vlakken, diep bosgroen voor
+     de donkere panelen en het Teakhuis-groen uit het logo als enige actiekleur. Het hout komt uit de foto's. */
   --color-wit: #ffffff;
-  --color-papier: #f6f3ed;      /* hoofdachtergrond */
-  --color-zand: #ece6db;        /* vlakken, fotokaders */
-  --color-zand-2: #ddd4c4;
-  --color-inkt: #1e1b16;        /* tekst, 15:1 op papier */
-  --color-grijs: #5c564c;       /* bijtekst, 6,6:1 op papier */
-  --color-blad: #6aab35;        /* logo-groen: knoppen en vlakken */
-  --color-blad-hover: #7cbb47;
-  --color-blad-licht: #9bcf6c;  /* groen op donker */
-  --color-blad-diep: #3b6a1b;   /* groen als tekst op papier, 6,2:1 */
-  --color-nacht: #1b1915;       /* donkere secties */
-  --color-nacht-2: #26231e;
-  --color-as: #b3ab9e;          /* bijtekst op nacht, 7,9:1 */
-  --color-lijn: #1e1b161a;
-  --color-lijn-2: #1e1b163d;
-  --color-lijn-d: #ffffff1f;
+  --color-papier: #fbfaf7;      /* hoofdachtergrond */
+  --color-zand: #f1eee7;        /* vlakken, fotokaders */
+  --color-zand-2: #e3ddd1;
+  --color-inkt: #17201b;        /* tekst, 16:1 op papier */
+  --color-grijs: #55605a;       /* bijtekst, 6,4:1 op papier */
+  --color-blad: #6aab35;        /* logo-groen: knoppen */
+  --color-blad-hover: #5c9a2a;
+  --color-blad-licht: #a3d47a;  /* groen op donker */
+  --color-blad-diep: #36641a;   /* groen als tekst op papier, 6,6:1 */
+  --color-nacht: #17231d;       /* donkere panelen: bosgroen */
+  --color-nacht-2: #213028;
+  --color-as: #b5c0b9;          /* bijtekst op nacht, 8:1 */
+  --color-lijn: #17201b17;
+  --color-lijn-2: #17201b33;
+  --color-lijn-d: #ffffff24;
 
-  --font-kop: "Newsreader Variable", "Iowan Old Style", Georgia, serif;
+  --font-kop: "Archivo Variable", "Arial Black", system-ui, sans-serif;
   --font-sans: "Mulish Variable", "Segoe UI", system-ui, sans-serif;
+
+  --shadow-zacht: 0 1px 2px #17201b0f, 0 4px 14px -4px #17201b1f;
+  --shadow-kaart: 0 2px 4px #17201b0d, 0 18px 40px -16px #17201b40;
 
   --text-xs: 0.8125rem;
   --text-sm: 0.9375rem;
@@ -42,8 +44,9 @@
   --text-4xl: clamp(2.2rem, 3.4vw + 1.1rem, 4.1rem);
   --text-hero: clamp(2.75rem, 5vw + 1.1rem, 6.4rem);
 
-  --radius-sm: 3px;
-  --radius-md: 6px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-xl: 22px;
   --radius-full: 999px;
 
   --ease-zacht: cubic-bezier(.22, .61, .36, 1);
@@ -61,8 +64,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  /* Newsreader in een lichtere, redactionele snit: meubels van hout vragen om rust, niet om schreeuwende koppen. */
-  h1, h2, h3 { font-family: var(--font-kop); font-weight: 500; line-height: 1.04; letter-spacing: -0.025em; text-wrap: balance; overflow-wrap: break-word; font-optical-sizing: auto; }
+  /* Archivo breed en zwaar, zoals de koppen van ZBN: stevig en direct. */
+  h1, h2, h3 { font-family: var(--font-kop); font-weight: 800; font-stretch: 110%; line-height: 1.02; letter-spacing: -0.025em; text-wrap: balance; overflow-wrap: break-word; }
   p { text-wrap: pretty; }
   ::selection { background: var(--color-blad); color: var(--color-inkt); }
   :focus-visible { outline: 2px solid var(--color-blad-diep); outline-offset: 3px; }
@@ -78,21 +81,29 @@
   @media (min-width: 768px) { .wrap { padding-inline: 2.5rem; } }
 
   .num { font-variant-numeric: lining-nums tabular-nums; }
-  .cursief { font-style: italic; font-weight: 400; }
-  .label { font-size: var(--text-xs); font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+  /* Elke Archivo-tekst is standaard stevig; een gewichtsklasse in de markup gaat altijd voor. */
+  .font-kop { font-weight: 750; font-stretch: 108%; }
+  /* Tweede regel van een kop: dunner, voor een rustig contrast. */
+  .cursief { font-weight: 500; font-stretch: 100%; }
+  .label { font-family: var(--font-kop); font-size: .75rem; font-weight: 700; font-stretch: 115%; letter-spacing: .14em; text-transform: uppercase; }
 
-  .knop { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 3.25rem; padding: 0 1.5rem; border-radius: var(--radius-sm); font-size: .9375rem; font-weight: 750; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color .25s var(--ease-zacht), color .25s var(--ease-zacht), border-color .25s var(--ease-zacht), transform .25s var(--ease-zacht); }
+  .knop { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 3.25rem; padding: 0 1.6rem; border-radius: var(--radius-full); font-family: var(--font-kop); font-size: .9375rem; font-weight: 700; font-stretch: 105%; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color .25s var(--ease-zacht), color .25s var(--ease-zacht), border-color .25s var(--ease-zacht), transform .25s var(--ease-zacht); }
   .knop svg { width: 1.15rem; height: 1.15rem; flex: none; }
   .knop:active { transform: translateY(1px); }
   .knop:disabled { opacity: .55; cursor: not-allowed; }
-  .knop-blad { background: var(--color-blad); color: var(--color-inkt); }
-  .knop-blad:hover { background: var(--color-blad-hover); }
+  .knop-blad { background: var(--color-blad); color: var(--color-inkt); box-shadow: 0 6px 18px -8px #3b6a1bb3; }
+  .knop-blad:hover { background: var(--color-blad-hover); color: var(--color-wit); }
   .knop-inkt { background: var(--color-inkt); color: var(--color-papier); }
   .knop-inkt:hover { background: var(--color-blad-diep); }
   .knop-rand { border: 1.5px solid var(--color-inkt); color: var(--color-inkt); }
   .knop-rand:hover { background: var(--color-inkt); color: var(--color-papier); }
   .knop-wit { border: 1.5px solid #ffffffa6; color: var(--color-wit); }
   .knop-wit:hover { background: var(--color-wit); color: var(--color-inkt); border-color: var(--color-wit); }
+  /* Glas: op foto's, zoals de tweede knop in de hero van ZBN. */
+  .knop-glas { background: #ffffff1f; border: 1.5px solid #ffffff59; color: var(--color-wit); backdrop-filter: blur(6px); }
+  .knop-glas:hover { background: var(--color-wit); color: var(--color-inkt); }
+  .knop-vol { background: var(--color-wit); color: var(--color-inkt); }
+  .knop-vol:hover { background: var(--color-blad); }
 
   .link { text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 100% 1.5px; background-position: 0 100%; background-repeat: no-repeat; padding-bottom: 1px; transition: color .25s; }
   .link:hover { color: var(--color-blad-diep); }
@@ -100,7 +111,7 @@
 
   /* Productkaart: foto op een wit vlak (hun productfoto's zijn op wit gemaakt), daaronder naam en prijs. */
   .product { display: block; text-decoration: none; color: inherit; }
-  .product .beeld { overflow: hidden; background: var(--color-wit); border-radius: var(--radius-sm); }
+  .product .beeld { overflow: hidden; background: var(--color-wit); border-radius: var(--radius-md); box-shadow: inset 0 0 0 1px var(--color-lijn); }
   .product img { transition: transform .9s var(--ease-zacht); }
   .product:hover img { transform: scale(1.04); }
   .product .naam { transition: color .2s; }
@@ -121,14 +132,26 @@
   .kies { display: flex; align-items: center; gap: .6rem; min-height: 2.9rem; padding: 0 1rem; border: 1.5px solid var(--color-lijn-2); border-radius: var(--radius-full); background: var(--color-wit); font-size: .9375rem; font-weight: 650; cursor: pointer; transition: border-color .2s, background-color .2s, box-shadow .2s; }
   .kies.met-staal { padding-left: .5rem; }
   .kies:hover { border-color: var(--color-inkt); }
-  .kies:has(:checked) { border-color: var(--color-inkt); box-shadow: inset 0 0 0 1px var(--color-inkt); }
+  .kies:has(:checked) { border-color: var(--color-blad-diep); box-shadow: inset 0 0 0 1px var(--color-blad-diep); background: #f3f9ee; }
   .kies:has(:focus-visible), .tegel:has(:focus-visible) { outline: 2px solid var(--color-blad-diep); outline-offset: 2px; }
   .staal { width: 1.75rem; height: 1.75rem; border-radius: 999px; box-shadow: inset 0 0 0 1px #0000002e; flex: none; }
 
-  .tegel { position: relative; display: flex; flex-direction: column; justify-content: center; gap: .1rem; min-height: 4rem; padding: .7rem .95rem; border: 1.5px solid var(--color-lijn-2); border-radius: var(--radius-sm); background: var(--color-wit); cursor: pointer; transition: border-color .2s, box-shadow .2s; }
+  .tegel { position: relative; display: flex; flex-direction: column; justify-content: center; gap: .1rem; min-height: 4rem; padding: .7rem .95rem; border: 1.5px solid var(--color-lijn-2); border-radius: var(--radius-md); background: var(--color-wit); cursor: pointer; transition: border-color .2s, box-shadow .2s; }
   .tegel:hover { border-color: var(--color-inkt); }
-  .tegel:has(:checked) { border-color: var(--color-inkt); box-shadow: inset 0 0 0 1px var(--color-inkt); }
+  .tegel:has(:checked) { border-color: var(--color-blad-diep); box-shadow: inset 0 0 0 1px var(--color-blad-diep); background: #f3f9ee; }
   .tegel:has(:checked)::after { content: ""; position: absolute; top: .55rem; right: .55rem; width: .55rem; height: .55rem; border-radius: 999px; background: var(--color-blad); }
+
+  /* Hero: twee foto's die langzaam in elkaar overvloeien, elk met een trage zoom. */
+  .dia { opacity: 0; transition: opacity 1.6s var(--ease-zacht); }
+  .dia.aan { opacity: 1; }
+  .dia img { transform: scale(1.0); transition: transform 9s linear; }
+  .dia.aan img { transform: scale(1.06); }
+  @media (prefers-reduced-motion: reduce) { .dia, .dia img { transition: none !important; } .dia.aan img { transform: none; } }
+
+  /* Horizontale slider (reviews): scrollt met de vinger, knoppen op desktop. */
+  .slider { display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: .5rem; }
+  .slider::-webkit-scrollbar { display: none; }
+  .slider > * { flex: none; scroll-snap-align: start; }
 
   .js .rijs { opacity: 0; transform: translateY(16px); transition: opacity .9s var(--ease-zacht), transform .9s var(--ease-zacht); transition-delay: var(--d, 0s); }
   .js .rijs.in { opacity: 1; transform: none; }
