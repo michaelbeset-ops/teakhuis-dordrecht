@@ -5,7 +5,6 @@ import Voet from '../../components/Voet.astro';
 import Kruimel from '../../components/Kruimel.astro';
 import ProductKaart from '../../components/ProductKaart.astro';
 import Icoon from '../../components/Icoon.astro';
-import CategorieBalk from '../../components/CategorieBalk.astro';
 import { url, absoluut } from '../../data/site';
 import { catPaginas, groepen, categorieHref, productHref, omschrijvingHtml, platteTekst, breedtesVan, houtsoortVan, type CatPagina } from '../../data/catalogus';
 import { kruimelSchema, type Stap } from '../../data/seo';
@@ -44,7 +43,6 @@ const lijstSchema = {
   <main id="inhoud" class="pb-20 md:pb-28">
     <section class="wrap pt-6 md:pt-8">
       <Kruimel stappen={kruimel} />
-      <CategorieBalk actief={ouder.slug} class="mt-6 lg:hidden" />
     </section>
 
     <div class="wrap mt-8 grid grid-cols-1 gap-10 lg:mt-10 lg:grid-cols-12 lg:gap-12">
@@ -129,7 +127,6 @@ const lijstSchema = {
             )}
             <fieldset class="mt-4 space-y-1 border-t border-lijn pt-4">
               <legend class="sr-only">Overig</legend>
-              <label class="flex cursor-pointer items-center gap-3 rounded-[var(--radius-sm)] px-1 py-1.5 text-sm hover:bg-zand"><input type="checkbox" name="maatwerk" value="1" class="h-4 w-4 accent-[#36641a]" /><span class="flex-1">Ook op maat</span><span class="num text-xs text-grijs" data-telt="maatwerk:1"></span></label>
               <label class="flex cursor-pointer items-center gap-3 rounded-[var(--radius-sm)] px-1 py-1.5 text-sm hover:bg-zand"><input type="checkbox" name="kleur" value="1" class="h-4 w-4 accent-[#36641a]" /><span class="flex-1">In 4 houtkleuren</span><span class="num text-xs text-grijs" data-telt="kleur:1"></span></label>
             </fieldset>
           </form>
