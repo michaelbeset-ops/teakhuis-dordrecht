@@ -151,3 +151,21 @@ export const houtsoortVan = (p: Product) => {
   if (t.includes('teak')) return 'Teak';
   return 'Overig';
 };
+
+// Welke maattekening bij een product hoort (op soort), of geen bij lampen, accessoires en dergelijke.
+const SOORTEN: [RegExp, 'tafel' | 'kast' | 'zit' | 'bed'][] = [
+  [/wastafel/, 'kast'],
+  [/bed/, 'bed'],
+  [/stoel|bank|kruk|zit/, 'zit'],
+  [/tafel|sidetable|bureau|tuinmeubel/, 'tafel'],
+  [/kast|dressoir|kist|room|badkamermeubel|hangende|kleinmeubel/, 'kast'],
+];
+const GEEN = /spiegel|waskom|lamp|accessoire|onderhoud/;
+export const maatSoort = (p: Product) => {
+  if (GEEN.test(p.categorie.slug)) return null;
+  const zoek = (s?: string) => (s ? SOORTEN.find(([re]) => re.test(s))?.[1] : undefined);
+  // De naam zegt het vaakst wat het is ("Beaufort bank" staat bij tuinmeubelen); anders de categorie.
+  const naam = p.titel.toLowerCase();
+  const opNaam = /\b(?:bank|stoel|kruk)/.test(naam) ? 'zit' : /\bbed\b/.test(naam) ? 'bed' : /dressoir|kast\b|kast /.test(naam) ? 'kast' : /tafel/.test(naam) && !/wastafel/.test(naam) ? 'tafel' : undefined;
+  return opNaam ?? zoek(p.categorie.slug) ?? zoek(p.hoofd?.slug) ?? null;
+};

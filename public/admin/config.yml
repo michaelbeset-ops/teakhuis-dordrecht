@@ -169,6 +169,7 @@ collections:
           # Technisch (formulier, sociale media, Google): beheerd door Sitefront.
           - { name: web3formsKey, widget: hidden, default: '' }
           - { name: emailjs, widget: hidden, default: { service: '', template: '', publicKey: '' } }
+          - { name: statistiek, widget: hidden, default: { plausible: '', goatcounter: '' } }
           - { name: facebook, widget: hidden, default: '' }
           - { name: instagram, widget: hidden, default: '' }
           - { name: pinterest, widget: hidden, default: '' }

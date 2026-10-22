@@ -15,7 +15,7 @@ import { groepen, categorieHref } from '../data/catalogus';
     <form action={url('collectie/')} method="get" role="search" class="mt-8 flex max-w-lg gap-2">
       <label for="q" class="sr-only">Zoek in de collectie</label>
       <input id="q" name="q" type="search" class="veld" placeholder="Bijvoorbeeld eettafel" />
-      <button class="knop knop-inkt" type="submit">Zoeken</button>
+      <button class="knop knop-blad" type="submit">Zoeken</button>
     </form>
     <ul class="mt-12 flex flex-wrap gap-2">
       {groepen.map((g) => <li><a href={categorieHref(g.hoofd)} class="flex min-h-10 items-center rounded-full border border-lijn-2 px-4 text-sm font-bold no-underline hover:border-inkt">{g.hoofd.naam}</a></li>)}

@@ -127,7 +127,7 @@ const dienst = {
             <textarea name="wens" maxlength="500" class="veld mt-2" placeholder="Bijvoorbeeld: drie lades, open vak voor de versterker, strakke poten"></textarea>
           </label>
           <div class="mt-8 flex flex-col gap-3 border-t border-lijn pt-7 sm:flex-row sm:items-center">
-            <button type="submit" class="knop knop-inkt"><Icoon naam="lijst" />Zet in offerteaanvraag</button>
+            <button type="submit" class="knop knop-blad"><Icoon naam="lijst" />Zet in offerteaanvraag</button>
             <a href={waHoi} class="knop knop-rand" data-wa><Icoon naam="wa" />Of via WhatsApp</a>
           </div>
         </form>
@@ -141,6 +141,7 @@ const dienst = {
   </script>
   <script>
     import { voegToe, regelTekst, type Regel } from '../scripts/offerte';
+    import { meet } from '../scripts/meet';
     const { offerte, hier, wa } = (window as any).__mw as { offerte: string; hier: string; wa: string };
     const f = document.querySelector<HTMLFormElement>('[data-maatwerk]');
     if (f) {
@@ -164,7 +165,7 @@ const dienst = {
       const werk = () => { waA.href = `${wa}?text=${encodeURIComponent(`Hallo Teakhuis, ik wil graag een meubel op maat:\n${regelTekst({ ...regel(), id: '' })}\nKunnen jullie een voorstel maken?`)}`; };
       f.addEventListener('input', werk);
       f.addEventListener('change', werk);
-      f.addEventListener('submit', (e) => { e.preventDefault(); voegToe(regel()); location.href = offerte; });
+      f.addEventListener('submit', (e) => { e.preventDefault(); voegToe(regel()); meet('In offerte'); location.href = offerte; });
       werk();
     }
   </script>

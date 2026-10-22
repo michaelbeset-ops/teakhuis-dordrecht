@@ -76,4 +76,8 @@ teruggedraaid.
   5. Vul de drie waarden in bij `emailjs` in `src/data/instellingen.json` en push.
   Zonder EmailJS valt het formulier terug op Web3Forms (`web3formsKey`, platte tekst) en anders op het mailprogramma.
   Testen zonder te versturen: `node tools/mailtest.mjs` (bewaart de mail als `shots/mail.html`).
+- Statistiek (zonder cookies, dus zonder cookiemelding): vul in `src/data/instellingen.json` bij `statistiek` óf
+  `plausible` (het domein, bijv. `teakhuis.nl`, account op plausible.io) óf `goatcounter` (de code van je account op
+  goatcounter.com) in. De site telt dan ook "In offerte", "Offerte verstuurd", "Offerte via mailprogramma", "WhatsApp"
+  en "Bellen". De privacyverklaring past zich automatisch aan.
 - `tools/migreer.mjs` was de eenmalige omzetting van de oude webshop; niet opnieuw draaien, dat overschrijft wijzigingen uit het beheer.

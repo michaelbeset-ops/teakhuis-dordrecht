@@ -20,6 +20,7 @@ export const site = {
   mail: inst.email,
   web3formsKey: inst.web3formsKey,
   emailjs: { service: '', template: '', publicKey: '', ...inst.emailjs },
+  statistiek: { plausible: '', goatcounter: '', ...inst.statistiek },
   facebook: inst.facebook,
   instagram: inst.instagram,
   pinterest: inst.pinterest,

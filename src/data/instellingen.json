@@ -19,5 +19,9 @@
     "service": "",
     "template": "",
     "publicKey": ""
+  },
+  "statistiek": {
+    "plausible": "",
+    "goatcounter": ""
   }
 }

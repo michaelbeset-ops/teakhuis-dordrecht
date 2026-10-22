@@ -30,7 +30,7 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, mail: site.mail, wa
         <div class="py-10" data-leeg hidden>
           <p class="font-kop text-2xl">Je aanvraag is nog leeg.</p>
           <p class="mt-3 max-w-md text-grijs">Kies in de collectie een meubel en zet het met je maat en kleur in je aanvraag. Of beschrijf hiernaast wat je zoekt, dan tekenen we het voor je.</p>
-          <a href={url('collectie/')} class="knop knop-inkt mt-6">Naar de collectie<Icoon naam="pijl" /></a>
+          <a href={url('collectie/')} class="knop knop-blad mt-6">Naar de collectie<Icoon naam="pijl" /></a>
         </div>
       </section>
 
@@ -56,7 +56,20 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, mail: site.mail, wa
         <div class="rounded-md bg-wit p-6 sm:p-8" data-bedankt hidden tabindex="-1">
           <Icoon naam="vink" class="h-9 w-9 text-blad-diep" />
           <h2 class="mt-4 font-kop text-3xl">Bedankt, je aanvraag is verstuurd.</h2>
-          <p class="mt-3 text-grijs">We nemen contact met je op. Liever eerst even overleggen? Bel of app <a href={site.telHref} class="num font-bold text-inkt underline underline-offset-2">{site.tel}</a>.</p>
+          <p class="mt-3 text-grijs">Zo gaat het verder:</p>
+          <ol class="mt-6 space-y-5">
+            {[
+              ['Han neemt contact op', 'Hij bekijkt je aanvraag en belt of mailt je om je wensen, maten en kleur door te nemen.'],
+              ['Schets en prijsopgave', 'Je krijgt een tekening met je maten en een prijs. Vrijblijvend, je zit nergens aan vast.'],
+              ['Akkoord? Dan wordt hij gemaakt', 'Je betaalt 20% aan en je meubel wordt met de hand gemaakt en bij je thuis afgeleverd.'],
+            ].map(([kop, tekst], i) => (
+              <li class="flex gap-4">
+                <span class="num grid h-8 w-8 flex-none place-items-center rounded-full bg-blad text-sm font-extrabold text-inkt">{i + 1}</span>
+                <span><span class="block font-bold">{kop}</span><span class="mt-0.5 block text-sm text-grijs">{tekst}</span></span>
+              </li>
+            ))}
+          </ol>
+          <p class="mt-6 border-t border-lijn pt-5 text-sm text-grijs">Liever meteen overleggen? Bel of app Han op <a href={site.telHref} class="num font-bold text-inkt underline underline-offset-2">{site.tel}</a>.</p>
           <a href={url('collectie/')} class="knop knop-rand mt-6">Verder kijken</a>
         </div>
       </section>
@@ -86,6 +99,7 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, mail: site.mail, wa
   <script>
     import { lijst, wijzig, verwijder, leeg, opWijziging, regelTekst } from '../scripts/offerte';
     import { mailHtml } from '../scripts/mail';
+    import { meet } from '../scripts/meet';
 
     const cfg = JSON.parse(document.getElementById('aanvraag-cfg')!.textContent!) as { key: string; emailjs: { service: string; template: string; publicKey: string }; mail: string; wa: string; collectie: string };
     const ul = document.querySelector<HTMLUListElement>('[data-lijst]')!;
@@ -102,6 +116,7 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, mail: site.mail, wa
       const l = lijst();
       ul.replaceChildren();
       leegBlok.hidden = l.length > 0;
+      ul.hidden = !l.length;
       nEl.textContent = l.length ? `(${l.reduce((n, r) => n + r.aantal, 0)})` : '';
       for (const r of l) {
         const li = sjabloon.content.firstElementChild!.cloneNode(true) as HTMLLIElement;
@@ -164,6 +179,7 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, mail: site.mail, wa
       const metEmailjs = Boolean(ej.service && ej.template && ej.publicKey);
       // Geen formuliersleutel ingesteld: het mailprogramma neemt het over.
       if (!metEmailjs && !cfg.key) {
+        meet('Offerte via mailprogramma');
         location.href = `mailto:${cfg.mail}?subject=${encodeURIComponent(onderwerp)}&body=${encodeURIComponent(tekst)}`;
         return;
       }
@@ -188,6 +204,7 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, mail: site.mail, wa
           const j = await r.json();
           if (!j.success) throw new Error(j.message);
         }
+        meet('Offerte verstuurd');
         leeg();
         form.hidden = true;
         bedankt.hidden = false;
