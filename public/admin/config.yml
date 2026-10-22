@@ -41,7 +41,7 @@ collections:
   - name: producten
     label: Producten
     label_singular: Product
-    description: Alle meubels en accessoires. Een product verbergen kan met "Zichtbaar op de site"; verwijderen haalt het definitief weg.
+    description: 'Klik op een product om het aan te passen, of op "Nieuw product". Vergeet niet op "Opslaan" te drukken.'
     folder: src/content/producten
     format: json
     extension: json
@@ -49,21 +49,21 @@ collections:
     delete: true
     slug: '{{titel}}'
     identifier_field: titel
-    summary: '{{titel}} · {{categorie}}{{zichtbaar | ternary("", " · VERBORGEN")}}'
+    summary: '{{titel}}{{zichtbaar | ternary("", "  (verborgen)")}}'
     sortable_fields:
-      fields: [titel, volgorde, prijsVanaf]
+      fields: [titel]
       default: { field: titel, direction: ascending }
-    view_filters:
-      - { label: Uitgelicht op homepage, field: uitgelicht, pattern: true }
-      - { label: Verborgen, field: zichtbaar, pattern: false }
-      - { label: Zonder prijs, field: prijsTonen, pattern: false }
     view_groups:
       - { label: Categorie, field: categorie }
+    editor:
+      preview: false
     # Relatief aan het productbestand, zodat Astro de foto's vindt en optimaliseert.
     media_folder: ../../assets/producten
     public_folder: ../../assets/producten
+    # Alleen wat nodig is staat in beeld. Technische velden (SEO, volgorde, oude adressen) zijn verborgen:
+    # ze blijven bewaard en de site vult ze zelf in als ze leeg zijn.
     fields:
-      - { label: Naam, name: titel, widget: string, hint: 'Zoals hij op de site moet staan, bijv. "Eettafel Viking".' }
+      - { label: Naam, name: titel, widget: string, hint: 'Bijvoorbeeld: Eettafel Viking' }
       - label: Categorie
         name: categorie
         widget: relation
@@ -71,64 +71,62 @@ collections:
         value_field: '{{slug}}'
         search_fields: [naam]
         display_fields: [naam]
+        hint: In welk menu staat dit product?
       - label: Foto's
         name: fotos
         widget: image
         multiple: true
         required: false
-        hint: De eerste foto is de hoofdfoto. Sleep om de volgorde te veranderen. Liefst groot (minstens 1500 pixels breed), op een witte achtergrond of als sfeerfoto.
-      - label: Vanaf-prijs (€)
+        hint: De eerste foto is de hoofdfoto.
+      - label: Prijs vanaf (€)
         name: prijsVanaf
         widget: number
         value_type: float
         min: 0
         required: false
-        hint: Laat leeg om de laagste maatprijs te gebruiken, of als er geen prijs is.
-      - { label: Prijs tonen, name: prijsTonen, widget: boolean, default: true, hint: 'Uit = "Prijs op aanvraag".' }
+        hint: Alleen het getal, bijvoorbeeld 899. Leeg laten = "prijs op aanvraag".
       - label: Omschrijving
         name: omschrijving
         widget: markdown
         required: false
-        buttons: [bold, italic, bulleted-list, link]
+        buttons: [bold, bulleted-list]
         editor_components: []
         minimal: true
-      - label: Standaardmaten
+      - label: Maten
         name: maten
         widget: list
         required: false
-        summary: '{{label}}{{prijs | ternary(" · € ", "")}}{{prijs}}'
-        hint: De maten waaruit een bezoeker kan kiezen. De prijs per maat is een indicatie (mag leeg).
+        summary: '{{label}}{{prijs | ternary("  ·  € ", "")}}{{prijs}}'
+        hint: Klik op "Toevoegen" voor een maat. Prijs mag leeg blijven.
         fields:
-          - { label: Maat, name: label, widget: string, hint: 'Bijv. "B200 x D100 x H78".' }
-          - { label: Prijs vanaf (€), name: prijs, widget: number, value_type: float, min: 0, required: false }
-      - { label: Ook op maat leverbaar, name: maatwerk, widget: boolean, default: true, hint: 'Toont de keuze "Andere maat" waar de bezoeker eigen maten invult.' }
-      - { label: Keuze uit de vier houtkleuren, name: houtkleuren, widget: boolean, default: false, hint: 'Blank teak, Thee kleur, Koloniale kleur en Wit, met staaltjes.' }
-      - label: Andere uitvoeringen
-        name: uitvoeringen
-        widget: list
-        required: false
-        field: { label: Uitvoering, name: uitvoering, widget: string }
-        hint: Alleen als het product andere keuzes heeft dan de vier houtkleuren, bijv. "Gerecycled teak glad" en "Gerecycled teak geborsteld".
-      - { label: Uitgelicht op de homepage, name: uitgelicht, widget: boolean, default: false, hint: 'De eerste krijgt de grote plek. Kies er 7.' }
-      - { label: Zichtbaar op de site, name: zichtbaar, widget: boolean, default: true }
-      - { label: Volgorde, name: volgorde, widget: number, value_type: int, default: 999, hint: 'Lager = eerder in de lijst.' }
-      - { label: Titel in Google (optioneel), name: seoTitel, widget: string, required: false, hint: 'Leeg = de site maakt zelf een goede titel.' }
-      - { label: Omschrijving in Google (optioneel), name: seoOmschrijving, widget: text, required: false, hint: 'Leeg = de site maakt zelf een omschrijving. Ongeveer 150 tekens.' }
-      - { label: Oude webadres (niet wijzigen), name: oudeUrl, widget: string, required: false, readonly: true }
+          - { label: Maat, name: label, widget: string, hint: 'Bijvoorbeeld: 200 x 100 cm' }
+          - { label: Prijs (€), name: prijs, widget: number, value_type: float, min: 0, required: false }
+      - { label: In de vier houtkleuren, name: houtkleuren, widget: boolean, default: false, hint: 'Aan = de klant kiest blank, thee, koloniaal of wit.' }
+      - { label: Op de homepage, name: uitgelicht, widget: boolean, default: false }
+      - { label: Zichtbaar op de site, name: zichtbaar, widget: boolean, default: true, hint: 'Uit = tijdelijk verbergen zonder te verwijderen.' }
+      - { label: Andere uitvoeringen, name: uitvoeringen, widget: list, required: false, field: { label: Uitvoering, name: uitvoering, widget: string }, hint: 'Meestal leeg laten.' }
+      - { name: prijsTonen, widget: hidden, default: true }
+      - { name: maatwerk, widget: hidden, default: true }
+      - { name: volgorde, widget: hidden, default: 999 }
+      - { name: seoTitel, widget: hidden, default: '' }
+      - { name: seoOmschrijving, widget: hidden, default: '' }
+      - { name: oudeUrl, widget: hidden, default: '' }
 
   - name: categorieen
     label: Categorieën
     label_singular: Categorie
-    description: Hoofdcategorieën (zoals Tafels) en soorten daaronder (zoals Teak eettafels).
+    description: De menu's van de site. Meestal hoef je hier niets te doen.
     folder: src/content/categorieen
     format: json
     extension: json
     create: true
-    delete: true
+    delete: false
     slug: '{{naam}}'
     identifier_field: naam
-    summary: '{{naam}}{{hoofd | ternary(" · onder ", "")}}{{hoofd}}'
-    sortable_fields: [naam, volgorde]
+    summary: '{{naam}}'
+    sortable_fields: [naam]
+    editor:
+      preview: false
     media_folder: ../../assets/categorieen
     public_folder: ../../assets/categorieen
     fields:
@@ -141,11 +139,11 @@ collections:
         search_fields: [naam]
         display_fields: [naam]
         required: false
-        hint: Leeg = hoofdcategorie in het menu.
-      - { label: Volgorde, name: volgorde, widget: number, value_type: int, default: 100 }
-      - { label: Introtekst, name: intro, widget: markdown, required: false, buttons: [bold, italic, link], editor_components: [], minimal: true, hint: 'Een paar zinnen bovenaan de categoriepagina. Goed voor Google.' }
-      - { label: Omslagfoto, name: foto, widget: image, required: false, hint: 'Optioneel. Zonder foto wordt een productfoto gebruikt.' }
-      - { label: Oud nummer (niet wijzigen), name: oudeId, widget: string, required: false, readonly: true }
+        hint: Leeg = eigen menu bovenaan de site.
+      - { label: Tekst bovenaan de pagina, name: intro, widget: markdown, required: false, buttons: [bold], editor_components: [], minimal: true }
+      - { label: Foto, name: foto, widget: image, required: false }
+      - { name: volgorde, widget: hidden, default: 100 }
+      - { name: oudeId, widget: hidden, default: '' }
 
   - name: instellingen
     label: Instellingen
@@ -153,26 +151,28 @@ collections:
       preview: false
     files:
       - name: algemeen
-        label: Contactgegevens en formulier
+        label: Contactgegevens
         file: src/data/instellingen.json
         format: json
         fields:
           - { label: Telefoonnummer, name: telefoon, widget: string }
           - { label: 'WhatsApp-nummer (internationaal, zonder +)', name: whatsapp, widget: string, hint: 'Bijv. 31640220897' }
           - { label: E-mailadres, name: email, widget: string }
-          - { label: Web3Forms-sleutel, name: web3formsKey, widget: string, required: false, hint: 'Sleutel van web3forms.com. Leeg = offerteaanvragen openen het mailprogramma van de bezoeker.' }
-          - { label: Adres (voor de privacyverklaring), name: adres, widget: string, required: false }
+          - { label: Adres, name: adres, widget: string, required: false }
           - { label: KvK-nummer, name: kvk, widget: string, required: false }
-          - { label: Facebook, name: facebook, widget: string, required: false }
-          - { label: Instagram, name: instagram, widget: string, required: false }
-          - { label: Pinterest, name: pinterest, widget: string, required: false }
-          - { label: Google-bedrijfsprofiel (link), name: google, widget: string, required: false, hint: 'Link naar jullie Google-profiel met reviews. Leeg = zoeklink naar Teakhuis Dordrecht.' }
-          - { label: Naam eigenaar, name: eigenaar, widget: string, required: false }
-          - label: Beloftes in de bovenbalk
+          - label: Drie beloftes bovenaan de site
             name: usps
             widget: list
             field: { label: Belofte, name: usp, widget: string }
             max: 3
+          # Technisch (formulier, sociale media, Google): beheerd door Sitefront.
+          - { name: web3formsKey, widget: hidden, default: '' }
+          - { name: emailjs, widget: hidden, default: { service: '', template: '', publicKey: '' } }
+          - { name: facebook, widget: hidden, default: '' }
+          - { name: instagram, widget: hidden, default: '' }
+          - { name: pinterest, widget: hidden, default: '' }
+          - { name: google, widget: hidden, default: '' }
+          - { name: eigenaar, widget: hidden, default: '' }
       - name: reviews
         label: Reviews
         file: src/data/reviews.json

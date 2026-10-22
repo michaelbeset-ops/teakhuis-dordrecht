@@ -14,5 +14,10 @@
     "Thuis geleverd"
   ],
   "google": "",
-  "eigenaar": "Han Rietdijk"
+  "eigenaar": "Han Rietdijk",
+  "emailjs": {
+    "service": "",
+    "template": "",
+    "publicKey": ""
+  }
 }
