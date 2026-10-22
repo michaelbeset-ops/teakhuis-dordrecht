@@ -7,10 +7,17 @@
     <title>Beheer | Teakhuis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <style>
-      /* Foto's toevoegen moet in een oogopslag duidelijk zijn: een grote groene knop, zonder de verwarrende "plakken". */
+      /* Foto's toevoegen moet in een oogopslag duidelijk zijn: een rustige knop "Foto's kiezen", zonder "plakken". */
       .drop-target button[data-label="Bladeren"], .drop-target button[data-label="Browse"] {
-        background: #6aab35 !important; color: #fff !important; border: 0 !important; border-radius: 8px !important;
-        font-size: 16px !important; font-weight: 700 !important; padding: 12px 22px !important; height: auto !important;
+        background: #fff !important; color: #36641a !important; border: 1.5px solid #6aab35 !important;
+        border-radius: 999px !important; padding: 0 16px !important; height: 34px !important; font-size: 0 !important;
+        box-shadow: 0 1px 2px rgba(23, 32, 27, .08) !important; transition: background .15s, color .15s;
+      }
+      .drop-target button[data-label="Bladeren"]::after, .drop-target button[data-label="Browse"]::after {
+        content: "+  Foto's kiezen"; font-size: 14px; font-weight: 600; white-space: pre;
+      }
+      .drop-target button[data-label="Bladeren"]:hover, .drop-target button[data-label="Browse"]:hover {
+        background: #6aab35 !important; color: #fff !important;
       }
       .drop-target button[data-label="Afbeelding plakken"], .drop-target button[data-label="Paste Image"] { display: none !important; }
     </style>
