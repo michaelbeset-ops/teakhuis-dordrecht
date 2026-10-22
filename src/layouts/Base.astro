@@ -62,6 +62,9 @@ const robots = noindex || site.voorstel ? 'noindex, nofollow' : 'index, follow, 
     <meta name="twitter:card" content="summary_large_image" />
     {!site.voorstel && <script type="application/ld+json" set:html={JSON.stringify(jsonld.length === 1 ? jsonld[0] : jsonld).replace(/</g, '\\u003c')} />}
     <script is:inline>document.documentElement.classList.add('js')</script>
+    {site.statistiek.plausible && <script is:inline>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>}
+    {site.statistiek.plausible && <script is:inline defer data-domain={site.statistiek.plausible} src="https://plausible.io/js/script.js"></script>}
+    {site.statistiek.goatcounter && <script is:inline async data-goatcounter={`https://${site.statistiek.goatcounter}.goatcounter.com/count`} src="https://gc.zgo.at/count.js"></script>}
   </head>
   <body class="min-h-dvh pb-14 md:pb-0">
     {site.voorstel && (
@@ -75,6 +78,14 @@ const robots = noindex || site.voorstel ? 'noindex, nofollow' : 'index, follow, 
     <a href="#inhoud" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:bg-wit focus:px-4 focus:py-2 focus:text-inkt">Naar de inhoud</a>
     <slot />
     <script>
+      import { meet } from '../scripts/meet';
+      // Klikken op bellen en WhatsApp tellen, waar ze ook staan.
+      document.addEventListener('click', (e) => {
+        const a = (e.target as Element).closest?.('a');
+        if (!a) return;
+        if (a.href.startsWith('tel:')) meet('Bellen');
+        else if (a.href.includes('wa.me/')) meet('WhatsApp');
+      });
       const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
       document.querySelectorAll('.rijs').forEach((el) => io.observe(el));
     </script>

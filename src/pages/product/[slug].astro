@@ -7,10 +7,11 @@ import Kruimel from '../../components/Kruimel.astro';
 import Icoon from '../../components/Icoon.astro';
 import GeenFoto from '../../components/GeenFoto.astro';
 import ProductKaart from '../../components/ProductKaart.astro';
+import MaatTekening from '../../components/MaatTekening.astro';
 import { site, url, absoluut, houtkleuren, stappen } from '../../data/site';
 import han from '../../assets/han.jpg';
 import {
-  producten, categorieHref, productHref, breedte, breedtes, euro, toonPrijs, prijsTekst, omschrijvingHtml, platteTekst, hoofdletter, fotoKlas,
+  producten, categorieHref, productHref, breedte, breedtes, euro, toonPrijs, prijsTekst, omschrijvingHtml, platteTekst, hoofdletter, fotoKlas, maatSoort,
   type Product,
 } from '../../data/catalogus';
 import { kruimelSchema, type Stap } from '../../data/seo';
@@ -36,6 +37,7 @@ const aantalCat = producten.filter((x) => x.categorie.slug === cat.slug).length;
 // Maatkeuze: de standaardmaten uit het beheer, plus "andere maat" als het meubel op maat gemaakt kan worden.
 const maten = p.maten;
 const heeftMaatStap = maten.length > 0 || p.maatwerk;
+const soort = maatSoort(p);
 // Lange maatlijsten (tot 16 maten) klappen in: eerst zes, de rest achter een knop.
 const ZICHTBAAR = 6;
 // Maten leesbaarder: "70x70x78/120x70x78" wordt "70 × 70 × 78 / 120 × 70 × 78". De waarde in de aanvraag blijft het origineel.
@@ -190,6 +192,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
                   <p class="mt-2 hidden text-xs font-bold text-[#a3301f]" data-maat-fout role="alert">Vul minstens één maat in.</p>
                 </div>
               )}
+              {soort && <MaatTekening soort={soort} />}
             </fieldset>
           )}
 
@@ -226,7 +229,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
 
           <div class="border-t border-lijn-2 pt-7">
             <div class="flex flex-col gap-3 sm:flex-row">
-              <button type="submit" class="knop knop-inkt flex-1"><Icoon naam="lijst" />Zet in offerteaanvraag</button>
+              <button type="submit" class="knop knop-blad flex-1"><Icoon naam="lijst" />Zet in offerteaanvraag</button>
               <a href={site.wa} class="knop knop-rand" data-wa><Icoon naam="wa" />Vraag via WhatsApp</a>
             </div>
             <div class="mt-4 hidden items-start gap-3 rounded-sm bg-blad/15 p-4 text-sm" role="status" data-toegevoegd>
@@ -307,7 +310,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
       <p class="num font-kop text-base font-extrabold leading-tight" data-balk-prijs>{prijzen ? (maten.length && maten[0].prijs ? euro(maten[0].prijs) : prijsTekst(p)) : 'Prijs op aanvraag'}</p>
     </div>
     <button type="submit" form="samenstellen" class="knop knop-blad min-h-11 px-5 text-sm" data-balk-knop><Icoon naam="lijst" />In offerte</button>
-    <a href={url('offerte/')} class="knop knop-inkt min-h-11 px-5 text-sm" hidden data-balk-klaar><Icoon naam="vink" />Bekijk offerte</a>
+    <a href={url('offerte/')} class="knop knop-blad min-h-11 px-5 text-sm" hidden data-balk-klaar><Icoon naam="vink" />Bekijk offerte</a>
   </div>
 
   {fotos.length > 0 && (
@@ -328,6 +331,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
   <script type="application/json" id="product-data" set:html={JSON.stringify(productData).replace(/</g, '\\u003c')} />
   <script>
     import { voegToe, regelTekst, type Regel } from '../../scripts/offerte';
+    import { meet } from '../../scripts/meet';
 
     // Galerij: één foto tegelijk, pijlen, duimnagels, toetsen en vegen; klik opent hem groot.
     const gal = document.querySelector<HTMLElement>('[data-galerij]');
@@ -390,6 +394,17 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
       const startPrijs = prijsEl?.textContent ?? '';
       const startUitleg = uitleg?.textContent ?? '';
       const cm = (v: FormDataEntryValue | null) => String(v ?? '').replace(/\D/g, '').slice(0, 4);
+      // Maattekening: breedte, diepte en hoogte uit een maatlabel als "B200 x D100 x H78", "h=70cm br=70cm d=13cm" of "120x80cm h=105cm".
+      const tekening = form.querySelectorAll<HTMLElement>('[data-mt]');
+      const leesMaat = (s: string) => {
+        const zoek = (re: RegExp) => s.match(re)?.[1];
+        let b = zoek(/\b(?:b|br|breedte)\s*[=:]?\s*(?:ca\.?\s*)?(\d{2,4})/i);
+        let d = zoek(/\b(?:d|diepte)\s*[=:]?\s*(\d{2,4})/i);
+        const h = zoek(/\b(?:h|hoogte)\s*[=:]?\s*(\d{2,4})/i);
+        const xy = s.match(/(\d{2,4})\s*[x×]\s*(\d{2,4})/);
+        if (!b && xy) { b = xy[1]; d ??= xy[2]; }
+        return { b, d, h };
+      };
 
       const keuze = (): Omit<Regel, 'id'> | null => {
         const f = new FormData(form);
@@ -423,6 +438,17 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
           else if (pr) { prijsEl.textContent = euro(pr); if (uitleg) uitleg.textContent = startUitleg; }
           const balkPrijs = document.querySelector('[data-balk-prijs]');
           if (balkPrijs) balkPrijs.textContent = prijsEl.textContent;
+        }
+        if (tekening && gekozen) {
+          const f = new FormData(form);
+          const m = eigen ? { b: cm(f.get('b')), d: cm(f.get('d')), h: cm(f.get('h')) } : leesMaat(gekozen.value);
+          tekening.forEach((el) => { const v = m[el.dataset.mt as 'b' | 'd' | 'h']; el.textContent = v ? `${v} cm` : '-'; });
+          const leegTekst = form.querySelector<HTMLElement>('[data-mt-leeg]');
+          if (leegTekst) {
+            const niets = !m.b && !m.d && !m.h;
+            leegTekst.hidden = !niets;
+            leegTekst.textContent = eigen ? 'Vul hierboven je maten in.' : 'De precieze maten staan in de omschrijving of in je offerte.';
+          }
         }
         const k = keuze();
         const regel = k ? { ...k, id: '' } : { slug: d.slug, titel: d.titel, href: d.href, aantal: 1, id: '' };
@@ -474,6 +500,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
           return;
         }
         voegToe(k);
+        meet('In offerte');
         klaar.classList.remove('hidden');
         klaar.classList.add('flex');
         document.querySelector<HTMLElement>('[data-balk-knop]')!.hidden = true;

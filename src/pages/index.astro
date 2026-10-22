@@ -41,7 +41,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
   <main id="inhoud">
 
     <!-- 1. HERO: schermvullend, de nerf van het hout groot in beeld; de menubalk zweeft erover -->
-    <section class="relative -mt-[4.75rem] flex min-h-[calc(100svh-2.25rem)] flex-col justify-end overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem]" aria-label="Welkom bij Teakhuis" data-hero>
+    <section class="relative -mt-[4.75rem] flex min-h-[84svh] flex-col justify-end md:min-h-[calc(100svh-2.25rem)] overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem]" aria-label="Welkom bij Teakhuis" data-hero>
       <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
         <div class="absolute inset-0 origin-top-left scale-[1.85] sm:scale-[1.7]">
           <Image src={heroLive} alt="" quality={78} widths={[640, 960, 1280, 1600, 2000, 2600]} sizes="170vw" loading="eager" fetchpriority="high" class="h-full w-full object-cover object-[0%_0%]" />
@@ -50,11 +50,11 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-nacht via-nacht/45 to-nacht/25"></div>
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-nacht/70 via-nacht/20 to-transparent max-lg:hidden"></div>
 
-      <div class="wrap relative grid gap-10 pb-10 pt-36 lg:grid-cols-12 lg:items-end lg:pb-16">
+      <div class="wrap relative grid gap-8 pb-24 pt-32 md:pb-10 md:pt-36 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-16">
         <div class="lg:col-span-8">
           <p class="label text-blad-licht">Teakhuis · teakhouten meubels sinds 2007</p>
           <h1 class="mt-5 max-w-[13ch] text-[clamp(2.6rem,6.4vw,6.2rem)] leading-[.95]">Teak op maat, met de hand gemaakt.</h1>
-          <p class="mt-6 max-w-xl text-lg text-wit/85 md:text-xl">Eettafels, kasten, dressoirs en meer van duurzaam teak. Kies een ontwerp, geef je eigen maten door en ontvang een vrijblijvende offerte.</p>
+          <p class="mt-6 max-w-xl text-lg text-wit/85 md:text-xl">Duurzaam teak, direct voor jou gemaakt. Zonder winkel en voorraad, dus voordeliger. Kies een ontwerp, geef je maten door en ontvang een vrijblijvende offerte.</p>
           <div class="mt-9 flex flex-col gap-3 sm:flex-row">
             <a href={url('collectie/')} class="knop knop-blad">Kies je meubel<Icoon naam="pijl" /></a>
             <a href={url('maatwerk/')} class="knop knop-glas">Iets op maat laten maken</a>
@@ -136,7 +136,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
             <p class="label text-blad-diep">Populair</p>
             <h2 id="pop-kop" class="mt-4 text-4xl">Meest gekozen.</h2>
             <p class="mt-5 text-lg text-grijs">Deze ontwerpen worden het vaakst aangevraagd. Elk ervan kun je in je eigen maat en houtkleur laten maken.</p>
-            <a href={url('collectie/')} class="knop knop-inkt mt-8">Hele collectie<Icoon naam="pijl" /></a>
+            <a href={url('collectie/')} class="knop knop-blad mt-8">Hele collectie<Icoon naam="pijl" /></a>
           </div>
           <ul class="grid gap-3 lg:col-span-8">
             {populair.map((p, i) => {
@@ -209,7 +209,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
         </div>
         <MaatwerkProjecten />
         <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
-          <a href={url('maatwerk/')} class="knop knop-inkt">Maatwerk aanvragen<Icoon naam="pijl" /></a>
+          <a href={url('maatwerk/')} class="knop knop-blad">Maatwerk aanvragen<Icoon naam="pijl" /></a>
           <p class="text-sm text-grijs">Of app je idee of een foto naar <a href={waHoi} class="num font-bold text-inkt underline underline-offset-2">{site.tel}</a></p>
         </div>
       </div>
