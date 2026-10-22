@@ -1,19 +1,34 @@
 ---
-// Catalogusregel: foto op wit, naam, "v.a."-prijs of "prijs op aanvraag", en of het ook op maat kan.
+// Productkaart zoals in een webshop: foto (tweede foto bij hover), naam, wat je kunt kiezen en de prijs.
 import { Image } from 'astro:assets';
 import { type Product, eersteFoto, breedtes, productHref, prijsTekst, fotoKlas } from '../data/catalogus';
+import { houtkleuren } from '../data/site';
 import GeenFoto from './GeenFoto.astro';
 interface Props { p: Product; lazy?: boolean; kop?: 'h2' | 'h3' }
 const { p, lazy = true, kop: Kop = 'h3' } = Astro.props;
 const foto = eersteFoto(p);
+const tweede = p.fotos[1];
+const sizes = '(min-width: 1280px) 300px, (min-width: 1024px) 23vw, (min-width: 640px) 31vw, 46vw';
+const keuze = [p.maten.length > 1 ? `${p.maten.length} maten` : '', p.uitvoeringen.length > 1 ? `${p.uitvoeringen.length} uitvoeringen` : ''].filter(Boolean).join(' · ');
 ---
 <a href={productHref(p)} class="product group">
   <div class="beeld relative aspect-square">
     {foto
-      ? <Image src={foto} alt={p.titel} quality={70} widths={breedtes(foto, [240, 360, 480, 640])} sizes="(min-width: 1280px) 300px, (min-width: 1024px) 23vw, (min-width: 640px) 31vw, 46vw" loading={lazy ? 'lazy' : 'eager'} class={`h-full w-full ${fotoKlas(foto)}`} />
+      ? <Image src={foto} alt={p.titel} quality={70} widths={breedtes(foto, [240, 360, 480, 640])} sizes={sizes} loading={lazy ? 'lazy' : 'eager'} class={`h-full w-full ${fotoKlas(foto)}`} />
       : <GeenFoto naam={p.titel} />}
-    {p.maatwerk && <span class="absolute left-2 top-2 rounded-sm bg-papier/90 px-2 py-0.5 text-[.7rem] font-bold text-inkt sm:left-3 sm:top-3">Ook op maat</span>}
+    {tweede && <Image src={tweede} alt="" quality={66} widths={breedtes(tweede, [240, 360, 480])} sizes={sizes} loading="lazy" class={`absolute inset-0 h-full w-full bg-wit opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-md:hidden ${fotoKlas(tweede)}`} />}
+    {p.maatwerk && <span class="absolute left-2 top-2 rounded-full bg-wit/95 px-2.5 py-1 text-[.7rem] font-bold text-inkt shadow-zacht sm:left-3 sm:top-3">Ook op maat</span>}
   </div>
   <Kop class="naam mt-3 font-sans text-[.95rem] font-bold leading-snug tracking-normal sm:text-base">{p.titel}</Kop>
-  <p class="num mt-1 text-sm text-grijs">{prijsTekst(p)}</p>
+  {(keuze || p.houtkleuren) && (
+    <p class="mt-1 flex items-center gap-2 text-xs text-grijs">
+      {p.houtkleuren && (
+        <span class="flex -space-x-1" aria-label="Leverbaar in 4 houtkleuren">
+          {houtkleuren.map((k) => <Image src={k.img} alt="" widths={[32]} sizes="14px" quality={60} class="h-3.5 w-3.5 rounded-full object-cover ring-2 ring-papier" />)}
+        </span>
+      )}
+      {keuze && <span>{keuze}</span>}
+    </p>
+  )}
+  <p class="num mt-1.5 text-sm font-bold text-inkt">{prijsTekst(p)}</p>
 </a>

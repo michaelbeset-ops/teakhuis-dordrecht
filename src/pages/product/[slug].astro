@@ -445,6 +445,25 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
       });
       // Bij een eigen maat meteen naar het eerste maatveld.
       form.querySelector('[data-eigen-maat]')?.addEventListener('change', () => setTimeout(() => form.querySelector<HTMLInputElement>('[name="b"]')?.focus(), 30));
+      // Nog eens op "Andere maat" klikken klapt hem weer in en zet de laatst gekozen standaardmaat terug.
+      const eigen = form.querySelector<HTMLInputElement>('[data-eigen-maat]');
+      if (eigen) {
+        let vorige = form.querySelector<HTMLInputElement>('[name="maat"]:checked:not([data-eigen-maat])');
+        let wasAan = false;
+        form.querySelectorAll<HTMLInputElement>('[name="maat"]:not([data-eigen-maat])').forEach((r) => r.addEventListener('change', () => { vorige = r; }));
+        const label = eigen.closest('label')!;
+        label.addEventListener('pointerdown', () => { wasAan = eigen.checked; });
+        label.addEventListener('keydown', (e) => { if (e.key === ' ' || e.key === 'Enter') wasAan = eigen.checked; });
+        label.addEventListener('click', (e) => {
+          if (!wasAan) return;
+          e.preventDefault();
+          wasAan = false;
+          eigen.checked = false;
+          const terug = vorige ?? form.querySelector<HTMLInputElement>('[name="maat"]:not([data-eigen-maat])');
+          if (terug) terug.checked = true;
+          werk();
+        });
+      }
 
       form.addEventListener('submit', (e) => {
         e.preventDefault();

@@ -7,7 +7,7 @@ import ProductKaart from '../../components/ProductKaart.astro';
 import Icoon from '../../components/Icoon.astro';
 import CategorieBalk from '../../components/CategorieBalk.astro';
 import { url, absoluut } from '../../data/site';
-import { catPaginas, groepen, categorieHref, productHref, omschrijvingHtml, platteTekst, type CatPagina } from '../../data/catalogus';
+import { catPaginas, groepen, categorieHref, productHref, omschrijvingHtml, platteTekst, breedtesVan, houtsoortVan, type CatPagina } from '../../data/catalogus';
 import { kruimelSchema, type Stap } from '../../data/seo';
 
 export function getStaticPaths() {
@@ -24,6 +24,13 @@ const zelf = absoluut(`collectie/${cat.slug}/`);
 const beschrijving = cat.intro
   ? platteTekst(cat.intro).slice(0, 155).replace(/\s\S*$/, '') + '.'
   : `${cat.naam} van teakhout bij Teakhuis: ${n} ${n === 1 ? 'ontwerp' : 'ontwerpen'}${maatwerk ? ', vrijwel allemaal ook op maat zonder meerprijs' : ''}. Met de hand gemaakt. Vraag vrijblijvend een offerte aan.`;
+// Filters: alleen tonen wat in deze categorie echt iets onderscheidt.
+const breedteBakken: [string, number, number][] = [['Tot 100 cm', 0, 99], ['100 tot 160 cm', 100, 159], ['160 tot 220 cm', 160, 219], ['220 cm en breder', 220, 999]];
+const metBreedte = producten.filter((p) => breedtesVan(p).length).length;
+const houtsoorten = [...new Set(producten.map(houtsoortVan))].filter((h) => h !== 'Overig');
+const prijsBakken: [string, number, number][] = [['Tot € 250', 0, 249.99], ['€ 250 tot € 500', 250, 499.99], ['€ 500 tot € 1.000', 500, 999.99], ['€ 1.000 en meer', 1000, 999998]];
+const soorten = subs.length && !hoofd ? subs : [];
+const filterbaar = n > 8;
 const lijstSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -42,8 +49,13 @@ const lijstSchema = {
 
     <div class="wrap mt-8 grid grid-cols-1 gap-10 lg:mt-10 lg:grid-cols-12 lg:gap-12">
       <!-- Zijmenu zoals in een webshop: alle categorieen, de huidige uitgeklapt -->
-      <aside class="hidden lg:col-span-3 lg:block" aria-label="Categorieën">
-        <div class="sticky top-28 rounded-[var(--radius-xl)] bg-wit p-5 ring-1 ring-lijn">
+      <aside id="filters" class="fixed inset-y-0 left-0 z-50 w-[min(24rem,90vw)] invisible -translate-x-full overflow-y-auto bg-papier p-4 shadow-kaart transition-[transform,visibility] duration-300 data-[open]:visible data-[open]:translate-x-0 lg:visible lg:static lg:z-auto lg:col-span-3 lg:w-auto lg:translate-x-0 lg:overflow-visible lg:bg-transparent lg:p-0 lg:shadow-none" aria-label="Categorieën en filters" data-paneel>
+        <div class="mb-4 flex items-center justify-between lg:hidden">
+          <p class="font-kop text-xl font-extrabold">Filteren</p>
+          <button type="button" class="grid h-11 w-11 place-items-center rounded-full bg-wit ring-1 ring-lijn" aria-label="Sluiten" data-paneel-dicht><Icoon naam="kruis" class="h-5 w-5" /></button>
+        </div>
+        <div class="flex flex-col gap-4">
+        <div class="rounded-[var(--radius-xl)] bg-wit p-5 ring-1 ring-lijn">
           <p class="label text-grijs">Categorieën</p>
           <ul class="mt-3 space-y-0.5">
             <li><a href={url('collectie/')} class="flex items-center justify-between rounded-[var(--radius-sm)] px-3 py-2 text-sm font-semibold text-inkt no-underline hover:bg-zand">Hele collectie</a></li>
@@ -65,20 +77,79 @@ const lijstSchema = {
               );
             })}
           </ul>
-          <div class="mt-5 rounded-[var(--radius-md)] bg-zand p-4">
-            <p class="font-kop text-sm font-extrabold">Niet gevonden?</p>
-            <p class="mt-1 text-sm text-grijs">Wij maken het op jouw maat.</p>
-            <a href={url('maatwerk/')} class="mt-3 inline-flex text-sm font-bold text-blad-diep underline">Maatwerk aanvragen</a>
-          </div>
+        </div>
+
+        {filterbaar && (
+          <form class="rounded-[var(--radius-xl)] bg-wit p-5 ring-1 ring-lijn max-lg:order-first" data-filters onsubmit="return false">
+            <div class="flex items-center justify-between">
+              <p class="label text-grijs">Filters</p>
+              <button type="reset" class="text-sm font-semibold text-blad-diep underline" data-wis hidden>Wis alles</button>
+            </div>
+            {soorten.length > 0 && (
+              <fieldset class="mt-4 border-t border-lijn pt-4">
+                <legend class="sr-only">Soort</legend>
+                <p class="font-kop text-sm font-extrabold">Soort</p>
+                <div class="mt-2 space-y-1">
+                  {soorten.map((s) => (
+                    <label class="flex cursor-pointer items-center gap-3 rounded-[var(--radius-sm)] px-1 py-1.5 text-sm hover:bg-zand"><input type="checkbox" name="soort" value={s.slug} class="h-4 w-4 accent-[#36641a]" /><span class="flex-1">{s.naam}</span><span class="num text-xs text-grijs" data-telt={`soort:${s.slug}`}></span></label>
+                  ))}
+                </div>
+              </fieldset>
+            )}
+            <fieldset class="mt-4 border-t border-lijn pt-4">
+              <legend class="sr-only">Prijs</legend>
+              <p class="font-kop text-sm font-extrabold">Prijs (vanaf)</p>
+              <div class="mt-2 space-y-1">
+                {prijsBakken.map(([t, a, b]) => (
+                  <label class="flex cursor-pointer items-center gap-3 rounded-[var(--radius-sm)] px-1 py-1.5 text-sm hover:bg-zand"><input type="checkbox" name="prijs" value={`${a}-${b}`} class="h-4 w-4 accent-[#36641a]" /><span class="flex-1">{t}</span><span class="num text-xs text-grijs" data-telt={`prijs:${a}-${b}`}></span></label>
+                ))}
+              </div>
+            </fieldset>
+            {metBreedte >= 4 && (
+              <fieldset class="mt-4 border-t border-lijn pt-4">
+                <legend class="sr-only">Breedte</legend>
+                <p class="font-kop text-sm font-extrabold">Breedte <span class="font-sans text-xs font-normal text-grijs">(standaardmaten)</span></p>
+                <div class="mt-2 space-y-1">
+                  {breedteBakken.map(([t, a, b]) => (
+                    <label class="flex cursor-pointer items-center gap-3 rounded-[var(--radius-sm)] px-1 py-1.5 text-sm hover:bg-zand"><input type="checkbox" name="breedte" value={`${a}-${b}`} class="h-4 w-4 accent-[#36641a]" /><span class="flex-1">{t}</span><span class="num text-xs text-grijs" data-telt={`breedte:${a}-${b}`}></span></label>
+                  ))}
+                </div>
+              </fieldset>
+            )}
+            {houtsoorten.length > 1 && (
+              <fieldset class="mt-4 border-t border-lijn pt-4">
+                <legend class="sr-only">Houtsoort</legend>
+                <p class="font-kop text-sm font-extrabold">Houtsoort</p>
+                <div class="mt-2 space-y-1">
+                  {houtsoorten.map((h) => (
+                    <label class="flex cursor-pointer items-center gap-3 rounded-[var(--radius-sm)] px-1 py-1.5 text-sm hover:bg-zand"><input type="checkbox" name="hout" value={h} class="h-4 w-4 accent-[#36641a]" /><span class="flex-1">{h}</span><span class="num text-xs text-grijs" data-telt={`hout:${h}`}></span></label>
+                  ))}
+                </div>
+              </fieldset>
+            )}
+            <fieldset class="mt-4 space-y-1 border-t border-lijn pt-4">
+              <legend class="sr-only">Overig</legend>
+              <label class="flex cursor-pointer items-center gap-3 rounded-[var(--radius-sm)] px-1 py-1.5 text-sm hover:bg-zand"><input type="checkbox" name="maatwerk" value="1" class="h-4 w-4 accent-[#36641a]" /><span class="flex-1">Ook op maat</span><span class="num text-xs text-grijs" data-telt="maatwerk:1"></span></label>
+              <label class="flex cursor-pointer items-center gap-3 rounded-[var(--radius-sm)] px-1 py-1.5 text-sm hover:bg-zand"><input type="checkbox" name="kleur" value="1" class="h-4 w-4 accent-[#36641a]" /><span class="flex-1">In 4 houtkleuren</span><span class="num text-xs text-grijs" data-telt="kleur:1"></span></label>
+            </fieldset>
+          </form>
+        )}
+
+        <div class="rounded-[var(--radius-xl)] bg-zand p-5">
+          <p class="font-kop text-sm font-extrabold">Niet gevonden?</p>
+          <p class="mt-1 text-sm text-grijs">Wij maken het op jouw maat.</p>
+          <a href={url('maatwerk/')} class="mt-3 inline-flex text-sm font-bold text-blad-diep underline">Maatwerk aanvragen</a>
+        </div>
         </div>
       </aside>
+      <div class="fixed inset-0 z-40 bg-inkt/40 lg:hidden" hidden data-sluier></div>
 
       <div class="min-w-0 lg:col-span-9">
         <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
           <div class="max-w-2xl">
             <h1 class="text-4xl">{cat.naam}</h1>
             {intro
-              ? <div class="tekst mt-4 text-lg text-grijs" set:html={intro} />
+              ? <div class="tekst mt-4 text-lg text-grijs max-md:line-clamp-3 max-md:text-base" set:html={intro} />
               : <p class="mt-4 text-lg text-grijs">{n} {n === 1 ? 'ontwerp' : 'ontwerpen'}{hoofd ? ` in ${hoofd.naam.toLowerCase()}` : ''}.{maatwerk > 0 && ' Zie je de juiste maat niet? Bijna alles maken we ook op jouw maat, zonder meerprijs.'}</p>}
           </div>
         </div>
@@ -93,11 +164,17 @@ const lijstSchema = {
           </nav>
         )}
         {n > 1 && (
-          <div class="mt-6 flex items-center justify-between gap-4 border-y border-lijn py-3">
-            <p class="num text-sm font-semibold text-grijs">{n} {n === 1 ? 'product' : 'producten'}</p>
+          <div class="sticky top-[5.25rem] z-20 -mx-5 mt-6 flex items-center justify-between gap-3 border-y border-lijn bg-papier/95 px-5 py-3 backdrop-blur-sm md:mx-0 md:px-0 lg:static lg:bg-transparent">
+            <div class="flex min-w-0 items-center gap-2 sm:gap-3">
+              <button type="button" class="knop min-h-10 gap-2 px-3.5 text-sm ring-1 ring-lijn-2 lg:hidden" aria-controls="filters" aria-expanded="false" data-paneel-open>
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" /></svg>
+                Filteren<span class="num grid h-5 min-w-5 place-items-center rounded-full bg-blad px-1 text-[.7rem] font-extrabold text-inkt" data-aantal-filters hidden></span>
+              </button>
+              <p class="num whitespace-nowrap text-xs font-semibold text-grijs sm:text-sm" aria-live="polite" data-teller>{n} {n === 1 ? 'product' : 'producten'}</p>
+            </div>
             <label class="flex items-center gap-3 text-sm font-bold">
               <span class="max-sm:sr-only">Sorteren</span>
-              <select class="veld min-h-10 w-auto rounded-full py-0 text-sm" data-sorteer>
+              <select class="veld min-h-10 w-auto rounded-full py-0 text-sm max-sm:w-[7.25rem] max-sm:pl-3 max-sm:pr-8 max-sm:text-[.8rem]" aria-label="Sorteren" data-sorteer>
                 <option value="standaard">Aanbevolen</option>
                 <option value="naam">Naam A tot Z</option>
                 <option value="laag">Prijs laag naar hoog</option>
@@ -109,11 +186,21 @@ const lijstSchema = {
         <section class="mt-8" aria-label={`${cat.naam}: alle producten`}>
           <ul class="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-6 lg:gap-y-12" data-grid>
             {producten.map((p, i) => (
-              <li data-naam={p.titel.toLowerCase()} data-prijs={p.prijsTonen && p.prijsVanaf ? p.prijsVanaf : 999999} data-i={i}>
+              <li data-naam={p.titel.toLowerCase()} data-prijs={p.prijsTonen && p.prijsVanaf ? p.prijsVanaf : 999999} data-i={i} data-soort={p.categorie.slug} data-breedtes={breedtesVan(p).join(',')} data-hout={houtsoortVan(p)} data-maatwerk={p.maatwerk ? '1' : '0'} data-kleur={p.houtkleuren ? '1' : '0'}>
                 <ProductKaart p={p} lazy={i >= 6} kop="h2" />
               </li>
             ))}
           </ul>
+          <div class="mt-12 flex flex-col items-center gap-3" data-meer-blok hidden>
+            <p class="num text-sm text-grijs" data-meer-tekst></p>
+            <div class="h-1 w-48 overflow-hidden rounded-full bg-zand-2"><div class="h-full rounded-full bg-blad-diep" data-meer-balk></div></div>
+            <button type="button" class="knop knop-rand mt-2" data-meer>Toon meer</button>
+          </div>
+          <div class="py-16 text-center" data-leeg hidden>
+            <p class="font-kop text-2xl font-extrabold">Geen producten met deze filters.</p>
+            <p class="mt-2 text-grijs">Haal een filter weg, of vraag ons: we maken het misschien op maat.</p>
+            <button type="button" class="knop knop-inkt mt-6" data-wis-leeg>Wis filters</button>
+          </div>
         </section>
       </div>
     </div>
@@ -135,11 +222,21 @@ const lijstSchema = {
   <Voet />
 
   <script>
-    // Sorteren zonder herladen: de lijst-items opnieuw ordenen.
-    const kies = document.querySelector<HTMLSelectElement>('[data-sorteer]');
+    // Filteren, sorteren en per 24 tonen, zonder herladen. Elk product draagt zijn kenmerken als data-attributen.
     const grid = document.querySelector<HTMLElement>('[data-grid]');
-    if (kies && grid) {
+    if (grid) {
       const items = [...grid.children] as HTMLElement[];
+      const form = document.querySelector<HTMLFormElement>('[data-filters]');
+      const kies = document.querySelector<HTMLSelectElement>('[data-sorteer]');
+      const teller = document.querySelector<HTMLElement>('[data-teller]');
+      const meerBlok = document.querySelector<HTMLElement>('[data-meer-blok]')!;
+      const meerTekst = document.querySelector<HTMLElement>('[data-meer-tekst]')!;
+      const meerBalk = document.querySelector<HTMLElement>('[data-meer-balk]')!;
+      const leeg = document.querySelector<HTMLElement>('[data-leeg]')!;
+      const wis = document.querySelector<HTMLElement>('[data-wis]');
+      const badge = document.querySelector<HTMLElement>('[data-aantal-filters]');
+      const STAP = 24;
+      let zichtbaar = STAP;
       const nl = new Intl.Collator('nl', { numeric: true });
       const regels: Record<string, (a: HTMLElement, b: HTMLElement) => number> = {
         standaard: (a, b) => +a.dataset.i! - +b.dataset.i!,
@@ -147,7 +244,73 @@ const lijstSchema = {
         laag: (a, b) => +a.dataset.prijs! - +b.dataset.prijs! || nl.compare(a.dataset.naam!, b.dataset.naam!),
         hoog: (a, b) => (+b.dataset.prijs! % 999999) - (+a.dataset.prijs! % 999999) || nl.compare(a.dataset.naam!, b.dataset.naam!),
       };
-      kies.addEventListener('change', () => grid.append(...items.sort(regels[kies.value])));
+      const binnen = (v: number, bak: string) => { const [a, b] = bak.split('-').map(Number); return v >= a && v <= b; };
+      const toetsen: Record<string, (el: HTMLElement, w: string) => boolean> = {
+        soort: (el, w) => el.dataset.soort === w,
+        prijs: (el, w) => binnen(+el.dataset.prijs!, w),
+        breedte: (el, w) => (el.dataset.breedtes || '').split(',').filter(Boolean).some((b) => binnen(+b, w)),
+        hout: (el, w) => el.dataset.hout === w,
+        maatwerk: (el) => el.dataset.maatwerk === '1',
+        kleur: (el) => el.dataset.kleur === '1',
+      };
+      const keuze = () => {
+        const k: Record<string, string[]> = {};
+        if (form) for (const [n, v] of new FormData(form)) (k[n] ??= []).push(String(v));
+        return k;
+      };
+      // Binnen een groep is het "of", tussen groepen "en".
+      const past = (el: HTMLElement, k: Record<string, string[]>, behalve?: string) =>
+        Object.entries(k).every(([n, ws]) => n === behalve || ws.some((w) => toetsen[n](el, w)));
+
+      const toon = (opnieuw = false) => {
+        if (opnieuw) zichtbaar = STAP;
+        const k = keuze();
+        const gesorteerd = [...items].sort(regels[kies?.value || 'standaard']);
+        grid.append(...gesorteerd);
+        const raak = gesorteerd.filter((el) => past(el, k));
+        gesorteerd.forEach((el) => { el.hidden = true; });
+        raak.slice(0, zichtbaar).forEach((el) => { el.hidden = false; });
+        if (teller) teller.textContent = `${raak.length} ${raak.length === 1 ? 'product' : 'producten'}`;
+        const rest = raak.length - Math.min(zichtbaar, raak.length);
+        meerBlok.hidden = rest <= 0;
+        meerTekst.textContent = `${Math.min(zichtbaar, raak.length)} van ${raak.length} producten`;
+        meerBalk.style.width = `${(Math.min(zichtbaar, raak.length) / Math.max(1, raak.length)) * 100}%`;
+        leeg.hidden = raak.length > 0;
+        // Aantallen per keuze, met de andere filters al toegepast.
+        document.querySelectorAll<HTMLElement>('[data-telt]').forEach((t) => {
+          const [n, w] = t.dataset.telt!.split(/:(.*)/s);
+          const c = items.filter((el) => past(el, k, n) && toetsen[n](el, w)).length;
+          t.textContent = String(c);
+          const lab = t.closest('label')!;
+          const cb = lab.querySelector('input')!;
+          lab.classList.toggle('opacity-40', c === 0 && !cb.checked);
+        });
+        const aantal = Object.values(k).reduce((a, w) => a + w.length, 0);
+        if (wis) wis.hidden = aantal === 0;
+        if (badge) { badge.hidden = aantal === 0; badge.textContent = String(aantal); }
+      };
+      form?.addEventListener('change', () => toon(true));
+      form?.addEventListener('reset', () => setTimeout(() => toon(true)));
+      document.querySelector('[data-wis-leeg]')?.addEventListener('click', () => form?.reset());
+      kies?.addEventListener('change', () => toon(true));
+      document.querySelector('[data-meer]')?.addEventListener('click', () => { zichtbaar += STAP; toon(); });
+      toon(true);
+
+      // Mobiel: filterpaneel schuift in van links.
+      const paneel = document.querySelector<HTMLElement>('[data-paneel]');
+      const sluier = document.querySelector<HTMLElement>('[data-sluier]');
+      const open = document.querySelector<HTMLButtonElement>('[data-paneel-open]');
+      const zet = (o: boolean) => {
+        if (!paneel) return;
+        paneel.toggleAttribute('data-open', o);
+        if (sluier) sluier.hidden = !o;
+        open?.setAttribute('aria-expanded', String(o));
+        document.body.style.overflow = o ? 'hidden' : '';
+      };
+      open?.addEventListener('click', () => zet(true));
+      sluier?.addEventListener('click', () => zet(false));
+      document.querySelector('[data-paneel-dicht]')?.addEventListener('click', () => { zet(false); open?.focus(); });
+      addEventListener('keydown', (e) => { if (e.key === 'Escape' && paneel?.hasAttribute('data-open')) { zet(false); open?.focus(); } });
     }
   </script>
 </Base>
