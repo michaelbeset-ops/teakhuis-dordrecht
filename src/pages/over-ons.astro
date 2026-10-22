@@ -63,7 +63,7 @@ import detail from '../assets/tuintafel-viking-detail.jpg';
           {reviews.map((r) => (
             <blockquote class="border-t-2 border-inkt pt-6">
               <p class="font-kop text-2xl leading-snug">“{r.tekst}”</p>
-              <footer class="mt-4 text-sm text-grijs"><span class="font-bold text-inkt">{r.naam}</span>, {r.bron}</footer>
+              <footer class="mt-4 text-sm text-grijs"><span class="font-bold text-inkt">{r.naam}</span>, {r.bron === 'google' ? <a href={site.google} target="_blank" rel="noopener" class="underline">review op Google</a> : `referentie${r.over ? `, ${r.over}` : ''}`}</footer>
             </blockquote>
           ))}
         </div>

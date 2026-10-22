@@ -45,13 +45,11 @@ export const houtkleuren = [
 
 export const maatwerkExtra = ['metaal', 'glas', 'wielen'];
 
-// Letterlijk van hun eigen referentiepagina (teakhuis.nl/referenties) en Google (5 sterren). Ingekort met "…".
-export const reviews = [
-  { tekst: 'We willen anderen ook laten weten dat maatwerk betaalbaar en mooi is. Dat heeft het Teakhuis bewezen!', naam: 'Peter en Majo A.', bron: 'over hun badkamermeubel' },
-  { tekst: 'Een compliment voor de service en uw chauffeurs. … daarna hebben ze alles zeer zorgvuldig op zijn plek gezet.', naam: 'Gert-Jan H.', bron: 'referentie' },
-  { tekst: 'Meubels zijn naar eigen wens aan te passen omdat alles maatwerk is, personeel kan daardoor ook meedenken/ helpen met je keuze.', naam: 'Marco B.', bron: 'Google review', google: true },
-  { tekst: 'Vanmiddag hebben we onze meubels bezorgd gekregen. Ze zijn meer dan het wachten waard geweest.', naam: 'Jeanette v.d. S.', bron: 'referentie' },
-];
+// Reviews staan in src/data/reviews.json (beheer: Instellingen > Reviews). Bron "google" = een echte Google-review;
+// "referentie" = een reactie van hun eigen referentiepagina. Alleen echte Google-reviews krijgen het Google-label.
+import reviewData from './reviews.json';
+export interface Review { naam: string; tekst: string; bron: 'google' | 'referentie'; sterren?: number | null; over?: string }
+export const reviews: Review[] = (reviewData.reviews as Review[]).filter((r) => r.naam && r.tekst);
 
 export const stappen = [
   ['Een goed gesprek', 'We beginnen altijd met je wensen: wat zoek je, welke maten, welke stijl vind je mooi?'],

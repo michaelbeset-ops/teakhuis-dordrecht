@@ -173,3 +173,19 @@ collections:
             widget: list
             field: { label: Belofte, name: usp, widget: string }
             max: 3
+      - name: reviews
+        label: Reviews
+        file: src/data/reviews.json
+        format: json
+        fields:
+          - label: Reviews
+            name: reviews
+            widget: list
+            summary: '{{naam}} ({{bron}})'
+            hint: Kies alleen "Google" voor reviews die echt op jullie Google-profiel staan; die krijgen het Google-logo en linken naar het profiel.
+            fields:
+              - { label: Naam, name: naam, widget: string, hint: 'Zoals op Google, bijv. "Marco B."' }
+              - { label: Tekst, name: tekst, widget: text }
+              - { label: Bron, name: bron, widget: select, options: [{ label: Google, value: google }, { label: Referentie, value: referentie }], default: google }
+              - { label: Sterren (alleen bij Google), name: sterren, widget: number, value_type: int, min: 1, max: 5, required: false }
+              - { label: 'Over (bijv. "badkamermeubel")', name: over, widget: string, required: false }

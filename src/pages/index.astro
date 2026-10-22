@@ -261,27 +261,25 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
           <p class="mt-6 flex-1 text-as">Bij Teakhuis spreek je de eigenaar zelf. Een vraag over een maat, een kleur of een levering? Bel of app gerust.</p>
           <a href={waHoi} class="knop knop-blad mt-6 self-start"><Icoon naam="wa" />App Han</a>
         </li>
-        {[...reviews].sort((x, y) => Number(!!(y as any).google) - Number(!!(x as any).google)).map((r) => {
-          const google = Boolean((r as any).google);
-          const Kaart = google ? 'a' : 'div';
+        {[...reviews].sort((x, y) => Number(y.bron === 'google') - Number(x.bron === 'google')).map((r) => {
+          const google = r.bron === 'google';
+          const link = google ? site.google : url('over-ons/#referenties');
           return (
             <li class="flex w-[19rem] sm:w-[23rem]">
-              <Kaart {...(google ? { href: site.google, target: '_blank', rel: 'noopener' } : {})} class={`flex w-full flex-col rounded-[var(--radius-xl)] bg-wit p-7 text-inkt no-underline shadow-zacht ring-1 ring-lijn ${google ? 'transition-shadow hover:shadow-kaart' : ''}`}>
+              <a href={link} {...(google ? { target: '_blank', rel: 'noopener' } : {})} class="flex w-full flex-col rounded-[var(--radius-xl)] bg-wit p-7 text-inkt no-underline shadow-zacht ring-1 ring-lijn transition-shadow hover:shadow-kaart">
                 <div class="flex items-center justify-between gap-3">
-                  <span class="flex gap-0.5 text-[#f4b400]" aria-label={google ? '5 van 5 sterren' : undefined}>
-                    {google ? [0, 1, 2, 3, 4].map(() => <Icoon naam="ster" class="h-4 w-4" />) : <svg viewBox="0 0 32 24" class="h-5 w-7 text-blad" fill="currentColor" aria-hidden="true"><path d="M0 24V14C0 6 4 1 12 0v5c-4 1-6 4-6 8h6v11H0Zm20 0V14c0-8 4-13 12-14v5c-4 1-6 4-6 8h6v11H20Z" /></svg>}
-                  </span>
                   {google
                     ? <span class="flex items-center gap-1.5 text-xs font-bold text-grijs"><Icoon naam="g" class="h-4 w-4" />Google</span>
-                    : <span class="text-xs font-bold text-grijs">Referentie</span>}
+                    : <span class="flex items-center gap-1.5 text-xs font-bold text-grijs"><svg viewBox="0 0 100 100" class="h-4 w-4" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="#6aab35" /><path d="M28 52 50 34l22 18M35 47v20h30V47" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" /></svg>Teakhuis</span>}
+                  {r.sterren ? <span class="flex gap-0.5 text-[#f4b400]" role="img" aria-label={`${r.sterren} van 5 sterren`}>{Array.from({ length: r.sterren }, () => <Icoon naam="ster" class="h-4 w-4" />)}</span> : <span class="text-xs font-semibold text-grijs">Referentie</span>}
                 </div>
                 <blockquote class="mt-5 flex-1"><p class="text-[1.05rem] leading-relaxed">“{r.tekst}”</p></blockquote>
                 <div class="mt-6 flex items-center gap-3 border-t border-lijn pt-4">
-                  <span class="grid h-10 w-10 place-items-center rounded-full bg-zand font-kop text-sm font-extrabold text-blad-diep">{r.naam.split(/\s+/).filter((w) => /^\p{Lu}/u.test(w)).map((w) => w[0]).join('').slice(0, 2)}</span>
-                  <span class="text-sm"><strong class="block font-kop font-extrabold">{r.naam}</strong><span class="text-grijs">{google ? 'Review op Google' : r.bron === 'referentie' ? 'Via teakhuis.nl' : `Via teakhuis.nl, ${r.bron}`}</span></span>
-                  {google && <Icoon naam="pijl" class="ml-auto h-4 w-4 text-grijs" />}
+                  <span class="grid h-10 w-10 flex-none place-items-center rounded-full bg-zand font-kop text-sm font-extrabold text-blad-diep">{r.naam.split(/\s+/).filter((w) => /^\p{Lu}/u.test(w)).map((w) => w[0]).join('').slice(0, 2)}</span>
+                  <span class="min-w-0 text-sm"><strong class="block font-kop font-extrabold">{r.naam}</strong><span class="text-grijs">{google ? 'Review op Google' : `Referentie${r.over ? `, ${r.over}` : ''}`}</span></span>
+                  <Icoon naam="pijl" class="ml-auto h-4 w-4 flex-none text-grijs" />
                 </div>
-              </Kaart>
+              </a>
             </li>
           );
         })}
