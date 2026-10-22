@@ -139,3 +139,15 @@ export const platteTekst = (md: string) => md.replace(/[*_#>`]/g, '').replace(/\
 
 // Houtkleuren en maatwerk horen bij meubels; foto's op wit krijgen mix-blend-multiply.
 export const ookOpMaat = (p: Product) => p.maatwerk;
+
+// Filtergegevens voor de collectiepagina's, afgeleid uit wat er al in het product staat (niets extra in te vullen).
+// Breedte: het eerste getal van elk maatlabel ("B200 x D100", "br=120cm", "Ø 65 x H41").
+export const breedtesVan = (p: Product) =>
+  [...new Set(p.maten.map((m) => m.label.match(/^\s*(?:B|br\s*=|Ø|diameter)?\s*(\d{2,3})\b/i)?.[1]).filter(Boolean).map(Number))];
+export const houtsoortVan = (p: Product) => {
+  const t = `${p.titel} ${p.categorie.naam} ${p.omschrijving}`.toLowerCase();
+  if (t.includes('mango')) return 'Mangohout';
+  if (/gerecycl|oud teak|oud gerecycl/.test(t)) return 'Gerecycled teak';
+  if (t.includes('teak')) return 'Teak';
+  return 'Overig';
+};
