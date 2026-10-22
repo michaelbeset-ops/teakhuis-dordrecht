@@ -1,0 +1,21 @@
+{
+  "titel": "Test product",
+  "categorie": "tafels",
+  "fotos": [
+    "/src/assets/producten/176/1.jpg",
+    "/src/assets/producten/176/2.jpg"
+  ],
+  "prijsVanaf": 199,
+  "prijsTonen": true,
+  "omschrijving": "testen",
+  "maten": [],
+  "maatwerk": true,
+  "houtkleuren": false,
+  "uitvoeringen": [],
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "volgorde": 1,
+  "seoTitel": "",
+  "seoOmschrijving": "",
+  "oudeUrl": ""
+}
