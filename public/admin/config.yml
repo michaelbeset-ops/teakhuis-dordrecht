@@ -78,7 +78,7 @@ collections:
         widget: image
         multiple: true
         required: false
-        hint: 'Klik op de groene knop **Bladeren** en kies een foto op je computer. De bovenste foto is de hoofdfoto.'
+        hint: 'Klik op **Foto''s kiezen** en kies een foto op je computer. De bovenste foto is de hoofdfoto.'
       - label: Prijs vanaf (€)
         name: prijsVanaf
         widget: number

@@ -22,7 +22,7 @@ Na ongeveer 3 minuten staat het op de site.
 2. Vul in:
    - **Naam**: bijvoorbeeld *Eettafel Viking*.
    - **Categorie**: kies uit de lijst.
-   - **Foto's**: klik op de groene knop **Bladeren** en kies een foto op je computer. De eerste is de hoofdfoto.
+   - **Foto's**: klik op **Foto's kiezen** en kies een foto op je computer. De eerste is de hoofdfoto.
    - **Prijs vanaf**: alleen het getal, bijvoorbeeld *899*. Leeg laten = "prijs op aanvraag".
    - **Omschrijving**: gewoon typen.
    - **Maten**: klik op *Toevoegen* voor elke maat. De prijs mag leeg blijven.
