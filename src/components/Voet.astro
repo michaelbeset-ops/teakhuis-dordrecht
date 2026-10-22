@@ -6,10 +6,18 @@ import Icoon from './Icoon.astro';
 const jaar = new Date().getFullYear();
 ---
 <footer class="bg-nacht text-as">
+  <!-- Grote vraag bovenaan, zoals de footer van afzetbak -->
+  <div class="wrap flex flex-col items-start justify-between gap-6 border-b border-lijn-d py-12 md:flex-row md:items-center md:py-16">
+    <p class="font-kop text-3xl font-extrabold leading-none text-wit [font-stretch:110%] md:text-5xl">Hulp of advies nodig?</p>
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <a href={waHoi} class="knop knop-blad"><Icoon naam="wa" />App ons</a>
+      <a href={url('contact/')} class="knop knop-glas">Contact</a>
+    </div>
+  </div>
   <div class="wrap grid gap-x-10 gap-y-12 pb-14 pt-16 text-sm md:grid-cols-12 md:pt-24">
     <div class="md:col-span-4">
       <Merk klein />
-      <p class="mt-6 max-w-xs font-kop text-2xl leading-snug text-wit">Teakhouten meubels, met de hand gemaakt en op jouw maat.</p>
+      <p class="mt-6 max-w-xs font-kop text-xl font-extrabold leading-snug text-wit">Teakhouten meubels, met de hand gemaakt en op jouw maat.</p>
       <div class="mt-7 flex gap-2">
         <a href={site.facebook} class="grid h-10 w-10 place-items-center rounded-full border border-lijn-d text-wit transition-colors hover:border-blad-licht hover:text-blad-licht" aria-label="Teakhuis op Facebook"><Icoon naam="fb" class="h-5 w-5" /></a>
         <a href={site.instagram} class="grid h-10 w-10 place-items-center rounded-full border border-lijn-d text-wit transition-colors hover:border-blad-licht hover:text-blad-licht" aria-label="Teakhuis op Instagram"><Icoon naam="insta" class="h-5 w-5" /></a>
