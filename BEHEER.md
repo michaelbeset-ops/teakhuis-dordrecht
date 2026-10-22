@@ -11,7 +11,7 @@ Zo pas je zelf je producten aan. Je hoeft niets van computers te weten.
 
 1. Klik links op **Producten**.
 2. Typ de naam van het product in het zoekveld bovenaan, of klik het aan in de lijst.
-3. Pas aan wat je wilt.
+3. Pas aan wat je wilt. Rechts zie je meteen hoe het op de site eruitziet.
 4. Klik rechtsboven op **Opslaan**.
 
 Na ongeveer 3 minuten staat het op de site.
@@ -22,7 +22,7 @@ Na ongeveer 3 minuten staat het op de site.
 2. Vul in:
    - **Naam**: bijvoorbeeld *Eettafel Viking*.
    - **Categorie**: kies uit de lijst.
-   - **Foto's**: sleep de foto's erin. De eerste is de hoofdfoto.
+   - **Foto's**: klik op de groene knop **Bladeren** en kies een foto op je computer. De eerste is de hoofdfoto.
    - **Prijs vanaf**: alleen het getal, bijvoorbeeld *899*. Leeg laten = "prijs op aanvraag".
    - **Omschrijving**: gewoon typen.
    - **Maten**: klik op *Toevoegen* voor elke maat. De prijs mag leeg blijven.

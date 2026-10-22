@@ -55,8 +55,9 @@ collections:
       default: { field: titel, direction: ascending }
     view_groups:
       - { label: Categorie, field: categorie }
+    # Rechts staat een live voorbeeld van de productpagina (public/admin/preview.js).
     editor:
-      preview: false
+      preview: true
     # Relatief aan het productbestand, zodat Astro de foto's vindt en optimaliseert.
     media_folder: ../../assets/producten
     public_folder: ../../assets/producten
@@ -77,7 +78,7 @@ collections:
         widget: image
         multiple: true
         required: false
-        hint: De eerste foto is de hoofdfoto.
+        hint: 'Klik op de groene knop **Bladeren** en kies een foto op je computer. De bovenste foto is de hoofdfoto.'
       - label: Prijs vanaf (€)
         name: prijsVanaf
         widget: number
