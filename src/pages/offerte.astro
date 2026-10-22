@@ -1,13 +1,14 @@
 ---
 // Offerteaanvraag: de lijst die de bezoeker op productpagina's samenstelde, plus contactgegevens.
-// Versturen gaat via Web3Forms (sleutel in het beheer, Instellingen). Zonder sleutel opent het mailprogramma met
-// hetzelfde bericht, zodat een aanvraag nooit verloren gaat.
+// Versturen gaat bij voorkeur via EmailJS: dat bezorgt de opgemaakte HTML-mail uit src/scripts/mail.ts (foto, knop en
+// link per meubel). Anders via Web3Forms (platte tekst), en zonder sleutels opent het mailprogramma met hetzelfde
+// bericht, zodat een aanvraag nooit verloren gaat. Sleutels staan in src/data/instellingen.json.
 import Base from '../layouts/Base.astro';
 import Kop from '../components/Kop.astro';
 import Voet from '../components/Voet.astro';
 import Icoon from '../components/Icoon.astro';
 import { site, url } from '../data/site';
-const cfg = { key: site.web3formsKey, mail: site.mail, wa: site.wa, collectie: url('collectie/') };
+const cfg = { key: site.web3formsKey, emailjs: site.emailjs, mail: site.mail, wa: site.wa, collectie: url('collectie/') };
 ---
 <Base title="Je offerteaanvraag | Teakhuis" description="Stel je offerteaanvraag samen en verstuur hem vrijblijvend naar Teakhuis." noindex>
   <Kop />
@@ -84,8 +85,9 @@ const cfg = { key: site.web3formsKey, mail: site.mail, wa: site.wa, collectie: u
   <script type="application/json" id="aanvraag-cfg" set:html={JSON.stringify(cfg)} />
   <script>
     import { lijst, wijzig, verwijder, leeg, opWijziging, regelTekst } from '../scripts/offerte';
+    import { mailHtml } from '../scripts/mail';
 
-    const cfg = JSON.parse(document.getElementById('aanvraag-cfg')!.textContent!) as { key: string; mail: string; wa: string; collectie: string };
+    const cfg = JSON.parse(document.getElementById('aanvraag-cfg')!.textContent!) as { key: string; emailjs: { service: string; template: string; publicKey: string }; mail: string; wa: string; collectie: string };
     const ul = document.querySelector<HTMLUListElement>('[data-lijst]')!;
     const leegBlok = document.querySelector<HTMLElement>('[data-leeg]')!;
     const nEl = document.querySelector<HTMLElement>('[data-n]')!;
@@ -158,21 +160,34 @@ const cfg = { key: site.web3formsKey, mail: site.mail, wa: site.wa, collectie: u
       const onderwerp = `Offerteaanvraag van ${String(f.get('naam')).trim()}`;
       const tekst = berichtTekst();
 
+      const ej = cfg.emailjs;
+      const metEmailjs = Boolean(ej.service && ej.template && ej.publicKey);
       // Geen formuliersleutel ingesteld: het mailprogramma neemt het over.
-      if (!cfg.key) {
+      if (!metEmailjs && !cfg.key) {
         location.href = `mailto:${cfg.mail}?subject=${encodeURIComponent(onderwerp)}&body=${encodeURIComponent(tekst)}`;
         return;
       }
       knop.disabled = true;
       knop.textContent = 'Bezig met versturen...';
       try {
-        const r = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({ access_key: cfg.key, subject: onderwerp, from_name: 'Website Teakhuis', name: f.get('naam'), email: f.get('email'), replyto: f.get('email'), phone: f.get('telefoon'), message: tekst, botcheck: '' }),
-        });
-        const j = await r.json();
-        if (!j.success) throw new Error(j.message);
+        const veld = (n: string) => String(f.get(n) ?? '').trim();
+        if (metEmailjs) {
+          const klant = { naam: veld('naam'), email: veld('email'), telefoon: veld('telefoon'), plaats: [veld('postcode'), veld('plaats')].filter(Boolean).join(' '), bericht: veld('bericht') };
+          const r = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ service_id: ej.service, template_id: ej.template, user_id: ej.publicKey, template_params: { onderwerp, naam: klant.naam, reply_to: klant.email, inhoud: mailHtml(lijst(), klant), tekst } }),
+          });
+          if (!r.ok) throw new Error(await r.text());
+        } else {
+          const r = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({ access_key: cfg.key, subject: onderwerp, from_name: 'Website Teakhuis', name: f.get('naam'), email: f.get('email'), replyto: f.get('email'), phone: f.get('telefoon'), message: tekst, botcheck: '' }),
+          });
+          const j = await r.json();
+          if (!j.success) throw new Error(j.message);
+        }
         leeg();
         form.hidden = true;
         bedankt.hidden = false;
