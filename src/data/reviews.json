@@ -1,0 +1,32 @@
+{
+  "reviews": [
+    {
+      "naam": "Marco B.",
+      "tekst": "Meubels zijn naar eigen wens aan te passen omdat alles maatwerk is, personeel kan daardoor ook meedenken/ helpen met je keuze.",
+      "bron": "google",
+      "sterren": 5,
+      "over": ""
+    },
+    {
+      "naam": "Peter en Majo A.",
+      "tekst": "We willen anderen ook laten weten dat maatwerk betaalbaar en mooi is. Dat heeft het Teakhuis bewezen!",
+      "bron": "referentie",
+      "sterren": null,
+      "over": "badkamermeubel"
+    },
+    {
+      "naam": "Gert-Jan H.",
+      "tekst": "Een compliment voor de service en uw chauffeurs. … daarna hebben ze alles zeer zorgvuldig op zijn plek gezet.",
+      "bron": "referentie",
+      "sterren": null,
+      "over": ""
+    },
+    {
+      "naam": "Jeanette v.d. S.",
+      "tekst": "Vanmiddag hebben we onze meubels bezorgd gekregen. Ze zijn meer dan het wachten waard geweest.",
+      "bron": "referentie",
+      "sterren": null,
+      "over": ""
+    }
+  ]
+}
