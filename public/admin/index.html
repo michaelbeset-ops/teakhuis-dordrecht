@@ -6,10 +6,19 @@
     <meta name="robots" content="noindex, nofollow" />
     <title>Beheer | Teakhuis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <style>
+      /* Foto's toevoegen moet in een oogopslag duidelijk zijn: een grote groene knop, zonder de verwarrende "plakken". */
+      .drop-target button[data-label="Bladeren"], .drop-target button[data-label="Browse"] {
+        background: #6aab35 !important; color: #fff !important; border: 0 !important; border-radius: 8px !important;
+        font-size: 16px !important; font-weight: 700 !important; padding: 12px 22px !important; height: auto !important;
+      }
+      .drop-target button[data-label="Afbeelding plakken"], .drop-target button[data-label="Paste Image"] { display: none !important; }
+    </style>
   </head>
   <body>
     <!-- Sveltia CMS: beheer van producten, categorieen en instellingen. Wijzigingen worden opgeslagen in GitHub en
          de site wordt daarna automatisch opnieuw gebouwd (2 tot 4 minuten). Handleiding: BEHEER.md in de repository. -->
     <script src="https://unpkg.com/@sveltia/cms@0.227.4/dist/sveltia-cms.js"></script>
+    <script src="preview.js"></script>
   </body>
 </html>
