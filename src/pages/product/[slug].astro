@@ -8,10 +8,10 @@ import Icoon from '../../components/Icoon.astro';
 import GeenFoto from '../../components/GeenFoto.astro';
 import ProductKaart from '../../components/ProductKaart.astro';
 import MaatTekening from '../../components/MaatTekening.astro';
-import { site, url, absoluut, houtkleuren, stappen } from '../../data/site';
+import { site, url, absoluut, houtkleuren, stappen, reviews } from '../../data/site';
 import han from '../../assets/han.jpg';
 import {
-  producten, categorieHref, productHref, breedte, breedtes, euro, toonPrijs, prijsTekst, omschrijvingHtml, platteTekst, hoofdletter, fotoKlas, maatSoort,
+  producten, categorieHref, productHref, breedte, breedtes, euro, toonPrijs, prijsTekst, omschrijvingHtml, platteTekst, hoofdletter, fotoKlas, maatSoort, breedtesVan, houtsoortVan,
   type Product,
 } from '../../data/catalogus';
 import { kruimelSchema, type Stap } from '../../data/seo';
@@ -37,7 +37,39 @@ const aantalCat = producten.filter((x) => x.categorie.slug === cat.slug).length;
 // Maatkeuze: de standaardmaten uit het beheer, plus "andere maat" als het meubel op maat gemaakt kan worden.
 const maten = p.maten;
 const heeftMaatStap = maten.length > 0 || p.maatwerk;
-const soort = maatSoort(p);
+// Een tekening heeft alleen zin als er maten zijn om aan te wijzen.
+const soort = maten.length ? maatSoort(p) : null;
+// Lange woorden ("wastafelmeubel") passen niet in de grote kop; die krijgt dan een kleinere maat.
+const langeNaam = p.titel.split(/\s+/).some((w) => w.length > 11) || p.titel.length > 34;
+
+// Sociaal bewijs bij de knop: een review over dit soort meubel als die er is, anders de Google-review. Alleen echte reviews.
+const catTekst = `${cat.naam} ${hoofd?.naam ?? ''}`.toLowerCase();
+const review = reviews.find((r) => r.over && catTekst.includes(r.over.toLowerCase())) ?? reviews.find((r) => r.bron === 'google') ?? reviews[0];
+const initialen = (n: string) => (n.match(/\b\p{Lu}/gu) ?? [n[0]]).slice(0, 2).join('');
+
+// Specificaties: alleen wat we zeker weten uit het product en de werkwijze van Teakhuis.
+const hout = houtsoortVan(p);
+const bs = breedtesVan(p);
+const specs = ([
+  ['Materiaal', hout === 'Overig' ? undefined : hout],
+  ['Afwerking', p.houtkleuren ? 'Blank teak, thee kleur, koloniale kleur of wit' : p.uitvoeringen.length ? p.uitvoeringen.map(hoofdletter).join(', ') : undefined],
+  ['Standaardmaten', maten.length ? `${maten.length} ${maten.length === 1 ? 'maat' : 'maten'}${bs.length > 1 ? `, van ${Math.min(...bs)} tot ${Math.max(...bs)} cm breed` : ''}` : undefined],
+  ['Op maat', p.maatwerk ? 'Ja, zonder meerprijs' : undefined],
+  ['Gemaakt', 'Met de hand, in Indonesië'],
+  ['Levering', 'Bij je thuis afgeleverd'],
+  ['Bestellen', 'Vrijblijvende offerte; na akkoord 20% aanbetaling'],
+] as [string, string | undefined][]).filter((r): r is [string, string] => Boolean(r[1]));
+
+// Veelgestelde vragen: de twijfels die een aanvraag tegenhouden, met antwoorden uit de werkwijze. Geen FAQ-schema: Google
+// toont die sinds 2023 niet meer voor winkels, en 500 keer dezelfde vragen voegt niets toe.
+const vragen: [string, string][] = [
+  ...(p.maatwerk ? [['Kost een eigen maat extra?', 'Nee. Maatwerk kost bij Teakhuis niets extra. Je geeft je maten door en krijgt eerst een tekening en een prijs, voordat je iets beslist.'] as [string, string]] : []),
+  ['Hoe werkt bestellen?', 'Zet het meubel in je offerteaanvraag en verstuur die. Je krijgt een schets en een prijsopgave. Klopt alles, dan betaal je 20% aan en wordt je meubel met de hand gemaakt en bij je thuis afgeleverd.'],
+  ['Zit ik ergens aan vast als ik een offerte aanvraag?', 'Nee. De offerte is gratis en vrijblijvend. Je betaalt pas iets als je akkoord gaat met de tekening en de prijs.'],
+  ['Kan ik het meubel ergens bekijken?', `Teakhuis heeft geen showroom meer. Daardoor zijn de kosten lager en de prijzen ook. Twijfel je over maat, kleur of uitvoering? Bel of app Han op ${site.tel}, hij denkt graag met je mee.`],
+  ['Hoe lang duurt het voordat ik mijn meubel heb?', 'Elk meubel wordt voor jou gemaakt. De levertijd staat in je offerte, zodat je vooraf weet waar je aan toe bent.'],
+  ...(hout !== 'Mangohout' && hout !== 'Overig' ? [['Waar komt het hout vandaan?', 'We werken met SVLK-gecertificeerd plantagehout en gerecycled teak uit oude huizen en gebouwen op Oost-Java. De meubels worden met de hand gemaakt door lokale makers.'] as [string, string]] : []),
+];
 // Lange maatlijsten (tot 16 maten) klappen in: eerst zes, de rest achter een knop.
 const ZICHTBAAR = 6;
 // Maten leesbaarder: "70x70x78/120x70x78" wordt "70 × 70 × 78 / 120 × 70 × 78". De waarde in de aanvraag blijft het origineel.
@@ -124,7 +156,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
       <!-- Productinfo en samenstellen -->
       <div class="min-w-0 lg:col-span-5">
         <p><a href={categorieHref(cat)} class="label text-blad-diep no-underline hover:underline">{cat.naam}</a></p>
-        <h1 class="mt-3 text-4xl hyphens-auto" lang="nl">{p.titel}</h1>
+        <h1 class={`mt-3 hyphens-auto ${langeNaam ? 'text-[clamp(1.9rem,3.2vw,2.6rem)]' : 'text-4xl'}`} lang="nl">{p.titel}</h1>
         <div class="mt-5 flex flex-wrap items-baseline gap-x-3 gap-y-1">
           {prijzen ? (
             <>
@@ -232,6 +264,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
               <button type="submit" class="knop knop-blad flex-1"><Icoon naam="lijst" />Zet in offerteaanvraag</button>
               <a href={site.wa} class="knop knop-rand" data-wa><Icoon naam="wa" />Vraag via WhatsApp</a>
             </div>
+            <p class="mt-3 flex items-start gap-2 text-sm text-grijs"><Icoon naam="vink" class="mt-0.5 h-4 w-4 flex-none text-blad-diep" />Je betaalt nu niets. Eerst een gratis tekening en prijs, daarna beslis je.</p>
             <div class="mt-4 hidden items-start gap-3 rounded-sm bg-blad/15 p-4 text-sm" role="status" data-toegevoegd>
               <Icoon naam="vink" class="mt-0.5 h-5 w-5 flex-none text-blad-diep" />
               <p class="flex-1"><strong>Staat in je offerteaanvraag.</strong> Voeg gerust meer meubels toe, je verstuurt alles in één keer. <a href={url('offerte/')} class="font-bold text-blad-diep underline underline-offset-2">Naar je aanvraag</a></p>
@@ -259,12 +292,63 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
           <li class="flex items-start gap-2"><span class="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-blad text-inkt"><Icoon naam="vink" class="h-3 w-3" /></span><span><strong>Thuis geleverd</strong></span></li>
         </ul>
 
+        {review && (
+          <figure class="mt-7 rounded-[var(--radius-xl)] bg-wit p-5 ring-1 ring-lijn">
+            <div class="flex items-center justify-between gap-3 text-xs font-bold text-grijs">
+              {review.bron === 'google'
+                ? <span class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" class="h-4 w-4" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h5.9a5 5 0 0 1-2.2 3.3v2.7h3.6c2.1-1.9 3.3-4.8 3.3-8Z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.3-2.7l-3.6-2.8c-1 .7-2.2 1.1-3.7 1.1-2.9 0-5.3-1.9-6.2-4.5H2.1v2.8A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.8 14.1a6.6 6.6 0 0 1 0-4.2V7.1H2.1a11 11 0 0 0 0 9.8l3.7-2.8Z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.2-3.2A11 11 0 0 0 2.1 7.1l3.7 2.8C6.7 7.3 9.1 5.4 12 5.4Z"/></svg>Review op Google</span>
+                : <span>Ervaring van een klant</span>}
+              {review.sterren ? <span class="text-[#f4b400]" aria-label={`${review.sterren} van 5 sterren`}>{'★'.repeat(review.sterren)}</span> : null}
+            </div>
+            <blockquote class="mt-3 text-[.95rem] leading-relaxed text-inkt">“{review.tekst}”</blockquote>
+            <figcaption class="mt-4 flex items-center gap-3 border-t border-lijn pt-4 text-sm">
+              <span class="grid h-9 w-9 flex-none place-items-center rounded-full bg-zand text-xs font-extrabold text-blad-diep">{initialen(review.naam)}</span>
+              <span class="min-w-0 flex-1"><span class="block font-bold">{review.naam}</span>{review.over && <span class="block text-xs text-grijs">Over een {review.over}</span>}</span>
+              {review.bron === 'google' && <a href={site.google} class="text-xs font-bold text-blad-diep underline underline-offset-2" rel="noopener">Bekijk op Google</a>}
+            </figcaption>
+          </figure>
+        )}
+      </div>
+    </section>
+
+    <!-- Alles over het meubel: omschrijving links, specificaties en vragen rechts -->
+    <section class="wrap grid grid-cols-1 gap-y-12 border-t border-lijn-2 py-14 lg:grid-cols-12 lg:gap-x-14 lg:py-20" aria-label="Over dit meubel">
+      <div class="min-w-0 lg:col-span-7">
         {tekst && (
-          <div class="mt-9 border-t border-lijn-2 pt-7">
-            <h2 class="font-kop text-2xl">Over dit meubel</h2>
+          <div>
+            <h2 class="font-kop text-3xl">Over dit meubel</h2>
             <div class="tekst mt-4 text-grijs [overflow-wrap:anywhere]" set:html={tekst} />
           </div>
         )}
+        {!tekst && <p class="text-grijs">Vragen over dit meubel? Bel of app Han op <a href={site.telHref} class="num font-bold text-inkt underline underline-offset-2">{site.tel}</a>.</p>}
+      </div>
+      <div class="min-w-0 lg:col-span-5">
+        <div>
+          <h2 class="font-kop text-2xl">Specificaties</h2>
+          <dl class="mt-4 divide-y divide-lijn text-sm">
+            {specs.map(([k, v]) => (
+              <div class="grid grid-cols-[8.5rem_1fr] gap-3 py-2.5">
+                <dt class="text-grijs">{k}</dt>
+                <dd class="font-semibold text-inkt">{v}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div class="mt-10">
+          <h2 class="font-kop text-2xl">Veelgestelde vragen</h2>
+          <div class="mt-3 divide-y divide-lijn">
+            {vragen.map(([q, a]) => (
+              <details class="group py-1">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-3 font-bold [&::-webkit-details-marker]:hidden">
+                  {q}
+                  <span class="grid h-7 w-7 flex-none place-items-center rounded-full ring-1 ring-lijn-2 transition-transform group-open:rotate-45" aria-hidden="true"><Icoon naam="plus" class="h-3.5 w-3.5" /></span>
+                </summary>
+                <p class="pb-4 text-sm leading-relaxed text-grijs">{a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
 
