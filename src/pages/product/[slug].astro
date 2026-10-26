@@ -70,7 +70,8 @@ const vragen: [string, string][] = [
   ['Hoe lang duurt het voordat ik mijn meubel heb?', 'Elk meubel wordt voor jou gemaakt. De levertijd staat in je offerte, zodat je vooraf weet waar je aan toe bent.'],
   ...(hout !== 'Mangohout' && hout !== 'Overig' ? [['Waar komt het hout vandaan?', 'We werken met SVLK-gecertificeerd plantagehout en gerecycled teak uit oude huizen en gebouwen op Oost-Java. De meubels worden met de hand gemaakt door lokale makers.'] as [string, string]] : []),
 ];
-// Lange maatlijsten (tot 16 maten) klappen in: eerst zes, de rest achter een knop.
+// Lange maatlijsten (tot 16 maten) klappen in: eerst zes, de rest achter een knop. Tegels zijn minstens zo breed als
+// "B180 × D100 × H78", zodat een maat nooit over twee regels breekt (op laptops werden het anders drie smalle kolommen).
 const ZICHTBAAR = 6;
 // Maten leesbaarder: "70x70x78/120x70x78" wordt "70 × 70 × 78 / 120 × 70 × 78". De waarde in de aanvraag blijft het origineel.
 const toonMaat = (l: string) => l.replace(/\s*[xX×]\s*(?=[A-Za-z]?\d)/g, ' × ').replace(/\s*\/\s*/g, ' / ');
@@ -177,7 +178,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
                 <span class="font-kop text-xl"><span class="num text-blad-diep">{nr()}.</span> Kies je maat</span>
                 <span class="text-xs text-grijs">in cm</span>
               </legend>
-              <div class={`mt-4 grid gap-2 ${lang ? 'grid-cols-1 min-[400px]:grid-cols-2' : 'grid-cols-2 sm:grid-cols-3'}`} data-maten>
+              <div class={`mt-4 grid gap-2 ${lang ? 'grid-cols-1 min-[400px]:grid-cols-2' : 'grid-cols-[repeat(auto-fill,minmax(10.25rem,1fr))]'}`} data-maten>
                 {maten.map((m, i) => (
                   <label class={`tegel min-h-[3.4rem] px-3 py-2 ${i >= ZICHTBAAR ? 'hidden' : ''}`} data-extra={i >= ZICHTBAAR ? '' : undefined}>
                     <input type="radio" name="maat" value={m.label} data-prijs={prijzen && m.prijs ? m.prijs : ''} checked={i === 0} class="sr-only" />
