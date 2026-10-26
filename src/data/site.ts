@@ -19,7 +19,7 @@ export const site = {
   wa: `https://wa.me/${inst.whatsapp.replace(/\D/g, '')}`,
   mail: inst.email,
   web3formsKey: inst.web3formsKey,
-  emailjs: { service: '', template: '', publicKey: '', ...inst.emailjs },
+  emailjs: { service: '', template: '', templateKlant: '', publicKey: '', ...inst.emailjs },
   statistiek: { plausible: '', goatcounter: '', ...inst.statistiek },
   facebook: inst.facebook,
   instagram: inst.instagram,

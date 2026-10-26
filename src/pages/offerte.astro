@@ -8,7 +8,7 @@ import Kop from '../components/Kop.astro';
 import Voet from '../components/Voet.astro';
 import Icoon from '../components/Icoon.astro';
 import { site, url, absoluut } from '../data/site';
-const cfg = { key: site.web3formsKey, emailjs: site.emailjs, logo: absoluut('logo.png'), mail: site.mail, wa: site.wa, collectie: url('collectie/') };
+const cfg = { key: site.web3formsKey, emailjs: site.emailjs, logo: absoluut('logo.png'), contact: { tel: site.tel, telHref: site.telHref, wa: site.wa, mail: site.mail }, mail: site.mail, wa: site.wa, collectie: url('collectie/') };
 ---
 <Base title="Je offerteaanvraag | Teakhuis" description="Stel je offerteaanvraag samen en verstuur hem vrijblijvend naar Teakhuis." noindex>
   <Kop />
@@ -98,10 +98,10 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, logo: absoluut('log
   <script type="application/json" id="aanvraag-cfg" set:html={JSON.stringify(cfg)} />
   <script>
     import { lijst, wijzig, verwijder, leeg, opWijziging, regelTekst } from '../scripts/offerte';
-    import { mailHtml } from '../scripts/mail';
+    import { mailHtml, bevestigingHtml, type Contact } from '../scripts/mail';
     import { meet } from '../scripts/meet';
 
-    const cfg = JSON.parse(document.getElementById('aanvraag-cfg')!.textContent!) as { key: string; emailjs: { service: string; template: string; publicKey: string }; logo: string; mail: string; wa: string; collectie: string };
+    const cfg = JSON.parse(document.getElementById('aanvraag-cfg')!.textContent!) as { key: string; emailjs: { service: string; template: string; templateKlant: string; publicKey: string }; logo: string; contact: Contact; mail: string; wa: string; collectie: string };
     const ul = document.querySelector<HTMLUListElement>('[data-lijst]')!;
     const leegBlok = document.querySelector<HTMLElement>('[data-leeg]')!;
     const nEl = document.querySelector<HTMLElement>('[data-n]')!;
@@ -195,6 +195,14 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, logo: absoluut('log
             body: JSON.stringify({ service_id: ej.service, template_id: ej.template, user_id: ej.publicKey, template_params: { onderwerp, naam: klant.naam, reply_to: klant.email, inhoud: mailHtml(lijst(), klant, cfg.logo), tekst } }),
           });
           if (!r.ok) throw new Error(await r.text());
+          // Bevestiging aan de klant (tweede template, "To Email" = {{to_email}}). Mislukt die, dan is de aanvraag toch binnen.
+          if (ej.templateKlant) {
+            fetch('https://api.emailjs.com/api/v1.0/email/send', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ service_id: ej.service, template_id: ej.templateKlant, user_id: ej.publicKey, template_params: { onderwerp: 'Je offerteaanvraag bij Teakhuis', naam: klant.naam, to_email: klant.email, reply_to: cfg.mail, inhoud: bevestigingHtml(lijst(), klant, cfg.logo, cfg.contact) } }),
+            }).catch(() => {});
+          }
         } else {
           const r = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
