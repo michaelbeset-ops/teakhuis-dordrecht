@@ -119,7 +119,10 @@ export const groepen: Groep[] = (() => {
     g.subs.sort((a, b) => a.cat.volgorde - b.cat.volgorde || nl.compare(a.cat.naam, b.cat.naam));
     // Op de hoofdcategoriepagina per soort, in de volgorde van de soorten (eettafels voor bijzettafels).
     const plek = new Map(g.subs.map((s, i) => [s.cat.slug, i]));
-    g.producten.sort((a, b) => (plek.get(a.categorie.slug) ?? -1) - (plek.get(b.categorie.slug) ?? -1));
+    // Producten zonder foto achteraan: een leeg vak bovenaan oogt als een kapotte winkel.
+    const zonderFoto = (p: Product) => (p.fotos.length ? 0 : 1);
+    g.producten.sort((a, b) => zonderFoto(a) - zonderFoto(b) || (plek.get(a.categorie.slug) ?? -1) - (plek.get(b.categorie.slug) ?? -1));
+    for (const sub of g.subs) sub.producten.sort((a, b) => zonderFoto(a) - zonderFoto(b));
   }
   return [...m.values()].filter((g) => g.producten.length).sort((a, b) => a.hoofd.volgorde - b.hoofd.volgorde);
 })();

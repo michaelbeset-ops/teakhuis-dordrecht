@@ -12,7 +12,8 @@ const { onderbalk = true } = Astro.props;
 const pad = Astro.url.pathname;
 const actief = (p: string) => pad.startsWith(url(p));
 const nav: [string, string][] = [[url('maatwerk/'), 'Maatwerk'], [url('over-ons/'), 'Over ons'], [url('contact/'), 'Contact']];
-const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(eersteFoto).find((f) => f && opWit(f));
+// Liefst een vrijstaande foto (op wit); anders de eerste sfeerfoto, zodat geen categorie een leeg vak krijgt.
+const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(eersteFoto).find((f) => f && opWit(f)) ?? g.producten.map(eersteFoto).find(Boolean);
 ---
 <div class="bg-nacht text-as">
   <div class="wrap flex h-9 items-center justify-between gap-6 text-xs font-semibold">
@@ -73,7 +74,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
               <div>
                 <a href={categorieHref(g.hoofd)} class="group flex items-center gap-3 no-underline">
                   <span class="grid h-12 w-12 flex-none place-items-center overflow-hidden rounded-[var(--radius-sm)] bg-zand">
-                    {f && <Image src={f} alt="" widths={breedtes(f, [96])} sizes="48px" quality={60} class="h-full w-full object-contain p-1 mix-blend-multiply" />}
+                    {f && <Image src={f} alt="" widths={breedtes(f, [96])} sizes="48px" quality={60} class={`h-full w-full ${opWit(f) ? 'object-contain p-1 mix-blend-multiply' : 'object-cover'}`} />}
                   </span>
                   <span class="font-kop text-[.95rem] font-extrabold leading-tight group-hover:text-blad-diep">{g.hoofd.naam}</span>
                 </a>
@@ -102,14 +103,19 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
   </div>
 
   <!-- Menu (mobiel en tablet) -->
-  <nav id="menu-nav" aria-label="Menu" class="mx-auto mt-2 max-h-[calc(100dvh-6.5rem)] max-w-[82rem] overflow-y-auto rounded-[var(--radius-xl)] bg-wit p-4 shadow-kaart ring-1 ring-lijn lg:hidden" hidden data-menu>
+  <nav id="menu-nav" aria-label="Menu" class="mx-auto mt-2 max-h-[calc(100dvh-11rem)] max-w-[82rem] md:max-h-[calc(100dvh-6.5rem)] overflow-y-auto rounded-[var(--radius-xl)] bg-wit p-4 shadow-kaart ring-1 ring-lijn lg:hidden" hidden data-menu>
+    <form action={url('collectie/')} role="search" class="relative mb-2">
+      <label for="menu-zoek" class="sr-only">Zoek in de collectie</label>
+      <svg viewBox="0 0 24 24" class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-grijs" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
+      <input id="menu-zoek" name="q" type="search" enterkeyhint="search" autocomplete="off" placeholder="Zoek een meubel, bijv. eettafel" class="veld pl-12" />
+    </form>
     <details class="group border-b border-lijn" open>
       <summary class="flex cursor-pointer list-none items-center justify-between py-3 font-kop text-xl font-extrabold [&::-webkit-details-marker]:hidden">
         <span>Collectie <span class="ml-1 font-sans text-sm font-normal text-grijs">{groepen.length} categorieën</span></span>
         <span class="grid h-8 w-8 place-items-center rounded-full ring-1 ring-lijn transition-transform group-open:rotate-180"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></span>
       </summary>
-      <ul class="grid grid-cols-2 gap-x-4 pb-4">
-        {groepen.map((g) => <li><a href={categorieHref(g.hoofd)} class="block py-2 font-semibold text-inkt no-underline">{g.hoofd.naam}</a></li>)}
+      <ul class="grid grid-cols-2 gap-x-3 pb-4">
+        {groepen.map((g) => <li class="min-w-0"><a href={categorieHref(g.hoofd)} class="block py-2 text-[.9375rem] font-semibold text-inkt no-underline hyphens-auto" lang="nl">{g.hoofd.naam}</a></li>)}
         <li class="col-span-2 pt-1"><a href={url('collectie/')} class="font-bold text-blad-diep underline">Hele collectie</a></li>
       </ul>
     </details>

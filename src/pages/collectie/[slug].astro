@@ -138,6 +138,11 @@ const lijstSchema = {
           <a href={url('maatwerk/')} class="mt-3 inline-flex text-sm font-bold text-blad-diep underline">Maatwerk aanvragen</a>
         </div>
         </div>
+        {filterbaar && (
+          <div class="sticky -bottom-4 -mx-4 mt-4 border-t border-lijn bg-papier/95 p-4 backdrop-blur-sm lg:hidden">
+            <button type="button" class="knop knop-blad w-full" data-paneel-toon>Toon resultaten</button>
+          </div>
+        )}
       </aside>
       <div class="fixed inset-0 z-40 bg-inkt/40 lg:hidden" hidden data-sluier></div>
 
@@ -181,7 +186,7 @@ const lijstSchema = {
           </div>
         )}
         <section class="mt-8" aria-label={`${cat.naam}: alle producten`}>
-          <ul class="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-6 lg:gap-y-12" data-grid>
+          <ul class="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-6 lg:gap-y-12 scroll-mt-40" data-grid>
             {producten.map((p, i) => (
               <li data-naam={p.titel.toLowerCase()} data-prijs={p.prijsTonen && p.prijsVanaf ? p.prijsVanaf : 999999} data-i={i} data-soort={p.categorie.slug} data-breedtes={breedtesVan(p).join(',')} data-hout={houtsoortVan(p)} data-maatwerk={p.maatwerk ? '1' : '0'} data-kleur={p.houtkleuren ? '1' : '0'}>
                 <ProductKaart p={p} lazy={i >= 6} kop="h2" />
@@ -232,6 +237,7 @@ const lijstSchema = {
       const leeg = document.querySelector<HTMLElement>('[data-leeg]')!;
       const wis = document.querySelector<HTMLElement>('[data-wis]');
       const badge = document.querySelector<HTMLElement>('[data-aantal-filters]');
+      const toonKnop = document.querySelector<HTMLElement>('[data-paneel-toon]');
       const STAP = 24;
       let zichtbaar = STAP;
       const nl = new Intl.Collator('nl', { numeric: true });
@@ -268,6 +274,7 @@ const lijstSchema = {
         gesorteerd.forEach((el) => { el.hidden = true; });
         raak.slice(0, zichtbaar).forEach((el) => { el.hidden = false; });
         if (teller) teller.textContent = `${raak.length} ${raak.length === 1 ? 'product' : 'producten'}`;
+        if (toonKnop) toonKnop.textContent = raak.length ? `Toon ${raak.length} ${raak.length === 1 ? 'product' : 'producten'}` : 'Geen producten, pas je filters aan';
         const rest = raak.length - Math.min(zichtbaar, raak.length);
         meerBlok.hidden = rest <= 0;
         meerTekst.textContent = `${Math.min(zichtbaar, raak.length)} van ${raak.length} producten`;
@@ -306,6 +313,8 @@ const lijstSchema = {
       };
       open?.addEventListener('click', () => zet(true));
       sluier?.addEventListener('click', () => zet(false));
+      // Na het kiezen terug naar de producten, bovenaan de lijst.
+      document.querySelector('[data-paneel-toon]')?.addEventListener('click', () => { zet(false); grid.scrollIntoView({ block: 'start' }); });
       document.querySelector('[data-paneel-dicht]')?.addEventListener('click', () => { zet(false); open?.focus(); });
       addEventListener('keydown', (e) => { if (e.key === 'Escape' && paneel?.hasAttribute('data-open')) { zet(false); open?.focus(); } });
     }
