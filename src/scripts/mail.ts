@@ -41,7 +41,7 @@ function regelHtml(r: Regel, i: number) {
   </td></tr>`;
 }
 
-export function mailHtml(regels: Regel[], k: Klant) {
+export function mailHtml(regels: Regel[], k: Klant, logo = '') {
   const stuks = regels.reduce((n, r) => n + r.aantal, 0);
   const tel = k.telefoon.replace(/[^\d+]/g, '');
   const contact: [string, string][] = [
@@ -59,7 +59,12 @@ export function mailHtml(regels: Regel[], k: Klant) {
 <body style="margin:0;padding:0;background:${ZAND}">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${ZAND}"><tr><td align="center" style="padding:24px 12px">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px">
-    <tr><td style="padding:0 4px 14px;${FONT}font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${DIEP}">Teakhuis &middot; via de website</td></tr>
+    <tr><td style="padding:0 4px 16px">
+      <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+        ${logo ? `<td style="padding-right:12px"><img src="${esc(logo)}" width="44" height="44" alt="Teakhuis" style="display:block;width:44px;height:44px;border-radius:50%"></td>` : ''}
+        <td style="${FONT}"><span style="display:block;font-size:17px;font-weight:800;color:${INKT}">Teakhuis</span><span style="display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${DIEP}">Aanvraag via de website</span></td>
+      </tr></table>
+    </td></tr>
     <tr><td style="background:#ffffff;border-radius:10px;padding:28px 24px">
       <h1 style="${FONT}margin:0;font-size:24px;line-height:1.25;color:${INKT}">Nieuwe offerteaanvraag</h1>
       <p style="${FONT}margin:8px 0 0;font-size:15px;line-height:1.5;color:${GRIJS}">${esc(k.naam)} vraagt een offerte voor ${stuks ? `<strong style="color:${INKT}">${stuks} ${stuks === 1 ? 'meubel' : 'meubels'}</strong>` : 'maatwerk'}.</p>

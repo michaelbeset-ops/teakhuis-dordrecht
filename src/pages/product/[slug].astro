@@ -107,7 +107,8 @@ const productSchema = {
       : { '@type': 'Offer', priceCurrency: 'EUR', price: p.prijsVanaf, availability: 'https://schema.org/MadeToOrder', url: zelf, seller: { '@id': `${absoluut('')}#organisatie` } },
   } : {}),
 };
-const eersteFotoKlein = fotos[0] ? (await getImage({ src: fotos[0], width: Math.min(160, breedte(fotos[0])), format: 'webp', quality: 60 })).src : '';
+// Ook gebruikt in de offertemail: jpg, omdat Outlook geen webp toont.
+const eersteFotoKlein = fotos[0] ? (await getImage({ src: fotos[0], width: Math.min(192, breedte(fotos[0])), format: 'jpg', quality: 70 })).src : '';
 const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: eersteFotoKlein, indicatie: prijzen ? prijsTekst(p) : '', wa: site.wa };
 ---
 <Base title={titel} description={beschrijving} ogType="product" ogImage={ogFotos[0] ? new URL(ogFotos[0].src, Astro.site).href : undefined} schema={[productSchema, kruimelSchema(kruimel, zelf)]}>
