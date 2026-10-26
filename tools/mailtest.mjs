@@ -28,6 +28,8 @@ fs.writeFileSync('shots/mail.html', params.template_params.inhoud);
 console.log('onderwerp:', params.template_params.onderwerp, '| reply_to:', params.template_params.reply_to);
 for (const w of [640, 375]) {
   const m = await (await b.newContext({ viewport: { width: w, height: 900 } })).newPage();
+  await m.route('**/logo.png', (r) => r.fulfill({ path: 'public/logo.png', contentType: 'image/png' }));
+  await m.route('**/_astro/**', (r) => r.fulfill({ path: 'dist' + new URL(r.request().url()).pathname.replace(/^\/teakhuis-dordrecht/, ''), contentType: 'image/webp' }));
   await m.setContent(params.template_params.inhoud, { waitUntil: 'networkidle' });
   await m.screenshot({ path: `shots/mail-${w}.png`, fullPage: true });
 }

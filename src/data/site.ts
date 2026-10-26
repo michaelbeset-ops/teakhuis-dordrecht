@@ -31,6 +31,8 @@ export const site = {
   google: inst.google || 'https://www.google.com/maps/search/?api=1&query=Teakhuis+Dordrecht',
   themeColor: '#f6f3ed',
   voorstel: import.meta.env.PUBLIC_VOORSTEL === '1',
+  // Op het tijdelijke github.io-adres niet indexeren: anders concurreert de testversie straks met teakhuis.nl.
+  testadres: String(import.meta.env.SITE ?? '').includes('github.io'),
 };
 
 // Leverbare houtkleuren (hun pagina "leverbare kleuren teak"), met staaltje.

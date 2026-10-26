@@ -33,7 +33,7 @@ const organisatie = {
   contactPoint: { '@type': 'ContactPoint', telephone: site.telHref.replace('tel:', ''), email: site.mail, contactType: 'customer service', availableLanguage: 'Dutch' },
 };
 const jsonld = [organisatie, ...schema];
-const robots = noindex || site.voorstel ? 'noindex, nofollow' : 'index, follow, max-image-preview:large';
+const robots = noindex || site.voorstel || site.testadres ? 'noindex, nofollow' : 'index, follow, max-image-preview:large';
 ---
 <!doctype html>
 <html lang="nl">
