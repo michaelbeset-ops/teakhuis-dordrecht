@@ -71,9 +71,12 @@ teruggedraaid.
      - *To Email*: `info@teakhuis.nl`, *Reply To*: `{{reply_to}}`, *From Name*: `Website Teakhuis`
      - *Content*: klik op *Edit Content > Code Editor* en zet daar alleen `{{{inhoud}}}` (drie accolades).
      Noteer de **Template ID**.
-  4. *Account > General*: noteer de **Public Key**. Zet onder *Security* de toegestane domeinen op teakhuis.nl en
+  4. Bevestiging voor de klant: maak een tweede template met *Subject* `{{onderwerp}}`, *To Email* `{{to_email}}`,
+     *Reply To* `{{reply_to}}`, *From Name* `Teakhuis` en als *Content* alleen `{{{inhoud}}}`. Noteer de **Template ID**
+     als `templateKlant` (leeg laten = geen bevestiging).
+  5. *Account > General*: noteer de **Public Key**. Zet onder *Security* de toegestane domeinen op teakhuis.nl en
      michaelbeset-ops.github.io.
-  5. Vul de drie waarden in bij `emailjs` in `src/data/instellingen.json` en push.
+  6. Vul de waarden in bij `emailjs` in `src/data/instellingen.json` en push.
   Zonder EmailJS valt het formulier terug op Web3Forms (`web3formsKey`, platte tekst) en anders op het mailprogramma.
   Testen zonder te versturen: `node tools/mailtest.mjs` (bewaart de mail als `shots/mail.html`).
 - Statistiek (zonder cookies, dus zonder cookiemelding): vul in `src/data/instellingen.json` bij `statistiek` óf

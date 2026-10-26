@@ -5,6 +5,7 @@ import Kop from '../components/Kop.astro';
 import Voet from '../components/Voet.astro';
 import Icoon from '../components/Icoon.astro';
 import Kruimel from '../components/Kruimel.astro';
+import ReviewKaart from '../components/ReviewKaart.astro';
 import { site, url, absoluut, waHoi, reviews } from '../data/site';
 import { kruimelSchema } from '../data/seo';
 import han from '../assets/han.jpg';
@@ -59,14 +60,9 @@ import detail from '../assets/tuintafel-viking-detail.jpg';
     <section id="referenties" class="bg-wit py-20 md:py-28" aria-labelledby="ref-kop">
       <div class="wrap">
         <h2 id="ref-kop" class="text-4xl">Wat klanten zeggen.</h2>
-        <div class="mt-12 grid gap-x-10 gap-y-12 md:grid-cols-2">
-          {reviews.map((r) => (
-            <blockquote class="border-t-2 border-inkt pt-6">
-              <p class="font-kop text-2xl leading-snug">“{r.tekst}”</p>
-              <footer class="mt-4 text-sm text-grijs"><span class="font-bold text-inkt">{r.naam}</span>, {r.bron === 'google' ? <a href={site.google} target="_blank" rel="noopener" class="underline">review op Google</a> : `referentie${r.over ? `, ${r.over}` : ''}`}</footer>
-            </blockquote>
-          ))}
-        </div>
+        <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {reviews.map((r) => <li class="flex"><ReviewKaart review={r} class="w-full" /></li>)}
+        </ul>
         <a href={url('collectie/')} class="knop knop-blad mt-14">Bekijk de collectie<Icoon naam="pijl" /></a>
       </div>
     </section>

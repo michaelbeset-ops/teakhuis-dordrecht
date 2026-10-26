@@ -18,7 +18,8 @@
   "emailjs": {
     "service": "",
     "template": "",
-    "publicKey": ""
+    "publicKey": "",
+    "templateKlant": ""
   },
   "statistiek": {
     "plausible": "",
