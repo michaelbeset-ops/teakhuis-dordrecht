@@ -95,7 +95,7 @@ const lijstSchema = {
     const overzicht = document.querySelector('[data-overzicht]');
     let data = null, laden = null;
     const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-    const haal = () => (laden ??= fetch(index).then((r) => r.json()).then((d) => (data = d.map((x) => ({ ...x, z: norm(x.n + ' ' + x.c) })))));
+    const haal = () => (laden ??= fetch(index).then((r) => r.json()).then((d) => (data = d.map((x) => ({ ...x, z: norm(`${x.n} ${x.c} ${x.h}`) })))));
     const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
     const toon = async () => {
       const q = norm(veld.value.trim());

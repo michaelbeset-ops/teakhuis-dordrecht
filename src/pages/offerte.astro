@@ -38,13 +38,13 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, mail: site.mail, wa
       <section class="lg:col-span-5" aria-labelledby="gegevens-kop">
         <form class="rounded-md bg-wit p-5 sm:p-8 lg:sticky lg:top-28" data-aanvraag novalidate>
           <h2 id="gegevens-kop" class="font-kop text-2xl">Je gegevens</h2>
-          <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <label class="block sm:col-span-2"><span class="text-sm font-bold">Naam</span><input name="naam" autocomplete="name" required class="veld mt-1.5" /></label>
-            <label class="block"><span class="text-sm font-bold">E-mail</span><input name="email" type="email" autocomplete="email" required class="veld mt-1.5" /></label>
-            <label class="block"><span class="text-sm font-bold">Telefoon <span class="font-medium text-grijs">(handig)</span></span><input name="telefoon" type="tel" autocomplete="tel" class="veld mt-1.5" /></label>
+          <div class="mt-6 grid grid-cols-2 gap-4">
+            <label class="col-span-2 block"><span class="text-sm font-bold">Naam</span><input name="naam" autocomplete="name" required class="veld mt-1.5" /></label>
+            <label class="col-span-2 block sm:col-span-1"><span class="text-sm font-bold">E-mail</span><input name="email" type="email" autocomplete="email" required class="veld mt-1.5" /></label>
+            <label class="col-span-2 block sm:col-span-1"><span class="text-sm font-bold">Telefoon <span class="font-medium text-grijs">(handig)</span></span><input name="telefoon" type="tel" autocomplete="tel" class="veld mt-1.5" /></label>
             <label class="block"><span class="text-sm font-bold">Postcode</span><input name="postcode" autocomplete="postal-code" maxlength="7" class="veld mt-1.5 uppercase" /></label>
             <label class="block"><span class="text-sm font-bold">Plaats</span><input name="plaats" autocomplete="address-level2" class="veld mt-1.5" /></label>
-            <label class="block sm:col-span-2"><span class="text-sm font-bold">Vragen of wensen <span class="font-medium text-grijs">(mag leeg)</span></span><textarea name="bericht" maxlength="2000" class="veld mt-1.5" placeholder="Bijvoorbeeld: ik zoek een tv-meubel van 210 cm breed in thee kleur"></textarea></label>
+            <label class="col-span-2 block"><span class="text-sm font-bold">Vragen of wensen <span class="font-medium text-grijs">(mag leeg)</span></span><textarea name="bericht" maxlength="2000" class="veld mt-1.5" placeholder="Bijvoorbeeld: ik zoek een tv-meubel van 210 cm breed in thee kleur"></textarea></label>
             <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
           </div>
           <p class="mt-4 hidden text-sm font-bold text-[#a3301f]" role="alert" data-fout></p>
