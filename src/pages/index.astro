@@ -9,7 +9,7 @@ import MaatwerkProjecten from '../components/MaatwerkProjecten.astro';
 import { site, url, waHoi, houtkleuren, reviews } from '../data/site';
 import { producten, groepen, collecties, categorieHref, collectieHref, productHref, eersteFoto, breedtes, prijsTekst, fotoKlas, hoofdletter, sfeerFoto, opWit } from '../data/catalogus';
 
-import heroLive from '../assets/hero-trapezium-detail.jpg';
+import heroFoto from '../assets/hero-eetkamer.jpg';
 import productie from '../assets/productie-indonesie.jpg';
 import han from '../assets/han.jpg';
 
@@ -48,12 +48,13 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
     <!-- 1. HERO: schermvullend, de nerf van het hout groot in beeld; de menubalk zweeft erover -->
     <section class="relative -mt-[4.75rem] flex min-h-[84svh] flex-col justify-end md:min-h-[calc(100svh-2.25rem)] overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem]" aria-label="Welkom bij Teakhuis" data-hero>
       <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div class="absolute inset-0 origin-top-left scale-[1.85] sm:scale-[1.7]">
-          <Image src={heroLive} alt="" quality={78} widths={[640, 960, 1280, 1600, 2000, 2600]} sizes="170vw" loading="eager" fetchpriority="high" class="h-full w-full object-cover object-[0%_0%]" />
+        <!-- Sfeerfoto: eetkamer met teak tafel en kast. De linkerkant loopt donker weg achter de tekst. -->
+        <div class="absolute inset-0">
+          <Image src={heroFoto} alt="" quality={78} widths={[640, 960, 1280, 1600, 2000, 2600]} sizes="100vw" loading="eager" fetchpriority="high" class="h-full w-full object-cover object-[65%_60%]" />
         </div>
       </div>
-      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-nacht via-nacht/45 to-nacht/25"></div>
-      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-nacht/70 via-nacht/20 to-transparent max-lg:hidden"></div>
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-nacht/90 via-nacht/30 to-nacht/20"></div>
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-nacht/90 via-nacht/45 to-transparent max-lg:hidden"></div>
 
       <div class="wrap relative grid gap-8 pb-24 pt-32 md:pb-10 md:pt-36 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-16">
         <div class="lg:col-span-8">
