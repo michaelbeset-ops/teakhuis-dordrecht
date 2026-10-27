@@ -7,11 +7,11 @@ import Kruimel from '../../components/Kruimel.astro';
 import GeenFoto from '../../components/GeenFoto.astro';
 import Icoon from '../../components/Icoon.astro';
 import { url, absoluut } from '../../data/site';
-import { groepen, producten, categorieHref, eersteFoto, breedtes, opWit, type Product, type Categorie } from '../../data/catalogus';
+import { groepen, producten, categorieHref, breedtes, fotoKlas, sfeerFoto, type Product, type Categorie } from '../../data/catalogus';
 import { kruimelSchema } from '../../data/seo';
 
-// Omslag per categorie: de eigen foto uit het beheer, anders het eerste product met een foto.
-const omslag = (c: Categorie, ps: Product[]) => c.foto ?? ps.map(eersteFoto).find((f) => f && opWit(f)) ?? ps.map(eersteFoto).find(Boolean);
+// Omslag per categorie: de eigen foto uit het beheer, anders liefst een sfeerfoto van een product.
+const omslag = (c: Categorie, ps: Product[]) => sfeerFoto(c.foto, ps);
 const aantal = (n: number) => `${n} ${n === 1 ? 'product' : 'producten'}`;
 const lijstSchema = {
   '@context': 'https://schema.org',
@@ -20,14 +20,14 @@ const lijstSchema = {
   itemListElement: groepen.map((g, i) => ({ '@type': 'ListItem', position: i + 1, name: g.hoofd.naam, url: absoluut(`collectie/${g.hoofd.slug}/`) })),
 };
 ---
-<Base title="Collectie teakhouten meubels | Teakhuis" description={`Alle ${producten.length} teakhouten meubels van Teakhuis: eettafels, kasten, dressoirs, banken, bedden, badkamermeubels en tuinmeubelen. Vrijwel alles ook op maat, zonder meerprijs.`} schema={[lijstSchema, kruimelSchema([['Collectie']], absoluut('collectie/'))]}>
+<Base title="Alle teakhouten meubels | Teakhuis" description={`Alle ${producten.length} teakhouten meubels van Teakhuis: eettafels, kasten, dressoirs, banken, bedden, badkamermeubels en tuinmeubelen. Vrijwel alles ook op maat, zonder meerprijs.`} schema={[lijstSchema, kruimelSchema([['Producten']], absoluut('collectie/'))]}>
   <Kop />
   <main id="inhoud">
     <section class="wrap pb-12 pt-6 md:pb-16 md:pt-8">
-      <Kruimel stappen={[['Collectie']]} />
+      <Kruimel stappen={[['Producten']]} />
       <div class="mt-10 grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:items-end lg:gap-x-12">
         <div class="lg:col-span-7">
-          <h1 class="text-hero">De collectie</h1>
+          <h1 class="text-hero">Alle producten</h1>
           <p class="mt-5 max-w-xl text-lg text-grijs"><span class="num">{producten.length}</span> meubels en accessoires van teak, met de hand gemaakt. Vrijwel alles kan ook op jouw maat, zonder meerprijs.</p>
         </div>
         <form role="search" id="zoeken" class="lg:col-span-5" data-zoek onsubmit="return false">
@@ -55,7 +55,7 @@ const lijstSchema = {
               <li class="min-w-0">
                 <a href={categorieHref(g.hoofd)} class="product">
                   <div class="beeld aspect-[4/3]">
-                    {f ? <Image src={f} alt="" quality={70} widths={breedtes(f, [320, 480, 640, 800])} sizes="(min-width: 1344px) 400px, (min-width: 768px) 31vw, 46vw" loading={i < 3 ? 'eager' : 'lazy'} class="h-full w-full object-contain p-4 md:p-6" /> : <GeenFoto naam={g.hoofd.naam} />}
+                    {f ? <Image src={f} alt="" quality={70} widths={breedtes(f, [320, 480, 640, 800])} sizes="(min-width: 1344px) 400px, (min-width: 768px) 31vw, 46vw" loading={i < 3 ? 'eager' : 'lazy'} class={`h-full w-full ${fotoKlas(f, 'p-4 md:p-6')}`} /> : <GeenFoto naam={g.hoofd.naam} />}
                   </div>
                   <div class="mt-4 flex items-baseline justify-between gap-3 border-b border-lijn-2 pb-3">
                     <h2 class="naam min-w-0 font-kop text-xl hyphens-auto [overflow-wrap:anywhere] sm:text-2xl md:text-3xl" lang="nl">{g.hoofd.naam}</h2>

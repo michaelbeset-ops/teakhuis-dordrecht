@@ -24,7 +24,7 @@ const jaar = new Date().getFullYear();
       </div>
     </div>
     <div class="md:col-span-4">
-      <p class="font-bold text-wit"><a href={url('collectie/')} class="no-underline hover:text-blad-licht">Collectie</a></p>
+      <p class="font-bold text-wit"><a href={url('collectie/')} class="no-underline hover:text-blad-licht">Producten</a></p>
       <ul class="mt-4 grid grid-cols-2 gap-x-6 gap-y-2">
         {groepen.map((g) => <li class="min-w-0"><a href={categorieHref(g.hoofd)} class="break-words no-underline transition-colors hover:text-wit [hyphens:auto]" lang="nl">{g.hoofd.naam}</a></li>)}
       </ul>
@@ -32,6 +32,7 @@ const jaar = new Date().getFullYear();
     <div class="md:col-span-2">
       <p class="font-bold text-wit">Teakhuis</p>
       <ul class="mt-4 space-y-2">
+        <li><a href={url('collecties/')} class="no-underline transition-colors hover:text-wit">Collecties</a></li>
         <li><a href={url('maatwerk/')} class="no-underline transition-colors hover:text-wit">Maatwerk</a></li>
         <li><a href={url('over-ons/')} class="no-underline transition-colors hover:text-wit">Over ons</a></li>
         <li><a href={url('contact/')} class="no-underline transition-colors hover:text-wit">Contact</a></li>

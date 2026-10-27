@@ -73,6 +73,15 @@ collections:
         search_fields: [naam]
         display_fields: [naam]
         hint: In welk menu staat dit product?
+      - label: Collectie
+        name: collectie
+        widget: relation
+        collection: collecties
+        value_field: '{{slug}}'
+        search_fields: [naam]
+        display_fields: [naam]
+        required: false
+        hint: 'Bij welke serie hoort dit meubel, bijvoorbeeld Venice of Semarang? Leeg laten mag.'
       - label: Foto's
         name: fotos
         widget: image
@@ -145,6 +154,29 @@ collections:
       - { label: Foto, name: foto, widget: image, required: false }
       - { name: volgorde, widget: hidden, default: 100 }
       - { name: oudeId, widget: hidden, default: '' }
+
+  - name: collecties
+    label: Collecties
+    label_singular: Collectie
+    description: 'Series meubels in één stijl, zoals Venice of Semarang. Welke meubels erbij horen, kies je bij het product zelf.'
+    folder: src/content/collecties
+    format: json
+    extension: json
+    create: true
+    delete: true
+    slug: '{{naam}}'
+    identifier_field: naam
+    summary: '{{naam}}'
+    sortable_fields: [naam]
+    editor:
+      preview: false
+    media_folder: ../../assets/collecties
+    public_folder: ../../assets/collecties
+    fields:
+      - { label: Naam, name: naam, widget: string }
+      - { label: Tekst bovenaan de pagina, name: intro, widget: markdown, required: false, buttons: [bold], editor_components: [], minimal: true, hint: 'Een paar zinnen over deze serie. Leeg laten = de site maakt zelf een korte tekst.' }
+      - { label: Sfeerfoto, name: foto, widget: image, required: false, hint: 'Een foto van meubels uit deze serie in een interieur. Leeg laten = een productfoto.' }
+      - { name: volgorde, widget: hidden, default: 100 }
 
   - name: instellingen
     label: Instellingen

@@ -13,7 +13,9 @@ export interface Product {
   fotos: ImageMetadata[]; maten: Maat[]; houtkleuren: boolean; uitvoeringen: string[];
   maatwerk: boolean; uitgelicht: boolean; volgorde: number;
   seoTitel?: string; seoOmschrijving?: string; oudeUrl?: string;
+  collectie?: Collectie;
 }
+export interface Collectie { slug: string; naam: string; intro: string; volgorde: number; foto?: ImageMetadata }
 
 export const hoofdletter = (s: string) => (s ? s[0].toUpperCase() + s.slice(1) : s);
 // Titels uit de oude webshop staan soms in kapitalen ("EETTAFEL CASTLE") of beginnen klein; alleen de weergave rechtzetten.
@@ -30,6 +32,9 @@ const catOpSlug = new Map(categorieen.map((c) => [c.slug, c]));
 // Een product met een categorie die (nog) niet bestaat valt onder "Overig", zodat een verwijderde categorie de site niet breekt.
 const overig: Categorie = { slug: 'overig', naam: 'Overig', hoofd: '', volgorde: 999, intro: '' };
 
+const ruweCollecties = await getCollection('collecties');
+const colOpSlug = new Map<string, Collectie>(ruweCollecties.map((c) => [c.id, { slug: c.id, ...c.data }]));
+
 const ruweProducten = await getCollection('producten');
 export const producten: Product[] = ruweProducten
   .filter((p) => p.data.zichtbaar)
@@ -40,7 +45,7 @@ export const producten: Product[] = ruweProducten
     // "Vanaf"-prijs: ingevuld veld, anders de laagste maatprijs.
     const maatPrijzen = d.maten.map((m) => m.prijs).filter((x): x is number => typeof x === 'number' && x > 0);
     const prijsVanaf = d.prijsVanaf && d.prijsVanaf > 0 ? d.prijsVanaf : maatPrijzen.length ? Math.min(...maatPrijzen) : null;
-    return { ...d, slug: p.id, titel: netteTitel(d.titel), categorie: cat, hoofd, prijsVanaf, maten: d.maten.map((m) => ({ label: m.label, prijs: m.prijs ?? null })) };
+    return { ...d, slug: p.id, titel: netteTitel(d.titel), categorie: cat, hoofd, prijsVanaf, collectie: colOpSlug.get(d.collectie), maten: d.maten.map((m) => ({ label: m.label, prijs: m.prijs ?? null })) };
   })
   .sort((a, b) => a.volgorde - b.volgorde || nl.compare(a.titel, b.titel));
 
@@ -171,4 +176,22 @@ export const maatSoort = (p: Product) => {
   const naam = p.titel.toLowerCase();
   const opNaam = /\b(?:bank|stoel|kruk)/.test(naam) ? 'zit' : /\bbed\b/.test(naam) ? 'bed' : /dressoir|kast\b|kast /.test(naam) ? 'kast' : /tafel/.test(naam) && !/wastafel/.test(naam) ? 'tafel' : undefined;
   return opNaam ?? zoek(p.categorie.slug) ?? zoek(p.hoofd?.slug) ?? null;
+};
+
+// Collecties met hun (zichtbare) producten, de grootste eerst bij gelijke volgorde. Lege collecties tellen niet mee.
+export interface CollectieGroep { collectie: Collectie; producten: Product[] }
+export const collecties: CollectieGroep[] = [...colOpSlug.values()]
+  .map((c) => ({ collectie: c, producten: producten.filter((p) => p.collectie?.slug === c.slug).sort((a, b) => (a.fotos.length ? 0 : 1) - (b.fotos.length ? 0 : 1)) }))
+  .filter((g) => g.producten.length > 0)
+  .sort((a, b) => a.collectie.volgorde - b.collectie.volgorde || b.producten.length - a.producten.length);
+export const collectieHref = (c: Collectie) => url(`collecties/${c.slug}/`);
+
+// Tegelfoto: eigen foto, anders de beste sfeerfoto (interieur): liggend en zo groot mogelijk, want kleine oude foto's
+// zijn wazig. Pas als er geen bruikbare sfeerfoto is, een productfoto op wit.
+export const sfeerFoto = (eigen: ImageMetadata | undefined, ps: Product[]) => {
+  if (eigen) return eigen;
+  const fotos = ps.map(eersteFoto).filter(Boolean);
+  const sfeer = fotos.filter((f) => !opWit(f) && breedte(f) >= 700 && breedte(f) >= hoogte(f) * 0.95);
+  const score = (f: ImageMetadata) => Math.min(breedte(f), 1600) + (breedte(f) > hoogte(f) ? 300 : 0);
+  return sfeer.sort((a, b) => score(b) - score(a))[0] ?? fotos.find((f) => opWit(f)) ?? fotos[0];
 };

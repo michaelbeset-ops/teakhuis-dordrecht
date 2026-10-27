@@ -16,7 +16,7 @@ const { pagina } = Astro.props as { pagina: CatPagina };
 const { cat, hoofd, subs, producten } = pagina;
 const n = producten.length;
 const ouder = hoofd ?? cat;
-const kruimel: Stap[] = hoofd ? [['Collectie', url('collectie/')], [hoofd.naam, categorieHref(hoofd)], [cat.naam]] : [['Collectie', url('collectie/')], [cat.naam]];
+const kruimel: Stap[] = hoofd ? [['Producten', url('collectie/')], [hoofd.naam, categorieHref(hoofd)], [cat.naam]] : [['Producten', url('collectie/')], [cat.naam]];
 const intro = omschrijvingHtml(cat.intro);
 const maatwerk = producten.filter((p) => p.maatwerk).length;
 const zelf = absoluut(`collectie/${cat.slug}/`);

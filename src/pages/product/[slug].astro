@@ -12,7 +12,7 @@ import ReviewKaart from '../../components/ReviewKaart.astro';
 import { site, url, absoluut, houtkleuren, stappen, reviews } from '../../data/site';
 import han from '../../assets/han.jpg';
 import {
-  producten, categorieHref, productHref, breedte, breedtes, euro, toonPrijs, prijsTekst, omschrijvingHtml, platteTekst, hoofdletter, fotoKlas, maatSoort, breedtesVan, houtsoortVan,
+  producten, categorieHref, productHref, breedte, breedtes, euro, toonPrijs, prijsTekst, omschrijvingHtml, platteTekst, hoofdletter, fotoKlas, maatSoort, breedtesVan, houtsoortVan, collectieHref,
   type Product,
 } from '../../data/catalogus';
 import { kruimelSchema, type Stap } from '../../data/seo';
@@ -29,10 +29,15 @@ const tekst = omschrijvingHtml(p.omschrijving);
 const prijzen = toonPrijs(p);
 
 // Verwant: eerst dezelfde soort, aangevuld met dezelfde hoofdcategorie.
-const verwant = [
+// Verwant: eerst meubels uit dezelfde collectie (een bijpassend dressoir bij de eettafel), dan dezelfde soort.
+const col = p.collectie;
+const uitCollectie = col ? producten.filter((x) => x.collectie?.slug === col.slug && x.slug !== p.slug) : [];
+const verwant = [...new Set([
+  ...uitCollectie,
   ...producten.filter((x) => x.categorie.slug === cat.slug && x.slug !== p.slug),
   ...(hoofd ? producten.filter((x) => x.hoofd?.slug === hoofd.slug && x.categorie.slug !== cat.slug) : []),
-].slice(0, 4);
+])].slice(0, 4);
+const verwantKop = uitCollectie.length ? `Meer uit de collectie ${col!.naam}` : 'Misschien ook mooi';
 const aantalCat = producten.filter((x) => x.categorie.slug === cat.slug).length;
 
 // Maatkeuze: de standaardmaten uit het beheer, plus "andere maat" als het meubel op maat gemaakt kan worden.
@@ -52,6 +57,7 @@ const hout = houtsoortVan(p);
 const bs = breedtesVan(p);
 const specs = ([
   ['Materiaal', hout === 'Overig' ? undefined : hout],
+  ['Collectie', col?.naam],
   ['Afwerking', p.houtkleuren ? 'Blank teak, thee kleur, koloniale kleur of wit' : p.uitvoeringen.length ? p.uitvoeringen.map(hoofdletter).join(', ') : undefined],
   ['Standaardmaten', maten.length ? `${maten.length} ${maten.length === 1 ? 'maat' : 'maten'}${bs.length > 1 ? `, van ${Math.min(...bs)} tot ${Math.max(...bs)} cm breed` : ''}` : undefined],
   ['Op maat', p.maatwerk ? 'Ja, zonder meerprijs' : undefined],
@@ -89,7 +95,7 @@ const beschrijving = p.seoOmschrijving || `${p.titel}${prijzen ? `, ${prijsTekst
 const titel = p.seoTitel || `${p.titel}${p.maatwerk ? ' | Op maat' : ''} | Teakhuis`;
 const ogFotos = await Promise.all(fotos.slice(0, 1).map((f) => getImage({ src: f, width: Math.min(1200, breedte(f)), format: 'jpg', quality: 75 })));
 const zelf = absoluut(`product/${p.slug}/`);
-const kruimel: Stap[] = [['Collectie', url('collectie/')], ...(hoofd ? [[hoofd.naam, categorieHref(hoofd)] as Stap] : []), [cat.naam, categorieHref(cat)], [p.titel]];
+const kruimel: Stap[] = [['Producten', url('collectie/')], ...(hoofd ? [[hoofd.naam, categorieHref(hoofd)] as Stap] : []), [cat.naam, categorieHref(cat)], [p.titel]];
 const maatPrijzen = maten.map((m) => m.prijs).filter((x): x is number => typeof x === 'number');
 const productSchema = {
   '@context': 'https://schema.org',
@@ -157,7 +163,10 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
 
       <!-- Productinfo en samenstellen -->
       <div class="min-w-0 lg:col-span-5">
-        <p><a href={categorieHref(cat)} class="label text-blad-diep no-underline hover:underline">{cat.naam}</a></p>
+        <p class="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <a href={categorieHref(cat)} class="label text-blad-diep no-underline hover:underline">{cat.naam}</a>
+          {col && <><span class="text-lijn-2" aria-hidden="true">/</span><a href={collectieHref(col)} class="label text-grijs no-underline hover:text-inkt hover:underline">Collectie {col.naam}</a></>}
+        </p>
         <h1 class={`mt-3 hyphens-auto ${langeNaam ? 'text-[clamp(1.9rem,3.2vw,2.6rem)]' : 'text-4xl'}`} lang="nl">{p.titel}</h1>
         <div class="mt-5 flex flex-wrap items-baseline gap-x-3 gap-y-1">
           {prijzen ? (
@@ -262,7 +271,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
           </fieldset>
 
           <div class="border-t border-lijn-2 pt-7">
-            <div class="flex flex-col gap-3 sm:flex-row">
+            <div class="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
               <button type="submit" class="knop knop-blad flex-1"><Icoon naam="lijst" />Zet in offerteaanvraag</button>
               <a href={site.wa} class="knop knop-rand" data-wa><Icoon naam="wa" />Vraag via WhatsApp</a>
             </div>
@@ -362,8 +371,10 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
       <section class="py-16 md:py-24" aria-labelledby="verwant">
         <div class="wrap">
           <div class="flex flex-wrap items-end justify-between gap-4">
-            <h2 id="verwant" class="text-3xl">Misschien ook mooi</h2>
-            {aantalCat > 1 && <a href={categorieHref(cat)} class="link text-sm font-bold">Alle {cat.naam.toLowerCase()} ({aantalCat})</a>}
+            <h2 id="verwant" class="text-3xl">{verwantKop}</h2>
+            {uitCollectie.length
+              ? <a href={collectieHref(col!)} class="link text-sm font-bold">Hele collectie {col!.naam} ({uitCollectie.length + 1})</a>
+              : aantalCat > 1 && <a href={categorieHref(cat)} class="link text-sm font-bold">Alle {cat.naam.toLowerCase()} ({aantalCat})</a>}
           </div>
           <ul class="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 md:gap-x-6 lg:grid-cols-4">
             {verwant.map((x) => <li><ProductKaart p={x} /></li>)}
