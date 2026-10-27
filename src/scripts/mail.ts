@@ -54,7 +54,7 @@ function omhulsel(logo: string, sub: string, inhoud: string, voet: string) {
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px">
     <tr><td style="padding:0 4px 16px">
       <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-        ${logo ? `<td style="padding-right:12px"><img src="${esc(logo)}" width="44" height="44" alt="Teakhuis" style="display:block;width:44px;height:44px;border-radius:50%"></td>` : ''}
+        ${logo ? `<td style="padding-right:12px"><img src="${esc(logo)}" width="44" height="44" alt="Teakhuis" style="display:block;width:44px;height:44px;border-radius:3px"></td>` : ''}
         <td style="${FONT}"><span style="display:block;font-size:17px;font-weight:800;color:${INKT}">Teakhuis</span><span style="display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${DIEP}">${sub}</span></td>
       </tr></table>
     </td></tr>
