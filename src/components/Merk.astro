@@ -1,12 +1,14 @@
 ---
 // Het logo van Teakhuis nagetekend als vector: groen vierkant, huisje met penseelstreek, TEAK / HUIS in witte kapitalen.
 import { url } from '../data/site';
-interface Props { klein?: boolean }
-const { klein = false } = Astro.props;
+// balk: het groene vlak vult de linkerkant van de menubalk over de volle hoogte, zoals de tegel op de oude site.
+interface Props { klein?: boolean; balk?: boolean }
+const { klein = false, balk = false } = Astro.props;
+const maat = balk ? 'h-16 w-16 lg:h-[4.5rem] lg:w-[4.5rem]' : klein ? 'h-16 w-16' : 'h-12 w-12';
 ---
-<a href={url('')} class="group inline-flex items-center gap-3 no-underline" aria-label="Teakhuis, naar de homepage">
-  <svg viewBox="0 0 100 100" class={`flex-none ${klein ? 'h-12 w-12' : 'h-11 w-11 lg:h-[3.25rem] lg:w-[3.25rem]'}`} aria-hidden="true">
-    <rect width="100" height="100" rx="2" fill="#6aab35"/>
+<a href={url('')} class={`group inline-flex flex-none items-center no-underline ${balk ? 'self-stretch overflow-hidden rounded-l-[var(--radius-md)]' : ''}`} aria-label="Teakhuis, naar de homepage">
+  <svg viewBox="0 0 100 100" class={`flex-none transition-[filter] group-hover:brightness-105 ${maat}`} aria-hidden="true">
+    <rect width="100" height="100" rx={balk ? 0 : 2} fill="#6aab35"/>
     <g fill="none" stroke="#fff" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.8">
       <path d="M42.4 18.4 50 11.8l7.6 6.6"/>
       <path d="M44.6 16.6v8.2M55.4 16.6v8.2"/>
