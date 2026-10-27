@@ -45,11 +45,11 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
   <Kop />
   <main id="inhoud">
 
-    <!-- 1. HERO: schermvullend, de nerf van het hout groot in beeld; de menubalk zweeft erover -->
+    <!-- 1. HERO: schermvullende sfeerfoto die heel langzaam inzoomt; de tekst komt rustig op; de menubalk zweeft erover -->
     <section class="relative -mt-[4.75rem] flex min-h-[84svh] flex-col justify-end md:min-h-[calc(100svh-2.25rem)] overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem]" aria-label="Welkom bij Teakhuis" data-hero>
       <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
         <!-- Sfeerfoto: eetkamer met teak tafel en kast. De linkerkant loopt donker weg achter de tekst. -->
-        <div class="absolute inset-0">
+        <div class="hero-zoom absolute inset-0">
           <Image src={heroFoto} alt="" quality={78} widths={[640, 960, 1280, 1600, 2000, 2600]} sizes="100vw" loading="eager" fetchpriority="high" class="h-full w-full object-cover object-[65%_60%]" />
         </div>
       </div>
@@ -58,15 +58,15 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
 
       <div class="wrap relative grid gap-8 pb-24 pt-32 md:pb-10 md:pt-36 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-16">
         <div class="lg:col-span-8">
-          <p class="label text-blad-licht">Teakhuis · teakhouten meubels sinds 2007</p>
-          <h1 class="mt-5 max-w-[13ch] text-[clamp(2.6rem,6.4vw,6.2rem)] leading-[.95]">Teak op maat, met de hand gemaakt.</h1>
-          <p class="mt-6 max-w-xl text-lg text-wit/85 md:text-xl">Duurzaam teak, direct voor jou gemaakt. Zonder winkel en voorraad, dus voordeliger. Kies een ontwerp, geef je maten door en ontvang een vrijblijvende offerte.</p>
-          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <p class="hero-op label text-blad-licht">Teakhuis · teakhouten meubels sinds 2007</p>
+          <h1 class="hero-op mt-5 max-w-[13ch] text-[clamp(2.6rem,6.4vw,6.2rem)] leading-[.95]" style="--d:.08s">Teak op maat, met de hand gemaakt.</h1>
+          <p class="hero-op mt-6 max-w-xl text-lg text-wit/85 md:text-xl" style="--d:.18s">Duurzaam teak, direct voor jou gemaakt. Zonder winkel en voorraad, dus voordeliger. Kies een ontwerp, geef je maten door en ontvang een vrijblijvende offerte.</p>
+          <div class="hero-op mt-9 flex flex-col gap-3 sm:flex-row" style="--d:.28s">
             <a href={url('collectie/')} class="knop knop-blad">Kies je meubel<Icoon naam="pijl" /></a>
             <a href={url('maatwerk/')} class="knop knop-glas">Iets op maat laten maken</a>
           </div>
         </div>
-        <div class="flex flex-col gap-5 lg:col-span-4 lg:items-end lg:text-right">
+        <div class="hero-op flex flex-col gap-5 lg:col-span-4 lg:items-end lg:text-right" style="--d:.45s">
           <a href={waHoi} class="group flex items-center gap-3 rounded-full bg-wit/10 py-1.5 pl-1.5 pr-5 text-left no-underline ring-1 ring-wit/20 backdrop-blur-md transition-colors hover:bg-wit/20">
             <Image src={han} alt="" quality={80} widths={[112]} sizes="48px" class="h-12 w-12 flex-none rounded-full object-cover object-top ring-2 ring-blad" />
             <span><span class="block text-xs text-wit/70">Persoonlijk advies van Han, eigenaar</span><span class="num block font-kop text-lg font-extrabold leading-tight text-wit group-hover:text-blad-licht">{site.tel}</span></span>

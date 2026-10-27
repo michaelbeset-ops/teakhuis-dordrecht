@@ -157,6 +157,13 @@
   .js .rijs.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { .js .rijs { opacity: 1; transform: none; transition: none; } }
 
+  /* Hero: de sfeerfoto zoomt in 20 seconden heel licht in (Ken Burns) en de tekst komt kort na elkaar op. */
+  @keyframes hero-zoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+  @keyframes hero-op { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  .hero-zoom { animation: hero-zoom 20s cubic-bezier(.25, .1, .25, 1) both; transform-origin: 70% 55%; will-change: transform; }
+  .hero-op { animation: hero-op .8s var(--ease-zacht) both; animation-delay: var(--d, 0s); }
+  @media (prefers-reduced-motion: reduce) { .hero-zoom, .hero-op { animation: none; } }
+
   /* Omschrijving uit het beheersysteem */
   .tekst p + p, .tekst p + ul, .tekst ul + p { margin-top: .9em; }
   .tekst strong { font-weight: 750; color: var(--color-inkt); }
