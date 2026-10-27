@@ -31,6 +31,8 @@ const producten = defineCollection({
     seoTitel: z.preprocess(leeg, z.string().optional()),
     seoOmschrijving: z.preprocess(leeg, z.string().optional()),
     oudeUrl: z.preprocess(leeg, z.string().optional()),
+    // Serie waar het product bij hoort (Venice, Semarang, ...), leeg = geen.
+    collectie: tekst(),
   }),
 });
 
@@ -46,4 +48,15 @@ const categorieen = defineCollection({
   }),
 });
 
-export const collections = { producten, categorieen };
+// Collecties: series die over categorieen heen lopen, zoals Venice of Semarang (dressoir, tv-meubel en tafel in één stijl).
+const collecties = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/collecties' }),
+  schema: ({ image }) => z.object({
+    naam: z.string().min(1),
+    intro: tekst(),
+    volgorde: z.preprocess(leeg, z.coerce.number().default(999)),
+    foto: z.preprocess(leeg, image().optional()),
+  }),
+});
+
+export const collections = { producten, categorieen, collecties };

@@ -11,7 +11,7 @@ interface Props { onderbalk?: boolean }
 const { onderbalk = true } = Astro.props;
 const pad = Astro.url.pathname;
 const actief = (p: string) => pad.startsWith(url(p));
-const nav: [string, string][] = [[url('maatwerk/'), 'Maatwerk'], [url('over-ons/'), 'Over ons'], [url('contact/'), 'Contact']];
+const nav: [string, string][] = [[url('collecties/'), 'Collecties'], [url('maatwerk/'), 'Maatwerk'], [url('over-ons/'), 'Over ons'], [url('contact/'), 'Contact']];
 // Liefst een vrijstaande foto (op wit); anders de eerste sfeerfoto, zodat geen categorie een leeg vak krijgt.
 const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(eersteFoto).find((f) => f && opWit(f)) ?? g.producten.map(eersteFoto).find(Boolean);
 ---
@@ -35,14 +35,14 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
     <nav aria-label="Hoofdmenu" class="hidden lg:block">
       <ul class="flex items-center gap-1 font-kop text-[.95rem] font-bold [font-stretch:105%]">
         <li data-mega-li>
-          <button type="button" class={`flex items-center gap-1.5 rounded-full px-4 py-2.5 transition-colors hover:bg-zand ${actief('collectie') || actief('product') ? 'bg-zand' : ''}`} aria-expanded="false" aria-controls="mega" data-mega-knop>
-            Collectie
+          <button type="button" class={`flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2.5 transition-colors hover:bg-zand xl:px-4 ${actief('collectie/') || actief('product/') ? 'bg-zand' : ''}`} aria-expanded="false" aria-controls="mega" data-mega-knop>
+            Producten
             <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-grijs transition-transform" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
           </button>
         </li>
         {nav.map(([href, t]) => {
           const aan = actief(href.replace(url(''), ''));
-          return <li><a href={href} class={`block rounded-full px-4 py-2.5 no-underline transition-colors hover:bg-zand ${aan ? 'bg-zand' : ''}`} aria-current={aan ? 'page' : undefined}>{t}</a></li>;
+          return <li><a href={href} class={`block whitespace-nowrap rounded-full px-3 py-2.5 no-underline transition-colors hover:bg-zand xl:px-4 ${aan ? 'bg-zand' : ''}`} aria-current={aan ? 'page' : undefined}>{t}</a></li>;
         })}
       </ul>
     </nav>
@@ -57,7 +57,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
         <span class="sr-only" data-offerte-sr></span>
       </a>
       <a href={site.telHref} class="knop min-h-11 px-4 text-sm ring-1 ring-lijn hover:bg-zand max-xl:hidden"><Icoon naam="tel" /><span class="num">{site.tel}</span></a>
-      <a href={url('collectie/')} class="knop knop-blad min-h-11 px-5 text-sm max-md:hidden">Kies je meubel</a>
+      <a href={url('collectie/')} class="knop knop-blad min-h-11 px-5 text-sm max-md:hidden lg:max-xl:hidden">Kies je meubel</a>
       <button type="button" class="flex h-11 items-center gap-2 rounded-full bg-nacht px-4 font-kop text-sm font-bold text-wit lg:hidden" aria-expanded="false" aria-controls="menu-nav" data-menu-knop>
         <svg viewBox="0 0 24 24" class="h-[1.1rem] w-[1.1rem]" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
         <span class="max-[379px]:sr-only">Menu</span>
@@ -95,7 +95,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
           </div>
           <div class="mt-8 grid gap-2">
             <a href={url('maatwerk/')} class="knop knop-blad w-full">Maatwerk aanvragen</a>
-            <a href={url('collectie/')} class="knop knop-glas w-full">Hele collectie</a>
+            <a href={url('collectie/')} class="knop knop-glas w-full">Alle producten</a>
           </div>
         </div>
       </div>
@@ -111,12 +111,12 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
     </form>
     <details class="group border-b border-lijn" open>
       <summary class="flex cursor-pointer list-none items-center justify-between py-3 font-kop text-xl font-extrabold [&::-webkit-details-marker]:hidden">
-        <span>Collectie <span class="ml-1 font-sans text-sm font-normal text-grijs">{groepen.length} categorieën</span></span>
+        <span>Producten <span class="ml-1 font-sans text-sm font-normal text-grijs">{groepen.length} categorieën</span></span>
         <span class="grid h-8 w-8 place-items-center rounded-full ring-1 ring-lijn transition-transform group-open:rotate-180"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></span>
       </summary>
       <ul class="grid grid-cols-2 gap-x-3 pb-4">
         {groepen.map((g) => <li class="min-w-0"><a href={categorieHref(g.hoofd)} class="block py-2 text-[.9375rem] font-semibold text-inkt no-underline hyphens-auto" lang="nl">{g.hoofd.naam}</a></li>)}
-        <li class="col-span-2 pt-1"><a href={url('collectie/')} class="font-bold text-blad-diep underline">Hele collectie</a></li>
+        <li class="col-span-2 pt-1"><a href={url('collectie/')} class="font-bold text-blad-diep underline">Alle producten</a></li>
       </ul>
     </details>
     <ul class="font-kop text-xl font-extrabold">

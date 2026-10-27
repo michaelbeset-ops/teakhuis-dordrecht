@@ -1,0 +1,71 @@
+---
+// Collecties: meubels per serie (Venice, Semarang, ...), zoals op de oude site onder "Collecties". Wie een dressoir
+// mooi vindt, ziet hier meteen het bijpassende tv-meubel, de eettafel en de kast in dezelfde stijl.
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Kop from '../../components/Kop.astro';
+import Voet from '../../components/Voet.astro';
+import Kruimel from '../../components/Kruimel.astro';
+import GeenFoto from '../../components/GeenFoto.astro';
+import Icoon from '../../components/Icoon.astro';
+import { url, absoluut } from '../../data/site';
+import { collecties, collectieHref, sfeerFoto, breedtes, fotoKlas, type Product } from '../../data/catalogus';
+import { kruimelSchema } from '../../data/seo';
+
+// De soorten in een collectie, de meest voorkomende eerst: "Dressoirs, Tv-kasten en Eettafels".
+const soorten = (ps: Product[]) => {
+  const n = new Map<string, number>();
+  for (const p of ps) n.set(p.categorie.naam, (n.get(p.categorie.naam) ?? 0) + 1);
+  return [...n].sort((a, b) => b[1] - a[1]).map(([k]) => k);
+};
+const lijstSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Collecties Teakhuis',
+  itemListElement: collecties.map((g, i) => ({ '@type': 'ListItem', position: i + 1, name: `Collectie ${g.collectie.naam}`, url: absoluut(`collecties/${g.collectie.slug}/`) })),
+};
+---
+<Base title="Collecties: teakhouten meubels per serie | Teakhuis" description={`${collecties.length} collecties teakhouten meubels, zoals ${collecties.slice(0, 3).map((g) => g.collectie.naam).join(', ')}: dressoir, tv-meubel, tafel en kast in dezelfde stijl. Alles ook op maat.`} schema={[lijstSchema, kruimelSchema([['Collecties']], absoluut('collecties/'))]}>
+  <Kop />
+  <main id="inhoud">
+    <section class="wrap pb-12 pt-6 md:pb-16 md:pt-8">
+      <Kruimel stappen={[['Collecties']]} />
+      <h1 class="mt-10 text-hero">Collecties</h1>
+      <p class="mt-5 max-w-2xl text-lg text-grijs">Meubels per serie: dressoir, tv-meubel, tafel en kast in dezelfde stijl en houtsoort. Zo stel je eenvoudig een hele kamer samen, en elk meubel kan ook op jouw maat.</p>
+    </section>
+
+    <section class="wrap pb-16 md:pb-24" aria-label="Alle collecties">
+      <ul class="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        {collecties.map((g, i) => {
+          const f = sfeerFoto(g.collectie.foto, g.producten);
+          const s = soorten(g.producten);
+          return (
+            <li class="min-w-0">
+              <a href={collectieHref(g.collectie)} class="product">
+                <div class="beeld aspect-[4/3]">
+                  {f ? <Image src={f} alt="" quality={72} widths={breedtes(f, [400, 640, 800, 1000])} sizes="(min-width: 1344px) 420px, (min-width: 1024px) 31vw, (min-width: 640px) 46vw, 92vw" loading={i < 3 ? 'eager' : 'lazy'} class={`h-full w-full ${fotoKlas(f, 'p-6')}`} /> : <GeenFoto naam={g.collectie.naam} />}
+                </div>
+                <div class="mt-4 flex items-baseline justify-between gap-3">
+                  <h2 class="naam font-kop text-2xl md:text-3xl">{g.collectie.naam}</h2>
+                  <span class="num flex-none text-sm text-grijs">{g.producten.length} {g.producten.length === 1 ? 'meubel' : 'meubels'}</span>
+                </div>
+                <p class="mt-1 text-sm text-grijs">{s.slice(0, 3).join(' · ')}{s.length > 3 ? ' en meer' : ''}</p>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+
+    <section class="bg-zand py-14 md:py-20">
+      <div class="wrap flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+        <div>
+          <h2 class="text-3xl">Een meubel in dezelfde stijl erbij?</h2>
+          <p class="mt-3 max-w-xl text-grijs">Mis je een kast, bank of tafel in een collectie? Wij tekenen hem in dezelfde stijl en op jouw maat.</p>
+        </div>
+        <a href={url('maatwerk/')} class="knop knop-blad flex-none">Maatwerk aanvragen<Icoon naam="pijl" /></a>
+      </div>
+    </section>
+  </main>
+  <Voet />
+</Base>

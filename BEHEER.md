@@ -28,6 +28,11 @@ Na ongeveer 3 minuten staat het op de site.
    - **Maten**: klik op *Toevoegen* voor elke maat. De prijs mag leeg blijven.
 3. Klik op **Opslaan**.
 
+## Collecties
+
+Een collectie is een serie meubels in één stijl, zoals Venice of Semarang. Bij een product kies je bij **Collectie**
+de serie. Onder **Collecties** pas je per serie de naam, een korte tekst en een sfeerfoto aan.
+
 ## Een product weghalen
 
 - **Even niet laten zien**: zet **Zichtbaar op de site** uit en klik op Opslaan.
