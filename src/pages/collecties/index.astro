@@ -6,6 +6,7 @@ import Base from '../../layouts/Base.astro';
 import Kop from '../../components/Kop.astro';
 import Voet from '../../components/Voet.astro';
 import Kruimel from '../../components/Kruimel.astro';
+import Snelkeuze from '../../components/Snelkeuze.astro';
 import GeenFoto from '../../components/GeenFoto.astro';
 import Icoon from '../../components/Icoon.astro';
 import { url, absoluut } from '../../data/site';
@@ -30,7 +31,8 @@ const lijstSchema = {
   <main id="inhoud">
     <section class="wrap pb-12 pt-6 md:pb-16 md:pt-8">
       <Kruimel stappen={[['Collecties']]} />
-      <h1 class="mt-10 text-hero">Collecties</h1>
+      <Snelkeuze actief="collecties" />
+      <h1 class="mt-8 text-hero">Collecties</h1>
       <p class="mt-5 max-w-2xl text-lg text-grijs">Meubels per serie: dressoir, tv-meubel, tafel en kast in dezelfde stijl en houtsoort. Zo stel je eenvoudig een hele kamer samen, en elk meubel kan ook op jouw maat.</p>
     </section>
 

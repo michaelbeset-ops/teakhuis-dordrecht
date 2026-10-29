@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Kop from '../../components/Kop.astro';
 import Voet from '../../components/Voet.astro';
 import Kruimel from '../../components/Kruimel.astro';
+import Snelkeuze from '../../components/Snelkeuze.astro';
 import GeenFoto from '../../components/GeenFoto.astro';
 import Icoon from '../../components/Icoon.astro';
 import { url, absoluut } from '../../data/site';
@@ -25,7 +26,8 @@ const lijstSchema = {
   <main id="inhoud">
     <section class="wrap pb-12 pt-6 md:pb-16 md:pt-8">
       <Kruimel stappen={[['Producten']]} />
-      <div class="mt-10 grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:items-end lg:gap-x-12">
+      <Snelkeuze actief="producten" />
+      <div class="mt-8 grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:items-end lg:gap-x-12">
         <div class="lg:col-span-7">
           <h1 class="text-hero">Alle producten</h1>
           <p class="mt-5 max-w-xl text-lg text-grijs"><span class="num">{producten.length}</span> meubels en accessoires van teak, met de hand gemaakt. Vrijwel alles kan ook op jouw maat, zonder meerprijs.</p>

@@ -1,0 +1,12 @@
+---
+// Snelknoppen boven Producten en Collecties, zoals op de oude webshop: in één klik naar de andere indeling of contact.
+import { url } from '../data/site';
+interface Props { actief: 'producten' | 'collecties' }
+const { actief } = Astro.props;
+const knoppen: [string, string, string][] = [['producten', url('collectie/'), 'Producten'], ['collecties', url('collecties/'), 'Collecties'], ['maatwerk', url('maatwerk/'), 'Maatwerk'], ['contact', url('contact/'), 'Contact']];
+---
+<nav aria-label="Snel naar" class="mt-8 flex flex-wrap gap-2">
+  {knoppen.map(([id, href, t]) => (
+    <a href={href} aria-current={id === actief ? 'page' : undefined} class={`rounded-full px-5 py-2.5 font-kop text-[.95rem] font-bold no-underline transition-colors ${id === actief ? 'bg-nacht text-wit' : 'bg-zand text-inkt ring-1 ring-lijn hover:bg-blad-licht/40'}`}>{t}</a>
+  ))}
+</nav>
