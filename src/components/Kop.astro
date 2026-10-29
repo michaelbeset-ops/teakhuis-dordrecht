@@ -32,10 +32,12 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
     <nav aria-label="Hoofdmenu" class="hidden lg:block">
       <ul class="flex items-center gap-1 font-kop text-[.95rem] font-bold [font-stretch:105%]">
         <li data-mega-li>
-          <button type="button" class={`flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2.5 transition-colors hover:bg-zand xl:px-4 ${actief('collectie/') || actief('product/') ? 'bg-zand' : ''}`} aria-expanded="false" aria-controls="mega" data-mega-knop>
-            Producten
-            <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-grijs transition-transform" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
-          </button>
+          <div class={`flex items-center rounded-full transition-colors hover:bg-zand ${actief('collectie/') || actief('product/') ? 'bg-zand' : ''}`}>
+            <a href={url('collectie/')} class="whitespace-nowrap py-2.5 pl-3 no-underline xl:pl-4" aria-current={pad === url('collectie/') ? 'page' : undefined}>Producten</a>
+            <button type="button" class="grid h-10 w-8 place-items-center rounded-full pr-1" aria-label="Toon de categorieën" aria-expanded="false" aria-controls="mega" data-mega-knop>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-grijs transition-transform" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+            </button>
+          </div>
         </li>
         {nav.map(([href, t]) => {
           const aan = actief(href.replace(url(''), ''));
@@ -159,6 +161,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
 
   // Megamenu: opent bij hover (met korte vertraging) en bij klik/Enter; Escape of klik erbuiten sluit.
   const knop = document.querySelector<HTMLButtonElement>('[data-mega-knop]');
+  // "Producten" zelf is een gewone link naar het overzicht; het pijltje ernaast opent het menu (touch, toetsenbord).
   const mega = document.querySelector<HTMLElement>('[data-mega]');
   const li = document.querySelector<HTMLElement>('[data-mega-li]');
   if (knop && mega && li) {
@@ -175,6 +178,6 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
       el.addEventListener('mouseleave', () => { if (!fijn.matches) return; clearTimeout(t); t = window.setTimeout(() => open(false), 220); });
     });
     addEventListener('keydown', (e) => { if (e.key === 'Escape' && !mega.hidden) { open(false); knop.focus(); } });
-    document.addEventListener('click', (e) => { if (!mega.hidden && !mega.contains(e.target as Node) && !knop.contains(e.target as Node)) open(false); });
+    document.addEventListener('click', (e) => { if (!mega.hidden && !mega.contains(e.target as Node) && !li.contains(e.target as Node)) open(false); });
   }
 </script>
