@@ -9,7 +9,7 @@ const dienst = metEmailjs ? 'EmailJS' : site.web3formsKey ? 'Web3Forms' : '';
 const metFormulier = Boolean(dienst);
 const teller = site.statistiek.plausible ? 'Plausible' : site.statistiek.goatcounter ? 'GoatCounter' : '';
 ---
-<Base title={`Privacyverklaring | ${site.naam}`} description={`Hoe ${site.bv} omgaat met je gegevens.`}>
+<Base title={`Privacyverklaring | ${site.naam}`} description={`Hoe ${site.bv} omgaat met je gegevens: welke gegevens we bewaren bij een offerteaanvraag, waarom, hoe lang en wat je rechten zijn.`} noindex>
   <Kop />
   <main id="inhoud" class="wrap grid gap-y-10 pb-28 pt-6 md:grid-cols-12 md:gap-x-8 md:pt-8">
     <div class="md:col-span-12"><Kruimel stappen={[['Privacyverklaring']]} /></div>

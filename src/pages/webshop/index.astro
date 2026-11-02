@@ -21,7 +21,7 @@ const lijstSchema = {
   itemListElement: groepen.map((g, i) => ({ '@type': 'ListItem', position: i + 1, name: g.hoofd.naam, url: absoluut(`${categoriePad(g.hoofd)}/`) })),
 };
 ---
-<Base title="Alle teakhouten meubels | Teakhuis" description={`Alle ${producten.length} teakhouten meubels van Teakhuis: eettafels, kasten, dressoirs, banken, bedden, badkamermeubels en tuinmeubelen. Vrijwel alles ook op maat, zonder meerprijs.`} schema={[lijstSchema, kruimelSchema([['Producten']], absoluut('webshop/'))]}>
+<Base title="Teak meubels kopen: alle teakhouten meubels | Teakhuis" description={`Alle ${producten.length} teakhouten meubels: eettafels, kasten, dressoirs, banken, bedden, badkamer en tuin. Vrijwel alles op maat zonder meerprijs.`} schema={[lijstSchema, kruimelSchema([['Producten']], absoluut('webshop/'))]}>
   <Kop />
   <main id="inhoud">
     <section class="wrap pb-12 pt-6 md:pb-16 md:pt-8">

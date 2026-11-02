@@ -1,7 +1,7 @@
 ---
 // Bovenbalk met de beloftes, daaronder een zwevende witte menubalk die meescrolt. Op de homepage schuift de hero er
 // onder door, zodat de foto tot bovenaan het scherm loopt.
-import { url, waHoi, site } from '../data/site';
+import { url, waHoi, site, eigenPad } from '../data/site';
 import { groepen, categorieHref, eersteFoto, opWit, breedtes } from '../data/catalogus';
 import { Image } from 'astro:assets';
 import Icoon from './Icoon.astro';
@@ -9,8 +9,8 @@ import Merk from './Merk.astro';
 
 interface Props { onderbalk?: boolean }
 const { onderbalk = true } = Astro.props;
-const pad = Astro.url.pathname;
-const actief = (p: string) => pad.startsWith(url(p));
+const pad = eigenPad(Astro.url.pathname);
+const actief = (p: string) => { const d = p.replace(/\/$/, ''); return pad === d || pad.startsWith(`${d}/`); };
 const nav: [string, string][] = [[url('collecties/'), 'Collecties'], [url('maatwerk/'), 'Maatwerk'], [url('over-ons/'), 'Over ons'], [url('duurzaam/'), 'Duurzaam'], [url('contact/'), 'Contact']];
 // Liefst een vrijstaande foto (op wit); anders de eerste sfeerfoto, zodat geen categorie een leeg vak krijgt.
 const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(eersteFoto).find((f) => f && opWit(f)) ?? g.producten.map(eersteFoto).find(Boolean);
@@ -33,7 +33,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
       <ul class="flex items-center gap-1 font-kop text-[.95rem] font-bold [font-stretch:105%]">
         <li data-mega-li>
           <div class={`flex items-center rounded-full transition-colors hover:bg-zand ${actief('webshop/') ? 'bg-zand' : ''}`}>
-            <a href={url('webshop/')} class="whitespace-nowrap py-2.5 pl-3 no-underline xl:pl-4" aria-current={pad === url('webshop/') ? 'page' : undefined}>Producten</a>
+            <a href={url('webshop/')} class="whitespace-nowrap py-2.5 pl-3 no-underline xl:pl-4" aria-current={pad === 'webshop' ? 'page' : undefined}>Producten</a>
             <button type="button" class="grid h-10 w-8 place-items-center rounded-full pr-1" aria-label="Toon de categorieën" aria-expanded="false" aria-controls="mega" data-mega-knop>
               <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-grijs transition-transform" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>

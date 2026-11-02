@@ -10,14 +10,56 @@ export function getStaticPaths() {
     const pad = oud.replace(/^\/+|\/+$/g, '');
     if (pad && !naar.has(pad)) naar.set(pad, nieuw);
   };
-  // Pagina's van de oude site die nu een deel van een andere pagina zijn. De webshop zelf (overzicht, categorieen en
-  // producten) staat op precies dezelfde adressen als vroeger en hoeft niet doorverwezen te worden.
-  zet('maatwerk/kledingkast-op-maat', url('maatwerk/'));
-  zet('maatwerk/tv-meubel-maatwerk', url('maatwerk/'));
-  zet('maatwerk/voorbeelden-maatwerk-teakhout', url('maatwerk/#voorbeelden'));
-  zet('maatwerk/het-proces', url('maatwerk/'));
-  zet('referenties', url('over-ons/#referenties'));
-  zet('leverbare-kleuren-teak', url('maatwerk/'));
+  // Oude pagina's van teakhuis.nl die geen eigen pagina meer hebben, elk naar de best passende nieuwe pagina (lijst en
+  // keuzes in het SEO-verslag van nov 2026). De webshop zelf staat op dezelfde adressen als vroeger en verwijst niet door.
+  const cat = (slug: string) => { const c = categorieen.find((x) => x.slug === slug); return c ? categorieHref(c) : url('webshop/'); };
+  const oud: [string, string][] = [
+    // Maatwerk
+    ['maatwerk-teak', url('maatwerk/')],
+    ['maatwerk/waarom-maatwerk', url('maatwerk/')],
+    ['maatwerk/het-proces', url('maatwerk/')],
+    ['maatwerk/kledingkast-op-maat', url('maatwerk/')],
+    ['maatwerk/tv-meubel-maatwerk', url('maatwerk/')],
+    ['maatwerk/voorbeelden-maatwerk-teakhout', url('maatwerk/#voorbeelden')],
+    ['leverbare-kleuren-teak', url('maatwerk/')],
+    // Bedrijf
+    ['referenties', url('over-ons/#referenties')],
+    ['onze-winkels', url('contact/')],
+    ['waarom-teakhout-4-voordelen-van-teakhout', url('duurzaam/')],
+    ['waarom-teakhout/onderhoud-teakhout/kyRNeSRy64oESjmwRTcf7J/14/at-vero-eos-et-accusamus-et-iusto-odio', cat('onderhoudsmiddelen')],
+    // Zoekwoordpagina's: naar de categorie die erbij hoort, algemene naar de webshop
+    ['teak-eettafel', cat('teak-eettafels')],
+    ['teaktafel-rond', cat('teak-eettafels')],
+    ['teakhouten-keukentafel', cat('teak-eettafels')],
+    ['teakhouten-vitrinekast', cat('vitrinekasten')],
+    ['teakhouten-vitrinekast-1', cat('vitrinekasten')],
+    ['teak-badkamermeubels', cat('badkamermeubelen')],
+    ['dressoir-van-teakhout', cat('dressoirs')],
+    ['teak-woninginrichting', url('webshop/')],
+    ['meubelen-van-teakhout', url('webshop/')],
+    ['mooie-teak-meubelen', url('webshop/')],
+    ['goedkope-teak-meubels', url('webshop/')],
+    ['koloniaal-wonen', url('collecties/')],
+    ['teak-meubelen-utrecht', url('webshop/')],
+    ['teak-meubelen-amsterdam', url('webshop/')],
+    // Blog (bestaat niet meer): per artikel naar het onderwerp
+    ['blog', url('collecties/')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/24/opbergen-voor-gevorderden-10-tips', cat('kasten')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/36/de-meest-gestelde-vragen-over-maatwerk-beantwoord', url('maatwerk/')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/37/van-eettafel-tot-feesttafel-inspiratie-voor-de-kersttafel', cat('teak-eettafels')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/54/een-warm-welkom-8-inrichting-tips-voor-de-hal', cat('kleinmeubelen')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/55/interieur-inspiratie-de-landelijke-woonstijl', url('collecties/')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/57/wat-zijn-koloniale-meubels', url('collecties/')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/64/kan-ik-mijn-teakhouten-meubels-verven', cat('onderhoudsmiddelen')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/71/tips-en-inspiratie-voor-het-aanschaffen-van-een-tv-meubel', cat('teak-tv-kasten')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/72/de-sidetable-inspiratie-tips', cat('sidetables')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/73/tien-jaar-teakhuis-10-jaar-maatwerk-zonder-meerprijs', url('over-ons/')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/74/5-tips-om-de-perfecte-thuiswerkplek-te-creeren', cat('bureaus')],
+  ];
+  for (const [o, n] of oud) zet(o, n);
+  // Een productadres met een oudere categorienaam dat nog in Google staat.
+  const tv11 = producten.find((p) => p.oudeUrl?.includes('/2316/'));
+  if (tv11) zet(`${SHOP}/174/2316/teak-tv-kasten---dressoirs/tv-kast-/dressoir-11`, productHref(tv11));
   // Oude webshopcategorieen die niet meer bestaan.
   for (const [id, slug] of [['186', 'aanbiedingen'], ['231', 'gestoffeerde-meubels'], ['244', 'uitverkoop-voorraad']]) zet(`${SHOP}/${id}/${slug}`, url('webshop/'));
   // Adressen van de testversie (okt-nov 2026): bewaarde offertelijstjes en gedeelde links blijven werken.
@@ -34,6 +76,7 @@ const doel = new URL(nieuw, absoluut('')).href;
   <head>
     <meta charset="utf-8" />
     <title>Deze pagina is verhuisd | Teakhuis</title>
+    <meta name="robots" content="noindex" />
     <link rel="canonical" href={doel} />
     <meta http-equiv="refresh" content={`0; url=${nieuw}`} />
   </head>

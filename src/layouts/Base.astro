@@ -2,28 +2,31 @@
 import '../styles/global.css';
 import kopUrl from '@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2?url';
 import sansUrl from '@fontsource-variable/mulish/files/mulish-latin-wght-normal.woff2?url';
-import { site, url, absoluut } from '../data/site';
+import { site, url, absoluut, eigenPad } from '../data/site';
 
 interface Props {
   title: string;
   description: string;
   /** Absolute URL van de deelafbeelding; standaard de algemene og.jpg. */
   ogImage?: string;
-  ogType?: 'website' | 'product';
+  ogType?: 'website' | 'product' | 'article';
   /** Extra structured data (JSON-LD), bijvoorbeeld Product of BreadcrumbList. */
   schema?: object[];
   noindex?: boolean;
 }
 const { title, description, ogImage, ogType = 'website', schema = [], noindex = false } = Astro.props;
-const canonical = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site).href;
+const canonical = absoluut(eigenPad(Astro.url.pathname));
 
-// Organisatie op elke pagina: geen winkeladres (geen showroom meer), wel telefoon, mail en sociale profielen.
+// Organisatie op elke pagina, als webwinkel: geen winkeladres (sinds 2019 alleen online, per mail en telefoon), wel
+// telefoon, mail en sociale profielen. Naam en omschrijving gelijk aan seo.config.json.
 const organisatie = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': 'OnlineStore',
   '@id': `${absoluut('')}#organisatie`,
-  name: site.bv,
-  alternateName: site.naam,
+  name: site.naam,
+  legalName: site.bv,
+  description: 'Teakhuis verkoopt teakhouten meubels op bestelling, met de hand gemaakt in Indonesië en vrijwel allemaal op maat zonder meerprijs. Sinds 2019 alleen online, per mail en telefoon.',
+  areaServed: { '@type': 'Country', name: 'Nederland' },
   url: absoluut(''),
   logo: absoluut('logo.png'),
   email: site.mail,

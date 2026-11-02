@@ -36,7 +36,7 @@ const lijstSchema = {
   itemListElement: producten.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: absoluut(`${productPad(p)}/`) })),
 };
 ---
-<Base title={`Collectie ${c.naam}: teakhouten meubels in één stijl | Teakhuis`} description={beschrijving} schema={[lijstSchema, kruimelSchema(kruimel, zelf)]}>
+<Base title={`Collectie ${c.naam}: teak meubels in één stijl | Teakhuis`} description={beschrijving} schema={[lijstSchema, kruimelSchema(kruimel, zelf)]}>
   <Kop />
   <main id="inhoud">
     <section class="wrap pb-10 pt-6 md:pt-8">

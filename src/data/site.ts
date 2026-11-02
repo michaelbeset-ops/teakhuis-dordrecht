@@ -27,8 +27,9 @@ export const site = {
   kvk: inst.kvk,
   adres: inst.adres,
   usps: inst.usps,
-  // Google-bedrijfsprofiel (reviews). Zoeklink, zodat hij ook werkt als de profiel-URL verandert.
-  google: inst.google || 'https://www.google.com/maps/search/?api=1&query=Teakhuis+Dordrecht',
+  // Google-bedrijfsprofiel. Leeg = geen link: het oude profiel in Dordrecht staat op "Permanent gesloten" (nov 2026),
+  // en daar willen we bezoekers niet heen sturen. Komt er een online profiel, vul dan de link in bij Instellingen.
+  google: inst.google,
   themeColor: '#f6f3ed',
   voorstel: import.meta.env.PUBLIC_VOORSTEL === '1',
   // Op het tijdelijke github.io-adres niet indexeren: anders concurreert de testversie straks met teakhuis.nl.
@@ -66,7 +67,14 @@ export const stappen = [
   ['Bezorgen of afhalen', 'We bezorgen bij je thuis (de kosten hoor je vooraf) of je haalt hem af in Breda. Het restbedrag betaal je voor of bij levering.'],
 ];
 
-export const url = (p = '') => `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
+// Adressen zonder slash aan het eind, zoals op de oude teakhuis.nl (en zo staan ze in Google). Alleen de homepage
+// eindigt op "/". De build maakt per pagina een .html-bestand (build.format 'file'), dat GitHub Pages zonder slash serveert.
+export const url = (p = '') => {
+  const [, pad, rest] = p.replace(/^\//, '').match(/^([^?#]*)(.*)$/)!;
+  return `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${pad.replace(/\/$/, '')}${rest}`;
+};
+// Het eigen pad van de huidige pagina (zonder base, .html of slashes, bijv. 'webshop'), voor canonical en het actieve menu-item.
+export const eigenPad = (pathname: string) => pathname.slice(import.meta.env.BASE_URL.replace(/\/$/, '').length).replace(/\.html$/, '').replace(/(^|\/)index$/, '').replace(/^\/|\/$/g, '');
 export const absoluut = (p = '') => new URL(url(p), import.meta.env.SITE).href;
 export const waMet = (tekst: string) => `${site.wa}?text=${encodeURIComponent(tekst)}`;
 export const waHoi = waMet('Hallo Teakhuis, ik heb een vraag over een teakhouten meubel.');

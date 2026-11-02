@@ -8,7 +8,7 @@ import { site, url, absoluut, waHoi } from '../data/site';
 import { kruimelSchema } from '../data/seo';
 const contactSchema = { '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Contact Teakhuis', url: absoluut('contact/'), about: { '@id': `${absoluut('')}#organisatie` } };
 ---
-<Base title="Contact | Teakhuis" description={`Neem contact op met Teakhuis: bel of app ${site.tel} of mail ${site.mail}. Teakhuis heeft geen showroom meer en levert uitsluitend op bestelling.`} schema={[contactSchema, kruimelSchema([['Contact']], absoluut('contact/'))]}>
+<Base title="Contact: bel, app of mail Han | Teakhuis" description={`Neem contact op met Teakhuis: bel of app ${site.tel} of mail ${site.mail}. Teakhuis heeft geen showroom meer en levert uitsluitend op bestelling.`} schema={[contactSchema, kruimelSchema([['Contact']], absoluut('contact/'))]}>
   <Kop />
   <main id="inhoud" class="pb-24 md:pb-32">
     <section class="wrap pt-6 md:pt-8">

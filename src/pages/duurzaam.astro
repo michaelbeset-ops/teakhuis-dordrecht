@@ -1,7 +1,7 @@
 ---
 // Artikel over duurzaam Indonesisch teak, SVLK en FLEGT. Basis: tekst die Han aanleverde (nov 2026), ingekort,
 // in de je-vorm van de site en zonder bronverwijzingen in de lopende tekst.
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Kop from '../components/Kop.astro';
 import Voet from '../components/Voet.astro';
@@ -39,6 +39,7 @@ const vragen: [string, string][] = [
   ['Wat is het verschil tussen SVLK en FLEGT?', 'SVLK is de Indonesische controle van de hele houtketen. FLEGT is de Europese exportvergunning die op die controles is gebaseerd. SVLK is de basis; FLEGT komt erbij als het hout naar Europa gaat.'],
   ['Waar komt het teak van Teakhuis vandaan?', 'Wij werken met SVLK-gecertificeerd plantagehout en met gerecycled teak uit oude huizen en gebouwen op Oost-Java. De meubels worden met de hand gemaakt door onze vaste producenten in Indonesië.'],
 ];
+const deelfoto = await getImage({ src: interieur, width: 800, format: 'jpg', quality: 80 });
 const artikel = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -49,9 +50,10 @@ const artikel = {
   author: { '@id': `${absoluut('')}#organisatie` },
   publisher: { '@id': `${absoluut('')}#organisatie` },
   datePublished: '2026-11-02',
+  image: absoluut(deelfoto.src.replace(import.meta.env.BASE_URL, '')),
 };
 ---
-<Base title={`${titel} | Teakhuis`} description={omschrijving} ogType="article" schema={[artikel, vragenSchema(vragen), kruimelSchema([['Duurzaam']], absoluut('duurzaam/'))]}>
+<Base title="Duurzaam teakhout: SVLK en FLEGT uitgelegd | Teakhuis" description={omschrijving} ogType="article" ogImage={absoluut(deelfoto.src.replace(import.meta.env.BASE_URL, ''))} schema={[artikel, vragenSchema(vragen), kruimelSchema([['Duurzaam']], absoluut('duurzaam/'))]}>
   <Kop />
   <main id="inhoud">
     <section class="wrap pb-16 pt-6 md:pb-24 md:pt-8">

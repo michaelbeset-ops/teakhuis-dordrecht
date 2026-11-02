@@ -16,6 +16,6 @@ const initialen = (n: string) => (n.match(/\b\p{Lu}/gu) ?? [n[0]]).slice(0, 2).j
   <figcaption class="mt-4 flex min-h-[3.75rem] items-center gap-3 border-t border-lijn pt-4 text-sm">
     <span class="grid h-9 w-9 flex-none place-items-center rounded-full bg-zand text-xs font-extrabold text-blad-diep">{initialen(review.naam)}</span>
     <span class="min-w-0 flex-1"><span class="block font-bold">{review.naam}</span>{review.over && <span class="block text-xs text-grijs">Over een {review.over}</span>}</span>
-    {review.bron === 'google' && <a href={site.google} target="_blank" class="text-xs font-bold text-blad-diep underline underline-offset-2" rel="noopener">Bekijk op Google</a>}
+    {review.bron === 'google' && site.google && <a href={site.google} target="_blank" class="text-xs font-bold text-blad-diep underline underline-offset-2" rel="noopener">Bekijk op Google</a>}
   </figcaption>
 </figure>

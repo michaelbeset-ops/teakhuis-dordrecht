@@ -23,4 +23,26 @@ import { groepen, categorieHref } from '../data/catalogus';
     <a href={url('')} class="link mt-12 inline-flex items-center gap-2 font-bold">Naar de homepage<Icoon naam="pijl" class="h-4 w-4" /></a>
   </main>
   <Voet />
+
+  <script define:vars={{ base: url(''), ids: url('webshop/ids.json'), webshop: url('webshop/'), collecties: url('collecties/'), maatwerk: url('maatwerk/'), kat: Object.fromEntries(groepen.flatMap((g) => [g.hoofd, ...g.subs.map((s) => s.cat)]).map((c) => [c.slug, categorieHref(c)])) }}>
+    // Vangnet voor oude teakhuis.nl-adressen die niet in de doorverwijslijst staan (src/pages/[...oud].astro): oude
+    // webshoplinks gaan via het id naar het product of de categorie, blogartikelen naar de collecties en oude
+    // zoekwoordpagina's naar de categorie die in het adres genoemd wordt. Anders blijft deze 404-pagina staan.
+    const naar = (u) => location.replace(u + location.search + location.hash);
+    // Alle adressen zijn zonder slash aan het eind; een link met slash (/pad/) eerst naar /pad.
+    if (location.pathname.length > base.length && location.pathname.endsWith('/')) naar(location.pathname.replace(/\/+$/, ''));
+    const pad = decodeURIComponent(location.pathname).slice(base.length).toLowerCase();
+    const shop = location.pathname.endsWith('/') ? null : pad.match(/^webshop\/[^/]+\/(\d+)(?:\/(\d+))?/);
+    if (shop) {
+      fetch(ids).then((r) => r.json()).then(({ p, c }) => naar((shop[2] && p[shop[2]]) || c[shop[1]] || webshop)).catch(() => naar(webshop));
+    } else if (location.pathname.endsWith('/')) {
+      // al doorgestuurd hierboven
+    } else if (/^blog(\/|$)/.test(pad)) {
+      naar(collecties);
+    } else {
+      const woorden = [[/maatwerk|op-maat/, maatwerk], [/vitrine/, kat['vitrinekasten']], [/dressoir/, kat['dressoirs']], [/tv-?(meubel|kast)/, kat['teak-tv-kasten']], [/salontafel/, kat['teak-salontafels']], [/tafel/, kat['teak-eettafels']], [/badkamer|wastafel/, kat['badkamermeubelen']], [/bed(den)?(-|$)/, kat['teak-bedden']], [/boekenkast/, kat['teak-boekenkasten']], [/kast/, kat['kasten']], [/stoel|bank/, kat['teak-zitmeubelen']], [/tuin/, kat['tuinmeubelen']], [/teak|meubel/, webshop]];
+      const hit = !pad.includes('/') && woorden.find(([re, u]) => u && re.test(pad));
+      if (hit) naar(hit[1]);
+    }
+  </script>
 </Base>

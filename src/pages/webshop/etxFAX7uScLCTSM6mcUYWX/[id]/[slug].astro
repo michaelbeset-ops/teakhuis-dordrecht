@@ -8,6 +8,7 @@ import Icoon from '../../../../components/Icoon.astro';
 import { url, absoluut } from '../../../../data/site';
 import { catPaginas, groepen, categorieHref, productHref, omschrijvingHtml, platteTekst, breedtesVan, houtsoortVan, categoriePad, type CatPagina } from '../../../../data/catalogus';
 import { kruimelSchema, type Stap } from '../../../../data/seo';
+import { categorieSeo } from '../../../../data/categorie-seo';
 
 export function getStaticPaths() {
   return catPaginas.map((pagina) => {
@@ -23,9 +24,7 @@ const kruimel: Stap[] = hoofd ? [['Producten', url('webshop/')], [hoofd.naam, ca
 const intro = omschrijvingHtml(cat.intro);
 const maatwerk = producten.filter((p) => p.maatwerk).length;
 const zelf = absoluut(`${categoriePad(cat)}/`);
-const beschrijving = cat.intro
-  ? platteTekst(cat.intro).slice(0, 155).replace(/\s\S*$/, '') + '.'
-  : `${cat.naam} van teakhout bij Teakhuis: ${n} ${n === 1 ? 'ontwerp' : 'ontwerpen'}${maatwerk ? ', vrijwel allemaal ook op maat zonder meerprijs' : ''}. Met de hand gemaakt. Vraag vrijblijvend een offerte aan.`;
+const { titel, omschrijving: beschrijving } = categorieSeo(cat, producten);
 // Filters: alleen tonen wat in deze categorie echt iets onderscheidt.
 const breedteBakken: [string, number, number][] = [['Tot 100 cm', 0, 99], ['100 tot 160 cm', 100, 159], ['160 tot 220 cm', 160, 219], ['220 cm en breder', 220, 999]];
 const metBreedte = producten.filter((p) => breedtesVan(p).length).length;
@@ -41,7 +40,7 @@ const lijstSchema = {
   itemListElement: producten.slice(0, 50).map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(productHref(p), Astro.site).href, name: p.titel })),
 };
 ---
-<Base title={`${cat.naam}${/teak/i.test(cat.naam) ? '' : ' van teakhout'}${maatwerk ? ', ook op maat' : ''} | Teakhuis`} description={beschrijving} schema={[lijstSchema, kruimelSchema(kruimel, zelf)]}>
+<Base title={titel} description={beschrijving} schema={[lijstSchema, kruimelSchema(kruimel, zelf)]}>
   <Kop />
   <main id="inhoud" class="pb-20 md:pb-28">
     <section class="wrap pt-6 md:pt-8">

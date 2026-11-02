@@ -1,0 +1,158 @@
+{
+  "slug": "teakhuis",
+  "site": "https://teakhuis.nl",
+  "base": "",
+  "githubPagesUrl": "https://michaelbeset-ops.github.io/teakhuis-dordrecht/",
+  "mode": "klant",
+  "language": "nl-NL",
+  "branche": "meubels",
+  "strategy": [
+    "landelijk",
+    "ai"
+  ],
+  "brandTerms": [
+    "teakhuis",
+    "teak huis",
+    "teakhuis dordrecht",
+    "teakhuis.nl"
+  ],
+  "business": {
+    "schemaType": "OnlineStore",
+    "name": "Teakhuis",
+    "legalName": "Teakhuis B.V.",
+    "description": "Teakhuis verkoopt teakhouten meubels op bestelling, met de hand gemaakt in Indonesië en vrijwel allemaal op maat zonder meerprijs. Sinds 2019 alleen online, per mail en telefoon.",
+    "kvk": "",
+    "vatID": "",
+    "foundingYear": "2007",
+    "founder": "",
+    "showAddress": false,
+    "street": "",
+    "postalCode": "",
+    "city": "",
+    "region": "",
+    "country": "NL",
+    "geo": {},
+    "phone": "+31640220897",
+    "phoneDisplay": "06 40 22 08 97",
+    "whatsapp": "+31640220897",
+    "email": "info@teakhuis.nl",
+    "priceRange": "",
+    "openingHours": [],
+    "specialHours": [],
+    "areaServed": [
+      "Nederland"
+    ],
+    "gbpUrl": "",
+    "reviewLink": "",
+    "gbpPrimaryCategory": "",
+    "sameAs": [
+      "https://www.facebook.com/teakhuis/",
+      "https://www.instagram.com/teakhuis/",
+      "https://www.pinterest.com/teakhuisnl/"
+    ],
+    "logo": "/logo.png",
+    "image": "/og.jpg",
+    "extra": {}
+  },
+  "services": [
+    {
+      "name": "Alle teakhouten meubels",
+      "path": "/webshop",
+      "summary": "De complete collectie: tafels, kasten, zitmeubelen, slaapkamer, badkamer, tuin en accessoires.",
+      "keywords": [
+        "teak meubels",
+        "teakhouten meubels",
+        "teak meubelen kopen"
+      ]
+    },
+    {
+      "name": "Teakhouten meubels op maat",
+      "path": "/maatwerk",
+      "summary": "Elk meubel in jouw maten, zonder meerprijs voor het maatwerk. Eerst een voorstel en prijs, dan pas bestellen.",
+      "keywords": [
+        "teakhouten meubels op maat",
+        "teak meubel op maat laten maken",
+        "teakhouten tafel op maat",
+        "teakhouten kast op maat"
+      ]
+    },
+    {
+      "name": "Teak eettafels",
+      "path": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/teak-eettafels",
+      "summary": "Teakhouten eettafels, ook rond, ovaal of op maat.",
+      "keywords": [
+        "teak eettafel",
+        "teakhouten eettafel",
+        "teaktafel rond",
+        "teakhouten tafel op maat"
+      ]
+    },
+    {
+      "name": "Teak kasten",
+      "path": "/webshop/etxFAX7uScLCTSM6mcUYWX/229/kasten",
+      "summary": "Teakhouten kasten: dressoirs, tv-meubels, buffetkasten, boekenkasten en vitrinekasten.",
+      "keywords": [
+        "teak kast",
+        "teakhouten kast",
+        "teakhouten vitrinekast",
+        "teak boekenkast"
+      ]
+    },
+    {
+      "name": "Teak tv-meubels",
+      "path": "/webshop/etxFAX7uScLCTSM6mcUYWX/174/teak-tv-kasten",
+      "summary": "Teakhouten tv-meubels en lowboards, in elke breedte.",
+      "keywords": [
+        "teak tv-meubel",
+        "teakhouten tv meubel",
+        "tv meubel teak op maat"
+      ]
+    },
+    {
+      "name": "Teak badkamermeubels",
+      "path": "/webshop/etxFAX7uScLCTSM6mcUYWX/235/badkamermeubelen",
+      "summary": "Teakhouten badkamermeubels, wastafelmeubels en spiegels.",
+      "keywords": [
+        "teak badkamermeubel",
+        "teakhouten wastafelmeubel"
+      ]
+    }
+  ],
+  "llmsPages": [
+    {
+      "name": "Duurzaam teak: SVLK en FLEGT",
+      "path": "/duurzaam",
+      "summary": "Waarom Indonesisch teak een duurzame keuze is, en wat SVLK en FLEGT betekenen."
+    },
+    {
+      "name": "Collecties",
+      "path": "/collecties",
+      "summary": "Meubels per serie, in dezelfde stijl en houtsoort."
+    },
+    {
+      "name": "Over Teakhuis",
+      "path": "/over-ons",
+      "summary": "Sinds 2007 in teak, sinds 2019 alleen online en op bestelling."
+    },
+    {
+      "name": "Contact",
+      "path": "/contact",
+      "summary": "Bellen, appen of mailen met Han Rietdijk, eigenaar."
+    }
+  ],
+  "ignorePaths": [
+    "/offerte",
+    "/privacy",
+    "/404",
+    "/admin/"
+  ],
+  "gscProperty": "sc-domain:teakhuis.nl",
+  "psiUrls": [
+    "/",
+    "/webshop/etxFAX7uScLCTSM6mcUYWX/164/teak-eettafels",
+    "/webshop/etxFAX7uScLCTSM6mcUYWX/164/28682/teak-eettafels/eettafel-viking"
+  ],
+  "aiCrawlers": {
+    "training": "allow"
+  }
+}
