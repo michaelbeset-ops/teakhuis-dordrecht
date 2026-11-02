@@ -8,7 +8,7 @@ import Snelkeuze from '../../components/Snelkeuze.astro';
 import GeenFoto from '../../components/GeenFoto.astro';
 import Icoon from '../../components/Icoon.astro';
 import { url, absoluut } from '../../data/site';
-import { groepen, producten, categorieHref, breedtes, fotoKlas, sfeerFoto, type Product, type Categorie } from '../../data/catalogus';
+import { groepen, producten, categorieHref, categoriePad, breedtes, fotoKlas, sfeerFoto, type Product, type Categorie } from '../../data/catalogus';
 import { kruimelSchema } from '../../data/seo';
 
 // Omslag per categorie: de eigen foto uit het beheer, anders liefst een sfeerfoto van een product.
@@ -18,10 +18,10 @@ const lijstSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Collectie Teakhuis',
-  itemListElement: groepen.map((g, i) => ({ '@type': 'ListItem', position: i + 1, name: g.hoofd.naam, url: absoluut(`collectie/${g.hoofd.slug}/`) })),
+  itemListElement: groepen.map((g, i) => ({ '@type': 'ListItem', position: i + 1, name: g.hoofd.naam, url: absoluut(`${categoriePad(g.hoofd)}/`) })),
 };
 ---
-<Base title="Alle teakhouten meubels | Teakhuis" description={`Alle ${producten.length} teakhouten meubels van Teakhuis: eettafels, kasten, dressoirs, banken, bedden, badkamermeubels en tuinmeubelen. Vrijwel alles ook op maat, zonder meerprijs.`} schema={[lijstSchema, kruimelSchema([['Producten']], absoluut('collectie/'))]}>
+<Base title="Alle teakhouten meubels | Teakhuis" description={`Alle ${producten.length} teakhouten meubels van Teakhuis: eettafels, kasten, dressoirs, banken, bedden, badkamermeubels en tuinmeubelen. Vrijwel alles ook op maat, zonder meerprijs.`} schema={[lijstSchema, kruimelSchema([['Producten']], absoluut('webshop/'))]}>
   <Kop />
   <main id="inhoud">
     <section class="wrap pb-12 pt-6 md:pb-16 md:pt-8">
@@ -88,7 +88,7 @@ const lijstSchema = {
   </main>
   <Voet />
 
-  <script define:vars={{ index: url('collectie/zoek.json') }}>
+  <script define:vars={{ index: url('webshop/zoek.json') }}>
     // Zoeken: de kleine index (naam, link, thumbnail, prijs) wordt pas geladen als je gaat typen.
     const veld = document.querySelector('[data-zoekveld]');
     const blok = document.querySelector('[data-resultaten]');

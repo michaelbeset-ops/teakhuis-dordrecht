@@ -2,7 +2,7 @@
 // Doorverwijzingen van de oude teakhuis.nl-adressen naar de nieuwe pagina's. GitHub Pages kent geen serverredirects,
 // daarom een kleine pagina met meta refresh en canonical: Google volgt die en geeft de waarde door aan de nieuwe pagina.
 import { url, absoluut } from '../data/site';
-import { producten, categorieen, productHref, categorieHref } from '../data/catalogus';
+import { producten, categorieen, productHref, categorieHref, SHOP } from '../data/catalogus';
 
 export function getStaticPaths() {
   const naar = new Map<string, string>();
@@ -10,17 +10,20 @@ export function getStaticPaths() {
     const pad = oud.replace(/^\/+|\/+$/g, '');
     if (pad && !naar.has(pad)) naar.set(pad, nieuw);
   };
-  // Vaste pagina's van de oude site.
-  zet('webshop', url('collectie/'));
+  // Pagina's van de oude site die nu een deel van een andere pagina zijn. De webshop zelf (overzicht, categorieen en
+  // producten) staat op precies dezelfde adressen als vroeger en hoeft niet doorverwezen te worden.
   zet('maatwerk/kledingkast-op-maat', url('maatwerk/'));
   zet('maatwerk/tv-meubel-maatwerk', url('maatwerk/'));
-  zet('maatwerk/voorbeelden-maatwerk-teakhout', url('maatwerk/'));
+  zet('maatwerk/voorbeelden-maatwerk-teakhout', url('maatwerk/#voorbeelden'));
   zet('maatwerk/het-proces', url('maatwerk/'));
   zet('referenties', url('over-ons/#referenties'));
-  zet('leverbare-kleuren-teak', url('maatwerk/#aanvragen'));
-  // Elk product en elke categorie uit de oude webshop.
-  for (const p of producten) if (p.oudeUrl) zet(p.oudeUrl, productHref(p));
-  for (const c of categorieen) if (c.oudeId) zet(`webshop/etxFAX7uScLCTSM6mcUYWX/${c.oudeId}/${c.slug}`, categorieHref(c));
+  zet('leverbare-kleuren-teak', url('maatwerk/'));
+  // Oude webshopcategorieen die niet meer bestaan.
+  for (const [id, slug] of [['186', 'aanbiedingen'], ['231', 'gestoffeerde-meubels'], ['244', 'uitverkoop-voorraad']]) zet(`${SHOP}/${id}/${slug}`, url('webshop/'));
+  // Adressen van de testversie (okt-nov 2026): bewaarde offertelijstjes en gedeelde links blijven werken.
+  zet('collectie', url('webshop/'));
+  for (const p of producten) zet(`product/${p.slug}`, productHref(p));
+  for (const c of categorieen) zet(`collectie/${c.slug}`, categorieHref(c));
   return [...naar].map(([oud, nieuw]) => ({ params: { oud }, props: { nieuw } }));
 }
 const { nieuw } = Astro.props as { nieuw: string };

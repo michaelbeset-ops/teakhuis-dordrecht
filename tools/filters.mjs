@@ -5,7 +5,7 @@ const fouten = [];
 for (const [w, h] of [[1440, 900], [390, 844]]) {
   const p = await (await b.newContext({ viewport: { width: w, height: h } })).newPage();
   p.on('pageerror', (e) => fouten.push(e.message));
-  await p.goto('http://localhost:4447/collectie/tafels/', { waitUntil: 'networkidle' });
+  await p.goto('http://localhost:4447/webshop/etxFAX7uScLCTSM6mcUYWX/228/tafels/', { waitUntil: 'networkidle' });
   const zicht = () => p.evaluate(() => [...document.querySelectorAll('[data-grid] > li')].filter((l) => !l.hidden).length);
   console.log(w, 'start', await p.textContent('[data-teller]'), 'zichtbaar', await zicht());
   if (w < 1000) { await p.click('[data-paneel-open]'); await p.waitForTimeout(400); await p.screenshot({ path: 'shots/filter-paneel-390.png' }); }

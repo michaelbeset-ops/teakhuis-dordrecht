@@ -61,8 +61,14 @@ export const euro = (n: number) => {
 export const toonPrijs = (p: Product) => p.prijsTonen && p.prijsVanaf !== null;
 export const prijsTekst = (p: Product) => (toonPrijs(p) ? `v.a. ${euro(p.prijsVanaf!)}` : 'Prijs op aanvraag');
 
-export const productHref = (p: Product) => url(`product/${p.slug}/`);
-export const categorieHref = (c: Categorie) => url(`collectie/${c.slug}/`);
+// Adressen zoals op de oude webshop van teakhuis.nl, zodat de opgebouwde vindbaarheid en alle links blijven werken:
+// /webshop/etxFAX7uScLCTSM6mcUYWX/<categorie-id>/<slug> en .../<categorie-id>/<product-id>/<categorie>/<slug>.
+// Nieuwe producten en categorieen (zonder oud adres) krijgen hetzelfde patroon met "nieuw" op de plaats van de id.
+export const SHOP = 'webshop/etxFAX7uScLCTSM6mcUYWX';
+export const categoriePad = (c: Categorie) => `${SHOP}/${c.oudeId || 'nieuw'}/${c.slug}`;
+export const productPad = (p: Product) => p.oudeUrl?.replace(/^\/+|\/+$/g, '') || `${SHOP}/${p.categorie.oudeId || 'nieuw'}/nieuw/${p.categorie.slug}/${p.slug}`;
+export const productHref = (p: Product) => url(`${productPad(p)}/`);
+export const categorieHref = (c: Categorie) => url(`${categoriePad(c)}/`);
 
 // Breedte lezen via .clone: direct img.width lezen laat Astro denken dat het origineel nodig is, en dan komen
 // alle originele jpg's (70 MB) in dist naast de webp-versies.
@@ -132,7 +138,7 @@ export const groepen: Groep[] = (() => {
   return [...m.values()].filter((g) => g.producten.length).sort((a, b) => a.hoofd.volgorde - b.hoofd.volgorde);
 })();
 
-// Elke pagina /collectie/<slug>/: hoofdcategorieen en subcategorieen.
+// Elke categoriepagina (adres: categoriePad): hoofdcategorieen en subcategorieen.
 export interface CatPagina { cat: Categorie; hoofd?: Categorie; subs: Categorie[]; producten: Product[] }
 export const catPaginas: CatPagina[] = groepen.flatMap((g) => [
   { cat: g.hoofd, subs: g.subs.map((s) => s.cat), producten: g.producten },

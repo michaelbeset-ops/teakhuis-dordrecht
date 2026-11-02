@@ -32,8 +32,8 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
     <nav aria-label="Hoofdmenu" class="hidden lg:block">
       <ul class="flex items-center gap-1 font-kop text-[.95rem] font-bold [font-stretch:105%]">
         <li data-mega-li>
-          <div class={`flex items-center rounded-full transition-colors hover:bg-zand ${actief('collectie/') || actief('product/') ? 'bg-zand' : ''}`}>
-            <a href={url('collectie/')} class="whitespace-nowrap py-2.5 pl-3 no-underline xl:pl-4" aria-current={pad === url('collectie/') ? 'page' : undefined}>Producten</a>
+          <div class={`flex items-center rounded-full transition-colors hover:bg-zand ${actief('webshop/') ? 'bg-zand' : ''}`}>
+            <a href={url('webshop/')} class="whitespace-nowrap py-2.5 pl-3 no-underline xl:pl-4" aria-current={pad === url('webshop/') ? 'page' : undefined}>Producten</a>
             <button type="button" class="grid h-10 w-8 place-items-center rounded-full pr-1" aria-label="Toon de categorieën" aria-expanded="false" aria-controls="mega" data-mega-knop>
               <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-grijs transition-transform" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
@@ -46,7 +46,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
       </ul>
     </nav>
     <div class="flex flex-none items-center gap-1.5">
-      <a href={url('collectie/#zoeken')} class="grid h-11 w-11 place-items-center rounded-full text-inkt transition-colors hover:bg-zand max-sm:hidden" aria-label="Zoeken in de collectie">
+      <a href={url('webshop/#zoeken')} class="grid h-11 w-11 place-items-center rounded-full text-inkt transition-colors hover:bg-zand max-sm:hidden" aria-label="Zoeken in de collectie">
         <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
       </a>
       <a href={url('offerte/')} class="relative grid h-11 w-11 place-items-center rounded-full text-inkt ring-1 ring-lijn transition-colors hover:bg-zand" data-offerte-link>
@@ -56,7 +56,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
         <span class="sr-only" data-offerte-sr></span>
       </a>
       <a href={site.telHref} class="knop min-h-11 px-4 text-sm ring-1 ring-lijn hover:bg-zand max-xl:hidden"><Icoon naam="tel" /><span class="num">{site.tel}</span></a>
-      <a href={url('collectie/')} class="knop knop-blad min-h-11 px-5 text-sm max-md:hidden lg:max-xl:hidden">Kies je meubel</a>
+      <a href={url('webshop/')} class="knop knop-blad min-h-11 px-5 text-sm max-md:hidden lg:max-xl:hidden">Kies je meubel</a>
       <button type="button" class="flex h-11 items-center gap-2 rounded-full bg-nacht px-4 font-kop text-sm font-bold text-wit lg:hidden" aria-expanded="false" aria-controls="menu-nav" data-menu-knop>
         <svg viewBox="0 0 24 24" class="h-[1.1rem] w-[1.1rem]" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
         <span class="max-[379px]:sr-only">Menu</span>
@@ -94,7 +94,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
           </div>
           <div class="mt-8 grid gap-2">
             <a href={url('maatwerk/aanvragen/')} class="knop knop-blad w-full">Maatwerk aanvragen</a>
-            <a href={url('collectie/')} class="knop knop-glas w-full">Alle producten</a>
+            <a href={url('webshop/')} class="knop knop-glas w-full">Alle producten</a>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
 
   <!-- Menu (mobiel en tablet) -->
   <nav id="menu-nav" aria-label="Menu" class="mx-auto mt-2 max-h-[calc(100dvh-11rem)] max-w-[82rem] md:max-h-[calc(100dvh-6.5rem)] overflow-y-auto rounded-[var(--radius-xl)] bg-wit p-4 shadow-kaart ring-1 ring-lijn lg:hidden" hidden data-menu>
-    <form action={url('collectie/')} role="search" class="relative mb-2">
+    <form action={url('webshop/')} role="search" class="relative mb-2">
       <label for="menu-zoek" class="sr-only">Zoek in de collectie</label>
       <svg viewBox="0 0 24 24" class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-grijs" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
       <input id="menu-zoek" name="q" type="search" enterkeyhint="search" autocomplete="off" placeholder="Zoek een meubel, bijv. eettafel" class="veld pl-12" />
@@ -115,7 +115,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
       </summary>
       <ul class="grid grid-cols-2 gap-x-3 pb-4">
         {groepen.map((g) => <li class="min-w-0"><a href={categorieHref(g.hoofd)} class="block py-2 text-[.9375rem] font-semibold text-inkt no-underline hyphens-auto" lang="nl">{g.hoofd.naam}</a></li>)}
-        <li class="col-span-2 pt-1"><a href={url('collectie/')} class="font-bold text-blad-diep underline">Alle producten</a></li>
+        <li class="col-span-2 pt-1"><a href={url('webshop/')} class="font-bold text-blad-diep underline">Alle producten</a></li>
       </ul>
     </details>
     <ul class="font-kop text-xl font-extrabold">

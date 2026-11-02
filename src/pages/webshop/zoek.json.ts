@@ -1,4 +1,4 @@
-// Kleine zoekindex voor /collectie/: naam, link, thumbnail, prijs en categorie per product.
+// Kleine zoekindex voor /webshop/: naam, link, thumbnail, prijs en categorie per product.
 import type { APIRoute } from 'astro';
 import { getImage } from 'astro:assets';
 import { producten, productHref, eersteFoto, breedte, prijsTekst } from '../../data/catalogus';

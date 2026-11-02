@@ -62,6 +62,11 @@ teruggedraaid.
   3. DNS bij de registrar: A-records van `teakhuis.nl` naar 185.199.108.153, 185.199.109.153, 185.199.110.153 en
      185.199.111.153, en een CNAME `www` naar `michaelbeset-ops.github.io`. Daarna *Enforce HTTPS* aanzetten.
 - Oude adressen van teakhuis.nl/webshop/... sturen automatisch door naar de nieuwe productpagina's (`src/pages/[...oud].astro`).
+- Adressen: de webshop staat op precies dezelfde adressen als op de oude teakhuis.nl
+  (`/webshop/etxFAX7uScLCTSM6mcUYWX/<categorie-id>/<product-id>/<categorie>/<product>`), zodat Google-posities en
+  links van andere sites blijven werken. Het oude adres staat per product in het (verborgen) veld `oudeUrl`; nooit
+  wijzigen. Nieuwe producten krijgen hetzelfde patroon met `nieuw` als id. Oude pagina's die nu onderdeel van een andere
+  pagina zijn, verwijzen door via `src/pages/[...oud].astro`.
 - Beheer bewust minimaal gehouden: technische velden (SEO, volgorde, maatwerk, oude URL's, sociale media,
   formuliersleutels) zijn `widget: hidden` in `public/admin/config.yml`. Ze blijven bewaard bij opslaan; aanpassen
   doe je in de JSON-bestanden.
