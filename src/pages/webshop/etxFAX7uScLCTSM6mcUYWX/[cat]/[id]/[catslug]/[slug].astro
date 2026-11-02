@@ -1,24 +1,28 @@
 ---
 import { Image, getImage } from 'astro:assets';
-import Base from '../../layouts/Base.astro';
-import Kop from '../../components/Kop.astro';
-import Voet from '../../components/Voet.astro';
-import Kruimel from '../../components/Kruimel.astro';
-import Icoon from '../../components/Icoon.astro';
-import GeenFoto from '../../components/GeenFoto.astro';
-import ProductKaart from '../../components/ProductKaart.astro';
-import MaatTekening from '../../components/MaatTekening.astro';
-import ReviewKaart from '../../components/ReviewKaart.astro';
-import { site, url, absoluut, houtkleuren, stappen, reviews } from '../../data/site';
-import han from '../../assets/han.jpg';
+import Base from '../../../../../../layouts/Base.astro';
+import Kop from '../../../../../../components/Kop.astro';
+import Voet from '../../../../../../components/Voet.astro';
+import Kruimel from '../../../../../../components/Kruimel.astro';
+import Icoon from '../../../../../../components/Icoon.astro';
+import GeenFoto from '../../../../../../components/GeenFoto.astro';
+import ProductKaart from '../../../../../../components/ProductKaart.astro';
+import MaatTekening from '../../../../../../components/MaatTekening.astro';
+import ReviewKaart from '../../../../../../components/ReviewKaart.astro';
+import { site, url, absoluut, houtkleuren, stappen, reviews } from '../../../../../../data/site';
+import han from '../../../../../../assets/han.jpg';
 import {
-  producten, categorieHref, productHref, breedte, breedtes, euro, toonPrijs, prijsTekst, omschrijvingHtml, platteTekst, hoofdletter, fotoKlas, maatSoort, breedtesVan, houtsoortVan, collectieHref,
+  producten, categorieHref, productHref, breedte, breedtes, euro, toonPrijs, prijsTekst, omschrijvingHtml, platteTekst, hoofdletter, fotoKlas, maatSoort, breedtesVan, houtsoortVan, collectieHref, productPad,
   type Product,
-} from '../../data/catalogus';
-import { kruimelSchema, type Stap } from '../../data/seo';
+} from '../../../../../../data/catalogus';
+import { kruimelSchema, type Stap } from '../../../../../../data/seo';
 
 export function getStaticPaths() {
-  return producten.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+  // Het adres van de oude webshop: webshop/etx.../<cat>/<id>/<catslug>/<slug> (zie productPad).
+  return producten.map((p) => {
+    const [, , cat, id, catslug, slug] = productPad(p).split('/');
+    return { params: { cat, id, catslug, slug }, props: { p } };
+  });
 }
 const { p } = Astro.props as { p: Product };
 
@@ -94,8 +98,8 @@ const kortOmschr = (omschr.match(/[^.!?]+[.!?]+/g) ?? (omschr ? [omschr + '.'] :
 const beschrijving = p.seoOmschrijving || `${p.titel}${prijzen ? `, ${prijsTekst(p)}` : ''}. ${kortOmschr || `${cat.naam} van Teakhuis.`}${p.maatwerk ? ' Ook op maat, zonder meerprijs.' : ''} Vraag vrijblijvend een offerte aan.`;
 const titel = p.seoTitel || `${p.titel}${p.maatwerk ? ' | Op maat' : ''} | Teakhuis`;
 const ogFotos = await Promise.all(fotos.slice(0, 1).map((f) => getImage({ src: f, width: Math.min(1200, breedte(f)), format: 'jpg', quality: 75 })));
-const zelf = absoluut(`product/${p.slug}/`);
-const kruimel: Stap[] = [['Producten', url('collectie/')], ...(hoofd ? [[hoofd.naam, categorieHref(hoofd)] as Stap] : []), [cat.naam, categorieHref(cat)], [p.titel]];
+const zelf = absoluut(`${productPad(p)}/`);
+const kruimel: Stap[] = [['Producten', url('webshop/')], ...(hoofd ? [[hoofd.naam, categorieHref(hoofd)] as Stap] : []), [cat.naam, categorieHref(cat)], [p.titel]];
 const maatPrijzen = maten.map((m) => m.prijs).filter((x): x is number => typeof x === 'number');
 const productSchema = {
   '@context': 'https://schema.org',
@@ -412,8 +416,8 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
 
   <script type="application/json" id="product-data" set:html={JSON.stringify(productData).replace(/</g, '\\u003c')} />
   <script>
-    import { voegToe, regelTekst, type Regel } from '../../scripts/offerte';
-    import { meet } from '../../scripts/meet';
+    import { voegToe, regelTekst, type Regel } from '../../../../../../scripts/offerte';
+    import { meet } from '../../../../../../scripts/meet';
 
     // Galerij: één foto tegelijk, pijlen, duimnagels, toetsen en vegen; klik opent hem groot.
     const gal = document.querySelector<HTMLElement>('[data-galerij]');

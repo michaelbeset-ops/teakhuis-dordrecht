@@ -39,7 +39,7 @@ const stappen = [
 
 const titel = 'Teakhouten meubels op maat, zonder meerprijs | Teakhuis';
 const omschrijving = 'Handgemaakte teakhouten meubels van duurzaam hout: eettafels, kasten, dressoirs, bedden en tuinmeubelen. Vrijwel alles op maat zonder meerprijs. Vraag vrijblijvend een offerte aan.';
-const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.naam, url: new URL(url(''), Astro.site).href, potentialAction: { '@type': 'SearchAction', target: `${new URL(url('collectie/'), Astro.site).href}?q={zoekterm}`, 'query-input': 'required name=zoekterm' } };
+const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.naam, url: new URL(url(''), Astro.site).href, potentialAction: { '@type': 'SearchAction', target: `${new URL(url('webshop/'), Astro.site).href}?q={zoekterm}`, 'query-input': 'required name=zoekterm' } };
 ---
 <Base title={titel} description={omschrijving} schema={[webSite]}>
   <Kop />
@@ -62,7 +62,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
           <h1 class="hero-op mt-5 max-w-[13ch] text-[clamp(2.6rem,6.4vw,6.2rem)] leading-[.95]" style="--d:.08s">Teak op maat, met de hand gemaakt.</h1>
           <p class="hero-op mt-6 max-w-xl text-lg text-wit/85 md:text-xl" style="--d:.18s">Duurzaam teak, direct voor jou gemaakt. Zonder winkel en voorraad, dus voordeliger. Kies een ontwerp, geef je maten door en ontvang een vrijblijvende offerte.</p>
           <div class="hero-op mt-9 flex flex-col gap-3 sm:flex-row" style="--d:.28s">
-            <a href={url('collectie/')} class="knop knop-blad">Kies je meubel<Icoon naam="pijl" /></a>
+            <a href={url('webshop/')} class="knop knop-blad">Kies je meubel<Icoon naam="pijl" /></a>
             <a href={url('maatwerk/')} class="knop knop-glas">Iets op maat laten maken</a>
           </div>
         </div>
@@ -82,7 +82,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
           <p class="label text-blad-diep">De collectie</p>
           <h2 id="cat-kop" class="mt-3 text-4xl">Shop per categorie</h2>
         </div>
-        <a href={url('collectie/')} class="knop knop-rand min-h-11 px-5 text-sm">Alle {producten.length} ontwerpen<Icoon naam="pijl" /></a>
+        <a href={url('webshop/')} class="knop knop-rand min-h-11 px-5 text-sm">Alle {producten.length} ontwerpen<Icoon naam="pijl" /></a>
       </div>
       <ul class="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-5 lg:gap-y-10">
         {categorieKaarten.map(({ g, f }, i) => (
@@ -170,7 +170,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
             <p class="label text-blad-diep">Uit de collectie</p>
             <h2 id="pop-kop" class="mt-4 text-4xl">Uitgelicht.</h2>
             <p class="mt-5 text-lg text-grijs">Een greep uit de collectie. Elk ontwerp kun je in je eigen maat en houtkleur laten maken.</p>
-            <a href={url('collectie/')} class="knop knop-blad mt-8">Alle producten<Icoon naam="pijl" /></a>
+            <a href={url('webshop/')} class="knop knop-blad mt-8">Alle producten<Icoon naam="pijl" /></a>
           </div>
           <ul class="grid gap-3 lg:col-span-8">
             {populair.map((p, i) => {
@@ -218,7 +218,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
               ))}
             </ol>
             <div class="mt-12 flex flex-col gap-3 sm:flex-row">
-              <a href={url('collectie/')} class="knop knop-blad">Begin met kiezen<Icoon naam="pijl" /></a>
+              <a href={url('webshop/')} class="knop knop-blad">Begin met kiezen<Icoon naam="pijl" /></a>
               <a href={url('maatwerk/')} class="knop knop-glas">Meer over maatwerk</a>
             </div>
           </div>
@@ -332,7 +332,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
         </div>
         <ul class="grid content-center gap-3 bg-wit p-5 sm:p-8 lg:col-span-7 lg:p-12">
           {[
-            { href: url('collectie/'), icoon: 'lijst', t: 'Kies uit de collectie', z: 'Kies maat en houtkleur en zet het in je offerteaanvraag.' },
+            { href: url('webshop/'), icoon: 'lijst', t: 'Kies uit de collectie', z: 'Kies maat en houtkleur en zet het in je offerteaanvraag.' },
             { href: url('maatwerk/'), icoon: 'liniaal', t: 'Laat iets op maat maken', z: 'Geef het meubel, de maten en de kleur door. Wij tekenen het uit.' },
             { href: waHoi, icoon: 'wa', t: 'Stuur een foto via WhatsApp', z: 'Een foto of schets zegt vaak meer dan woorden.' },
           ].map((a) => (

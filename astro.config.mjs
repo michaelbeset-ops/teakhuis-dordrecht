@@ -8,8 +8,9 @@ import sitemap from '@astrojs/sitemap';
 const site = process.env.SITE_URL || 'https://teakhuis.nl';
 const base = process.env.BASE_PATH || '/';
 
-// Niet in de sitemap: beheer, de offertelijst (persoonlijk) en de doorverwijzingen van de oude webshop.
-const uitSitemap = ['/admin', '/offerte', '/webshop', '/maatwerk/', '/404', '/referenties', '/leverbare-kleuren-teak'];
+// Niet in de sitemap: beheer, de offertelijst (persoonlijk) en de doorverwijzingen (zie src/pages/[...oud].astro).
+// De webshop staat er wel in: die heeft dezelfde adressen als op de oude site.
+const uitSitemap = ['/admin', '/offerte', '/404', '/referenties', '/leverbare-kleuren-teak', '/collectie/', '/product/', '/maatwerk/kledingkast', '/maatwerk/tv-meubel', '/maatwerk/voorbeelden', '/maatwerk/het-proces', '/webshop/etxFAX7uScLCTSM6mcUYWX/186/', '/webshop/etxFAX7uScLCTSM6mcUYWX/231/', '/webshop/etxFAX7uScLCTSM6mcUYWX/244/'];
 
 export default defineConfig({
   site,
@@ -20,7 +21,7 @@ export default defineConfig({
   integrations: [sitemap({
     filter: (page) => {
       const pad = new URL(page).pathname.slice(base.replace(/\/$/, '').length);
-      return pad === '/maatwerk/' || !uitSitemap.some((u) => pad.startsWith(u));
+      return !uitSitemap.some((u) => pad.startsWith(u));
     },
   })],
   vite: { plugins: [tailwindcss()] },

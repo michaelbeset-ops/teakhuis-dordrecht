@@ -7,7 +7,7 @@ import Kruimel from '../../components/Kruimel.astro';
 import Icoon from '../../components/Icoon.astro';
 import ProductKaart from '../../components/ProductKaart.astro';
 import { url, absoluut } from '../../data/site';
-import { collecties, collectieHref, omschrijvingHtml, platteTekst, type CollectieGroep } from '../../data/catalogus';
+import { collecties, collectieHref, productPad, omschrijvingHtml, platteTekst, type CollectieGroep } from '../../data/catalogus';
 import { kruimelSchema, type Stap } from '../../data/seo';
 
 export function getStaticPaths() {
@@ -33,7 +33,7 @@ const lijstSchema = {
   '@type': 'ItemList',
   name: `Collectie ${c.naam}`,
   numberOfItems: n,
-  itemListElement: producten.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: absoluut(`product/${p.slug}/`) })),
+  itemListElement: producten.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: absoluut(`${productPad(p)}/`) })),
 };
 ---
 <Base title={`Collectie ${c.naam}: teakhouten meubels in één stijl | Teakhuis`} description={beschrijving} schema={[lijstSchema, kruimelSchema(kruimel, zelf)]}>

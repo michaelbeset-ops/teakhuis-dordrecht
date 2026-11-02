@@ -1,25 +1,28 @@
 ---
-import Base from '../../layouts/Base.astro';
-import Kop from '../../components/Kop.astro';
-import Voet from '../../components/Voet.astro';
-import Kruimel from '../../components/Kruimel.astro';
-import ProductKaart from '../../components/ProductKaart.astro';
-import Icoon from '../../components/Icoon.astro';
-import { url, absoluut } from '../../data/site';
-import { catPaginas, groepen, categorieHref, productHref, omschrijvingHtml, platteTekst, breedtesVan, houtsoortVan, type CatPagina } from '../../data/catalogus';
-import { kruimelSchema, type Stap } from '../../data/seo';
+import Base from '../../../../layouts/Base.astro';
+import Kop from '../../../../components/Kop.astro';
+import Voet from '../../../../components/Voet.astro';
+import Kruimel from '../../../../components/Kruimel.astro';
+import ProductKaart from '../../../../components/ProductKaart.astro';
+import Icoon from '../../../../components/Icoon.astro';
+import { url, absoluut } from '../../../../data/site';
+import { catPaginas, groepen, categorieHref, productHref, omschrijvingHtml, platteTekst, breedtesVan, houtsoortVan, categoriePad, type CatPagina } from '../../../../data/catalogus';
+import { kruimelSchema, type Stap } from '../../../../data/seo';
 
 export function getStaticPaths() {
-  return catPaginas.map((pagina) => ({ params: { slug: pagina.cat.slug }, props: { pagina } }));
+  return catPaginas.map((pagina) => {
+    const [, , id, slug] = categoriePad(pagina.cat).split('/');
+    return { params: { id, slug }, props: { pagina } };
+  });
 }
 const { pagina } = Astro.props as { pagina: CatPagina };
 const { cat, hoofd, subs, producten } = pagina;
 const n = producten.length;
 const ouder = hoofd ?? cat;
-const kruimel: Stap[] = hoofd ? [['Producten', url('collectie/')], [hoofd.naam, categorieHref(hoofd)], [cat.naam]] : [['Producten', url('collectie/')], [cat.naam]];
+const kruimel: Stap[] = hoofd ? [['Producten', url('webshop/')], [hoofd.naam, categorieHref(hoofd)], [cat.naam]] : [['Producten', url('webshop/')], [cat.naam]];
 const intro = omschrijvingHtml(cat.intro);
 const maatwerk = producten.filter((p) => p.maatwerk).length;
-const zelf = absoluut(`collectie/${cat.slug}/`);
+const zelf = absoluut(`${categoriePad(cat)}/`);
 const beschrijving = cat.intro
   ? platteTekst(cat.intro).slice(0, 155).replace(/\s\S*$/, '') + '.'
   : `${cat.naam} van teakhout bij Teakhuis: ${n} ${n === 1 ? 'ontwerp' : 'ontwerpen'}${maatwerk ? ', vrijwel allemaal ook op maat zonder meerprijs' : ''}. Met de hand gemaakt. Vraag vrijblijvend een offerte aan.`;
@@ -56,7 +59,7 @@ const lijstSchema = {
         <div class="rounded-[var(--radius-xl)] bg-wit p-5 ring-1 ring-lijn">
           <p class="label text-grijs">Categorieën</p>
           <ul class="mt-3 space-y-0.5">
-            <li><a href={url('collectie/')} class="flex items-center justify-between rounded-[var(--radius-sm)] px-3 py-2 text-sm font-semibold text-inkt no-underline hover:bg-zand">Hele collectie</a></li>
+            <li><a href={url('webshop/')} class="flex items-center justify-between rounded-[var(--radius-sm)] px-3 py-2 text-sm font-semibold text-inkt no-underline hover:bg-zand">Hele collectie</a></li>
             {groepen.map((g) => {
               const open = g.hoofd.slug === ouder.slug;
               return (

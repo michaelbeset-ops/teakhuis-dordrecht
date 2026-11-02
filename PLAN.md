@@ -12,7 +12,7 @@ verwijderen. Maatstaf voor het winkelgevoel: afzetbak.nl (configureren in stappe
 
 ## Opbouw
 Home, collectie, 37 categoriepagina's, 508 productpagina's, maatwerk, over ons, contact, offerte, privacy, 404,
-plus doorverwijzingen van alle oude webshop-adressen.
+met de webshop op dezelfde adressen als de oude site (geen doorverwijzing nodig).
 
 ## Productpagina
 Maat kiezen (standaardmaten met indicatieprijs, of "Andere maat" met eigen B/D/H), houtkleur, aantal en wensen.

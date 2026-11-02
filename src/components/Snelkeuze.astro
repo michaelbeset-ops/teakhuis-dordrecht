@@ -3,7 +3,7 @@
 import { url } from '../data/site';
 interface Props { actief: 'producten' | 'collecties' }
 const { actief } = Astro.props;
-const knoppen: [string, string, string][] = [['producten', url('collectie/'), 'Producten'], ['collecties', url('collecties/'), 'Collecties'], ['maatwerk', url('maatwerk/'), 'Maatwerk'], ['contact', url('contact/'), 'Contact']];
+const knoppen: [string, string, string][] = [['producten', url('webshop/'), 'Producten'], ['collecties', url('collecties/'), 'Collecties'], ['maatwerk', url('maatwerk/'), 'Maatwerk'], ['contact', url('contact/'), 'Contact']];
 ---
 <nav aria-label="Snel naar" class="mt-8 flex flex-wrap gap-2">
   {knoppen.map(([id, href, t]) => (
