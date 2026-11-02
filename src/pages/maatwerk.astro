@@ -11,8 +11,13 @@ import MaatwerkProjecten from '../components/MaatwerkProjecten.astro';
 import { site, url, absoluut, waHoi, stappen } from '../data/site';
 import { kruimelSchema, vragenSchema } from '../data/seo';
 import tekening from '../assets/mw-kledingkast-tekening.jpg';
+import barkast from '../assets/uniek-barkast.jpg';
 
 const aanvragen = url('maatwerk/aanvragen/');
+// Unieke maatwerkmeubels waar (nog) geen tekening bij is: alleen het eindresultaat. Nieuwe foto's hier toevoegen.
+const uniek = [
+  { img: barkast, naam: 'Barkast met glazenrek', tekst: 'Teak met een zwart stalen frame, een rek voor wijnglazen onder het blad, twee deuren en vier lades.', alt: 'Teakhouten barkast met zwart stalen frame, hangende wijnglazen onder het blad, twee deuren en vier lades' },
+];
 const idee = ['Een omschrijving van je wensen', 'Een foto van een bestaand meubel', 'Een schets op papier', 'Een bouwtekening', 'Een afbeelding gemaakt met AI', 'Inspiratiefoto\'s van internet of social media'];
 const waarom = ['Bijna 20 jaar ervaring met maatwerk in teak', 'Geen meerprijs voor maatwerk', 'Duurzaam Indonesisch teakhout', 'Vrijblijvend ontwerp en advies', 'Persoonlijke begeleiding, van ontwerp tot levering', 'Met de hand gemaakt door ervaren vakmensen', 'Duidelijke prijzen, zonder verrassingen'];
 const vragen: [string, string][] = [
@@ -124,6 +129,24 @@ const dienst = {
           <p class="text-lg text-grijs lg:col-span-5 lg:col-start-8">Maatwerkprojecten van klanten: de tekening met hun maten, en het meubel dat ervan gemaakt is.</p>
         </div>
         <MaatwerkProjecten />
+
+        <div class="mt-20 grid grid-cols-1 gap-y-8 border-t border-lijn pt-14 lg:grid-cols-12 lg:gap-x-12 md:mt-28">
+          <div class="lg:col-span-4">
+            <h3 class="font-kop text-3xl">Uniek op maat.</h3>
+            <p class="mt-4 text-lg text-grijs">Meubels die je nergens in een winkel vindt, helemaal naar de wens van de klant gemaakt.</p>
+            <a href={aanvragen} class="knop knop-blad mt-8">Maatwerk aanvragen<Icoon naam="pijl" /></a>
+          </div>
+          <ul class={`grid gap-6 lg:col-span-8 ${uniek.length > 1 ? 'sm:grid-cols-2' : ''}`}>
+            {uniek.map((u) => (
+              <li>
+                <figure>
+                  <Image src={u.img} alt={u.alt} quality={76} widths={[480, 800, 1200, 1600]} sizes={uniek.length > 1 ? '(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw' : '(min-width: 1344px) 820px, (min-width: 1024px) 62vw, 92vw'} loading="lazy" class="aspect-[4/3] w-full rounded-[var(--radius-md)] object-cover" />
+                  <figcaption class="mt-4"><span class="block font-kop text-xl">{u.naam}</span><span class="mt-1 block text-grijs">{u.tekst}</span></figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
 
