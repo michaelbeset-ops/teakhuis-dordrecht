@@ -1,0 +1,17 @@
+---
+// Uitklapbare veelgestelde vragen (zelfde opmaak als op de productpagina). Zet vragenSchema() in de pagina voor Google.
+import Icoon from './Icoon.astro';
+interface Props { vragen: [string, string][]; class?: string }
+const { vragen, class: klasse = '' } = Astro.props;
+---
+<div class={`divide-y divide-lijn border-y border-lijn ${klasse}`}>
+  {vragen.map(([q, a]) => (
+    <details class="group py-1">
+      <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-kop text-lg font-bold [&::-webkit-details-marker]:hidden">
+        {q}
+        <span class="grid h-8 w-8 flex-none place-items-center rounded-full ring-1 ring-lijn-2 transition-transform group-open:rotate-45" aria-hidden="true"><Icoon naam="plus" class="h-3.5 w-3.5" /></span>
+      </summary>
+      <p class="max-w-2xl pb-5 leading-relaxed text-grijs">{a}</p>
+    </details>
+  ))}
+</div>

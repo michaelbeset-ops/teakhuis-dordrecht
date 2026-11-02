@@ -1,0 +1,211 @@
+---
+// Artikel over duurzaam Indonesisch teak, SVLK en FLEGT. Basis: tekst die Han aanleverde (nov 2026), ingekort,
+// in de je-vorm van de site en zonder bronverwijzingen in de lopende tekst.
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Kop from '../components/Kop.astro';
+import Voet from '../components/Voet.astro';
+import Icoon from '../components/Icoon.astro';
+import Kruimel from '../components/Kruimel.astro';
+import Vragen from '../components/Vragen.astro';
+import { url, absoluut } from '../data/site';
+import { kruimelSchema, vragenSchema } from '../data/seo';
+import interieur from '../assets/duurzaam-interieur.jpg';
+import plantage from '../assets/duurzaam-plantage.jpg';
+import werkplaats from '../assets/duurzaam-werkplaats.jpg';
+import tuinset from '../assets/duurzaam-tuinset.jpg';
+
+const titel = 'Duurzaam Indonesisch teakhout: SVLK, FLEGT en verantwoord bosbeheer';
+const omschrijving = 'Waarom Indonesisch teakhout een duurzame keuze is. Alles over SVLK-certificering, FLEGT-vergunningen, traceerbaarheid en verantwoord bosbeheer.';
+
+const duurzaam = [
+  ['Gaat tientallen jaren mee', 'Een teakhouten meubel hoeft veel minder snel vervangen te worden dan een meubel van zachthout, kunststof of metaal.'],
+  ['Bestand tegen weer en wind', 'Teak heeft van nature een hoog oliegehalte en is daardoor bestand tegen vocht, schimmels en insecten.'],
+  ['Weinig onderhoud', 'Binnen is af en toe afstoffen genoeg; buiten vergrijst teak mooi zonder dat het slechter wordt.'],
+  ['Hernieuwbaar en afbreekbaar', 'Uit verantwoord beheerde bossen groeit het hout steeds opnieuw aan, en aan het eind van zijn leven is het volledig recyclebaar.'],
+];
+const svlk = ['Legale herkomst van het hout', 'Geldige kapvergunningen', 'Transportdocumenten', 'Verwerking en productie', 'Exportdocumenten', 'Traceerbaarheid door de hele keten'];
+const verschil: [string, string, string][] = [
+  ['Wat is het?', 'Indonesisch controlesysteem', 'Europese handelsregeling'],
+  ['Wat doet het?', 'Controleert legaliteit en traceerbaarheid', 'Bevestigt dat aan de afspraken met de EU is voldaan'],
+  ['Waar geldt het?', 'In de hele houtketen', 'Bij export naar de Europese markt'],
+  ['Wanneer?', 'Verplicht binnen Indonesië', 'Afgegeven per exportzending naar de EU'],
+];
+const keten = ['Bosbeheer en kap', 'Transport van de stammen', 'Zagerij en verwerking', 'Productie van het meubel', 'Exportdocumenten', 'Levering aan jou'];
+const vragen: [string, string][] = [
+  ['Is teakhout duurzaam?', 'Ja, als het uit verantwoord beheerde bossen of plantages komt. Teak gaat tientallen jaren mee, heeft weinig onderhoud nodig en is volledig recyclebaar. In Indonesië controleert het SVLK-systeem of het hout legaal en traceerbaar is.'],
+  ['Wat is SVLK?', 'SVLK (Sistem Verifikasi Legalitas Kayu) is het Indonesische systeem dat de legaliteit van hout controleert, van het bos tot de export. Het bestaat sinds 2009 en is verplicht voor de hele Indonesische houtsector.'],
+  ['Wat is een FLEGT-vergunning?', 'FLEGT (Forest Law Enforcement, Governance and Trade) is een programma van de Europese Unie tegen illegale houtkap. Een FLEGT-vergunning bevestigt dat een zending hout legaal is geoogst en voldoet aan de afspraken tussen Indonesië en de EU. Indonesië geeft deze vergunningen sinds november 2016 af, als eerste land ter wereld.'],
+  ['Wat is het verschil tussen SVLK en FLEGT?', 'SVLK is de Indonesische controle van de hele houtketen. FLEGT is de Europese exportvergunning die op die controles is gebaseerd. SVLK is de basis; FLEGT komt erbij als het hout naar Europa gaat.'],
+  ['Waar komt het teak van Teakhuis vandaan?', 'Wij werken met SVLK-gecertificeerd plantagehout en met gerecycled teak uit oude huizen en gebouwen op Oost-Java. De meubels worden met de hand gemaakt door onze vaste producenten in Indonesië.'],
+];
+const artikel = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: titel,
+  description: omschrijving,
+  inLanguage: 'nl-NL',
+  mainEntityOfPage: absoluut('duurzaam/'),
+  author: { '@id': `${absoluut('')}#organisatie` },
+  publisher: { '@id': `${absoluut('')}#organisatie` },
+  datePublished: '2026-11-02',
+};
+---
+<Base title={`${titel} | Teakhuis`} description={omschrijving} ogType="article" schema={[artikel, vragenSchema(vragen), kruimelSchema([['Duurzaam']], absoluut('duurzaam/'))]}>
+  <Kop />
+  <main id="inhoud">
+    <section class="wrap pb-16 pt-6 md:pb-24 md:pt-8">
+      <Kruimel stappen={[['Duurzaam']]} />
+      <div class="mt-10 grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:items-end lg:gap-x-12">
+        <div class="lg:col-span-7">
+          <p class="label text-blad-diep">Duurzaam Indonesisch teakhout</p>
+          <h1 class="mt-4 text-hero">Gaat generaties mee. <span class="cursief">Legaal en traceerbaar.</span></h1>
+          <p class="mt-6 max-w-xl text-lg text-grijs md:text-xl">Teak uit Indonesië is sterk, mooi en gaat tientallen jaren mee. Maar duurzaam is meer dan sterk hout: je wilt ook zeker weten dat het uit verantwoord beheerde bossen komt. Daarvoor heeft Indonesië een van de strengste controlesystemen ter wereld, SVLK, met de Europese FLEGT-vergunning erbovenop.</p>
+        </div>
+        <figure class="lg:col-span-5">
+          <Image src={interieur} alt="Eetkamer met een teakhouten tafel, een hoge kast, een boekenkast met lades en een dressoir" quality={78} widths={[480, 800]} sizes="(min-width: 1024px) 40vw, 100vw" loading="eager" class="aspect-[4/3] w-full rounded-[var(--radius-md)] object-cover" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- Wat maakt teak duurzaam -->
+    <section class="bg-wit py-20 md:py-28" aria-labelledby="waarom-kop">
+      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-4">
+          <h2 id="waarom-kop" class="text-4xl">Wat maakt teak duurzaam?</h2>
+          <p class="mt-5 text-lg text-grijs">Een product is pas echt duurzaam als het over zijn hele leven weinig impact heeft op mens en milieu. Teak scoort daar hoog op.</p>
+        </div>
+        <ul class="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
+          {duurzaam.map(([k, t]) => (
+            <li class="border-t border-lijn pt-5">
+              <p class="flex items-center gap-2.5 font-kop text-xl"><Icoon naam="vink" class="h-5 w-5 flex-none text-blad-diep" />{k}</p>
+              <p class="mt-2 text-grijs">{t}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- SVLK -->
+    <section class="py-20 md:py-28" aria-labelledby="svlk-kop">
+      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-6">
+          <p class="label text-blad-diep">SVLK-certificering</p>
+          <h2 id="svlk-kop" class="mt-3 text-4xl">Wat is SVLK?</h2>
+          <div class="mt-6 space-y-5 text-lg text-grijs">
+            <p>SVLK staat voor <em>Sistem Verifikasi Legalitas Kayu</em>: het Indonesische systeem dat controleert of hout legaal is. Het is in 2009 ingevoerd om illegale houtkap tegen te gaan, en is verplicht voor de hele Indonesische houtsector.</p>
+            <p>SVLK volgt het hout van het bos tot het eindproduct en de export. Zo weet je als koper precies waar het hout vandaan komt.</p>
+          </div>
+        </div>
+        <div class="lg:col-span-5 lg:col-start-8">
+          <p class="font-kop text-xl">SVLK controleert onder andere:</p>
+          <ul class="mt-4 divide-y divide-lijn border-y border-lijn">
+            {svlk.map((s) => <li class="flex items-center gap-3 py-3.5"><Icoon naam="vink" class="h-4 w-4 flex-none text-blad-diep" />{s}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLEGT + verschil -->
+    <section class="bg-zand py-20 md:py-28" aria-labelledby="flegt-kop">
+      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-5">
+          <p class="label text-blad-diep">FLEGT-vergunning</p>
+          <h2 id="flegt-kop" class="mt-3 text-4xl">Wat is FLEGT?</h2>
+          <div class="mt-6 space-y-5 text-lg text-grijs">
+            <p>FLEGT staat voor <em>Forest Law Enforcement, Governance and Trade</em>: een programma van de Europese Unie tegen illegale houtkap.</p>
+            <p>Indonesië was in november 2016 het eerste land ter wereld dat officieel FLEGT-vergunningen mocht afgeven. Zo'n vergunning bevestigt dat het hout legaal is geoogst, voldoet aan de Indonesische wet, een aantoonbare herkomst heeft en voldoet aan de afspraken met de EU.</p>
+          </div>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7">
+          <h3 class="font-kop text-2xl">SVLK en FLEGT: wat is het verschil?</h3>
+          <div class="mt-5 overflow-x-auto rounded-[var(--radius-md)] bg-wit ring-1 ring-lijn">
+            <table class="w-full min-w-[30rem] text-left text-[.95rem]">
+              <thead>
+                <tr class="border-b border-lijn"><th class="w-[28%] p-4"><span class="sr-only">Onderwerp</span></th><th class="p-4 font-kop text-lg">SVLK</th><th class="p-4 font-kop text-lg">FLEGT</th></tr>
+              </thead>
+              <tbody>
+                {verschil.map(([k, a, b]) => <tr class="border-b border-lijn last:border-0"><th scope="row" class="p-4 align-top font-semibold text-grijs">{k}</th><td class="p-4 align-top">{a}</td><td class="p-4 align-top">{b}</td></tr>)}
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-5 text-grijs"><strong class="text-inkt">Kort gezegd:</strong> SVLK is de basis, FLEGT is de exportvergunning die op die controles is gebaseerd.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bosbeheer -->
+    <section class="py-20 md:py-28" aria-labelledby="bos-kop">
+      <div class="wrap grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:items-center lg:gap-x-12">
+        <figure class="lg:col-span-6">
+          <Image src={plantage} alt="Rijen jonge teakbomen in een plantage, met rechts de stam van een volgroeide teakboom" quality={80} widths={[474]} sizes="(min-width: 1024px) 45vw, 100vw" class="aspect-[3/2] w-full rounded-[var(--radius-md)] object-cover" />
+          <figcaption class="mt-3 text-xs text-grijs">Teakplantage op Java</figcaption>
+        </figure>
+        <div class="lg:col-span-5 lg:col-start-8">
+          <h2 id="bos-kop" class="text-4xl">Verantwoord bosbeheer.</h2>
+          <p class="mt-6 text-lg text-grijs">Een groot deel van het Indonesische teak komt uit gecontroleerde plantages en beheerde bosgebieden. Daar wordt gewerkt volgens de principes van duurzaam bosbeheer:</p>
+          <ul class="mt-6 space-y-3">
+            {['Gekapte bomen worden herplant', 'De biodiversiteit wordt beschermd', 'Bosgebieden worden voor de lange termijn beheerd', 'Lokale gemeenschappen houden werk en inkomen'].map((t) => <li class="flex gap-3"><Icoon naam="vink" class="mt-1 h-4 w-4 flex-none text-blad-diep" />{t}</li>)}
+          </ul>
+          <p class="mt-6 text-grijs">Zo blijft er ook voor toekomstige generaties teak over.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Van boom tot meubel -->
+    <section class="bg-nacht py-20 text-wit md:py-28" aria-labelledby="keten-kop">
+      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-4">
+          <h2 id="keten-kop" class="text-4xl">Van boom tot meubel.</h2>
+          <p class="mt-5 max-w-sm text-as">Elke stap is gecontroleerd: dat is het grootste voordeel van SVLK. Zo is aan te tonen dat je meubel uit een legale en gecontroleerde keten komt.</p>
+        </div>
+        <ol class="grid gap-x-8 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
+          {keten.map((t, i) => (
+            <li class="flex items-baseline gap-4 border-t border-lijn-d py-5">
+              <span class="num font-kop text-3xl text-blad-licht">{i + 1}</span>
+              <span class="font-kop text-xl">{t}</span>
+            </li>
+          ))}
+        </ol>
+        <figure class="lg:col-span-12">
+          <Image src={werkplaats} alt="Drie meubelmakers aan het werk in een werkplaats in Indonesië, tussen stapels teakhout en een kast in aanbouw" quality={74} widths={[640, 960, 1280, 1500]} sizes="(min-width: 1344px) 1240px, 92vw" class="aspect-[16/9] w-full rounded-[var(--radius-md)] object-cover object-[50%_60%] md:aspect-[21/9]" />
+          <figcaption class="mt-3 text-xs text-as">In de werkplaats van een van onze producenten in Indonesië</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Waarom belangrijk + conclusie -->
+    <section class="py-20 md:py-28" aria-labelledby="jij-kop">
+      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-6">
+          <h2 id="jij-kop" class="text-4xl">Waarom is dit belangrijk voor jou?</h2>
+          <p class="mt-6 text-lg text-grijs">Steeds meer mensen willen weten waar hun spullen vandaan komen. Met gecertificeerd Indonesisch teak draag je bij aan:</p>
+          <ul class="mt-6 space-y-3">
+            {['Het tegengaan van illegale houtkap', 'Verantwoord bosbeheer', 'Eerlijke, transparante handel', 'Zuiniger gebruik van natuurlijke grondstoffen'].map((t) => <li class="flex gap-3"><Icoon naam="vink" class="mt-1 h-4 w-4 flex-none text-blad-diep" />{t}</li>)}
+          </ul>
+          <p class="mt-6 text-lg text-grijs">En je koopt een meubel dat tientallen jaren meegaat, binnen of in de tuin. Dat is misschien wel de meest duurzame keuze van allemaal.</p>
+          <div class="mt-10 rounded-[var(--radius-md)] bg-wit p-6 ring-1 ring-lijn md:p-8">
+            <p class="font-kop text-2xl">Ons hout</p>
+            <p class="mt-3 text-grijs">Teakhuis werkt met SVLK-gecertificeerd plantagehout en met gerecycled teak uit oude huizen en gebouwen op Oost-Java. Elk meubel wordt met de hand gemaakt door onze vaste producenten, die we twee keer per jaar zelf bezoeken.</p>
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a href={url('collectie/')} class="knop knop-blad">Bekijk de collectie<Icoon naam="pijl" /></a>
+              <a href={url('maatwerk/')} class="knop knop-rand">Meubel op maat</a>
+            </div>
+          </div>
+        </div>
+        <figure class="lg:col-span-5 lg:col-start-8">
+          <Image src={tuinset} alt="Massief teakhouten tuintafel met bank op een grasveld voor een huis" quality={76} widths={[480, 720, 1000]} sizes="(min-width: 1024px) 38vw, 100vw" class="aspect-[4/5] w-full rounded-[var(--radius-md)] object-cover" />
+          <figcaption class="mt-3 text-xs text-grijs">Teak in de tuin: jaren buiten, weinig onderhoud</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="bg-wit py-20 md:py-28" aria-labelledby="vragen-kop">
+      <div class="wrap grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-12">
+        <h2 id="vragen-kop" class="text-4xl lg:col-span-4">Vaak gevraagd.</h2>
+        <Vragen vragen={vragen} class="lg:col-span-7 lg:col-start-6" />
+      </div>
+    </section>
+  </main>
+  <Voet />
+</Base>

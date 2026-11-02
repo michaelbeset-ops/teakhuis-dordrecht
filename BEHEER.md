@@ -82,6 +82,10 @@ teruggedraaid.
   5. *Account > General*: noteer de **Public Key**. Zet onder *Security* de toegestane domeinen op teakhuis.nl en
      michaelbeset-ops.github.io.
   6. Vul de waarden in bij `emailjs` in `src/data/instellingen.json` en push.
+  7. Foto's bij maatwerk (formulier op /maatwerk/aanvragen/): open de template voor Teakhuis, tab *Attachments* >
+     *Add Attachment* > *Form File Attachment*, parameter name `fotos`. Foto's worden in de browser verkleind (max.
+     1600 px), maar het gratis plan laat maar weinig KB aan bijlagen toe; reken op een betaald plan. Lukt het
+     meesturen niet, dan gaat de aanvraag zonder foto's en vraagt de site de klant ze via WhatsApp te sturen.
   Zonder EmailJS valt het formulier terug op Web3Forms (`web3formsKey`, platte tekst) en anders op het mailprogramma.
   Testen zonder te versturen: `node tools/mailtest.mjs` (bewaart de mail als `shots/mail.html`).
 - Statistiek (zonder cookies, dus zonder cookiemelding): vul in `src/data/instellingen.json` bij `statistiek` óf

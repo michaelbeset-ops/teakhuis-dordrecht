@@ -14,3 +14,10 @@ export const kruimelSchema = (stappen: Stap[], hier: string) => ({
     item: i === a.length - 1 ? hier : new URL(href!, absoluut('')).href,
   })),
 });
+
+// Veelgestelde vragen als FAQPage; dezelfde lijst wordt op de pagina getoond.
+export const vragenSchema = (vragen: [string, string][]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: vragen.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+});

@@ -1,17 +1,28 @@
 ---
+// Maatwerkpagina, op basis van de tekst van Han (nov 2026). Aanvragen gaat via een eigen formulier (maatwerk/aanvragen/).
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Kop from '../components/Kop.astro';
 import Voet from '../components/Voet.astro';
 import Icoon from '../components/Icoon.astro';
 import Kruimel from '../components/Kruimel.astro';
+import Vragen from '../components/Vragen.astro';
 import MaatwerkProjecten from '../components/MaatwerkProjecten.astro';
-import { site, url, absoluut, waHoi, houtkleuren, maatwerkExtra, stappen } from '../data/site';
-import { kruimelSchema } from '../data/seo';
+import { site, url, absoluut, waHoi, stappen } from '../data/site';
+import { kruimelSchema, vragenSchema } from '../data/seo';
 import tekening from '../assets/mw-kledingkast-tekening.jpg';
 
-// Meubels die Teakhuis zelf noemt op de maatwerkpagina's en in de webshopcategorieen.
-const meubels = ['Kledingkast', 'Tv-meubel', 'Eettafel', 'Dressoir', 'Buffetkast', 'Boekenkast', 'Vitrinekast', 'Bureau', 'Salontafel', 'Badkamermeubel', 'Bed', 'Tuintafel', 'Iets anders'];
+const aanvragen = url('maatwerk/aanvragen/');
+const idee = ['Een omschrijving van je wensen', 'Een foto van een bestaand meubel', 'Een schets op papier', 'Een bouwtekening', 'Een afbeelding gemaakt met AI', 'Inspiratiefoto\'s van internet of social media'];
+const waarom = ['Bijna 20 jaar ervaring met maatwerk in teak', 'Geen meerprijs voor maatwerk', 'Duurzaam Indonesisch teakhout', 'Vrijblijvend ontwerp en advies', 'Persoonlijke begeleiding, van ontwerp tot levering', 'Met de hand gemaakt door ervaren vakmensen', 'Duidelijke prijzen, zonder verrassingen'];
+const vragen: [string, string][] = [
+  ['Wat kost een teakhouten meubel op maat?', 'Dat hangt af van de maten, de uitvoering en het ontwerp. Voor aanpassingen aan een bestaand model rekenen we geen meerprijs. Wordt het meubel groter, dan stijgt de prijs naar verhouding mee; wordt het kleiner, dan kan hij juist lager uitvallen.'],
+  ['Kan ik een foto of AI-afbeelding als voorbeeld gebruiken?', 'Ja. We werken vanaf foto\'s, schetsen, bouwtekeningen en afbeeldingen die met AI zijn gemaakt.'],
+  ['Moet ik een aanbetaling doen?', 'Ja. Na je akkoord op het voorstel vragen we een aanbetaling van 20%. Het restbedrag betaal je voor of bij levering, per overschrijving of contant.'],
+  ['Waar worden de meubels gemaakt?', 'Bij onze vaste meubelmakers in Indonesië. Daarna gaan ze per container naar Nederland.'],
+  ['Hoe lang duurt het van bestelling tot levering?', 'Meestal ongeveer 3 tot 5 maanden. Het hangt af van de productieplanning en het transport; tijdens het offertetraject hoor je de actuele levertijd.'],
+  ['Kan ik mijn meubel zelf ophalen?', 'Ja, afhalen kan in Breda. Bezorgen kan ook; de bezorgkosten hangen af van je adres en hoor je altijd vooraf.'],
+];
 const dienst = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -19,10 +30,10 @@ const dienst = {
   serviceType: 'Maatwerk meubels',
   provider: { '@id': `${absoluut('')}#organisatie` },
   areaServed: { '@type': 'Country', name: 'Nederland' },
-  description: 'Teakhouten meubels op maat, met de hand gemaakt door producenten in Indonesië. Maatwerk zonder meerprijs.',
+  description: 'Teakhouten meubels op maat, met de hand gemaakt door vakmensen in Indonesië van duurzaam teak. Maatwerk zonder meerprijs.',
 };
 ---
-<Base title="Teakhouten meubels op maat, zonder meerprijs | Teakhuis" description="Laat je teakhouten meubel op maat maken: kledingkast, tv-meubel, eettafel, dressoir of badkamermeubel. Eerst een tekening en prijsopgave, maatwerk zonder meerprijs." schema={[dienst, kruimelSchema([['Maatwerk']], absoluut('maatwerk/'))]}>
+<Base title="Maatwerk teakhouten meubels: uniek ontwerp zonder meerprijs | Teakhuis" description="Laat je teakhouten meubel op maat maken door Teakhuis. Al bijna 20 jaar specialist in maatwerk van duurzaam Indonesisch teak. Vraag vrijblijvend een ontwerp aan." schema={[dienst, vragenSchema(vragen), kruimelSchema([['Maatwerk']], absoluut('maatwerk/'))]}>
   <Kop />
   <main id="inhoud">
     <section class="wrap pb-16 pt-6 md:pb-24 md:pt-8">
@@ -31,10 +42,10 @@ const dienst = {
         <div class="lg:col-span-7">
           <p class="label text-blad-diep">Maatwerk zonder meerprijs</p>
           <h1 class="mt-4 text-hero">Jouw maten. <span class="cursief">Onze vakmensen.</span></h1>
-          <p class="mt-6 max-w-xl text-lg text-grijs md:text-xl">Een kast die precies in de nis past, een eettafel voor tien, een tv-meubel van 210 cm. Wij tekenen het uit, jij krijgt een prijsopgave, en pas als alles klopt gaat het naar onze producenten in Indonesië.</p>
+          <p class="mt-6 max-w-xl text-lg text-grijs md:text-xl">Een dressoir, tv-meubel, boekenkast, tafel, badkamermeubel of iets heel eigens: al bijna 20 jaar maken we teakhouten meubels precies op maat. Zonder standaard beperkingen, en zonder meerprijs.</p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#aanvragen" class="knop knop-blad">Stel je meubel samen<Icoon naam="pijl" /></a>
-            <a href={waHoi} class="knop knop-rand"><Icoon naam="wa" />Stuur een foto of schets</a>
+            <a href={aanvragen} class="knop knop-blad">Maatwerk aanvragen<Icoon naam="pijl" /></a>
+            <a href="#voorbeelden" class="knop knop-rand">Bekijk voorbeelden</a>
           </div>
         </div>
         <figure class="lg:col-span-5">
@@ -46,12 +57,52 @@ const dienst = {
       </div>
     </section>
 
-    <!-- Het proces in vijf stappen (hun eigen werkwijze) -->
+    <!-- Eerlijke prijs -->
+    <section class="bg-wit py-20 md:py-28" aria-labelledby="prijs-kop">
+      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-5">
+          <h2 id="prijs-kop" class="text-4xl">Geen meerprijs. <span class="cursief">Wel een eerlijke prijs.</span></h2>
+          <p class="mt-6 text-lg text-grijs">Voor aanpassingen aan een bestaand ontwerp rekenen we niets extra. Je betaalt alleen voor wat je krijgt:</p>
+          <dl class="mt-6 divide-y divide-lijn border-y border-lijn">
+            <div class="grid grid-cols-[7rem_1fr] gap-4 py-4"><dt class="font-kop text-xl">Groter</dt><dd class="text-grijs">De prijs stijgt naar verhouding mee.</dd></div>
+            <div class="grid grid-cols-[7rem_1fr] gap-4 py-4"><dt class="font-kop text-xl">Kleiner</dt><dd class="text-grijs">De prijs kan juist lager uitvallen.</dd></div>
+            <div class="grid grid-cols-[7rem_1fr] gap-4 py-4"><dt class="font-kop text-xl">Anders</dt><dd class="text-grijs">Andere indeling, lades of deuren: geen meerprijs voor het maatwerk zelf.</dd></div>
+          </dl>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7">
+          <h3 class="font-kop text-2xl">Waarom maatwerk bij Teakhuis?</h3>
+          <ul class="mt-5 space-y-3.5">
+            {waarom.map((t) => <li class="flex gap-3 text-lg"><Icoon naam="vink" class="mt-1.5 h-4 w-4 flex-none text-blad-diep" />{t}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hoe werkt maatwerk: met de aanvraagknop -->
+    <section class="py-20 md:py-28" aria-labelledby="hoe-kop">
+      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <div class="lg:col-span-5">
+          <h2 id="hoe-kop" class="text-4xl">Hoe werkt maatwerk?</h2>
+          <p class="mt-6 text-lg text-grijs">Het begint met jouw idee. Hoe je dat aanlevert maakt niet uit: wij kijken mee en stellen vragen tot we een goed beeld hebben. Daarna krijg je een vrijblijvend voorstel.</p>
+          <a href={aanvragen} class="knop knop-blad mt-8">Maatwerk aanvragen<Icoon naam="pijl" /></a>
+          <p class="mt-4 text-sm text-grijs">Of bel of app Han: <a href={site.telHref} class="num font-bold text-inkt underline underline-offset-2">{site.tel}</a></p>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7">
+          <p class="font-kop text-xl">Je idee mag van alles zijn:</p>
+          <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+            {idee.map((t) => <li class="flex items-center gap-3 rounded-[var(--radius-md)] bg-wit px-4 py-3.5 ring-1 ring-lijn"><Icoon naam="vink" class="h-4 w-4 flex-none text-blad-diep" />{t}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Van idee tot levering -->
     <section class="bg-nacht py-20 text-wit md:py-28" aria-labelledby="proces-kop">
       <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
         <div class="lg:col-span-4">
-          <h2 id="proces-kop" class="text-4xl">Zo gaat het.</h2>
-          <p class="mt-5 max-w-sm text-as">Geen verrassingen achteraf. Je ziet eerst de tekening en de prijs, en beslist dan.</p>
+          <h2 id="proces-kop" class="text-4xl">Van idee tot levering.</h2>
+          <p class="mt-5 max-w-sm text-as">Geen verrassingen achteraf. Je ziet eerst het voorstel en de prijs, en beslist dan.</p>
+          <p class="mt-6 max-w-sm text-as"><strong class="text-wit">Levertijd:</strong> meestal ongeveer 3 tot 5 maanden.</p>
         </div>
         <ol class="lg:col-span-7 lg:col-start-6">
           {stappen.map(([t, z], i) => (
@@ -65,108 +116,56 @@ const dienst = {
       </div>
     </section>
 
-    <!-- Projecten -->
-    <section class="bg-wit py-20 md:py-28" aria-labelledby="proj-kop">
+    <!-- Voorbeelden -->
+    <section id="voorbeelden" class="scroll-mt-24 bg-wit py-20 md:py-28" aria-labelledby="proj-kop" data-voorbeelden>
       <div class="wrap">
         <div class="grid grid-cols-1 gap-y-6 lg:grid-cols-12 lg:gap-x-12">
           <h2 id="proj-kop" class="text-4xl lg:col-span-6">Eerder gemaakt.</h2>
-          <p class="text-lg text-grijs lg:col-span-5 lg:col-start-8">Vier maatwerkprojecten: de tekening met de maten van de klant, en het meubel dat ervan gemaakt is.</p>
+          <p class="text-lg text-grijs lg:col-span-5 lg:col-start-8">Maatwerkprojecten van klanten: de tekening met hun maten, en het meubel dat ervan gemaakt is.</p>
         </div>
         <MaatwerkProjecten />
       </div>
     </section>
 
-    <!-- Samenstellen: komt als regel in de offerteaanvraag -->
-    <section id="aanvragen" class="py-20 md:py-28" aria-labelledby="aanvraag-kop">
-      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
-        <div class="lg:col-span-4">
-          <h2 id="aanvraag-kop" class="text-4xl">Stel je meubel samen.</h2>
-          <p class="mt-5 text-lg text-grijs">Welk meubel, welke maten, welke kleur hout. Het komt in je offerteaanvraag, waar je eventueel nog meer meubels aan toevoegt.</p>
-          <p class="mt-6 text-sm text-grijs">Liever even bellen? <a href={site.telHref} class="num font-bold text-inkt underline underline-offset-2">{site.tel}</a></p>
+    <section class="py-20 md:py-28" aria-labelledby="vragen-kop">
+      <div class="wrap grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-12">
+        <h2 id="vragen-kop" class="text-4xl lg:col-span-4">Vaak gevraagd.</h2>
+        <Vragen vragen={vragen} class="lg:col-span-7 lg:col-start-6" />
+      </div>
+    </section>
+
+    <section class="pb-24 md:pb-32" aria-labelledby="slot-kop">
+      <div class="wrap">
+        <div class="rounded-[var(--radius-xl)] bg-blad px-6 py-12 text-inkt md:px-14 md:py-16">
+          <h2 id="slot-kop" class="max-w-2xl text-4xl">Heb je een idee? Wij denken graag mee.</h2>
+          <p class="mt-5 max-w-xl text-lg">Een kleine aanpassing aan een bestaand model of een volledig uniek meubel: vraag vrijblijvend een ontwerp aan.</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href={aanvragen} class="knop bg-nacht text-wit hover:bg-inkt">Maatwerk aanvragen<Icoon naam="pijl" /></a>
+            <a href={waHoi} class="knop bg-wit/70 text-inkt hover:bg-wit"><Icoon naam="wa" />Stuur een foto via WhatsApp</a>
+          </div>
         </div>
-        <form class="rounded-md bg-wit p-5 sm:p-8 lg:col-span-8 lg:p-10" data-maatwerk novalidate>
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <label class="block">
-              <span class="text-sm font-bold">Welk meubel?</span>
-              <select name="meubel" class="veld mt-2">
-                {meubels.map((m) => <option value={m}>{m}</option>)}
-              </select>
-            </label>
-            <fieldset>
-              <legend class="text-sm font-bold">Maten in cm <span class="font-medium text-grijs">(wat je weet)</span></legend>
-              <div class="mt-2 grid grid-cols-3 gap-2">
-                <label><span class="sr-only">Breedte in cm</span><input name="b" inputmode="numeric" maxlength="4" placeholder="Breed" class="veld num max-sm:px-2.5" /></label>
-                <label><span class="sr-only">Diepte in cm</span><input name="d" inputmode="numeric" maxlength="4" placeholder="Diep" class="veld num max-sm:px-2.5" /></label>
-                <label><span class="sr-only">Hoogte in cm</span><input name="h" inputmode="numeric" maxlength="4" placeholder="Hoog" class="veld num max-sm:px-2.5" /></label>
-              </div>
-            </fieldset>
-          </div>
-          <fieldset class="mt-8">
-            <legend class="text-sm font-bold">Kleur van het hout</legend>
-            <div class="mt-3 flex flex-wrap gap-2">
-              {houtkleuren.map((k, i) => (
-                <label class="kies met-staal">
-                  <input type="radio" name="kleur" value={k.naam} checked={i === 0} class="sr-only" />
-                  <Image src={k.img} alt="" quality={70} widths={[64]} sizes="28px" class="staal object-cover" />
-                  {k.naam}
-                </label>
-              ))}
-              <label class="kies"><input type="radio" name="kleur" value="Weet ik nog niet" class="sr-only" />Weet ik nog niet</label>
-            </div>
-          </fieldset>
-          <fieldset class="mt-8">
-            <legend class="text-sm font-bold">Ander materiaal erin verwerkt?</legend>
-            <div class="mt-3 flex flex-wrap gap-2">
-              {maatwerkExtra.map((x) => (
-                <label class="kies"><input type="checkbox" name="extra" value={x} class="sr-only" />{x[0].toUpperCase() + x.slice(1)}</label>
-              ))}
-            </div>
-          </fieldset>
-          <label class="mt-8 block">
-            <span class="text-sm font-bold">Wat moeten we nog weten? <span class="font-medium text-grijs">(mag leeg)</span></span>
-            <textarea name="wens" maxlength="500" class="veld mt-2" placeholder="Bijvoorbeeld: drie lades, open vak voor de versterker, strakke poten"></textarea>
-          </label>
-          <div class="mt-8 flex flex-col gap-3 border-t border-lijn pt-7 sm:flex-row sm:items-center">
-            <button type="submit" class="knop knop-blad"><Icoon naam="lijst" />Zet in offerteaanvraag</button>
-            <a href={waHoi} class="knop knop-rand" data-wa><Icoon naam="wa" />Of via WhatsApp</a>
-          </div>
-        </form>
       </div>
     </section>
   </main>
+
+  <!-- Altijd zichtbare knop naar de voorbeelden (verdwijnt zodra die in beeld zijn) -->
+  <a href="#voorbeelden" class="fixed right-3 z-30 flex items-center gap-2 rounded-full bg-nacht px-4 py-3 font-kop text-sm font-bold text-wit no-underline shadow-kaart transition-[opacity,transform] duration-300 bottom-[calc(4.75rem+env(safe-area-inset-bottom))] md:bottom-6 md:right-6" data-naar-voorbeelden>
+    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="m3 16 5-5 4 4 3-3 6 6" /></svg>
+    Bekijk voorbeelden
+  </a>
   <Voet />
 
-  <script define:vars={{ offerte: url('offerte/'), hier: url('maatwerk/'), wa: site.wa }}>
-    window.__mw = { offerte, hier, wa };
-  </script>
   <script>
-    import { voegToe, regelTekst, type Regel } from '../scripts/offerte';
-    import { meet } from '../scripts/meet';
-    const { offerte, hier, wa } = (window as any).__mw as { offerte: string; hier: string; wa: string };
-    const f = document.querySelector<HTMLFormElement>('[data-maatwerk]');
-    if (f) {
-      const waA = f.querySelector<HTMLAnchorElement>('[data-wa]')!;
-      const regel = (): Omit<Regel, 'id'> => {
-        const d = new FormData(f);
-        const cm = (k: string) => String(d.get(k) ?? '').replace(/\D/g, '').slice(0, 4);
-        const m = [['B', cm('b')], ['D', cm('d')], ['H', cm('h')]].filter(([, v]) => v);
-        const meubel = String(d.get('meubel'));
-        return {
-          slug: `maatwerk-${meubel.toLowerCase()}`,
-          titel: meubel === 'Iets anders' ? 'Meubel op maat' : `${meubel} op maat`,
-          href: hier,
-          eigenMaat: m.length ? m.map(([k, v]) => `${k} ${v}`).join(' x ') + ' cm' : undefined,
-          kleur: (d.get('kleur') as string) || undefined,
-          extra: d.getAll('extra').map(String),
-          aantal: 1,
-          opmerking: String(d.get('wens') ?? '').trim().slice(0, 500) || undefined,
-        };
-      };
-      const werk = () => { waA.href = `${wa}?text=${encodeURIComponent(`Hallo Teakhuis, ik wil graag een meubel op maat:\n${regelTekst({ ...regel(), id: '' })}\nKunnen jullie een voorstel maken?`)}`; };
-      f.addEventListener('input', werk);
-      f.addEventListener('change', werk);
-      f.addEventListener('submit', (e) => { e.preventDefault(); voegToe(regel()); meet('In offerte'); location.href = offerte; });
-      werk();
+    const knop = document.querySelector<HTMLElement>('[data-naar-voorbeelden]');
+    const sectie = document.querySelector('[data-voorbeelden]');
+    if (knop && sectie) {
+      new IntersectionObserver(([e]) => {
+        const weg = e.isIntersecting;
+        knop.style.opacity = weg ? '0' : '';
+        knop.style.transform = weg ? 'translateY(8px)' : '';
+        knop.style.pointerEvents = weg ? 'none' : '';
+        knop.tabIndex = weg ? -1 : 0;
+      }, { rootMargin: '-20% 0px -20% 0px' }).observe(sectie);
     }
   </script>
 </Base>

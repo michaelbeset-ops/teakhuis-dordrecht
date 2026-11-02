@@ -14,3 +14,7 @@ productie-indonesie.jpg      /maatwerk/voorbeelden-maatwerk-teakhout (foto_6_tea
 han.jpg                      /over-ons (Han)
 kleur-*.jpg                  /leverbare-kleuren-teak
 hero-eetkamer.jpg            webshop Eettafel Dijawa (4556), foto 1: homepage-hero (los gekopieerd, zodat de hero blijft als het product verdwijnt)
+duurzaam-interieur.jpg       aangeleverd door Han (mail 2 nov 2026)
+duurzaam-werkplaats.jpg      aangeleverd door Han (mail 2 nov 2026)
+duurzaam-tuinset.jpg         aangeleverd door Han (mail 2 nov 2026)
+duurzaam-plantage.jpg        aangeleverd door Han (mail 2 nov 2026), door Copilot "erbij gezocht": herkomst/rechten onbekend, liefst vervangen door eigen foto

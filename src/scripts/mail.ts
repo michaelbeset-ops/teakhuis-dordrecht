@@ -120,3 +120,64 @@ export function mailHtml(regels: Regel[], k: Klant, logo = '') {
       <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:20px"><tr>${knoppen}</tr></table>`;
   return omhulsel(logo, 'Aanvraag via de website', inhoud, `Op "Beantwoorden" drukken in je mailprogramma stuurt je antwoord direct naar ${esc(k.email)}.`);
 }
+
+// Maatwerkaanvraag (formulier op maatwerk/aanvragen/): geen meubellijst, wel omschrijving, maten, adres en foto's.
+export interface Maatwerk { naam: string; email: string; telefoon: string; adres: string; omschrijving: string; maten: string; fotos: number }
+
+const blok = (kop: string, tekst: string, boven = 22) => (tekst ? `${label(kop, boven)}<div style="${FONT}background:${ZAND};border-radius:8px;padding:14px 16px;font-size:15px;line-height:1.55;color:${INKT};white-space:pre-wrap">${esc(tekst)}</div>` : '');
+const fotoRegel = (n: number, jij: boolean) => (n ? `<p style="${FONT}margin:16px 0 0;font-size:14px;color:${INKT}"><strong>${n} ${n === 1 ? 'foto' : "foto's"}</strong> ${jij ? 'meegestuurd' : 'als bijlage bij deze mail'}.</p>` : '');
+
+export function maatwerkHtml(m: Maatwerk, logo = '') {
+  const tel = m.telefoon.replace(/[^\d+]/g, '');
+  const leeg = '<span style="color:#8a938e">niet ingevuld</span>';
+  const contact: [string, string][] = [
+    ['Naam', esc(m.naam)],
+    ['E-mail', `<a href="mailto:${esc(m.email)}" style="color:${DIEP};font-weight:600">${esc(m.email)}</a>`],
+    ['Telefoon', m.telefoon ? `<a href="tel:${esc(tel)}" style="color:${DIEP};font-weight:600">${esc(m.telefoon)}</a>` : leeg],
+    ['Adres', m.adres ? esc(m.adres) : leeg],
+  ];
+  const inhoud = `
+      <h1 style="${FONT}margin:0;font-size:24px;line-height:1.25;color:${INKT}">Nieuwe maatwerkaanvraag</h1>
+      <p style="${FONT}margin:8px 0 0;font-size:15px;line-height:1.5;color:${GRIJS}">${esc(m.naam)} wil graag een meubel op maat.</p>
+      ${blok('Wensen', m.omschrijving)}
+      ${blok('Afmetingen', m.maten)}
+      ${fotoRegel(m.fotos, false)}
+      ${label('Klantgegevens')}
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid ${LIJN}">
+        ${contact.map(([a, b]) => `<tr><td style="${FONT}font-size:14px;color:${GRIJS};padding:9px 12px 9px 0;border-bottom:1px solid ${LIJN};width:110px">${a}</td><td style="${FONT}font-size:15px;color:${INKT};padding:9px 0;border-bottom:1px solid ${LIJN}">${b}</td></tr>`).join('')}
+      </table>
+      <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:20px"><tr>
+        <td style="background:${INKT};border-radius:6px"><a href="mailto:${esc(m.email)}?subject=${encodeURIComponent('Je maatwerkaanvraag bij Teakhuis')}" style="${FONT}display:inline-block;padding:11px 18px;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none">Beantwoorden</a></td>
+        ${m.telefoon ? `<td width="10"></td><td style="border:1px solid ${INKT};border-radius:6px"><a href="tel:${esc(tel)}" style="${FONT}display:inline-block;padding:10px 18px;font-size:14px;font-weight:700;color:${INKT};text-decoration:none">Bellen</a></td>` : ''}
+      </tr></table>`;
+  return omhulsel(logo, 'Maatwerk via de website', inhoud, `Op "Beantwoorden" drukken in je mailprogramma stuurt je antwoord direct naar ${esc(m.email)}.`);
+}
+
+export function maatwerkBevestigingHtml(m: Maatwerk, logo: string, c: Contact) {
+  const voornaam = m.naam.trim().split(/\s+/)[0] || '';
+  const stappen = [
+    ['Han neemt contact op', 'Hij bekijkt je idee en stelt waar nodig wat vragen.'],
+    ['Vrijblijvend voorstel', 'Samen werken we het ontwerp uit tot alles klopt. Daarna krijg je een voorstel met prijs.'],
+    ['Akkoord? Dan wordt hij gemaakt', 'Na 20% aanbetaling maken onze vakmensen je meubel. Meestal ben je binnen 3 tot 5 maanden klaar.'],
+  ].map(([kop, tekst], i) => `<tr>
+      <td width="40" style="vertical-align:top;padding:8px 0"><span style="${FONT}display:inline-block;width:28px;height:28px;border-radius:50%;background:${GROEN};color:${INKT};font-size:14px;font-weight:800;line-height:28px;text-align:center">${i + 1}</span></td>
+      <td style="${FONT}vertical-align:top;padding:8px 0"><span style="display:block;font-size:15px;font-weight:700;color:${INKT}">${kop}</span><span style="display:block;margin-top:2px;font-size:14px;line-height:1.5;color:${GRIJS}">${tekst}</span></td>
+    </tr>`).join('');
+  const inhoud = `
+      <h1 style="${FONT}margin:0;font-size:24px;line-height:1.25;color:${INKT}">Bedankt voor je aanvraag${voornaam ? `, ${esc(voornaam)}` : ''}!</h1>
+      <p style="${FONT}margin:10px 0 0;font-size:15px;line-height:1.6;color:${GRIJS}">We hebben je maatwerkaanvraag goed ontvangen. Han bekijkt hem persoonlijk en neemt contact met je op.</p>
+      ${blok('Je wensen', m.omschrijving)}
+      ${blok('Afmetingen', m.maten)}
+      ${fotoRegel(m.fotos, true)}
+      ${label('Zo gaat het verder')}
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${stappen}</table>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:22px;background:${ZAND};border-radius:8px"><tr><td style="padding:18px 18px 16px">
+        <p style="${FONT}margin:0;font-size:15px;line-height:1.5;color:${INKT}"><strong>Nog een foto of schets?</strong> Stuur hem via WhatsApp, of bel Han: <a href="${esc(c.telHref)}" style="color:${DIEP};font-weight:700;white-space:nowrap">${esc(c.tel)}</a></p>
+        <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:14px"><tr>
+          <td style="background:${GROEN};border-radius:6px"><a href="${esc(c.wa)}" style="${FONT}display:inline-block;padding:10px 18px;font-size:14px;font-weight:700;color:${INKT};text-decoration:none">WhatsApp Han</a></td>
+          <td width="10"></td>
+          <td style="border:1px solid ${INKT};border-radius:6px"><a href="${esc(c.telHref)}" style="${FONT}display:inline-block;padding:9px 18px;font-size:14px;font-weight:700;color:${INKT};text-decoration:none">Bellen</a></td>
+        </tr></table>
+      </td></tr></table>`;
+  return omhulsel(logo, 'Je maatwerkaanvraag', inhoud, `Je ontvangt deze mail omdat je via de website van Teakhuis maatwerk aanvroeg. Een antwoord op deze mail komt bij Teakhuis terecht (${esc(c.mail)}).`);
+}
