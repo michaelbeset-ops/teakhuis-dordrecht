@@ -8,8 +8,9 @@ Eerste reactie van Han Rietdijk op de testversie, 26 oktober 2026. Status per pu
 | Voorbeelden van de gewenste sfeer: Het Teakmagazijn en Koloniaal Teakhuis | Michael | Bekeken (27 okt): grote sfeerfoto bovenaan, tegels met sfeerfoto's, collecties overgenomen |
 | Nieuw logo (het logo is onderweg veranderd) | Han levert aan | Wacht op logo |
 | Indeling zoals de huidige webshop: Producten (per soort) en Collecties (per serie) | Michael | Gedaan: menu Producten + Collecties, 17 collecties (Venice, Semarang, Milaan, ...), per product in te stellen |
-| Maatwerkpagina: tekeningen met het eindresultaat | Han levert aan | Wacht op beeld |
-| Teksten voor de pagina's, ook over duurzaamheid | Han levert aan | Wacht op teksten |
+| Maatwerkpagina: tekeningen met het eindresultaat | Han levert aan | 4 voorbeelden staan erop; Han zoekt er meer |
+| Teksten voor de pagina's, ook over duurzaamheid | Han levert aan | Duurzaam: pagina /duurzaam/ gemaakt (2 nov) met zijn tekst en foto's, in het menu tussen Over ons en Contact. Maatwerk: zijn tekst verwerkt (2 nov). Over ons: wacht op tekst |
+| Maatwerk: knop bij "Hoe werkt maatwerk" naar een formulier (naam, adres, telefoon, e-mail, wensen, maten, foto's) en een altijd zichtbare knop naar de voorbeelden | Michael | Gedaan (2 nov): /maatwerk/aanvragen/ en zwevende knop "Bekijk voorbeelden". Foto's meesturen vraagt een EmailJS-bijlage (zie BEHEER.md) |
 | Catalogus en weergave van de producten aanpassen | Han, daarna Michael | Han duikt er nog in |
 | Verhaal met foto's over soorten teak, afwerkingen en kleuren | Han levert aan, Michael maakt er een pagina van | Wacht op verhaal en foto's |
 

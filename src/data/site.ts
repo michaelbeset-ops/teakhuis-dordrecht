@@ -55,12 +55,15 @@ import reviewData from './reviews.json';
 export interface Review { naam: string; tekst: string; bron: 'google' | 'referentie'; sterren?: number | null; over?: string }
 export const reviews: Review[] = (reviewData.reviews as Review[]).filter((r) => r.naam && r.tekst);
 
+// Het maatwerktraject zoals Han het beschrijft (tekst nov 2026).
 export const stappen = [
-  ['Een goed gesprek', 'We beginnen altijd met je wensen: wat zoek je, welke maten, welke stijl vind je mooi?'],
-  ['Schets en prijsopgave', 'Je krijgt de schetsen digitaal, samen met een prijsopgave. Geen verrassingen achteraf.'],
-  ['De definitieve tekening', 'Klopt alles, dan gaat de tekening naar onze producenten. Je betaalt dan 20% aan.'],
-  ['Gemaakt in Indonesië', 'Met de hand gemaakt, direct bij onze producenten, zonder tussenpersonen of groothandels.'],
-  ['Thuis geleverd', 'Je meubel wordt bij je thuis afgeleverd.'],
+  ['Jouw idee', 'Een omschrijving, een foto van een bestaand meubel, een schets of een inspiratiefoto: alles is goed. Via de website, mail, telefoon of WhatsApp.'],
+  ['Vrijblijvend voorstel', 'We stellen waar nodig wat vragen en werken het ontwerp samen uit tot alles klopt. Voor grotere projecten kan ook een afspraak.'],
+  ['Definitief voorstel en prijs', 'Zijn alle details duidelijk, dan krijg je een definitief voorstel met prijsopgave.'],
+  ['Akkoord en 20% aanbetaling', 'Wij maken de tekening voor de meubelmakers. Wil je die eerst zelf zien? Dan krijg je hem ter controle.'],
+  ['Gemaakt in Indonesië', 'Onze vaste meubelmakers maken je meubel met de hand, van duurzaam teak.'],
+  ['Per container naar Nederland', 'Wij regelen het transport en de inklaring, en bellen je om een leverafspraak te maken.'],
+  ['Bezorgen of afhalen', 'We bezorgen bij je thuis (de kosten hoor je vooraf) of je haalt hem af in Breda. Het restbedrag betaal je voor of bij levering.'],
 ];
 
 export const url = (p = '') => `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
