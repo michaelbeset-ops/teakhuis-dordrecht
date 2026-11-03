@@ -68,7 +68,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
         </div>
         <div class="hero-op flex flex-col gap-5 lg:col-span-4 lg:items-end lg:text-right" style="--d:.45s">
           <a href={waHoi} class="group flex items-center gap-3 rounded-full bg-wit/10 py-1.5 pl-1.5 pr-5 text-left no-underline ring-1 ring-wit/20 backdrop-blur-md transition-colors hover:bg-wit/20">
-            <Image src={han} alt="" quality={80} widths={[112]} sizes="48px" class="h-12 w-12 flex-none rounded-full object-cover object-top ring-2 ring-blad" />
+            <Image src={han} alt="" quality={80} widths={[112]} sizes="48px" class="h-12 w-12 flex-none rounded-full object-cover object-[50%_45%] ring-2 ring-blad" />
             <span><span class="block text-xs text-wit/70">Persoonlijk advies van Han, eigenaar</span><span class="num block font-kop text-lg font-extrabold leading-tight text-wit group-hover:text-blad-licht">{site.tel}</span></span>
           </a>
         </div>
@@ -144,7 +144,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
     <section class="wrap pb-20 lg:pb-28" aria-labelledby="han-kop">
       <div class="grid items-center gap-10 overflow-hidden rounded-[var(--radius-xl)] bg-nacht p-6 text-wit sm:p-10 lg:grid-cols-12 lg:gap-14 lg:p-14">
         <div class="flex flex-col items-start gap-6 sm:flex-row sm:items-center lg:col-span-4 lg:flex-col lg:items-start">
-          <Image src={han} alt="Han Rietdijk, eigenaar van Teakhuis" quality={82} widths={[192]} sizes="(min-width: 1024px) 192px, 112px" class="h-36 w-28 flex-none rounded-[var(--radius-md)] object-cover object-top ring-4 ring-blad lg:h-64 lg:w-48" />
+          <Image src={han} alt="Han Rietdijk, eigenaar van Teakhuis" quality={82} widths={[192, 384]} sizes="(min-width: 1024px) 192px, 112px" class="h-36 w-28 flex-none rounded-[var(--radius-md)] object-cover object-top ring-4 ring-blad lg:h-64 lg:w-48" />
           <div>
             <p class="font-kop text-2xl font-extrabold">Han Rietdijk</p>
             <p class="text-as">Eigenaar van Teakhuis</p>
@@ -289,7 +289,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
       <ul class="slider mt-10 [--inzet:max(1.25rem,calc((100vw-84rem)/2+2.5rem))] px-[var(--inzet)] [scroll-padding-left:var(--inzet)]" data-slider>
         <li class="flex w-[19rem] flex-col rounded-[var(--radius-xl)] bg-nacht p-7 text-wit sm:w-[23rem]">
           <div class="flex items-center gap-4">
-            <Image src={han} alt="Han Rietdijk" quality={80} widths={[128]} sizes="64px" class="h-16 w-16 rounded-full object-cover object-top ring-2 ring-blad" />
+            <Image src={han} alt="Han Rietdijk" quality={80} widths={[128]} sizes="64px" class="h-16 w-16 rounded-full object-cover object-[50%_45%] ring-2 ring-blad" />
             <div><p class="font-kop text-lg font-extrabold">Han Rietdijk</p><p class="text-sm text-as">Eigenaar van Teakhuis</p></div>
           </div>
           <p class="mt-6 flex-1 text-as">Bij Teakhuis spreek je de eigenaar zelf. Een vraag over een maat, een kleur of een levering? Bel of app gerust.</p>
