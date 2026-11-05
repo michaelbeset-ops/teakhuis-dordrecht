@@ -105,7 +105,6 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
             <a href={categorieHref(g.hoofd)} class="group block no-underline">
               <div class:list={['relative aspect-[3/4] overflow-hidden rounded-[var(--radius-md)]', f && opWit(f) ? 'bg-wit ring-1 ring-inset ring-lijn' : 'bg-nacht']}>
                 {f ? <Image src={f} alt="" quality={72} widths={breedtes(f, [320, 480, 640])} sizes="(min-width: 1024px) 23vw, (min-width: 640px) 42vw, 72vw" loading={i < 4 ? 'eager' : 'lazy'} class:list={['absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-[1.04]', opWit(f) ? 'object-contain p-8' : 'object-cover']} /> : <GeenFoto naam={g.hoofd.naam} />}
-                <span class="num absolute right-3 top-3 rounded-full bg-wit px-2.5 py-1 text-xs ring-1 ring-lijn font-bold text-inkt">{g.producten.length}</span>
               </div>
               <p class="mt-4 flex items-center justify-between gap-3 font-kop text-xl font-extrabold leading-tight">{g.hoofd.naam}<Icoon naam="pijl" class="h-5 w-5 flex-none text-blad-diep transition-transform group-hover:translate-x-1" /></p>
               {g.subs.length > 0 && <p class="mt-1 line-clamp-1 text-sm text-grijs">{hoofdletter(g.subs.slice(0, 3).map((x) => x.cat.naam.replace(/^Teak /i, '').toLowerCase()).join(', '))}</p>}
