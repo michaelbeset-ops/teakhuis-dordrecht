@@ -1,6 +1,7 @@
 ---
 // Over ons: het verhaal van Teakhuis Dordrecht. Basis is de tekst die Han aanleverde (mail 5 nov 2026, "Copilot Over ons"),
-// ingekort en in de je-vorm van de site. Foto's van de panden en de showroom komen uit 2016, ook van Han.
+// ingekort en in de je-vorm van de site. Alle foto's zijn van Han, de showroom- en pandfoto's komen uit 2016.
+// De tijdlijn is het hart van de pagina: je scrolt door de jaren, foto en jaartal lopen mee (zie het script onderaan).
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Kop from '../components/Kop.astro';
@@ -12,24 +13,40 @@ import Vragen from '../components/Vragen.astro';
 import { site, url, absoluut, waHoi, reviews } from '../data/site';
 import { kruimelSchema, vragenSchema } from '../data/seo';
 import han from '../assets/han.jpg';
+import heroFoto from '../assets/overons-hero.jpg';
 import pandDordrecht from '../assets/overons-pand-dordrecht.jpg';
 import pandLeiderdorp from '../assets/overons-pand-leiderdorp.jpg';
 import eettafel from '../assets/overons-eettafel-detail.jpg';
 import werkplaats from '../assets/overons-werkplaats-indonesie.jpg';
+import hemelbed from '../assets/categorieen/slaapkamer-hemelbed.jpg';
+import woonkamer from '../assets/hero-woonkamer.jpg';
 
 const titel = 'Geschiedenis van Teakhuis Dordrecht | Sinds 2007 specialist in teakhout';
 const omschrijving = 'Lees het verhaal van Teakhuis Dordrecht. Sinds 2007 specialist in maatwerk teakhouten meubels, duurzaam Indonesisch teakhout en persoonlijke service in Nederland en België.';
 
-const tijdlijn: [string, string, string][] = [
-  ['2007', 'De start aan de Mijlweg', 'In juli 2007 opent Teakhuis een showroom van 1.000 m² aan de Mijlweg in Dordrecht, met teakhouten meubels en antieke Chinese meubelen. Vanaf de eerste dag kun je een ontwerp laten aanpassen aan je eigen wensen, zonder meerprijs. Dat was toen uitzonderlijk.'],
-  ['2009–2013', 'Goed door moeilijke jaren', 'Voor veel bedrijven in de meubelbranche zijn dit zware jaren. Teakhuis komt er goed doorheen, dankzij de focus op kwaliteit, service en meubels die je nergens anders vindt.'],
-  ['2014', 'Tweede vestiging in Leiderdorp', 'Teakhuis opent een vestiging op het Meubelplein in Leiderdorp. De collectie groeit met houten meubels uit India, nieuw gemaakt en gemaakt van antieke deuren. Alles zelf uitgezocht, ingekocht en geïmporteerd.'],
-  ['2016', 'Drie locaties', 'In Roosendaal komt er een winkel met een groot magazijn bij. Met een eigen bezorgdienst, meubelmakers, ontwerpers en verkopers doet Teakhuis alles in eigen beheer, door vakmensen.'],
-  ['2018–2019', 'Terug naar de kern', 'Door een tekort aan goed personeel in de branche wordt de druk op de medewerkers te groot. Han besluit Leiderdorp en Roosendaal te sluiten. Een jaar later volgt Dordrecht, door veranderingen op de meubelboulevard.'],
-  ['2020', 'Verder zonder showroom', 'Tijdens de zoektocht naar een nieuwe locatie komt corona. Met de website, telefonisch advies en de eigen bezorgbus blijft Teakhuis gewoon bereikbaar. Klanten blijken geen showroom nodig te hebben, dus gaat Teakhuis op deze manier verder.'],
+const cijfers: [string, string][] = [
+  ['2007', 'Eerste showroom, aan de Mijlweg in Dordrecht'],
+  ['1.000 m²', 'Zo groot was die eerste showroom'],
+  ['3', 'Vestigingen in West-Nederland in 2016'],
+  ['Duizenden', 'Maatwerk meubels in Nederland en België'],
 ];
 
-const voordelen = ['Hoogwaardige kwaliteit', 'Duurzaam Indonesisch teakhout', 'Persoonlijke begeleiding, van advies tot levering', 'Maatwerk zonder standaard meerprijs', 'Scherpe prijzen door lage kosten'];
+const hoofdstukken = [
+  { id: '2007', jaar: '2007', kop: 'De start aan de Mijlweg', foto: pandDordrecht, pos: 'object-[50%_50%]', alt: 'Het pand van Teakhuis aan de Mijlweg in Dordrecht, met op de ramen Teakmeubelen voor uw hele huis, maatwerk zonder meerprijs', bij: 'Het pand aan de Mijlweg in Dordrecht',
+    tekst: ['In juli 2007 opent Teakhuis een showroom van 1.000 m² aan de Mijlweg in Dordrecht. Met teakhouten meubels en antieke Chinese meubelen.', 'Vanaf de eerste dag kun je een ontwerp laten aanpassen aan je eigen wensen, zonder meerprijs. Dat was toen uitzonderlijk, en het werd een groot succes.'] },
+  { id: '2009', jaar: '2009–2013', kop: 'Sterk door moeilijke jaren', foto: eettafel, pos: 'object-[45%_55%]', alt: 'Teakhouten eettafel met een gestoffeerde bank en stoelen in de showroom', bij: 'In de showroom',
+    tekst: ['Voor veel bedrijven in de meubelbranche zijn dit zware jaren. Teakhuis komt er goed doorheen, dankzij de focus op kwaliteit, service en meubels die je nergens anders vindt.'] },
+  { id: '2014', jaar: '2014', kop: 'Een tweede vestiging in Leiderdorp', foto: pandLeiderdorp, pos: 'object-[50%_50%]', alt: 'De ingang van Teakhuis op het Meubelplein Leiderdorp, met teakhouten tuinmeubelen voor de deur', bij: 'Op het Meubelplein Leiderdorp',
+    tekst: ['Als de markt herstelt, opent Teakhuis een vestiging op het Meubelplein in Leiderdorp.', 'De collectie groeit met houten meubels uit India. Nieuw gemaakt, en gemaakt van antieke deuren. Alles zelf uitgezocht, ingekocht en geïmporteerd.'] },
+  { id: '2016', jaar: '2016', kop: 'Drie locaties', foto: hemelbed, pos: 'object-[40%_50%]', alt: 'Teakhouten hemelbed met witte doeken en een nachtkastje in de showroom', bij: 'Showroom, 2016',
+    tekst: ['In Roosendaal komt er een winkel met een groot magazijn bij. Nu zijn er drie grote locaties in West-Nederland om meubels te bekijken en op maat te bestellen.', 'Met een eigen bezorgdienst, meubelmakers, ontwerpers en verkopers doet Teakhuis alles in eigen beheer, door vakmensen.'] },
+  { id: '2018', jaar: '2018–2019', kop: 'Terug naar de kern', foto: woonkamer, pos: 'object-[55%_60%]', alt: 'Woonkamer in de showroom met een teakhouten salontafel en een wandkast', bij: 'In de showroom',
+    tekst: ['Door een tekort aan goed personeel in de branche wordt de druk op de medewerkers te groot. Han besluit Leiderdorp en Roosendaal te sluiten.', 'Een jaar later volgt Dordrecht, door veranderingen op de meubelboulevard. Achteraf blijkt dat de stap naar een nieuwe manier van werken.'] },
+  { id: '2020', jaar: 'Sinds 2020', kop: 'Online, en direct met de makers', foto: werkplaats, pos: 'object-[50%_55%]', alt: 'Grote werkplaats met werkbanken, stapels teakhout en meubelmakers aan het werk', bij: 'In de werkplaats in Indonesië',
+    tekst: ['Tijdens de zoektocht naar een nieuwe locatie komt corona. Met de website, telefonisch advies en de eigen bezorgbus blijft Teakhuis gewoon bereikbaar. Klanten blijken geen showroom nodig te hebben.', 'Zonder winkels zijn de kosten veel lager. Zelfs toen hout en containertransport hard duurder werden, bleven de prijzen gelijk. En Han heeft meer tijd om de meubelmakers in Indonesië te begeleiden en de kwaliteit te controleren.'] },
+];
+
+const voordelen = ['Hoogwaardige kwaliteit', 'Duurzaam Indonesisch teakhout', 'Persoonlijke begeleiding', 'Maatwerk zonder standaard meerprijs', 'Scherpe prijzen door lage kosten'];
 
 const vragen: [string, string][] = [
   ['Wanneer is Teakhuis Dordrecht opgericht?', 'Teakhuis Dordrecht opende zijn deuren in juli 2007 aan de Mijlweg in Dordrecht.'],
@@ -39,7 +56,7 @@ const vragen: [string, string][] = [
   ['Waarom heeft Teakhuis geen showroom meer?', 'Na het sluiten van de vestigingen in 2018 en 2019 is gekozen voor een efficiëntere manier van werken. Advies, ontwerp en verkoop gaan online en telefonisch. Zo ligt de focus helemaal op kwaliteit, service en scherpe prijzen.'],
 ];
 
-const artikel = {
+const pagina = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
   name: titel,
@@ -49,111 +66,141 @@ const artikel = {
   about: { '@id': `${absoluut('')}#organisatie` },
 };
 ---
-<Base title={titel} description={omschrijving} schema={[artikel, vragenSchema(vragen), kruimelSchema([['Over ons']], absoluut('over-ons/'))]}>
+<Base title={titel} description={omschrijving} schema={[pagina, vragenSchema(vragen), kruimelSchema([['Over ons']], absoluut('over-ons/'))]}>
   <Kop />
   <main id="inhoud">
-    <section class="wrap pb-16 pt-6 md:pb-24 md:pt-8">
-      <Kruimel stappen={[['Over ons']]} />
-      <div class="mt-10 grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:items-end lg:gap-x-12">
-        <div class="lg:col-span-7">
-          <p class="label text-blad-diep">Over Teakhuis Dordrecht</p>
-          <h1 class="mt-4 text-hero">Sinds 2007 in teak op maat. <span class="cursief">Nu online, met dezelfde aandacht.</span></h1>
-          <p class="mt-6 max-w-xl text-lg text-grijs md:text-xl">Wat begon als een showroom in Dordrecht groeide uit tot een bekende naam in Nederland en België voor maatwerk meubels van duurzaam teakhout. Vakmanschap, persoonlijke service en maatwerk zonder meerprijs staan al bijna twintig jaar centraal.</p>
-        </div>
-        <figure class="lg:col-span-5">
-          <Image src={pandDordrecht} alt="Het pand van Teakhuis Dordrecht aan de Mijlweg, met grote ramen en de tekst Teakmeubelen voor uw hele huis, maatwerk zonder meerprijs" quality={78} widths={[480, 800, 1100]} sizes="(min-width: 1024px) 40vw, 100vw" loading="eager" class="aspect-[4/3] w-full rounded-[var(--radius-md)] object-cover" />
-          <figcaption class="mt-3 text-xs text-grijs">De showroom aan de Mijlweg in Dordrecht</figcaption>
-        </figure>
+
+    <!-- HERO: volledig foto, de showroom zoals klanten hem kenden -->
+    <section class="relative -mt-[4.75rem] flex min-h-[78svh] flex-col justify-end overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem] lg:min-h-[88svh]" aria-labelledby="over-kop">
+      <Image src={heroFoto} alt="" quality={78} widths={[640, 960, 1280, 1600, 2000, 2600]} sizes="100vw" loading="eager" fetchpriority="high" class="hero-zoom absolute inset-0 h-full w-full object-cover object-[60%_55%]" />
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-nacht/95 via-nacht/45 to-nacht/25"></div>
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-nacht/80 via-nacht/30 to-transparent max-lg:hidden"></div>
+      <div class="wrap relative pb-14 pt-36 md:pb-20">
+        <p class="hero-op label text-blad-licht">Over Teakhuis Dordrecht</p>
+        <h1 id="over-kop" class="hero-op mt-5 max-w-[14ch] text-[clamp(2.6rem,6vw,5.8rem)] leading-[.95]" style="--d:.08s">Sinds 2007 in teak op maat.</h1>
+        <p class="hero-op mt-6 max-w-xl text-lg text-wit/85 md:text-xl" style="--d:.18s">Van een showroom van 1.000 m² in Dordrecht naar een bedrijf zonder winkel, met dezelfde aandacht voor elk meubel. Dit is het verhaal.</p>
+        <a href="#tijdlijn" class="hero-op mt-9 inline-flex items-center gap-3 font-kop text-sm font-bold text-wit no-underline" style="--d:.28s">
+          <span class="grid h-11 w-11 place-items-center rounded-full ring-1 ring-wit/40 transition-colors hover:bg-wit/10"><Icoon naam="pijl" class="h-4 w-4 rotate-90" /></span>
+          Lees het verhaal
+        </a>
       </div>
     </section>
 
-    <!-- Tijdlijn -->
-    <section class="bg-wit py-20 md:py-28" aria-labelledby="verhaal-kop">
-      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
-        <div class="lg:col-span-4">
-          <div class="lg:sticky lg:top-28">
-            <h2 id="verhaal-kop" class="text-4xl">Het verhaal van Teakhuis.</h2>
-            <p class="mt-5 text-lg text-grijs">Van één showroom naar drie locaties, en daarna bewust terug naar de kern. Duizenden maatwerk meubels gingen naar klanten in heel Nederland en België, en soms zelfs naar Duitsland en Luxemburg.</p>
-            <figure class="mt-10 max-lg:hidden">
-              <Image src={pandLeiderdorp} alt="De ingang van Teakhuis op het Meubelplein Leiderdorp, met teakhouten tuinmeubelen voor de deur" quality={76} widths={[480, 720]} sizes="30vw" class="aspect-[4/3] w-full rounded-[var(--radius-md)] object-cover" />
-              <figcaption class="mt-3 text-xs text-grijs">De vestiging op het Meubelplein Leiderdorp</figcaption>
-            </figure>
+    <!-- Intro met de feiten uit Hans tekst -->
+    <section class="wrap py-16 md:py-24">
+      <Kruimel stappen={[['Over ons']]} />
+      <div class="mt-10 grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+        <p class="font-kop text-2xl font-semibold leading-snug [font-stretch:100%] md:text-3xl md:leading-[1.15] lg:col-span-6">Wat begon als een showroom in Dordrecht, groeide uit tot een bekende naam in Nederland en België voor maatwerk meubels van duurzaam teakhout.</p>
+        <dl class="grid grid-cols-2 gap-x-5 gap-y-8 sm:gap-x-8 lg:col-span-5 lg:col-start-8">
+          {cijfers.map(([c, t]) => (
+            <div class="border-t-2 border-inkt pt-4">
+              <dt class="num font-kop text-[clamp(1.5rem,1.4vw+1rem,2.25rem)] font-extrabold leading-tight">{c}</dt>
+              <dd class="mt-1.5 text-sm text-grijs">{t}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <!-- TIJDLIJN -->
+    <section id="tijdlijn" class="bg-wit pb-20 md:pb-28" aria-labelledby="tijdlijn-kop" data-tijdlijn>
+      <div class="wrap pt-20 md:pt-28">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p class="label text-blad-diep">Tijdlijn</p>
+            <h2 id="tijdlijn-kop" class="mt-3 text-4xl">Bijna twintig jaar Teakhuis.</h2>
+          </div>
+          <p class="max-w-sm text-grijs">Scroll door de jaren, of kies een jaartal.</p>
+        </div>
+      </div>
+
+      <!-- Jaartallen: blijven bovenaan staan tijdens het scrollen en laten zien waar je bent -->
+      <nav class="tl-nav sticky top-[4.6rem] z-20 mt-10 border-y border-lijn bg-wit/95 backdrop-blur-sm lg:top-[5.4rem]" aria-label="Jaartallen">
+        <ol class="wrap flex gap-1 overflow-x-auto py-2.5 [scrollbar-width:none]">
+          {hoofdstukken.map((h) => (
+            <li class="flex-none"><a href={`#j-${h.id}`} class="tl-jaar num block whitespace-nowrap rounded-full px-4 py-2 font-kop text-sm font-bold no-underline" data-tl-link={h.id}>{h.jaar}</a></li>
+          ))}
+        </ol>
+      </nav>
+
+      <div class="wrap mt-12 grid grid-cols-1 lg:mt-16 lg:grid-cols-12 lg:gap-x-12">
+        <!-- Foto die meeloopt (alleen breed scherm). Op mobiel staat de foto bij elk hoofdstuk zelf. -->
+        <div class="max-lg:hidden lg:col-span-6">
+          <div class="sticky top-[10.5rem] h-[calc(100svh-12.5rem)] max-h-[44rem] overflow-hidden rounded-[var(--radius-md)] bg-zand">
+            {hoofdstukken.map((h, i) => (
+              <figure class:list={['tl-foto absolute inset-0 m-0', i === 0 && 'is-aan']} data-tl-foto={h.id}>
+                <Image src={h.foto} alt={h.alt} quality={76} widths={[640, 960, 1280]} sizes="(min-width: 1344px) 620px, 46vw" loading="lazy" class={`h-full w-full object-cover ${h.pos}`} />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-nacht/85 via-nacht/40 to-transparent px-7 pb-6 pt-24 text-wit">
+                  <span class="num block font-kop text-[clamp(3rem,5.5vw,5.5rem)] font-extrabold leading-none tracking-tight">{h.jaar}</span>
+                  <span class="mt-2 block text-sm text-wit/80">{h.bij}</span>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
-        <ol class="lg:col-span-7 lg:col-start-6">
-          {tijdlijn.map(([jaar, kop, tekst]) => (
-            <li class="grid grid-cols-1 gap-2 border-t border-lijn py-7 first:border-t-0 first:pt-0 sm:grid-cols-[9rem_1fr] sm:gap-6">
-              <p class="num whitespace-nowrap font-kop text-2xl text-blad-diep">{jaar}</p>
+
+        <!-- De hoofdstukken, met een lijn die zich vult terwijl je scrolt -->
+        <ol class="tl-lijst relative lg:col-span-5 lg:col-start-8" data-tl-lijst>
+          <span aria-hidden="true" class="absolute bottom-3 left-[7px] top-3 w-0.5 bg-lijn"></span>
+          <span aria-hidden="true" class="tl-vul absolute bottom-3 left-[7px] top-3 w-0.5 origin-top bg-blad"></span>
+          {hoofdstukken.map((h) => (
+            <li id={`j-${h.id}`} class="tl-stap relative scroll-mt-[9.5rem] pb-16 pl-10 last:pb-0 lg:flex lg:min-h-[62svh] lg:flex-col lg:justify-center lg:pb-0 lg:scroll-mt-[11rem]" data-tl-stap={h.id}>
+              <span aria-hidden="true" class="tl-punt absolute left-0 top-1.5 h-4 w-4 rounded-full border-2 border-lijn-2 bg-wit lg:top-1/2 lg:-mt-2"></span>
               <div>
-                <h3 class="font-kop text-xl">{kop}</h3>
-                <p class="mt-2 text-grijs">{tekst}</p>
+                <p class="num font-kop text-lg font-extrabold text-blad-diep">{h.jaar}</p>
+                <h3 class="mt-2 text-3xl">{h.kop}</h3>
+                <div class="mt-4 space-y-4 text-lg text-grijs">
+                  {h.tekst.map((t) => <p>{t}</p>)}
+                </div>
+                <figure class="mt-7 lg:hidden">
+                  <Image src={h.foto} alt={h.alt} quality={74} widths={[400, 640, 900]} sizes="(min-width: 640px) 80vw, 88vw" loading="lazy" class={`aspect-[4/3] w-full rounded-[var(--radius-md)] object-cover ${h.pos}`} />
+                  <figcaption class="mt-2.5 text-xs text-grijs">{h.bij}</figcaption>
+                </figure>
               </div>
             </li>
           ))}
         </ol>
-        <figure class="lg:hidden">
-          <Image src={pandLeiderdorp} alt="De ingang van Teakhuis op het Meubelplein Leiderdorp, met teakhouten tuinmeubelen voor de deur" quality={76} widths={[480, 720, 1000]} sizes="100vw" class="aspect-[4/3] w-full rounded-[var(--radius-md)] object-cover" />
-          <figcaption class="mt-3 text-xs text-grijs">De vestiging op het Meubelplein Leiderdorp</figcaption>
-        </figure>
       </div>
     </section>
 
-    <section class="relative h-[42vh] min-h-[16rem] overflow-hidden md:h-[60vh]" aria-hidden="true">
-      <Image src={eettafel} alt="" quality={72} widths={[640, 960, 1280, 1920]} sizes="100vw" class="absolute inset-0 h-full w-full object-cover object-[50%_60%]" />
-    </section>
-
-    <!-- Nu -->
-    <section class="py-20 md:py-28" aria-labelledby="nu-kop">
-      <div class="wrap grid grid-cols-1 gap-y-14 lg:grid-cols-12 lg:gap-x-12">
-        <div class="lg:col-span-5">
-          <h2 id="nu-kop" class="text-4xl">Direct met de makers in Indonesië.</h2>
-          <div class="mt-6 space-y-5 text-lg text-grijs">
-            <p>Zonder winkels zijn de kosten veel lager. Zelfs toen de prijzen van hout en containertransport hard stegen, hoefde Teakhuis de prijzen niet te verhogen.</p>
-            <p>Han heeft nu meer tijd voor waar Teakhuis groot mee is geworden. Hij begeleidt de meubelmakers in Indonesië, controleert de kwaliteit en geeft iedere klant persoonlijk advies, met foto's en tekeningen.</p>
-          </div>
-        </div>
-        <div class="lg:col-span-6 lg:col-start-7">
-          <p class="font-kop text-xl">Wat jij daaraan hebt</p>
-          <ul class="mt-4 divide-y divide-lijn border-y border-lijn">
-            {voordelen.map((v) => <li class="flex items-center gap-3 py-3.5"><Icoon naam="vink" class="h-4 w-4 flex-none text-blad-diep" />{v}</li>)}
+    <!-- Hoe het nu werkt: Han als aanspreekpunt -->
+    <section class="bg-nacht py-20 text-wit md:py-28" aria-labelledby="nu-kop">
+      <div class="wrap grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:items-center lg:gap-x-12">
+        <figure class="lg:col-span-4">
+          <Image src={han} alt="Han Rietdijk, eigenaar van Teakhuis" quality={80} widths={[360, 540, 720]} sizes="(min-width: 1024px) 30vw, 70vw" class="aspect-[4/5] w-full max-w-[20rem] rounded-[var(--radius-md)] object-cover object-[50%_20%]" />
+        </figure>
+        <div class="lg:col-span-7 lg:col-start-6">
+          <p class="label text-blad-licht">Teakhuis nu</p>
+          <h2 id="nu-kop" class="mt-3 text-4xl">Eén aanspreekpunt, van idee tot bezorging.</h2>
+          <p class="mt-6 max-w-2xl text-lg text-as">Han Rietdijk is eigenaar, adviseur en bezorger. Hij werkt rechtstreeks met de meubelmakers in Indonesië en gaat twee keer per jaar zelf langs om de productie te controleren. Jij krijgt advies op maat, met foto's en tekeningen, gebaseerd op bijna twintig jaar ervaring en tienduizenden klanten die je voorgingen.</p>
+          <ul class="mt-8 max-w-xl">
+            {voordelen.map((v) => <li class="flex items-center gap-3 border-t border-lijn-d py-3.5"><Icoon naam="vink" class="h-4 w-4 flex-none text-blad-licht" />{v}</li>)}
           </ul>
-          <dl class="mt-10 divide-y divide-lijn border-y border-lijn">
-            <div class="grid grid-cols-1 gap-1 py-5 sm:grid-cols-[11rem_1fr] sm:gap-6"><dt class="font-kop text-xl">Duurzaam hout</dt><dd class="text-grijs">SVLK-gecertificeerd plantagehout en gerecycled teak uit oude huizen en gebouwen op Oost-Java. <a href={url('duurzaam/')} class="underline underline-offset-4 hover:text-blad-diep">Meer over duurzaam teak</a></dd></div>
-            <div class="grid grid-cols-1 gap-1 py-5 sm:grid-cols-[11rem_1fr] sm:gap-6"><dt class="font-kop text-xl">Zelf op bezoek</dt><dd class="text-grijs">Twee keer per jaar bij onze producenten, om de productie te controleren.</dd></div>
-            <div class="grid grid-cols-1 gap-1 py-5 sm:grid-cols-[11rem_1fr] sm:gap-6"><dt class="font-kop text-xl">Op bestelling</dt><dd class="text-grijs">Je meubel wordt voor jou gemaakt, in jouw maat en kleur.</dd></div>
-          </dl>
-        </div>
-        <figure class="lg:col-span-7">
-          <Image src={werkplaats} alt="Grote werkplaats met werkbanken, stapels teakhout en meubelmakers aan het werk" quality={74} widths={[480, 720, 1000, 1300]} sizes="(min-width: 1024px) 55vw, 100vw" class="aspect-[16/10] w-full rounded-[var(--radius-md)] object-cover" />
-          <figcaption class="mt-3 text-xs text-grijs">In de werkplaats in Indonesië</figcaption>
-        </figure>
-        <div class="flex flex-col justify-end lg:col-span-4 lg:col-start-9">
-          <Image src={han} alt="Han Rietdijk, eigenaar van Teakhuis" quality={80} widths={[144, 288]} sizes="144px" class="h-48 w-36 rounded-sm object-cover object-top" />
-          <p class="mt-5 font-kop text-2xl">Han Rietdijk</p>
-          <p class="text-grijs">Eigenaar, adviseur en bezorger. Met bijna twintig jaar ervaring en tienduizenden klanten die je voorgingen. Han is je aanspreekpunt, van het eerste advies tot de bezorging.</p>
-          <div class="mt-5 flex flex-wrap gap-3">
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row">
             <a href={waHoi} class="knop knop-blad"><Icoon naam="wa" />App Han</a>
-            <a href={site.telHref} class="knop knop-rand"><span class="num">{site.tel}</span></a>
+            <a href={site.telHref} class="knop knop-wit"><span class="num">{site.tel}</span></a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="referenties" class="bg-wit py-20 md:py-28" aria-labelledby="ref-kop">
+    <section id="referenties" class="py-20 md:py-28" aria-labelledby="ref-kop">
       <div class="wrap">
-        <h2 id="ref-kop" class="text-4xl">Wat klanten zeggen.</h2>
-        <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="grid grid-cols-1 gap-y-6 lg:grid-cols-12 lg:items-end lg:gap-x-12">
+          <h2 id="ref-kop" class="text-4xl lg:col-span-6">Wat klanten zeggen.</h2>
+          <p class="text-lg text-grijs lg:col-span-5 lg:col-start-8">Een tafel, tv-meubel, dressoir of boekenkast, of een helemaal eigen ontwerp. Maatwerk, kwaliteit en persoonlijke aandacht, net als in 2007.</p>
+        </div>
+        <ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {reviews.map((r) => <li class="flex"><ReviewKaart review={r} class="w-full" /></li>)}
         </ul>
-        <p class="mt-14 max-w-2xl text-lg text-grijs">Een tafel, tv-meubel, dressoir, boekenkast of een helemaal eigen ontwerp. Teakhuis blijft trouw aan waar het in 2007 mee begon. Maatwerk, kwaliteit en persoonlijke aandacht.</p>
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <div class="mt-12 flex flex-col gap-3 sm:flex-row">
           <a href={url('webshop/')} class="knop knop-blad">Bekijk de collectie<Icoon naam="pijl" /></a>
           <a href={url('maatwerk/')} class="knop knop-rand">Meubel op maat</a>
         </div>
       </div>
     </section>
 
-    <section class="py-20 md:py-28" aria-labelledby="vragen-kop">
+    <section class="bg-wit py-20 md:py-28" aria-labelledby="vragen-kop">
       <div class="wrap grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-12">
         <h2 id="vragen-kop" class="text-4xl lg:col-span-4">Vaak gevraagd.</h2>
         <Vragen vragen={vragen} class="lg:col-span-7 lg:col-start-6" />
@@ -161,4 +208,75 @@ const artikel = {
     </section>
   </main>
   <Voet />
+
+  <script>
+    // Tijdlijn: het hoofdstuk dat het midden van het scherm passeert is actief. Dat bepaalt de foto links, het
+    // gemarkeerde jaartal bovenin en hoe ver de groene lijn gevuld is. Zonder JavaScript is alles gewoon leesbaar.
+    const tl = document.querySelector<HTMLElement>('[data-tijdlijn]');
+    if (tl) {
+      tl.classList.add('tl-js');
+      const stappen = [...tl.querySelectorAll<HTMLElement>('[data-tl-stap]')];
+      const fotos = [...tl.querySelectorAll<HTMLElement>('[data-tl-foto]')];
+      const links = [...tl.querySelectorAll<HTMLElement>('[data-tl-link]')];
+      const lijst = tl.querySelector<HTMLElement>('[data-tl-lijst]')!;
+      const navLijst = tl.querySelector<HTMLElement>('.tl-nav ol');
+
+      const zet = (id: string) => {
+        stappen.forEach((s) => s.classList.toggle('is-aan', s.dataset.tlStap === id));
+        fotos.forEach((f) => f.classList.toggle('is-aan', f.dataset.tlFoto === id));
+        links.forEach((l) => {
+          const aan = l.dataset.tlLink === id;
+          l.classList.toggle('is-aan', aan);
+          if (aan) { l.setAttribute('aria-current', 'step'); } else { l.removeAttribute('aria-current'); }
+          // Op mobiel past niet elk jaartal in beeld: schuif het actieve jaartal in zicht, zonder de pagina te verspringen.
+          if (aan && navLijst) navLijst.scrollTo({ left: l.offsetLeft - navLijst.clientWidth / 2 + l.clientWidth / 2, behavior: 'smooth' });
+        });
+      };
+
+      const io = new IntersectionObserver((items) => {
+        items.forEach((it) => { if (it.isIntersecting) zet((it.target as HTMLElement).dataset.tlStap!); });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      stappen.forEach((s) => io.observe(s));
+      zet(stappen[0].dataset.tlStap!);
+
+      let wacht = false;
+      const vul = () => {
+        wacht = false;
+        const r = lijst.getBoundingClientRect();
+        const v = Math.min(1, Math.max(0, (innerHeight * 0.5 - r.top) / r.height));
+        tl.style.setProperty('--tl-voortgang', v.toFixed(3));
+      };
+      addEventListener('scroll', () => { if (!wacht) { wacht = true; requestAnimationFrame(vul); } }, { passive: true });
+      addEventListener('resize', vul);
+      vul();
+    }
+  </script>
 </Base>
+
+<style is:global>
+  /* Jaartallen bovenin: het actieve jaar staat donker gevuld. */
+  .tl-jaar { color: var(--color-grijs); transition: background-color .3s var(--ease-zacht), color .3s var(--ease-zacht); }
+  .tl-jaar:hover { color: var(--color-inkt); background: var(--color-zand); }
+  .tl-jaar.is-aan { background: var(--color-inkt); color: var(--color-papier); }
+
+  /* De groene lijn groeit mee met het scrollen. */
+  .tl-vul { transform: scaleY(var(--tl-voortgang, 0)); }
+  .tl-punt { transition: background-color .35s var(--ease-zacht), border-color .35s var(--ease-zacht), transform .35s var(--ease-zacht); }
+  .tl-stap.is-aan .tl-punt { background: var(--color-blad); border-color: var(--color-blad); transform: scale(1.25); }
+
+  /* Op breed scherm vallen de andere hoofdstukken wat terug, zodat je oog bij het actieve jaar blijft. */
+  @media (min-width: 1024px) {
+    .tl-js .tl-stap > div { opacity: .32; transition: opacity .5s var(--ease-zacht); }
+    .tl-js .tl-stap.is-aan > div { opacity: 1; }
+  }
+
+  /* Foto's links vloeien in elkaar over, met een heel lichte zoom. */
+  .tl-foto { opacity: 0; transition: opacity .8s var(--ease-zacht); }
+  .tl-foto.is-aan { opacity: 1; }
+  .tl-foto img { transform: scale(1.04); transition: transform 1.6s var(--ease-zacht); }
+  .tl-foto.is-aan img { transform: scale(1); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tl-foto img, .tl-foto.is-aan img { transform: none; }
+  }
+</style>
