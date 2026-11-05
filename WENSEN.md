@@ -4,12 +4,12 @@ Eerste reactie van Han Rietdijk op de testversie, 26 oktober 2026. Status per pu
 
 | Wens | Wie | Status |
 | --- | --- | --- |
-| Layout en sfeer gaan voor: de homepage werkt met sfeerfoto's, zoals op de huidige site | Han levert foto's, Michael bouwt | Deels: tegels kiezen nu sfeerfoto's; hero en betere foto's wachten op Han |
+| Layout en sfeer gaan voor: de homepage werkt met sfeerfoto's, zoals op de huidige site | Han levert foto's, Michael bouwt | Deels (5 nov): hero wisselt nu tussen 4 sfeerfoto's (vraag van Han 31 okt), Slaapkamer en Badkamer hebben een sfeerfoto van Han; meer foto's en tekeningen volgen |
 | Voorbeelden van de gewenste sfeer: Het Teakmagazijn en Koloniaal Teakhuis | Michael | Bekeken (27 okt): grote sfeerfoto bovenaan, tegels met sfeerfoto's, collecties overgenomen |
 | Nieuw logo (het logo is onderweg veranderd) | Han levert aan | Wacht op logo |
 | Indeling zoals de huidige webshop: Producten (per soort) en Collecties (per serie) | Michael | Gedaan: menu Producten + Collecties, 17 collecties (Venice, Semarang, Milaan, ...), per product in te stellen |
 | Maatwerkpagina: tekeningen met het eindresultaat | Han levert aan | 4 voorbeelden staan erop; Han zoekt er meer |
-| Teksten voor de pagina's, ook over duurzaamheid | Han levert aan | Duurzaam: pagina /duurzaam/ gemaakt (2 nov) met zijn tekst en foto's, in het menu tussen Over ons en Contact. Maatwerk: zijn tekst verwerkt (2 nov). Over ons: wacht op tekst |
+| Teksten voor de pagina's, ook over duurzaamheid | Han levert aan | Duurzaam: pagina /duurzaam/ gemaakt (2 nov) met zijn tekst en foto's, in het menu tussen Over ons en Contact. Maatwerk: zijn tekst verwerkt (2 nov). Over ons: zijn tekst verwerkt (5 nov) als tijdlijn 2007-nu met foto's van de panden in Dordrecht en Leiderdorp, de werkplaats en veelgestelde vragen |
 | Maatwerk: knop bij "Hoe werkt maatwerk" naar een formulier (naam, adres, telefoon, e-mail, wensen, maten, foto's) en een altijd zichtbare knop naar de voorbeelden | Michael | Gedaan (2 nov): /maatwerk/aanvragen/ en zwevende knop "Bekijk voorbeelden". Foto's meesturen vraagt een EmailJS-bijlage (zie BEHEER.md) |
 | Catalogus en weergave van de producten aanpassen | Han, daarna Michael | Han duikt er nog in |
 | Verhaal met foto's over soorten teak, afwerkingen en kleuren | Han levert aan, Michael maakt er een pagina van | Wacht op verhaal en foto's |

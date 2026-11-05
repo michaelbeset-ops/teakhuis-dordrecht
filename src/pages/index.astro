@@ -10,6 +10,9 @@ import { site, url, waHoi, houtkleuren, reviews } from '../data/site';
 import { producten, groepen, collecties, categorieHref, collectieHref, productHref, eersteFoto, breedtes, prijsTekst, fotoKlas, hoofdletter, sfeerFoto, opWit } from '../data/catalogus';
 
 import heroFoto from '../assets/hero-eetkamer.jpg';
+import heroWoonkamer from '../assets/hero-woonkamer.jpg';
+import heroShowroom from '../assets/hero-eetkamer-showroom.jpg';
+import heroHoekbank from '../assets/hero-hoekbank.jpg';
 import productie from '../assets/productie-indonesie.jpg';
 import han from '../assets/han.jpg';
 
@@ -22,6 +25,14 @@ const collectieKaarten = collecties
   .map((c) => ({ c, f: sfeerFoto(c.collectie.foto, c.producten) }))
   .filter(({ c, f }) => f && (c.collectie.foto || !opWit(f)))
   .slice(0, 4);
+
+// Hero: sfeerfoto's die elkaar rustig afwisselen (wens van Han, 31 okt). De eerste laadt direct, de rest erna.
+const heroDias = [
+  { f: heroFoto, pos: 'object-[65%_60%]' },
+  { f: heroWoonkamer, pos: 'object-[60%_65%]' },
+  { f: heroShowroom, pos: 'object-[55%_60%]' },
+  { f: heroHoekbank, pos: 'object-[50%_65%]' },
+];
 
 const populair = producten.filter((p) => p.uitgelicht).slice(0, 5);
 const regelVan = (p: (typeof producten)[number]) => [
@@ -48,10 +59,12 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
     <!-- 1. HERO: schermvullende sfeerfoto die heel langzaam inzoomt; de tekst komt rustig op; de menubalk zweeft erover -->
     <section class="relative -mt-[4.75rem] flex min-h-[84svh] flex-col justify-end md:min-h-[calc(100svh-2.25rem)] overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem]" aria-label="Welkom bij Teakhuis" data-hero>
       <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
-        <!-- Sfeerfoto: eetkamer met teak tafel en kast. De linkerkant loopt donker weg achter de tekst. -->
-        <div class="hero-zoom absolute inset-0">
-          <Image src={heroFoto} alt="" quality={78} widths={[640, 960, 1280, 1600, 2000, 2600]} sizes="100vw" loading="eager" fetchpriority="high" class="h-full w-full object-cover object-[65%_60%]" />
-        </div>
+        <!-- Sfeerfoto's die elkaar afwisselen. De linkerkant loopt donker weg achter de tekst. -->
+        {heroDias.map((d, i) => (
+          <div class:list={['hero-dia absolute inset-0', i === 0 && 'is-aan']} data-dia>
+            <Image src={d.f} alt="" quality={78} widths={[640, 960, 1280, 1600, 2000, 2600]} sizes="100vw" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} class={`h-full w-full object-cover ${d.pos}`} />
+          </div>
+        ))}
       </div>
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-nacht/90 via-nacht/30 to-nacht/20"></div>
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-nacht/90 via-nacht/45 to-transparent max-lg:hidden"></div>
@@ -357,6 +370,18 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
       const stap = () => (slider.firstElementChild as HTMLElement).offsetWidth + 20;
       document.querySelector('[data-slider-terug]')?.addEventListener('click', () => slider.scrollBy({ left: -stap(), behavior: 'smooth' }));
       document.querySelector('[data-slider-verder]')?.addEventListener('click', () => slider.scrollBy({ left: stap(), behavior: 'smooth' }));
+    }
+
+    // Hero: elke 7 seconden de volgende sfeerfoto, alleen als de bezoeker geen beperkte beweging heeft ingesteld.
+    const dias = [...document.querySelectorAll<HTMLElement>('[data-dia]')];
+    if (dias.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let nu = 0;
+      setInterval(() => {
+        if (document.hidden) return;
+        dias[nu].classList.remove('is-aan');
+        nu = (nu + 1) % dias.length;
+        dias[nu].classList.add('is-aan');
+      }, 7000);
     }
   </script>
 </Base>
