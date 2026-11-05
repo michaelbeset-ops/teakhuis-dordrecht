@@ -89,17 +89,26 @@ const pagina = {
     <!-- Intro met de feiten uit Hans tekst -->
     <section class="wrap py-16 md:py-24">
       <Kruimel stappen={[['Over ons']]} />
-      <div class="mt-10 grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
-        <p class="font-kop text-2xl font-semibold leading-snug [font-stretch:100%] md:text-3xl md:leading-[1.15] lg:col-span-6">Wat begon als een showroom in Dordrecht, groeide uit tot een bekende naam in Nederland en België voor maatwerk meubels van duurzaam teakhout.</p>
-        <dl class="grid grid-cols-2 gap-x-5 gap-y-8 sm:gap-x-8 lg:col-span-5 lg:col-start-8">
-          {cijfers.map(([c, t]) => (
-            <div class="border-t-2 border-inkt pt-4">
-              <dt class="num font-kop text-[clamp(1.5rem,1.4vw+1rem,2.25rem)] font-extrabold leading-tight">{c}</dt>
-              <dd class="mt-1.5 text-sm text-grijs">{t}</dd>
-            </div>
-          ))}
-        </dl>
+      <div class="mt-12 grid grid-cols-1 gap-y-8 lg:mt-16 lg:grid-cols-12 lg:items-end lg:gap-x-12">
+        <!-- Twee tinten: de eerste helft is het begin, de tweede helft waar het naartoe groeide -->
+        <p class="font-kop text-[clamp(1.7rem,2.4vw+.9rem,3.1rem)] font-semibold leading-[1.12] tracking-[-.02em] [font-stretch:100%] lg:col-span-8">
+          Wat begon als een showroom in Dordrecht, <span class="text-grijs/80">groeide uit tot een bekende naam in Nederland en België voor maatwerk meubels van duurzaam teakhout.</span>
+        </p>
+        <div class="lg:col-span-3 lg:col-start-10 lg:pb-2">
+          <p class="text-grijs">Vakmanschap, persoonlijke service en maatwerk zonder meerprijs. Daar draait het om, al vanaf de eerste dag.</p>
+          <a href="#tijdlijn" class="mt-5 inline-flex items-center gap-2 font-kop text-sm font-bold text-inkt underline decoration-blad decoration-2 underline-offset-[6px] hover:text-blad-diep">Naar de tijdlijn<Icoon naam="pijl" class="h-4 w-4 rotate-90" /></a>
+        </div>
       </div>
+
+      <!-- Feiten als één rustige strook, gescheiden door dunne lijnen in plaats van losse blokjes -->
+      <dl class="mt-16 grid grid-cols-1 border-t border-lijn-2 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+        {cijfers.map(([c, t], i) => (
+          <div class:list={['flex items-baseline justify-between gap-6 border-b border-lijn py-6 sm:block sm:py-8 lg:border-b-0 lg:px-6 lg:first:pl-0 lg:last:pr-0', i % 2 === 1 && 'sm:border-l sm:pl-8', i > 0 && 'lg:border-l', i === 2 && "lg:pl-6"]}>
+            <dt class="num whitespace-nowrap font-kop text-[clamp(1.75rem,1.5vw+1rem,2.75rem)] font-extrabold leading-none tracking-[-.03em]">{c}</dt>
+            <dd class="max-w-[14rem] text-right text-sm text-grijs sm:mt-4 sm:text-left">{t}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
 
     <!-- TIJDLIJN -->
