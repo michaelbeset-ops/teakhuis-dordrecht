@@ -25,6 +25,16 @@
   <body>
     <!-- Sveltia CMS: beheer van producten, categorieen en instellingen. Wijzigingen worden opgeslagen in GitHub en
          de site wordt daarna automatisch opnieuw gebouwd (2 tot 4 minuten). Handleiding: BEHEER.md in de repository. -->
+    <script>
+      // De knop "Inloggen met GitHub" werkt pas met een eigen inlogdienst (base_url in config.yml, zie BEHEER.md). Tot die
+      // er is, verbergen we hem, zodat alleen "Inloggen met een toegangstoken" overblijft en niemand op een kapotte knop klikt.
+      new MutationObserver(() => {
+        document.querySelectorAll('button').forEach((b) => {
+          const t = b.textContent || '';
+          if (/github/i.test(t) && !/token/i.test(t) && !b.hidden && !b.closest('[role="dialog"]')) b.hidden = true;
+        });
+      }).observe(document.documentElement, { childList: true, subtree: true });
+    </script>
     <script src="https://unpkg.com/@sveltia/cms@0.227.4/dist/sveltia-cms.js"></script>
     <script src="preview.js"></script>
   </body>
