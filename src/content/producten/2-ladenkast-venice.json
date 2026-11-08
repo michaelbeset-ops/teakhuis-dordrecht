@@ -1,26 +1,30 @@
 {
   "titel": "2 Ladenkast Venice",
   "categorie": "ladenkasten",
-  "prijsVanaf": 199,
-  "prijsTonen": true,
-  "omschrijving": "De Venice is een ladekast met twee lades, handgeschilderd in het wit en afgemaakt met een bovenblad van geborsteld teak. Door het formaat werkt hij heel goed als nachtkastje naast het bed.\n\nKies je houtkleur en geef gerust je eigen maten door: maatwerk kost niets extra.\n\n**Kenmerken**\n- Handgeschilderd wit met geborsteld teakhouten bovenkant\n- 2 lades\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Ook op maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "venice",
   "fotos": [
     "../../assets/producten/4221/1.jpg"
   ],
+  "prijsVanaf": 199,
+  "omschrijving": "De Venice is een ladekast met twee lades, handgeschilderd in het wit en afgemaakt met een bovenblad van geborsteld teak. Door het formaat werkt hij heel goed als nachtkastje naast het bed.\n\nKies je houtkleur en geef gerust je eigen maten door: maatwerk kost niets extra.\n\n**Kenmerken**\n- Handgeschilderd wit met geborsteld teakhouten bovenkant\n- 2 lades\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Ook op maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
       "label": "h55 x b45 x d40",
       "prijs": 199
+    },
+    {
+      "label": "h55 x b45 x d41",
+      "prijs": 199
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 494,
   "seoTitel": "Ladekast Venice, 2 lades, wit met teak | Teakhuis",
   "seoOmschrijving": "Ladekast Venice met 2 lades, handgeschilderd wit met een geborsteld teakhouten blad. Ideaal als nachtkastje, ook op maat. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/175/4221/ladenkasten/2-ladenkast-venice",
-  "collectie": "venice"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/175/4221/ladenkasten/2-ladenkast-venice"
 }
