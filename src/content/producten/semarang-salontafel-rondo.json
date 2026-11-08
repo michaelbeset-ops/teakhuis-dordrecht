@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/32483/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "Ø 75 x H44",
+      "prijs": 277
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

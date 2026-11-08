@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/12900/1.png"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "110 x 35 x 180",
+      "prijs": 1090
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

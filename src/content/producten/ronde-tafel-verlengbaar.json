@@ -9,7 +9,12 @@
     "../../assets/producten/31055/2.jpg",
     "../../assets/producten/31055/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B 120/180 x D120 x H78",
+      "prijs": 499
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

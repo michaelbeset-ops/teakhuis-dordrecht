@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2313/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=85cm br=240cm d=45cm",
+      "prijs": 1219
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

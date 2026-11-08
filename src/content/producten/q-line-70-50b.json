@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/3335/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "br=70 h=25 d=50cm",
+      "prijs": 379
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

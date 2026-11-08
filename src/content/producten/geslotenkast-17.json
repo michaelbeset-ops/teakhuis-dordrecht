@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1377/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "150x120x50cm",
+      "prijs": 949
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

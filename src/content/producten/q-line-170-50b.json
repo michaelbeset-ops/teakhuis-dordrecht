@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/3882/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "br=170 h=20 d=50cm",
+      "prijs": 799
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

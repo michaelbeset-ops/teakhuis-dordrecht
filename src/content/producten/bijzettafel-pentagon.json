@@ -8,7 +8,12 @@
     "../../assets/producten/32612/1.jpg",
     "../../assets/producten/32612/2.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B42 x D42 x H50",
+      "prijs": 105
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

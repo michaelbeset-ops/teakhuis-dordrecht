@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/3777/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "Buffetkast H220 x B162 x D40/50",
+      "prijs": 1979
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

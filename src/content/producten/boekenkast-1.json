@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1648/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "200x100x30cm",
+      "prijs": 849
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

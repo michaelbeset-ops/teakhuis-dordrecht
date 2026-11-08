@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1977/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=85cm br=95cm d=60cm",
+      "prijs": 669
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

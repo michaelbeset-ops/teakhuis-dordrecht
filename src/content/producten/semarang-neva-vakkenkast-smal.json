@@ -8,7 +8,12 @@
     "../../assets/producten/29445/1.jpg",
     "../../assets/producten/29445/2.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "b 80 x d 40 x H 210",
+      "prijs": 728
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [
     "Geborsteld teak met zwart frame",

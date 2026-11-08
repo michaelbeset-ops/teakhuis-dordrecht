@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1661/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "210x50cm d=30cm,",
+      "prijs": 679
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

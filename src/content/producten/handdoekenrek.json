@@ -8,7 +8,12 @@
     "../../assets/producten/2942/1.jpg",
     "../../assets/producten/2942/2.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=157cm br=60cm d=36cm",
+      "prijs": 269
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

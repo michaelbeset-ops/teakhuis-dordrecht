@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1902/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=200cm br=160cm d=35/45cm",
+      "prijs": 1749
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

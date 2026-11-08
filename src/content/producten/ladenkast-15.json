@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1799/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=175 br=55cm d=35cm",
+      "prijs": 659
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

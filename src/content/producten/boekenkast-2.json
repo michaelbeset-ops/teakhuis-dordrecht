@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1651/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "210x60x35cm",
+      "prijs": 599
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

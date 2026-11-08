@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1769/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=80cm br=70cm d=45cm",
+      "prijs": 429
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

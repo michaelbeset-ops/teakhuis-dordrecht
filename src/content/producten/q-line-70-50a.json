@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/3332/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "afm. br=70 h=20 d=50",
+      "prijs": 319
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/31091/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B80 x D45 x H85",
+      "prijs": 495
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

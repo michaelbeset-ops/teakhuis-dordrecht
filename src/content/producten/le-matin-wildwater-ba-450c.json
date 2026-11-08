@@ -9,7 +9,12 @@
     "../../assets/producten/2897/2.jpg",
     "../../assets/producten/2897/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=90cm br=150cm d=59cm",
+      "prijs": 2199
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

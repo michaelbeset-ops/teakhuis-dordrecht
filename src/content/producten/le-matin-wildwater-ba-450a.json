@@ -9,7 +9,12 @@
     "../../assets/producten/2900/2.jpg",
     "../../assets/producten/2900/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=88cm br=70cm d=59cm",
+      "prijs": 1149
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

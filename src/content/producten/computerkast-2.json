@@ -8,7 +8,12 @@
     "../../assets/producten/2011/1.jpg",
     "../../assets/producten/2011/2.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=145cm d=60cm br=100cm",
+      "prijs": 1099
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

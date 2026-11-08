@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/4454/1.png"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "b200 x d45/35 x h235",
+      "prijs": 1750
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1765/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "110x45cm d=35cm",
+      "prijs": 399
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

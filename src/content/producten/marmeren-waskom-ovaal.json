@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/4188/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "55x45x12",
+      "prijs": 249
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": false,

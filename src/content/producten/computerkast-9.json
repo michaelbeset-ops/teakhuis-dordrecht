@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2033/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=160cm br=100cm d=60cm",
+      "prijs": 1149
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

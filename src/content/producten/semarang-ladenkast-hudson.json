@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/32531/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "H93 x B56 x D50 teak erosi met zwart frame",
+      "prijs": 445
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/3272/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "boekenkast 210x100x35cm milaan",
+      "prijs": 729
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

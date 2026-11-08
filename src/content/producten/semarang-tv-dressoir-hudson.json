@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/32516/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B192 x D40 x H44 teak erosi geborsteld",
+      "prijs": 633
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

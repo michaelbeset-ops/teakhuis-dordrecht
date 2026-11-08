@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1383/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "210x100x50cm",
+      "prijs": 1399
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

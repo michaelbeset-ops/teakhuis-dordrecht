@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1918/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=230cm br=310cm d=40/50cm",
+      "prijs": 3790
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/32475/1.png"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B150 x D40 x H80",
+      "prijs": 455
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

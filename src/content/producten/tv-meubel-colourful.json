@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/5420/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "H60 x B180 x D40",
+      "prijs": 689
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

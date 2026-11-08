@@ -12,7 +12,12 @@
     "../../assets/producten/32691/5.jpg",
     "../../assets/producten/32691/6.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B115 x D20 x 4 cm dik",
+      "prijs": 109
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1373/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "220x180x60cm",
+      "prijs": 1999
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

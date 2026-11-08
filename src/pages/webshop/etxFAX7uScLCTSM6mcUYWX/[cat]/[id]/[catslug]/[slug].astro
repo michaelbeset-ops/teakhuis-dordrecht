@@ -188,7 +188,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
           {heeftMaatStap && (
             <fieldset>
               <legend class="flex w-full items-baseline justify-between gap-3">
-                <span class="font-kop text-xl"><span class="num text-blad-diep">{nr()}.</span> Kies je maat</span>
+                <span class="font-kop text-xl"><span class="num text-blad-diep">{nr()}.</span> {maten.length > 1 ? 'Kies je maat' : 'De maat'}</span>
                 <span class="text-xs text-grijs">in cm</span>
               </legend>
               <div class={`mt-4 grid gap-2 ${lang ? 'grid-cols-1 min-[400px]:grid-cols-2' : 'grid-cols-[repeat(auto-fill,minmax(10.25rem,1fr))]'}`} data-maten>

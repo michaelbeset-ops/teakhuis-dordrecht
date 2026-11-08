@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2111/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=195cm br=70cm d=40cm",
+      "prijs": 739
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -9,7 +9,12 @@
     "../../assets/producten/32618/2.jpg",
     "../../assets/producten/32618/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "Ø70 x H45",
+      "prijs": 189
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

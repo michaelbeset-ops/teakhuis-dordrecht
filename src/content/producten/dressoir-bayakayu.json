@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/29731/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B200 x D45 x H90",
+      "prijs": 1349
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/3349/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "afm.br=170 h=20 d=50cm",
+      "prijs": 649
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1328/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "190x120x55cm",
+      "prijs": 1539
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

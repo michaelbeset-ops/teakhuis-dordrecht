@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1640/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "140x80cm h=78cm",
+      "prijs": 1019
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/3355/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "br=150 h=90 d=58cm",
+      "prijs": 2390
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

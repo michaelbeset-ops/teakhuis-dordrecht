@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/3530/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "badmeubel Valencia met marmer 150x90x58cm",
+      "prijs": 2995
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

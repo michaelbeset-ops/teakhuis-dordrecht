@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1772/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=140 br=70cm d=35cm",
+      "prijs": 629
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

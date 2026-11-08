@@ -10,7 +10,12 @@
     "../../assets/producten/32632/3.jpg",
     "../../assets/producten/32632/4.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "H120 x B40 x D40",
+      "prijs": 169
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

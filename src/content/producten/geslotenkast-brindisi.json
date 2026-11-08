@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2630/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=195cm br=110cm d=50cm",
+      "prijs": 1369
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

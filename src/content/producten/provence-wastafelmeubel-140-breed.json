@@ -9,7 +9,12 @@
     "../../assets/producten/31100/2.jpg",
     "../../assets/producten/31100/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B140 x D50 x H85",
+      "prijs": 829
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

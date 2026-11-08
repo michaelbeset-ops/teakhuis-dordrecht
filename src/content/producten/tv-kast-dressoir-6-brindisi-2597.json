@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2597/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=50 d=50cm br=75cm met klep",
+      "prijs": 399
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

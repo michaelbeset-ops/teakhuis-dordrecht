@@ -9,7 +9,12 @@
     "../../assets/producten/4863/2.jpg",
     "../../assets/producten/4863/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B150 x H50 x D45",
+      "prijs": 649
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

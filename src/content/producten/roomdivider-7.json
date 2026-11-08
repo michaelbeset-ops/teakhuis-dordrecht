@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1610/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "145x150x40cm",
+      "prijs": 959
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

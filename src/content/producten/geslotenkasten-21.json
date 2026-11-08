@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1385/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "140x95x50cm",
+      "prijs": 899
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/3886/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "120x50x25cm",
+      "prijs": 599
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

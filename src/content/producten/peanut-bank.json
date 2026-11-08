@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/29709/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B 160 cm exclusief verzendkosten",
+      "prijs": 349
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -8,7 +8,12 @@
     "../../assets/producten/32581/1.jpg",
     "../../assets/producten/32581/2.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "Ø40 x H60",
+      "prijs": 75
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

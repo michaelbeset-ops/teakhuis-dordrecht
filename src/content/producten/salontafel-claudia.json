@@ -8,7 +8,12 @@
     "../../assets/producten/32597/1.jpg",
     "../../assets/producten/32597/2.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B60 x D60 x H45",
+      "prijs": 149
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

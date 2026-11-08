@@ -9,7 +9,12 @@
     "../../assets/producten/28725/2.jpg",
     "../../assets/producten/28725/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B160 x D45 x H225",
+      "prijs": 1995
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

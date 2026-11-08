@@ -9,7 +9,12 @@
     "../../assets/producten/31118/2.jpg",
     "../../assets/producten/31118/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B120 x D15 x H70",
+      "prijs": 429
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

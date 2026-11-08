@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2023/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=200cm br=100cm d=50cm",
+      "prijs": 1629
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

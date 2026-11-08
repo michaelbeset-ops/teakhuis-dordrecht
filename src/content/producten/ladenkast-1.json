@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1762/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "170x90x50cm",
+      "prijs": 1029
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

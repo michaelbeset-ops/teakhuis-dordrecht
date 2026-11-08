@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2285/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=90cm br=105cm d=50cm",
+      "prijs": 549
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

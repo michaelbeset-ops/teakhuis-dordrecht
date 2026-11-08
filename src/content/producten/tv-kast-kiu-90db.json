@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/3287/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "afm. br=90 h=25 d=50cm",
+      "prijs": 369
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

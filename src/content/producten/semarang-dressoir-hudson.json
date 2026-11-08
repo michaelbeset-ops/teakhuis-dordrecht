@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/32522/1.png"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B192 x D55 x H93",
+      "prijs": 1304
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

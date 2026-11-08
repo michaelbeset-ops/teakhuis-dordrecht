@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1665/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "200x50cm d=35cm",
+      "prijs": 619
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

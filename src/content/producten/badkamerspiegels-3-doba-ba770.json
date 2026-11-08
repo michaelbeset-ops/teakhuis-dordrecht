@@ -9,7 +9,12 @@
     "../../assets/producten/2954/2.jpg",
     "../../assets/producten/2954/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=60cm br=90cm d=17cm",
+      "prijs": 419
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

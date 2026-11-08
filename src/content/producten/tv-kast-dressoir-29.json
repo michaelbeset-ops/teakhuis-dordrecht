@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2366/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=60cm br=140cm d=50cm",
+      "prijs": 829
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

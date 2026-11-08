@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2614/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=58cm d=50cm br=110cm",
+      "prijs": 509
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,
