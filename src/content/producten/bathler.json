@@ -9,7 +9,12 @@
     "../../assets/producten/2944/2.jpg",
     "../../assets/producten/2944/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=80cm br=60cm d=40cm",
+      "prijs": 399
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

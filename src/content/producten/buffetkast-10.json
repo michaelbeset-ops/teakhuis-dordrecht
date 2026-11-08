@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1887/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=220cm br=185cm d=35/55cm",
+      "prijs": 1989
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

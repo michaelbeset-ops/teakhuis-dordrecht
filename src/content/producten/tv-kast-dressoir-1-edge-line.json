@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2624/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=55cm d=50cm br=165cm",
+      "prijs": 759
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

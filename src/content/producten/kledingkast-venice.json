@@ -9,7 +9,12 @@
     "../../assets/producten/4875/2.jpg",
     "../../assets/producten/4875/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "H210 x B155 x D55",
+      "prijs": 1095
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

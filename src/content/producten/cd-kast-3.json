@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2494/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=140cm br=22cm d=22cm",
+      "prijs": 249
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1988/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=200cm d=55cm br=95cm",
+      "prijs": 1139
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/4465/1.png"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "b180 x d80 x h80",
+      "prijs": 849
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

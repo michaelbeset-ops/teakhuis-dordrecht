@@ -8,7 +8,12 @@
     "../../assets/producten/1614/1.jpg",
     "../../assets/producten/1614/2.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "218x45cm d=40cm",
+      "prijs": 499
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

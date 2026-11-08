@@ -9,7 +9,12 @@
     "../../assets/producten/4859/2.jpg",
     "../../assets/producten/4859/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "H210 x B75 x D40",
+      "prijs": 749
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

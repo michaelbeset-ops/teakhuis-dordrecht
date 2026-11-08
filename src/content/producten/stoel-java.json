@@ -8,7 +8,12 @@
     "../../assets/producten/338/1.jpg",
     "../../assets/producten/338/2.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "Zithoogte = 47 cm.",
+      "prijs": 109
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

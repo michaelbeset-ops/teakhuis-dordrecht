@@ -8,7 +8,12 @@
     "../../assets/producten/12480/1.jpg",
     "../../assets/producten/12480/2.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "H199 x B140 x D35",
+      "prijs": 1049
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

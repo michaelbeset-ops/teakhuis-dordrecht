@@ -9,7 +9,12 @@
     "../../assets/producten/4868/2.jpg",
     "../../assets/producten/4868/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B200 x H85 x D50",
+      "prijs": 989
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

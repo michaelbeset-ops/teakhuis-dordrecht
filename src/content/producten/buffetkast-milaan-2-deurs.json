@@ -8,7 +8,12 @@
     "../../assets/producten/21552/1.jpg",
     "../../assets/producten/21552/2.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "buffetkast milaan h=230cm br=150cm d=40/50cm met 2",
+      "prijs": 1899
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

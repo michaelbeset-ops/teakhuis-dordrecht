@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2596/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=95 br=120cm d=40cm",
+      "prijs": 819
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

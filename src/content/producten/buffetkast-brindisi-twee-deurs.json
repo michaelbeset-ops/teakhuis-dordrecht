@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/28621/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B144 X H220 X D40/50",
+      "prijs": 1799
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/12886/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B120 x D70 x H42",
+      "prijs": 452
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

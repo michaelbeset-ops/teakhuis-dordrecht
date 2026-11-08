@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1874/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=220cm br=150cm d=40/50cm",
+      "prijs": 1649
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

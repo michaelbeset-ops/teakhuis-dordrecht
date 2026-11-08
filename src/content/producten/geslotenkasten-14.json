@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1371/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "200x130x55cm",
+      "prijs": 1479
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

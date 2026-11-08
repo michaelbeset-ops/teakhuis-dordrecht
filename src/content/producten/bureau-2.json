@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1634/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "180x100cm h=78cm",
+      "prijs": 1199
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

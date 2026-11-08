@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1671/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "210x80cm d=35cm",
+      "prijs": 739
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

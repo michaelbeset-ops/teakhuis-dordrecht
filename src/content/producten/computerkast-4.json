@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2022/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=200cm br=120cm d=60cm",
+      "prijs": 1699
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

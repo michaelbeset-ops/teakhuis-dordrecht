@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/32503/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "H68 x B46 x D40 licht geborsteld teak, zwart frame",
+      "prijs": 318
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

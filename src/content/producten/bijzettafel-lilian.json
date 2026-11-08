@@ -9,7 +9,12 @@
     "../../assets/producten/32594/2.jpg",
     "../../assets/producten/32594/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B40 x D40 x H50",
+      "prijs": 99
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1992/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "br=100cm br=85cm d=60cm",
+      "prijs": 649
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

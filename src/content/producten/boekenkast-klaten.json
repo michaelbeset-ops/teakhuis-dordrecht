@@ -9,7 +9,12 @@
     "../../assets/producten/4861/2.jpg",
     "../../assets/producten/4861/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "H200 x B65 x D35",
+      "prijs": 629
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

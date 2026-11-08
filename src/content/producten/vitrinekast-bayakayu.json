@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/29722/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "H220 x B102 x D40",
+      "prijs": 1495
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

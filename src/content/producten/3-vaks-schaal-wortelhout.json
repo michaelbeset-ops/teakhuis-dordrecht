@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/4912/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "Ø 30 cm (ca)",
+      "prijs": 25
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": false,

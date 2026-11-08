@@ -8,7 +8,12 @@
     "../../assets/producten/32578/1.jpg",
     "../../assets/producten/32578/2.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "Ø60 x H48",
+      "prijs": 125
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

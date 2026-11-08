@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/32545/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B120 x D70 x H45 licht geborsteld teak erosi met zwart stalen poten",
+      "prijs": 429
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

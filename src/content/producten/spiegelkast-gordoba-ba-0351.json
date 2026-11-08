@@ -9,7 +9,12 @@
     "../../assets/producten/2946/2.jpg",
     "../../assets/producten/2946/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "b=90cm h=60cm d=17cm",
+      "prijs": 419
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

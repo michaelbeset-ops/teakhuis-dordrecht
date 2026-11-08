@@ -8,7 +8,12 @@
     "../../assets/producten/32825/1.jpg",
     "../../assets/producten/32825/2.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "Ø43 x H34",
+      "prijs": 55
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

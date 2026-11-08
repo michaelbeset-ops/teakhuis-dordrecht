@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/32519/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B129 x D40 x H52 teak erosi met staal",
+      "prijs": 608
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

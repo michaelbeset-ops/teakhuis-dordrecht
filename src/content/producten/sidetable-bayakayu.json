@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/29737/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B130 x D40 x H85",
+      "prijs": 699
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

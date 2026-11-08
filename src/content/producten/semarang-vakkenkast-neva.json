@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/29439/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h 190 x b 130 x d 35 cm",
+      "prijs": 952
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [
     "Licht geborsteld teak met zwart frame",

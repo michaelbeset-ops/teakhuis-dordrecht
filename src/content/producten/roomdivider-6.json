@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1608/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "220x100x40cm",
+      "prijs": 699
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

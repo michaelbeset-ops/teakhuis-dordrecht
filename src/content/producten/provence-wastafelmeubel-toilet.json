@@ -10,7 +10,12 @@
     "../../assets/producten/31103/3.jpg",
     "../../assets/producten/31103/4.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B70 x D42 x H85",
+      "prijs": 319
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

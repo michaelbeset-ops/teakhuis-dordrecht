@@ -9,7 +9,12 @@
     "../../assets/producten/4870/2.jpg",
     "../../assets/producten/4870/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B160 x H120 x D45",
+      "prijs": 995
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

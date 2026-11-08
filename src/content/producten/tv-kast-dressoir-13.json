@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2323/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=90cm br=150cm d=45cm",
+      "prijs": 919
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

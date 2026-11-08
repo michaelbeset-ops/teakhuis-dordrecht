@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1354/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "215x130x50cm",
+      "prijs": 1429
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

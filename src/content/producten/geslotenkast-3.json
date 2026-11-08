@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1324/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "200x120x55cm",
+      "prijs": 1349
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

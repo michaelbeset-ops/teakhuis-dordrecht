@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1674/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "210x140x35cm",
+      "prijs": 1069
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

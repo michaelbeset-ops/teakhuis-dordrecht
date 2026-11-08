@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/3807/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "Buffetkast H215 x B180 x D40/50",
+      "prijs": 1749
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

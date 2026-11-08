@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/32537/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "H229 x B100 x D40",
+      "prijs": 1499
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

@@ -9,7 +9,12 @@
     "../../assets/producten/2818/2.jpg",
     "../../assets/producten/2818/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=90cm br=120cm d=58cm",
+      "prijs": 1769
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

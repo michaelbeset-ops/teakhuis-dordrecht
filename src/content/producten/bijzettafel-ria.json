@@ -9,7 +9,12 @@
     "../../assets/producten/32584/2.jpg",
     "../../assets/producten/32584/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "Ø 26 x H70",
+      "prijs": 59
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

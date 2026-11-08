@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2025/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=170cm br=95cm d=60cm",
+      "prijs": 1149
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

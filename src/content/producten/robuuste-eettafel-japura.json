@@ -9,7 +9,12 @@
     "../../assets/producten/14400/2.jpg",
     "../../assets/producten/14400/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B220 x D95 x H78",
+      "prijs": 1589
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

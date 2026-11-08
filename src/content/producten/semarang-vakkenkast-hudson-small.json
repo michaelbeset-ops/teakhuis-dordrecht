@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/32528/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "H203 x B80 x D40",
+      "prijs": 1080
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

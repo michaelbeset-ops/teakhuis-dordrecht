@@ -9,7 +9,12 @@
     "../../assets/producten/31097/2.jpg",
     "../../assets/producten/31097/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B120 x D45 x H85",
+      "prijs": 689
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

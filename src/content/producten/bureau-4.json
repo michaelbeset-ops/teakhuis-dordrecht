@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1638/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "170x75cm h=78cm",
+      "prijs": 1149
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

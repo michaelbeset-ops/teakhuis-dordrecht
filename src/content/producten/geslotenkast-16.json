@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1375/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=220x br=210x d=60cm",
+      "prijs": 2099
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

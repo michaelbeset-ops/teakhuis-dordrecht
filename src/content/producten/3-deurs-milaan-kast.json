@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1321/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "210x76x45cm",
+      "prijs": 929
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

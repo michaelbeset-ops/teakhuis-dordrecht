@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/1900/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=220cm br=220cm d=35/45cm",
+      "prijs": 2349
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

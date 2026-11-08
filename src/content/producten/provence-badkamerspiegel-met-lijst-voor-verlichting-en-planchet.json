@@ -9,7 +9,12 @@
     "../../assets/producten/31115/2.jpg",
     "../../assets/producten/31115/3.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "B140 x H75 x D10",
+      "prijs": 299
+    }
+  ],
   "houtkleuren": false,
   "uitvoeringen": [],
   "maatwerk": true,

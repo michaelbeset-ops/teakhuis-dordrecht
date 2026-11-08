@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2567/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=210cm br=70cm d=40cm",
+      "prijs": 869
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

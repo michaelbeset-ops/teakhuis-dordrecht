@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2349/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=90cm br=180cm d=50cm",
+      "prijs": 1039
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,

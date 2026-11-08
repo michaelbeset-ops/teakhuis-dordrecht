@@ -7,7 +7,12 @@
   "fotos": [
     "../../assets/producten/2575/1.jpg"
   ],
-  "maten": [],
+  "maten": [
+    {
+      "label": "h=200cm br=75cm d=45cm",
+      "prijs": 989
+    }
+  ],
   "houtkleuren": true,
   "uitvoeringen": [],
   "maatwerk": true,
