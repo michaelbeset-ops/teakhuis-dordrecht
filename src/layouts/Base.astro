@@ -63,10 +63,10 @@ const robots = noindex || site.voorstel || site.testadres ? 'noindex, nofollow' 
     {!site.voorstel && <script type="application/ld+json" set:html={JSON.stringify(jsonld.length === 1 ? jsonld[0] : jsonld).replace(/</g, '\\u003c')} />}
     <script is:inline>document.documentElement.classList.add('js')</script>
     <script is:inline>
-      // Sfeervariant om te vergelijken (zie global.css): ?sfeer=warm | licht | standaard, onthouden in deze browser.
+      // Sfeervariant om te vergelijken (zie global.css): ?sfeer=warm | donker, ?sfeer=licht = standaard; onthouden in deze browser.
       try {
         const v = new URLSearchParams(location.search).get('sfeer');
-        if (v) v === 'standaard' ? localStorage.removeItem('sfeer') : localStorage.setItem('sfeer', v);
+        if (v) ['licht', 'standaard'].includes(v) ? localStorage.removeItem('sfeer') : localStorage.setItem('sfeer', v);
         const s = localStorage.getItem('sfeer');
         if (s) document.documentElement.dataset.sfeer = s;
       } catch {}

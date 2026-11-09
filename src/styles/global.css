@@ -176,10 +176,10 @@
   .tekst a { text-decoration: underline; text-underline-offset: 2px; }
 }
 
-/* Sfeervarianten om te vergelijken (Han, nov 2026: "de homepage is mooi maar donker"). Kies met ?sfeer=warm of
-   ?sfeer=licht achter een adres; de keuze blijft bewaard tijdens het rondklikken, ?sfeer=standaard zet hem terug.
-   Warm: het donkergroen wordt donker walnootbruin. Licht: bruin en de laag over de foto's een stuk lichter. */
+/* Sfeer (Han, nov 2026: "de homepage is mooi maar donker"). Standaard is de lichte versie: warm bruin in plaats van
+   donkergroen, en een lichtere laag over de foto's. Ter vergelijking blijven twee varianten te bekijken met ?sfeer=warm
+   (donker walnootbruin) of ?sfeer=donker (de oorspronkelijke donkergroene versie); ?sfeer=licht zet het terug. */
+html:not([data-sfeer='warm']):not([data-sfeer='donker']) { --color-nacht: #3a2c22; --color-nacht-2: #4a3a2e; }
+html:not([data-sfeer='warm']):not([data-sfeer='donker']) [data-tint] { opacity: .55; }
+html:not([data-sfeer='warm']):not([data-sfeer='donker']) .hero-op { text-shadow: 0 1px 14px rgb(0 0 0 / .35); }
 html[data-sfeer='warm'] { --color-nacht: #2a2019; --color-nacht-2: #372a21; }
-html[data-sfeer='licht'] { --color-nacht: #3a2c22; --color-nacht-2: #4a3a2e; }
-html[data-sfeer='licht'] [data-tint] { opacity: .55; }
-html[data-sfeer='licht'] .hero-op { text-shadow: 0 1px 14px rgb(0 0 0 / .35); }
