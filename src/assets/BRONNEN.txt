@@ -28,4 +28,3 @@ categorieen/slaapkamer-hemelbed.jpg, categorieen/badkamer-teak.jpg  aangeleverd 
 home-woonkamer.jpg           aangeleverd door Han (8 nov 2026): Rubix_DSC8302, homepagekop
 home-slaapkamer.jpg          aangeleverd door Han (8 nov 2026): Rubix_DSC8436, homepagekop
 home-eetkamer.jpg            aangeleverd door Han (8 nov 2026): Rubix_DSC8352, homepagekop
-home-eetkamer-oranje.jpg     aangeleverd door Han (8 nov 2026): Hoogwaardige teakmeubels (800 px, liefst origineel)
