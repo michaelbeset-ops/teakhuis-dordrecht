@@ -1,5 +1,6 @@
 {
   "naam": "Viking",
   "intro": "",
-  "volgorde": 50
+  "volgorde": 10,
+  "foto": "../../assets/collecties/oud-viking.jpg"
 }
