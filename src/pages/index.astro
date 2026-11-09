@@ -9,9 +9,11 @@ import MaatwerkProjecten from '../components/MaatwerkProjecten.astro';
 import { site, url, waHoi, houtkleuren, reviews } from '../data/site';
 import { producten, groepen, collecties, categorieHref, collectieHref, productHref, eersteFoto, breedtes, prijsTekst, fotoKlas, hoofdletter, sfeerFoto, opWit } from '../data/catalogus';
 
-import heroFoto from '../assets/hero-eetkamer.jpg';
-import heroWoonkamer from '../assets/hero-woonkamer.jpg';
-import heroHoekbank from '../assets/hero-hoekbank.jpg';
+// Sfeerfoto's voor de kop, gekozen door Han (nov 2026): bewust lichte foto's.
+import heroWoonkamer from '../assets/home-woonkamer.jpg';
+import heroSlaapkamer from '../assets/home-slaapkamer.jpg';
+import heroEetkamer from '../assets/home-eetkamer.jpg';
+import heroOranje from '../assets/home-eetkamer-oranje.jpg';
 import productie from '../assets/productie-indonesie.jpg';
 import han from '../assets/han.jpg';
 
@@ -27,9 +29,10 @@ const collectieKaarten = collecties
 
 // Hero: sfeerfoto's die elkaar rustig afwisselen (wens van Han, 31 okt). De eerste laadt direct, de rest erna.
 const heroDias = [
-  { f: heroFoto, pos: 'object-[65%_60%]' },
-  { f: heroWoonkamer, pos: 'object-[60%_65%]' },
-  { f: heroHoekbank, pos: 'object-[50%_65%]' },
+  { f: heroWoonkamer, pos: 'object-[55%_60%]' },
+  { f: heroSlaapkamer, pos: 'object-[60%_55%]' },
+  { f: heroEetkamer, pos: 'object-[65%_50%]' },
+  { f: heroOranje, pos: 'object-[55%_55%]' },
 ];
 
 const populair = producten.filter((p) => p.uitgelicht).slice(0, 5);
