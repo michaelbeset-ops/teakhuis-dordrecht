@@ -2,7 +2,7 @@
 // Productkaart zoals in een webshop: foto (tweede foto bij hover), naam, wat je kunt kiezen en de prijs.
 import HeleFoto from './HeleFoto.astro';
 import { Image } from 'astro:assets';
-import { type Product, eersteFoto, breedtes, productHref, prijsTekst, fotoKlas } from '../data/catalogus';
+import { type Product, eersteFoto, breedtes, productHref, prijsTekst, opWit } from '../data/catalogus';
 import { houtkleuren } from '../data/site';
 import GeenFoto from './GeenFoto.astro';
 interface Props { p: Product; lazy?: boolean; kop?: 'h2' | 'h3' }
@@ -17,7 +17,7 @@ const keuze = [p.maten.length > 1 ? `${p.maten.length} maten` : '', p.uitvoering
     {foto
       ? <HeleFoto src={foto} alt={p.titel} widths={[240, 360, 480, 640]} sizes={sizes} loading={lazy ? 'lazy' : 'eager'} />
       : <GeenFoto naam={p.titel} />}
-    {tweede && <Image src={tweede} alt="" quality={66} widths={breedtes(tweede, [240, 360, 480])} sizes={sizes} loading="lazy" class={`absolute inset-0 z-10 h-full w-full bg-wit object-contain opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-md:hidden ${fotoKlas(tweede)}`} />}
+    {tweede && <Image src={tweede} alt="" quality={66} widths={breedtes(tweede, [240, 360, 480])} sizes={sizes} loading="lazy" class={`absolute inset-0 z-10 h-full w-full bg-wit object-contain opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-md:hidden ${opWit(tweede) ? 'p-3 sm:p-5' : ''}`} />}
   </div>
   <Kop class="naam mt-3 font-sans text-[.95rem] font-bold leading-snug tracking-normal sm:text-base">{p.titel}</Kop>
   {(keuze || p.houtkleuren) && (
