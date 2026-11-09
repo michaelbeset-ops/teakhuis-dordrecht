@@ -73,7 +73,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
               <div>
                 <a href={categorieHref(g.hoofd)} class="group flex items-center gap-3 no-underline">
                   <span class="grid h-12 w-12 flex-none place-items-center overflow-hidden rounded-[var(--radius-sm)] bg-zand">
-                    {f && <Image src={f} alt="" widths={breedtes(f, [96])} sizes="48px" quality={60} class={`h-full w-full ${opWit(f) ? 'object-contain p-1 mix-blend-multiply' : 'object-cover'}`} />}
+                    {f && <Image src={f} alt="" widths={breedtes(f, [96])} sizes="48px" quality={60} class={`h-full w-full ${opWit(f) ? 'object-contain p-1 mix-blend-multiply' : 'object-contain'}`} />}
                   </span>
                   <span class="font-kop text-[.95rem] font-extrabold leading-tight group-hover:text-blad-diep">{g.hoofd.naam}</span>
                 </a>
@@ -110,7 +110,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
     </form>
     <details class="group border-b border-lijn" open>
       <summary class="flex cursor-pointer list-none items-center justify-between py-3 font-kop text-xl font-extrabold [&::-webkit-details-marker]:hidden">
-        <span>Producten <span class="ml-1 font-sans text-sm font-normal text-grijs">{groepen.length} categorieën</span></span>
+        <span>Producten</span>
         <span class="grid h-8 w-8 place-items-center rounded-full ring-1 ring-lijn transition-transform group-open:rotate-180"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></span>
       </summary>
       <ul class="grid grid-cols-2 gap-x-3 pb-4">
