@@ -188,7 +188,7 @@ export const maatSoort = (p: Product) => {
 export interface CollectieGroep { collectie: Collectie; producten: Product[] }
 export const collecties: CollectieGroep[] = [...colOpSlug.values()]
   .map((c) => ({ collectie: c, producten: producten.filter((p) => p.collectie?.slug === c.slug).sort((a, b) => (a.fotos.length ? 0 : 1) - (b.fotos.length ? 0 : 1)) }))
-  .filter((g) => g.producten.length > 0)
+  // Ook collecties zonder producten (zoals India en Big Boy op de oude site): die tonen een uitnodiging voor maatwerk.
   .sort((a, b) => a.collectie.volgorde - b.collectie.volgorde || b.producten.length - a.producten.length);
 export const collectieHref = (c: Collectie) => url(`collecties/${c.slug}/`);
 

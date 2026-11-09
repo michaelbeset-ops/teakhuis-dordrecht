@@ -17,6 +17,8 @@ export function getStaticPaths() {
   zet('maatwerk/voorbeelden-maatwerk-teakhout', url('maatwerk/#voorbeelden'));
   zet('maatwerk/het-proces', url('maatwerk/'));
   zet('referenties', url('over-ons/#referenties'));
+  zet('collecties-overzicht', url('collecties/'));
+  zet('collecties/KLRHtYBiBp5Guxp9848T9n', url('collecties/'));
   zet('leverbare-kleuren-teak', url('maatwerk/'));
   // Oude webshopcategorieen die niet meer bestaan.
   for (const [id, slug] of [['186', 'aanbiedingen'], ['231', 'gestoffeerde-meubels'], ['244', 'uitverkoop-voorraad']]) zet(`${SHOP}/${id}/${slug}`, url('webshop/'));

@@ -48,6 +48,7 @@ for (const { id, img } of alle) {
 
 // 2. Collecties: naam -> slug.
 const slugVan = (n) => ({ 'the edge': 'edge-line' })[n.toLowerCase()] ?? n.toLowerCase().replace(/\s+/g, '-');
+// Alle 18 collecties van de oude site staan in src/content/collecties (ook die zonder producten, zoals India en Big Boy).
 fs.mkdirSync('src/assets/collecties', { recursive: true });
 for (const m of (await html('/collecties-overzicht')).matchAll(/<img[^>]*src="(\/files\/_thumbnail\/(\d+)\/[^"]+)"[^>]*alt="([^"]*)"/g)) {
   const [, thumb, id, naam] = m;

@@ -1,13 +1,14 @@
 ---
 // Eén collectie (serie): alle meubels in dezelfde stijl, met een korte introductie en de andere collecties eronder.
+import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import Kop from '../../components/Kop.astro';
 import Voet from '../../components/Voet.astro';
 import Kruimel from '../../components/Kruimel.astro';
 import Icoon from '../../components/Icoon.astro';
 import ProductKaart from '../../components/ProductKaart.astro';
-import { url, absoluut } from '../../data/site';
-import { collecties, collectieHref, productPad, omschrijvingHtml, platteTekst, type CollectieGroep } from '../../data/catalogus';
+import { url, absoluut, waHoi } from '../../data/site';
+import { collecties, collectieHref, productPad, breedtes, omschrijvingHtml, platteTekst, type CollectieGroep } from '../../data/catalogus';
 import { kruimelSchema, type Stap } from '../../data/seo';
 
 export function getStaticPaths() {
@@ -23,7 +24,9 @@ const soorten = [...telling].sort((a, b) => b[1] - a[1]).map(([k]) => k.replace(
 const kort = soorten.slice(0, 3);
 const opsomming = soorten.length > 3 ? `onder meer ${kort.join(', ')}` : kort.length > 1 ? `${kort.slice(0, -1).join(', ')} en ${kort.at(-1)}` : kort[0];
 const intro = omschrijvingHtml(c.intro);
-const standaard = `Meubels uit de collectie ${c.naam}: ${opsomming}. Allemaal met de hand gemaakt en ook op jouw maat, zonder meerprijs.`;
+const standaard = n
+  ? `Meubels uit de collectie ${c.naam}: ${opsomming}. Allemaal met de hand gemaakt en ook op jouw maat, zonder meerprijs.`
+  : `Teakhouten meubels uit de collectie ${c.naam}, op bestelling met de hand gemaakt in jouw maten.`;
 const beschrijving = c.intro ? platteTekst(c.intro).slice(0, 155).replace(/\s\S*$/, '') + '.' : standaard;
 const zelf = absoluut(`collecties/${c.slug}/`);
 const kruimel: Stap[] = [['Collecties', url('collecties/')], [c.naam]];
@@ -49,9 +52,23 @@ const lijstSchema = {
     </section>
 
     <section class="wrap border-t border-lijn-2 pb-20 pt-8" aria-label={`Meubels uit de collectie ${c.naam}`}>
-      <ul class="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-4 lg:gap-y-12">
-        {producten.map((p, i) => <li><ProductKaart p={p} lazy={i >= 4} kop="h2" /></li>)}
-      </ul>
+      {producten.length > 0 ? (
+        <ul class="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-4 lg:gap-y-12">
+          {producten.map((p, i) => <li><ProductKaart p={p} lazy={i >= 4} kop="h2" /></li>)}
+        </ul>
+      ) : (
+        <div class="grid items-center gap-8 lg:grid-cols-2">
+        {c.foto && <Image src={c.foto} alt={`Collectie ${c.naam}`} quality={85} widths={breedtes(c.foto, [480, 800, 1000])} sizes="(min-width: 1024px) 45vw, 92vw" class="h-auto w-full rounded-[var(--radius-md)]" />}
+        <div class="rounded-[var(--radius-md)] bg-wit p-6 ring-1 ring-lijn md:p-8">
+          <p class="font-kop text-2xl">De {c.naam} op bestelling</p>
+          <p class="mt-3 text-grijs">Deze collectie staat niet in de webshop, maar we maken de meubels nog steeds op bestelling, in jouw maten. Vertel wat je zoekt, dan krijg je een vrijblijvend voorstel.</p>
+          <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a href={url('maatwerk/aanvragen/')} class="knop knop-blad">Vraag een voorstel aan<Icoon naam="pijl" /></a>
+            <a href={waHoi} class="knop knop-rand"><Icoon naam="wa" />Vraag het Han</a>
+          </div>
+        </div>
+        </div>
+      )}
     </section>
 
     <section class="bg-zand py-14 md:py-20">
