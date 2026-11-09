@@ -64,7 +64,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
         <!-- Sfeerfoto's die elkaar afwisselen. De linkerkant loopt donker weg achter de tekst. -->
         {heroDias.map((d, i) => (
           <div class:list={['hero-dia absolute inset-0', i === 0 && 'is-aan']} data-dia>
-            <Image src={d.f} alt="" quality={78} widths={[640, 960, 1280, 1600, 2000, 2600]} sizes="100vw" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} class={`h-full w-full object-cover ${d.pos}`} />
+            <Image src={d.f} alt="" quality={90} widths={breedtes(d.f, [828, 1280, 1680, 2200, 2880, 3840])} sizes="100vw" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} class={`h-full w-full object-cover ${d.pos}`} />
           </div>
         ))}
       </div>

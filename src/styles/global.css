@@ -161,11 +161,10 @@
   @keyframes hero-zoom { from { transform: scale(1); } to { transform: scale(1.08); } }
   @keyframes hero-op { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
   .hero-zoom { animation: hero-zoom 20s cubic-bezier(.25, .1, .25, 1) both; transform-origin: 70% 55%; will-change: transform; }
-  /* Wisselende hero-foto's: zacht overvloeien, en elke foto zoomt heel langzaam in zolang hij zichtbaar is. */
+  /* Wisselende hero-foto's: zacht overvloeien. */
   .hero-dia { opacity: 0; transition: opacity 1.6s ease; }
   .hero-dia.is-aan { opacity: 1; }
-  .hero-dia img { transform-origin: 70% 55%; transition: transform 9s cubic-bezier(.25, .1, .25, 1); }
-  .hero-dia.is-aan img { transform: scale(1.06); }
+  /* Geen inzoomen meer op de wisselende foto's: dat maakte ze onscherp (nov 2026). */
   .hero-op { animation: hero-op .8s var(--ease-zacht) both; animation-delay: var(--d, 0s); }
   @media (prefers-reduced-motion: reduce) { .hero-zoom, .hero-op { animation: none; } .hero-dia img { transition: none; transform: none; } }
 
