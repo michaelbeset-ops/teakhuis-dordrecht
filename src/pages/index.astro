@@ -1,6 +1,6 @@
 ---
 import HeleFoto from '../components/HeleFoto.astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Kop from '../components/Kop.astro';
 import Voet from '../components/Voet.astro';
@@ -29,6 +29,8 @@ const collectieKaarten = collecties
   .slice(0, 4);
 
 // Hero: sfeerfoto's die elkaar rustig afwisselen (wens van Han, 31 okt). De eerste laadt direct, de rest erna.
+// Vage, kleine versie van elke foto als achtergrond, zodat de foto zelf altijd helemaal zichtbaar kan zijn.
+const heroVaag = async (f: ImageMetadata) => (await getImage({ src: f, width: 64, quality: 40, format: 'webp' })).src;
 const heroDias = [
   { f: heroWoonkamer, pos: 'object-[55%_60%]' },
   { f: heroSlaapkamer, pos: 'object-[60%_55%]' },
@@ -58,20 +60,21 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
   <Kop />
   <main id="inhoud">
 
-    <!-- 1. HERO: schermvullende sfeerfoto die heel langzaam inzoomt; de tekst komt rustig op; de menubalk zweeft erover -->
-    <section class="relative -mt-[4.75rem] flex min-h-[84svh] flex-col justify-end md:min-h-[calc(100svh-2.25rem)] overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem]" aria-label="Welkom bij Teakhuis" data-hero>
-      <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
-        <!-- Sfeerfoto's die elkaar afwisselen. De linkerkant loopt donker weg achter de tekst. -->
-        {heroDias.map((d, i) => (
+    <!-- 1. HERO: wisselende sfeerfoto's, altijd helemaal zichtbaar (nooit bijgesneden of ingezoomd). Op een groot scherm
+         staat de foto onder de zwevende menubalk en loopt de tekst er links overheen; op mobiel staat de tekst onder de foto. -->
+    <section class="relative -mt-[4.75rem] flex flex-col overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem] lg:min-h-[calc(100svh-2.25rem)] lg:justify-end" aria-label="Welkom bij Teakhuis" data-hero>
+      <div class="relative mt-[4.75rem] aspect-[3/2] w-full overflow-hidden lg:absolute lg:inset-x-0 lg:bottom-0 lg:top-[5.75rem] lg:mt-0 lg:aspect-auto" aria-hidden="true">
+        {await Promise.all(heroDias.map(async (d, i) => (
           <div class:list={['hero-dia absolute inset-0', i === 0 && 'is-aan']} data-dia>
-            <Image src={d.f} alt="" quality={90} widths={breedtes(d.f, [828, 1280, 1680, 2200, 2880, 3840])} sizes="100vw" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} class={`h-full w-full object-cover ${d.pos}`} />
+            <img src={await heroVaag(d.f)} alt="" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" class="absolute inset-0 h-full w-full scale-110 object-cover opacity-70 blur-2xl" />
+            <Image src={d.f} alt="" quality={90} widths={breedtes(d.f, [828, 1280, 1680, 2200, 2880, 3840])} sizes="(min-width: 1024px) 90vw, 100vw" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} class="relative h-full w-full object-contain lg:object-right" />
           </div>
-        ))}
+        )))}
       </div>
-      <div aria-hidden="true" data-tint class="absolute inset-0 bg-gradient-to-t from-nacht/90 via-nacht/30 to-nacht/20"></div>
+      <div aria-hidden="true" data-tint class="absolute inset-0 bg-gradient-to-t from-nacht/90 via-nacht/20 to-transparent max-lg:hidden"></div>
       <div aria-hidden="true" data-tint class="absolute inset-0 bg-gradient-to-r from-nacht/90 via-nacht/45 to-transparent max-lg:hidden"></div>
 
-      <div class="wrap relative grid gap-8 pb-24 pt-32 md:pb-10 md:pt-36 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-16">
+      <div class="wrap relative grid gap-8 pb-12 pt-8 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-16 lg:pt-36">
         <div class="lg:col-span-8">
           <p class="hero-op max-w-[24ch] font-kop text-[clamp(1.6rem,3vw,2.8rem)] font-extrabold leading-[1.08] text-blad-licht">Maatwerk zonder meerprijs van teakhouten meubels sinds 2007</p>
           <h1 class="hero-op mt-4 max-w-[18ch] text-[clamp(1.5rem,2.4vw,2.3rem)] font-semibold leading-[1.1] [font-stretch:100%]" style="--d:.08s">Teak op bestelling met de hand gemaakt.</h1>
