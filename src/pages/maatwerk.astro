@@ -3,14 +3,13 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Kop from '../components/Kop.astro';
+import InfoHero from '../components/InfoHero.astro';
 import Voet from '../components/Voet.astro';
 import Icoon from '../components/Icoon.astro';
-import Kruimel from '../components/Kruimel.astro';
 import Vragen from '../components/Vragen.astro';
 import MaatwerkProjecten from '../components/MaatwerkProjecten.astro';
 import { site, url, absoluut, waHoi, stappen } from '../data/site';
 import { kruimelSchema, vragenSchema } from '../data/seo';
-import tekening from '../assets/mw-kledingkast-tekening.jpg';
 import barkast from '../assets/uniek-barkast.jpg';
 
 const aanvragen = url('maatwerk/aanvragen/');
@@ -41,26 +40,13 @@ const dienst = {
 <Base title="Maatwerk teakhouten meubels: uniek ontwerp zonder meerprijs | Teakhuis" description="Laat je teakhouten meubel op maat maken door Teakhuis. Al bijna 20 jaar specialist in maatwerk van duurzaam Indonesisch teak. Vraag vrijblijvend een ontwerp aan." schema={[dienst, vragenSchema(vragen), kruimelSchema([['Maatwerk']], absoluut('maatwerk/'))]}>
   <Kop />
   <main id="inhoud">
-    <section class="wrap pb-16 pt-6 md:pb-24 md:pt-8">
-      <Kruimel stappen={[['Maatwerk']]} />
-      <div class="mt-10 grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-12">
-        <div class="lg:col-span-7">
-          <p class="label text-blad-diep">Maatwerk zonder meerprijs</p>
-          <h1 class="mt-4 text-hero">Jouw maten. <span class="cursief">Onze vakmensen.</span></h1>
-          <p class="mt-6 max-w-xl text-lg text-grijs md:text-xl">Een dressoir, tv-meubel, boekenkast, tafel, badkamermeubel of iets heel eigens: al bijna 20 jaar maken we teakhouten meubels precies op maat. Zonder standaard beperkingen, en zonder meerprijs.</p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href={aanvragen} class="knop knop-blad">Maatwerk aanvragen<Icoon naam="pijl" /></a>
-            <a href="#voorbeelden" class="knop knop-rand">Bekijk voorbeelden</a>
-          </div>
-        </div>
-        <figure class="lg:col-span-5">
-          <div class="aspect-[4/3] rounded-sm bg-wit p-5">
-            <Image src={tekening} alt="Potloodtekening van een kledingkast op maat, met maten en aantekeningen voor de werkplaats" quality={78} widths={[480, 720, 1000]} sizes="(min-width: 1024px) 40vw, 100vw" loading="eager" class="tekening h-full w-full object-contain" />
-          </div>
-          <figcaption class="mt-3 text-xs text-grijs">Zo gaat een tekening naar de werkplaats</figcaption>
-        </figure>
+    <InfoHero foto={barkast} pos="object-[45%_55%]" label="Maatwerk zonder meerprijs" titel="Jouw maten. Onze vakmensen." id="maatwerk-kop">
+      <p class="mt-5 max-w-xl text-lg text-wit/85">Een dressoir, tv-meubel, boekenkast, tafel, badkamermeubel of iets heel eigens: al bijna 20 jaar maken we teakhouten meubels precies op maat. Zonder standaard beperkingen, en zonder meerprijs.</p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href={aanvragen} class="knop knop-blad">Maatwerk aanvragen<Icoon naam="pijl" /></a>
+        <a href="#voorbeelden" class="knop knop-glas">Bekijk voorbeelden</a>
       </div>
-    </section>
+    </InfoHero>
 
     <!-- Eerlijke prijs -->
     <section class="bg-wit py-20 md:py-28" aria-labelledby="prijs-kop">

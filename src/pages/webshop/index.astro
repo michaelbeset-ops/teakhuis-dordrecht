@@ -4,7 +4,6 @@ import Base from '../../layouts/Base.astro';
 import Kop from '../../components/Kop.astro';
 import Voet from '../../components/Voet.astro';
 import Kruimel from '../../components/Kruimel.astro';
-import Snelkeuze from '../../components/Snelkeuze.astro';
 import GeenFoto from '../../components/GeenFoto.astro';
 import Icoon from '../../components/Icoon.astro';
 import { url, absoluut } from '../../data/site';
@@ -21,22 +20,18 @@ const lijstSchema = {
   itemListElement: groepen.map((g, i) => ({ '@type': 'ListItem', position: i + 1, name: g.hoofd.naam, url: absoluut(`${categoriePad(g.hoofd)}/`) })),
 };
 ---
-<Base title="Alle teakhouten meubels | Teakhuis" description={`Alle ${producten.length} teakhouten meubels van Teakhuis: eettafels, kasten, dressoirs, banken, bedden, badkamermeubels en tuinmeubelen. Vrijwel alles ook op maat, zonder meerprijs.`} schema={[lijstSchema, kruimelSchema([['Producten']], absoluut('webshop/'))]}>
+<Base title="Alle teakhouten meubels | Teakhuis" description={`Alle teakhouten meubels van Teakhuis: eettafels, kasten, dressoirs, banken, bedden, badkamermeubels en tuinmeubelen. Vrijwel alles ook op maat, zonder meerprijs.`} schema={[lijstSchema, kruimelSchema([['Producten']], absoluut('webshop/'))]}>
   <Kop />
   <main id="inhoud">
-    <section class="wrap pb-12 pt-6 md:pb-16 md:pt-8">
+    <section class="wrap pb-8 pt-6 md:pb-10 md:pt-8">
       <Kruimel stappen={[['Producten']]} />
-      <Snelkeuze actief="producten" />
-      <div class="mt-8 grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:items-end lg:gap-x-12">
-        <div class="lg:col-span-7">
-          <h1 class="text-hero">Alle producten</h1>
-          <p class="mt-5 max-w-xl text-lg text-grijs"><span class="num">{producten.length}</span> meubels en accessoires van teak, met de hand gemaakt. Vrijwel alles kan ook op jouw maat, zonder meerprijs.</p>
-        </div>
-        <form role="search" id="zoeken" class="lg:col-span-5" data-zoek onsubmit="return false">
-          <label for="zoekveld" class="text-sm font-bold">Zoek in de collectie</label>
-          <div class="relative mt-2">
+      <div class="mt-6 flex flex-col gap-5 md:flex-row md:items-end md:justify-between md:gap-10">
+        <h1 class="text-3xl">Alle producten</h1>
+        <form role="search" id="zoeken" class="w-full md:max-w-md" data-zoek onsubmit="return false">
+          <label for="zoekveld" class="sr-only">Zoek in de collectie</label>
+          <div class="relative">
             <svg viewBox="0 0 24 24" class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-grijs" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
-            <input id="zoekveld" type="search" autocomplete="off" placeholder="Bijvoorbeeld Bayakayu of eettafel" class="veld pl-12" data-zoekveld />
+            <input id="zoekveld" type="search" autocomplete="off" placeholder="Zoek in de collectie, bijv. eettafel" class="veld pl-12" data-zoekveld />
           </div>
         </form>
       </div>
@@ -60,7 +55,7 @@ const lijstSchema = {
                     {f ? <Image src={f} alt="" quality={70} widths={breedtes(f, [320, 480, 640, 800])} sizes="(min-width: 1344px) 400px, (min-width: 768px) 31vw, 46vw" loading={i < 3 ? 'eager' : 'lazy'} class={`h-full w-full ${fotoKlas(f, 'p-4 md:p-6')}`} /> : <GeenFoto naam={g.hoofd.naam} />}
                   </div>
                   <div class="mt-4 flex items-baseline justify-between gap-3 border-b border-lijn-2 pb-3">
-                    <h2 class="naam min-w-0 font-kop text-xl hyphens-auto [overflow-wrap:anywhere] sm:text-2xl md:text-3xl" lang="nl">{g.hoofd.naam}</h2>
+                    <h2 class="naam min-w-0 font-kop text-xl hyphens-auto [overflow-wrap:anywhere] sm:text-2xl" lang="nl">{g.hoofd.naam}</h2>
                   </div>
                 </a>
                 {g.subs.length > 0 && (

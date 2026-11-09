@@ -5,8 +5,10 @@ import Voet from '../../../../components/Voet.astro';
 import Kruimel from '../../../../components/Kruimel.astro';
 import ProductKaart from '../../../../components/ProductKaart.astro';
 import Icoon from '../../../../components/Icoon.astro';
+import GeenFoto from '../../../../components/GeenFoto.astro';
+import { Image } from 'astro:assets';
 import { url, absoluut } from '../../../../data/site';
-import { catPaginas, groepen, categorieHref, productHref, omschrijvingHtml, platteTekst, breedtesVan, houtsoortVan, categoriePad, type CatPagina } from '../../../../data/catalogus';
+import { catPaginas, groepen, categorieHref, productHref, omschrijvingHtml, platteTekst, breedtesVan, houtsoortVan, categoriePad, sfeerFoto, breedtes, fotoKlas, type CatPagina } from '../../../../data/catalogus';
 import { kruimelSchema, type Stap } from '../../../../data/seo';
 
 export function getStaticPaths() {
@@ -32,6 +34,8 @@ const metBreedte = producten.filter((p) => breedtesVan(p).length).length;
 const houtsoorten = [...new Set(producten.map(houtsoortVan))].filter((h) => h !== 'Overig');
 const prijsBakken: [string, number, number][] = [['Tot € 250', 0, 249.99], ['€ 250 tot € 500', 250, 499.99], ['€ 500 tot € 1.000', 500, 999.99], ['€ 1.000 en meer', 1000, 999998]];
 const soorten = subs.length && !hoofd ? subs : [];
+// Hoofdcategorie (bijv. Tafels): eerst de soorten als fototegels, dan pas alle producten (Han, nov 2026).
+const soortTegels = soorten.map((s) => { const ps = producten.filter((p) => p.categorie.slug === s.slug); return { cat: s, foto: sfeerFoto(s.foto, ps) }; }).filter((t) => producten.some((p) => p.categorie.slug === t.cat.slug));
 const filterbaar = n > 8;
 const lijstSchema = {
   '@context': 'https://schema.org',
@@ -152,13 +156,30 @@ const lijstSchema = {
       <div class="min-w-0 lg:col-span-9">
         <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
           <div class="max-w-2xl">
-            <h1 class="text-4xl">{cat.naam}</h1>
+            <h1 class="text-3xl">{cat.naam}</h1>
             {intro
               ? <div class="tekst mt-4 text-lg text-grijs max-md:line-clamp-3 max-md:text-base" set:html={intro} />
-              : <p class="mt-4 text-lg text-grijs">{n} {n === 1 ? 'ontwerp' : 'ontwerpen'}{hoofd ? ` in ${hoofd.naam.toLowerCase()}` : ''}.{maatwerk > 0 && ' Zie je de juiste maat niet? Bijna alles maken we ook op jouw maat, zonder meerprijs.'}</p>}
+              : <p class="mt-4 text-lg text-grijs">{cat.naam} van teakhout, met de hand gemaakt.{maatwerk > 0 && ' Zie je de juiste maat niet? Bijna alles maken we ook op jouw maat, zonder meerprijs.'}</p>}
           </div>
         </div>
-        {subs.length > 0 && (
+        {soortTegels.length > 0 && (
+          <nav aria-label={`Soorten ${cat.naam.toLowerCase()}`} class="mt-8">
+            <ul class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 md:gap-x-6 xl:grid-cols-4">
+              {soortTegels.map((t, i) => (
+                <li>
+                  <a href={categorieHref(t.cat)} class="group block no-underline">
+                    <div class="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-md)] bg-wit ring-1 ring-inset ring-lijn">
+                      {t.foto ? <Image src={t.foto} alt="" quality={70} widths={breedtes(t.foto, [320, 480, 640])} sizes="(min-width: 1280px) 22vw, (min-width: 640px) 30vw, 46vw" loading={i < 4 ? 'eager' : 'lazy'} class={`h-full w-full transition-transform duration-500 group-hover:scale-[1.03] ${fotoKlas(t.foto, 'p-4')}`} /> : <GeenFoto naam={t.cat.naam} />}
+                    </div>
+                    <p class="mt-3 flex items-center justify-between gap-2 font-kop text-lg font-extrabold leading-tight group-hover:text-blad-diep">{t.cat.naam}<Icoon naam="pijl" class="h-4 w-4 flex-none text-blad-diep transition-transform group-hover:translate-x-1" /></p>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+        {soortTegels.length > 0 && <h2 class="mt-14 font-kop text-2xl">Alle {cat.naam.toLowerCase()}</h2>}
+        {hoofd && subs.length > 0 && (
           <nav aria-label={`Soorten ${ouder.naam.toLowerCase()}`} class="-mx-5 mt-6 overflow-x-auto px-5 [scrollbar-width:none] md:mx-0 md:px-0 lg:hidden">
             <ul class="flex gap-2">
               <li><a href={categorieHref(ouder)} class={`flex min-h-10 items-center whitespace-nowrap rounded-full px-4 text-sm font-bold no-underline ring-1 ${!hoofd ? 'bg-nacht text-wit ring-nacht' : 'bg-wit text-inkt ring-lijn'}`} aria-current={!hoofd ? 'page' : undefined}>Alles</a></li>

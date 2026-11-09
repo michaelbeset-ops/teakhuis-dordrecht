@@ -1,0 +1,18 @@
+---
+// Kop met grote sfeerfoto voor de informatiepagina's (Maatwerk, Over ons, Duurzaam, Contact), zodat die dezelfde sfeer
+// hebben. Op verzoek van Han (nov 2026): de groene regel is de belangrijkste en dus groot, de titel eronder iets kleiner.
+// De donkere laag over de foto gebruikt de kleur 'nacht' en is gemarkeerd met data-tint (zie sfeervarianten in global.css).
+import { Image } from 'astro:assets';
+interface Props { foto: ImageMetadata; pos?: string; label: string; titel: string; id: string }
+const { foto, pos = 'object-center', label, titel, id } = Astro.props;
+---
+<section class="relative -mt-[4.75rem] flex min-h-[64svh] flex-col justify-end overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem] lg:min-h-[72svh]" aria-labelledby={id}>
+  <Image src={foto} alt="" quality={78} widths={[640, 960, 1280, 1600, 2000, 2600]} sizes="100vw" loading="eager" fetchpriority="high" class={`hero-zoom absolute inset-0 h-full w-full object-cover ${pos}`} />
+  <div aria-hidden="true" data-tint class="absolute inset-0 bg-gradient-to-t from-nacht/90 via-nacht/40 to-nacht/20"></div>
+  <div aria-hidden="true" data-tint class="absolute inset-0 bg-gradient-to-r from-nacht/75 via-nacht/25 to-transparent max-lg:hidden"></div>
+  <div class="wrap relative pb-12 pt-36 md:pb-16">
+    <p class="hero-op max-w-[26ch] font-kop text-[clamp(1.35rem,2.3vw,2.1rem)] font-extrabold leading-tight text-blad-licht">{label}</p>
+    <h1 id={id} class="hero-op mt-3 max-w-[20ch] text-[clamp(2rem,4.2vw,3.9rem)] font-semibold leading-[1.05] [font-stretch:100%]" style="--d:.08s">{titel}</h1>
+    <div class="hero-op" style="--d:.18s"><slot /></div>
+  </div>
+</section>
