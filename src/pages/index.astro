@@ -58,32 +58,35 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
   <Kop />
   <main id="inhoud">
 
-    <!-- 1. HERO: links de tekst op een effen vlak, rechts de wisselende sfeerfoto's, altijd helemaal zichtbaar (nooit
-         bijgesneden, ingezoomd of vervaagd). Het vlak achter de foto heeft dezelfde kleur als de sectie, zodat een foto met
-         een iets andere verhouding gewoon wat smaller oogt. Op mobiel staat de foto boven de tekst. -->
-    <section class="relative -mt-[4.75rem] bg-nacht text-wit lg:-mt-[5.25rem]" aria-label="Welkom bij Teakhuis" data-hero>
-      <div class="pt-[4.75rem] lg:grid lg:grid-cols-12 lg:items-center lg:pb-10 lg:pt-[6.75rem]">
-        <div class="relative aspect-[3650/2209] w-full bg-nacht lg:order-2 lg:col-span-7" aria-hidden="true">
-          {heroDias.map((d, i) => (
-            <div class:list={['hero-dia absolute inset-0', i === 0 && 'is-aan']} data-dia>
-              <Image src={d.f} alt="" quality={90} widths={breedtes(d.f, [828, 1280, 1680, 2200, 2880, 3840])} sizes="(min-width: 1024px) 58vw, 100vw" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} class="h-full w-full object-contain" />
-            </div>
-          ))}
-        </div>
-        <div class="px-5 pb-12 pt-8 md:px-10 lg:order-1 lg:col-span-5 lg:py-8 lg:pl-[max(2.5rem,calc((100vw-84rem)/2+2.5rem))] lg:pr-12">
-          <p class="hero-op  font-kop text-[clamp(1.6rem,2.2vw,2.4rem)] font-extrabold leading-[1.08] text-blad-licht">Maatwerk zonder meerprijs van teakhouten meubels sinds 2007</p>
-          <h1 class="hero-op mt-4 text-[clamp(1.5rem,2.4vw,2.3rem)] font-semibold leading-[1.1] [font-stretch:100%]" style="--d:.08s">Teak op bestelling met de hand gemaakt.</h1>
-          <p class="hero-op mt-6 text-lg text-wit/85" style="--d:.18s">Duurzaam teak, direct voor jou gemaakt. Zonder winkel en voorraad, dus voordeliger. Kies een ontwerp, geef je maten door en ontvang een vrijblijvende offerte.</p>
-          <div class="hero-op mt-8 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row" style="--d:.28s">
+    <!-- 1. HERO: sfeerfoto over de volle breedte, de tekst erover, de menubalk zweeft erboven. Niet ingezoomd: op een
+         computer is de kop precies zo hoog als de foto bij die breedte (zelfde verhouding), zodat de hele foto zichtbaar is. -->
+    <section class="relative -mt-[4.75rem] flex min-h-[84svh] flex-col justify-end md:min-h-[calc(100svh-2.25rem)] overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem] lg:aspect-[3650/2209] lg:min-h-0" aria-label="Welkom bij Teakhuis" data-hero>
+      <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+        <!-- Sfeerfoto's die elkaar afwisselen. De linkerkant loopt donker weg achter de tekst. -->
+        {heroDias.map((d, i) => (
+          <div class:list={['hero-dia absolute inset-0', i === 0 && 'is-aan']} data-dia>
+            <Image src={d.f} alt="" quality={90} widths={breedtes(d.f, [828, 1280, 1680, 2200, 2880, 3840])} sizes="100vw" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} class={`h-full w-full object-cover ${d.pos}`} />
+          </div>
+        ))}
+      </div>
+      <div aria-hidden="true" data-tint class="absolute inset-0 bg-gradient-to-t from-nacht/90 via-nacht/30 to-nacht/20"></div>
+      <div aria-hidden="true" data-tint class="absolute inset-0 bg-gradient-to-r from-nacht/90 via-nacht/45 to-transparent max-lg:hidden"></div>
+
+      <div class="wrap relative grid gap-8 pb-24 pt-32 md:pb-10 md:pt-36 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-16">
+        <div class="lg:col-span-8">
+          <p class="hero-op max-w-[24ch] font-kop text-[clamp(1.6rem,3vw,2.8rem)] font-extrabold leading-[1.08] text-blad-licht">Maatwerk zonder meerprijs van teakhouten meubels sinds 2007</p>
+          <h1 class="hero-op mt-4 max-w-[18ch] text-[clamp(1.5rem,2.4vw,2.3rem)] font-semibold leading-[1.1] [font-stretch:100%]" style="--d:.08s">Teak op bestelling met de hand gemaakt.</h1>
+          <p class="hero-op mt-6 max-w-xl text-lg text-wit/85 md:text-xl" style="--d:.18s">Duurzaam teak, direct voor jou gemaakt. Zonder winkel en voorraad, dus voordeliger. Kies een ontwerp, geef je maten door en ontvang een vrijblijvende offerte.</p>
+          <div class="hero-op mt-9 flex flex-col gap-3 sm:flex-row" style="--d:.28s">
             <a href={url('webshop/')} class="knop knop-blad">Kies je meubel<Icoon naam="pijl" /></a>
             <a href={url('maatwerk/')} class="knop knop-glas">Iets op maat laten maken</a>
           </div>
-          <div class="hero-op mt-8" style="--d:.4s">
-            <a href={waHoi} class="group inline-flex items-center gap-3 rounded-full bg-wit/10 py-1.5 pl-1.5 pr-5 text-left no-underline ring-1 ring-wit/20 backdrop-blur-md transition-colors hover:bg-wit/20">
+        </div>
+        <div class="hero-op flex flex-col gap-5 lg:col-span-4 lg:items-end lg:text-right" style="--d:.45s">
+          <a href={waHoi} class="group flex items-center gap-3 rounded-full bg-wit/10 py-1.5 pl-1.5 pr-5 text-left no-underline ring-1 ring-wit/20 backdrop-blur-md transition-colors hover:bg-wit/20">
             <Image src={han} alt="" quality={80} widths={[112]} sizes="48px" class="h-12 w-12 flex-none rounded-full object-cover object-[50%_45%] ring-2 ring-blad" />
             <span><span class="block text-xs text-wit/70">Persoonlijk advies van Han, eigenaar</span><span class="num block font-kop text-lg font-extrabold leading-tight text-wit group-hover:text-blad-licht">{site.tel}</span></span>
           </a>
-          </div>
         </div>
       </div>
     </section>
