@@ -7,7 +7,7 @@ import Voet from '../../components/Voet.astro';
 import Kruimel from '../../components/Kruimel.astro';
 import Icoon from '../../components/Icoon.astro';
 import ProductKaart from '../../components/ProductKaart.astro';
-import { url, absoluut, waHoi } from '../../data/site';
+import { url, absoluut, waHoi, site } from '../../data/site';
 import { collecties, collectieHref, productPad, breedtes, omschrijvingHtml, platteTekst, type CollectieGroep } from '../../data/catalogus';
 import { kruimelSchema, type Stap } from '../../data/seo';
 
@@ -26,7 +26,7 @@ const opsomming = soorten.length > 3 ? `onder meer ${kort.join(', ')}` : kort.le
 const intro = omschrijvingHtml(c.intro);
 const standaard = n
   ? `Meubels uit de collectie ${c.naam}: ${opsomming}. Allemaal met de hand gemaakt en ook op jouw maat, zonder meerprijs.`
-  : `Teakhouten meubels uit de collectie ${c.naam}, op bestelling met de hand gemaakt in jouw maten.`;
+  : `De collectie ${c.naam}.`;
 const beschrijving = c.intro ? platteTekst(c.intro).slice(0, 155).replace(/\s\S*$/, '') + '.' : standaard;
 const zelf = absoluut(`collecties/${c.slug}/`);
 const kruimel: Stap[] = [['Collecties', url('collecties/')], [c.naam]];
@@ -60,11 +60,12 @@ const lijstSchema = {
         <div class="grid items-center gap-8 lg:grid-cols-2">
         {c.foto && <Image src={c.foto} alt={`Collectie ${c.naam}`} quality={85} widths={breedtes(c.foto, [480, 800, 1000])} sizes="(min-width: 1024px) 45vw, 92vw" class="h-auto w-full rounded-[var(--radius-md)]" />}
         <div class="rounded-[var(--radius-md)] bg-wit p-6 ring-1 ring-lijn md:p-8">
-          <p class="font-kop text-2xl">De {c.naam} op bestelling</p>
-          <p class="mt-3 text-grijs">Deze collectie staat niet in de webshop, maar we maken de meubels nog steeds op bestelling, in jouw maten. Vertel wat je zoekt, dan krijg je een vrijblijvend voorstel.</p>
+          {/* Geen beweringen over leverbaarheid of houtsoort: die zijn voor deze collecties niet bekend. */}
+          <p class="font-kop text-2xl">Interesse in de {c.naam}?</p>
+          <p class="mt-3 text-grijs">Deze collectie staat op dit moment niet in de webshop. Vraag Han gerust naar de mogelijkheden.</p>
           <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-            <a href={url('maatwerk/aanvragen/')} class="knop knop-blad">Vraag een voorstel aan<Icoon naam="pijl" /></a>
-            <a href={waHoi} class="knop knop-rand"><Icoon naam="wa" />Vraag het Han</a>
+            <a href={waHoi} class="knop knop-blad"><Icoon naam="wa" />Vraag het Han</a>
+            <a href={site.telHref} class="knop knop-rand"><Icoon naam="tel" /><span class="num">{site.tel}</span></a>
           </div>
         </div>
         </div>
@@ -73,15 +74,17 @@ const lijstSchema = {
 
     <section class="bg-zand py-14 md:py-20">
       <div class="wrap">
-        <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-          <div>
-            <h2 class="text-3xl">Iets anders in de stijl {c.naam}?</h2>
-            <p class="mt-3 max-w-xl text-grijs">Een kast, bank of tafel die er nog niet tussen staat, maken we in dezelfde stijl en op jouw maat.</p>
+        {n > 0 && (
+          <div class="mb-12 flex flex-col items-start justify-between gap-6 border-b border-lijn-2 pb-8 md:flex-row md:items-center">
+            <div>
+              <h2 class="text-3xl">Iets anders in de stijl {c.naam}?</h2>
+              <p class="mt-3 max-w-xl text-grijs">Een kast, bank of tafel die er nog niet tussen staat, maken we in dezelfde stijl en op jouw maat.</p>
+            </div>
+            <a href={url('maatwerk/')} class="knop knop-blad flex-none">Maatwerk aanvragen<Icoon naam="pijl" /></a>
           </div>
-          <a href={url('maatwerk/')} class="knop knop-blad flex-none">Maatwerk aanvragen<Icoon naam="pijl" /></a>
-        </div>
+        )}
         {anderen.length > 0 && (
-          <nav aria-label="Andere collecties" class="mt-12 border-t border-lijn-2 pt-8">
+          <nav aria-label="Andere collecties">
             <p class="font-bold">Andere collecties</p>
             <ul class="mt-4 flex flex-wrap gap-2">
               {anderen.map((x) => <li><a href={collectieHref(x.collectie)} class="flex min-h-10 items-center rounded-full bg-wit px-4 text-sm font-bold text-inkt no-underline ring-1 ring-lijn hover:ring-inkt">{x.collectie.naam}</a></li>)}
