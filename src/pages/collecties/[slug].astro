@@ -25,7 +25,7 @@ const kort = soorten.slice(0, 3);
 const opsomming = soorten.length > 3 ? `onder meer ${kort.join(', ')}` : kort.length > 1 ? `${kort.slice(0, -1).join(', ')} en ${kort.at(-1)}` : kort[0];
 const intro = omschrijvingHtml(c.intro);
 const standaard = n
-  ? `Meubels uit de collectie ${c.naam}: ${opsomming}. Allemaal met de hand gemaakt en ook op jouw maat, zonder meerprijs.`
+  ? `Meubels uit de collectie ${c.naam}: ${opsomming}. Met de hand gemaakt, en vrijwel alles ook op jouw maat, zonder meerprijs.`
   : `De collectie ${c.naam}.`;
 const beschrijving = c.intro ? platteTekst(c.intro).slice(0, 155).replace(/\s\S*$/, '') + '.' : standaard;
 const zelf = absoluut(`collecties/${c.slug}/`);
