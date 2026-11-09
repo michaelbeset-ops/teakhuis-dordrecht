@@ -1,0 +1,13 @@
+---
+// Een product-, categorie- of collectiefoto die altijd helemaal zichtbaar is, nooit bijgesneden (Han en Michael, nov
+// 2026). Een vrijstaand product op wit krijgt wat ruimte eromheen; een sfeerfoto krijgt een vage versie van zichzelf als
+// achtergrond, zodat er geen lege balken in het vak komen. Het omringende vak moet 'relative overflow-hidden' zijn.
+import { Image, getImage } from 'astro:assets';
+import { opWit, breedtes } from '../data/catalogus';
+interface Props { src: ImageMetadata; alt?: string; widths: number[]; sizes: string; ruimte?: string; loading?: 'lazy' | 'eager'; quality?: number; class?: string }
+const { src, alt = '', widths, sizes, ruimte = 'p-3 sm:p-5', loading = 'lazy', quality = 70, class: klas = '' } = Astro.props;
+const wit = opWit(src);
+const vaag = wit ? null : await getImage({ src, width: 48, quality: 40, format: 'webp' });
+---
+{vaag && <img src={vaag.src} alt="" aria-hidden="true" loading={loading} decoding="async" width="48" height="48" class="absolute inset-0 h-full w-full scale-110 object-cover opacity-60 blur-xl" />}
+<Image src={src} alt={alt} quality={quality} widths={breedtes(src, widths)} sizes={sizes} loading={loading} class={`relative h-full w-full object-contain ${wit ? ruimte : ''} ${klas}`} />

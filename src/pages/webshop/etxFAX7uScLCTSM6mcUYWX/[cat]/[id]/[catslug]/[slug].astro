@@ -155,7 +155,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
                 {fotos.map((f, i) => (
                   <li>
                     <button type="button" class="block aspect-square w-full overflow-hidden rounded-sm border-2 border-transparent bg-wit transition-colors hover:border-inkt aria-current:border-blad" aria-current={i ? 'false' : 'true'} aria-label={`Toon foto ${i + 1}`} data-duim={i}>
-                      <Image src={f} alt="" quality={60} widths={[Math.min(200, breedte(f))]} sizes="120px" loading="lazy" class={`h-full w-full ${fotoKlas(f, 'p-1')}`} />
+                      <Image src={f} alt="" quality={60} widths={[Math.min(200, breedte(f))]} sizes="120px" loading="lazy" class={`h-full w-full object-contain ${opWit(f) ? 'p-1' : ''}`} />
                     </button>
                   </li>
                 ))}

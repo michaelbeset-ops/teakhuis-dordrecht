@@ -1,4 +1,5 @@
 ---
+import HeleFoto from '../../components/HeleFoto.astro';
 import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import Kop from '../../components/Kop.astro';
@@ -44,7 +45,7 @@ const lijstSchema = {
 
     <div data-overzicht>
       <!-- Hoofdcategorieen als grote tegels -->
-      <section class="wrap pb-16 md:pb-24" aria-label="Categorieën">
+      <section class="wrap pb-12 md:pb-16" aria-label="Categorieën">
         <ul class="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-6 lg:gap-y-14">
           {groepen.map((g, i) => {
             const f = omslag(g.hoofd, g.producten);
@@ -52,7 +53,7 @@ const lijstSchema = {
               <li class="min-w-0">
                 <a href={categorieHref(g.hoofd)} class="product">
                   <div class="beeld aspect-[4/3]">
-                    {f ? <Image src={f} alt="" quality={70} widths={breedtes(f, [320, 480, 640, 800])} sizes="(min-width: 1344px) 400px, (min-width: 768px) 31vw, 46vw" loading={i < 3 ? 'eager' : 'lazy'} class={`h-full w-full ${fotoKlas(f, 'p-4 md:p-6')}`} /> : <GeenFoto naam={g.hoofd.naam} />}
+                    {f ? <HeleFoto src={f} widths={[320, 480, 640, 800]} sizes="(min-width: 1344px) 400px, (min-width: 768px) 31vw, 46vw" loading={i < 3 ? 'eager' : 'lazy'} ruimte="p-4 md:p-6" /> : <GeenFoto naam={g.hoofd.naam} />}
                   </div>
                   <div class="mt-4 flex items-baseline justify-between gap-3 border-b border-lijn-2 pb-3">
                     <h2 class="naam min-w-0 font-kop text-xl hyphens-auto [overflow-wrap:anywhere] sm:text-2xl" lang="nl">{g.hoofd.naam}</h2>

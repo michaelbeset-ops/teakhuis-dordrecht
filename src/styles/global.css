@@ -40,9 +40,9 @@
   --text-lg: 1.1875rem;
   --text-xl: 1.375rem;
   --text-2xl: clamp(1.5rem, 1vw + 1.15rem, 1.95rem);
-  --text-3xl: clamp(1.85rem, 2.2vw + 1.1rem, 2.9rem);
-  --text-4xl: clamp(2.2rem, 3.4vw + 1.1rem, 4.1rem);
-  --text-hero: clamp(2.75rem, 5vw + 1.1rem, 6.4rem);
+  --text-3xl: clamp(1.6rem, 1.3vw + 1.1rem, 2.3rem);
+  --text-4xl: clamp(1.85rem, 1.8vw + 1.2rem, 3rem);
+  --text-hero: clamp(2.3rem, 3.4vw + 1.2rem, 4.4rem);
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -111,7 +111,7 @@
 
   /* Productkaart: foto op een wit vlak (hun productfoto's zijn op wit gemaakt), daaronder naam en prijs. */
   .product { display: block; text-decoration: none; color: inherit; }
-  .product .beeld { overflow: hidden; background: var(--color-wit); border-radius: var(--radius-md); box-shadow: inset 0 0 0 1px var(--color-lijn); }
+  .product .beeld { position: relative; overflow: hidden; background: var(--color-wit); border-radius: var(--radius-md); box-shadow: inset 0 0 0 1px var(--color-lijn); }
   .product img { transition: transform .9s var(--ease-zacht); }
   .product:hover img { transform: scale(1.04); }
   .product .naam { transition: color .2s; }

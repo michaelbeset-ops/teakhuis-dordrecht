@@ -1,4 +1,5 @@
 ---
+import HeleFoto from '../../../../components/HeleFoto.astro';
 import Base from '../../../../layouts/Base.astro';
 import Kop from '../../../../components/Kop.astro';
 import Voet from '../../../../components/Voet.astro';
@@ -47,7 +48,7 @@ const lijstSchema = {
 ---
 <Base title={`${cat.naam}${/teak/i.test(cat.naam) ? '' : ' van teakhout'}${maatwerk ? ', ook op maat' : ''} | Teakhuis`} description={beschrijving} schema={[lijstSchema, kruimelSchema(kruimel, zelf)]}>
   <Kop />
-  <main id="inhoud" class="pb-20 md:pb-28">
+  <main id="inhoud" class="pb-14 md:pb-20">
     <section class="wrap pt-6 md:pt-8">
       <Kruimel stappen={kruimel} />
     </section>
@@ -169,7 +170,7 @@ const lijstSchema = {
                 <li>
                   <a href={categorieHref(t.cat)} class="group block no-underline">
                     <div class="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-md)] bg-wit ring-1 ring-inset ring-lijn">
-                      {t.foto ? <Image src={t.foto} alt="" quality={70} widths={breedtes(t.foto, [320, 480, 640])} sizes="(min-width: 1280px) 22vw, (min-width: 640px) 30vw, 46vw" loading={i < 4 ? 'eager' : 'lazy'} class={`h-full w-full transition-transform duration-500 group-hover:scale-[1.03] ${fotoKlas(t.foto, 'p-4')}`} /> : <GeenFoto naam={t.cat.naam} />}
+                      {t.foto ? <HeleFoto src={t.foto} widths={[320, 480, 640]} sizes="(min-width: 1280px) 22vw, (min-width: 640px) 30vw, 46vw" loading={i < 4 ? 'eager' : 'lazy'} ruimte="p-4" class="transition-transform duration-500 group-hover:scale-[1.03]" /> : <GeenFoto naam={t.cat.naam} />}
                     </div>
                     <p class="mt-3 flex items-center justify-between gap-2 font-kop text-lg font-extrabold leading-tight group-hover:text-blad-diep">{t.cat.naam}<Icoon naam="pijl" class="h-4 w-4 flex-none text-blad-diep transition-transform group-hover:translate-x-1" /></p>
                   </a>
