@@ -4,9 +4,9 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Kop from '../components/Kop.astro';
+import InfoHero from '../components/InfoHero.astro';
 import Voet from '../components/Voet.astro';
 import Icoon from '../components/Icoon.astro';
-import Kruimel from '../components/Kruimel.astro';
 import Vragen from '../components/Vragen.astro';
 import { url, absoluut } from '../data/site';
 import { kruimelSchema, vragenSchema } from '../data/seo';
@@ -54,18 +54,12 @@ const artikel = {
 <Base title={`${titel} | Teakhuis`} description={omschrijving} ogType="article" schema={[artikel, vragenSchema(vragen), kruimelSchema([['Duurzaam']], absoluut('duurzaam/'))]}>
   <Kop />
   <main id="inhoud">
-    <section class="wrap pb-16 pt-6 md:pb-24 md:pt-8">
-      <Kruimel stappen={[['Duurzaam']]} />
-      <div class="mt-10 grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:items-end lg:gap-x-12">
-        <div class="lg:col-span-7">
-          <p class="label text-blad-diep">Duurzaam Indonesisch teakhout</p>
-          <h1 class="mt-4 text-hero">Gaat generaties mee. <span class="cursief">Legaal en traceerbaar.</span></h1>
-          <p class="mt-6 max-w-xl text-lg text-grijs md:text-xl">Teak uit Indonesië is sterk, mooi en gaat tientallen jaren mee. Maar duurzaam is meer dan sterk hout: je wilt ook zeker weten dat het uit verantwoord beheerde bossen komt. Daarvoor heeft Indonesië een van de strengste controlesystemen ter wereld, SVLK, met de Europese FLEGT-vergunning erbovenop.</p>
-        </div>
-        <figure class="lg:col-span-5">
-          <Image src={interieur} alt="Eetkamer met een teakhouten tafel, een hoge kast, een boekenkast met lades en een dressoir" quality={78} widths={[480, 800]} sizes="(min-width: 1024px) 40vw, 100vw" loading="eager" class="aspect-[4/3] w-full rounded-[var(--radius-md)] object-cover" />
-        </figure>
-      </div>
+    <InfoHero foto={tuinset} pos="object-[50%_62%]" label="Duurzaam Indonesisch teakhout" titel="Sterk, mooi en verantwoord." id="duurzaam-kop">
+      <p class="mt-5 max-w-xl text-lg text-wit/85">Teak uit Indonesië gaat tientallen jaren mee. En met SVLK en de Europese FLEGT-vergunning weet je zeker dat het uit verantwoord beheerde bossen komt.</p>
+    </InfoHero>
+
+    <section class="wrap pt-14 md:pt-20">
+      <p class="max-w-3xl text-lg text-grijs md:text-xl">Teak uit Indonesië is sterk, mooi en gaat tientallen jaren mee. Maar duurzaam is meer dan sterk hout: je wilt ook zeker weten dat het uit verantwoord beheerde bossen komt. Daarvoor heeft Indonesië een van de strengste controlesystemen ter wereld, SVLK, met de Europese FLEGT-vergunning erbovenop.</p>
     </section>
 
     <!-- Wat maakt teak duurzaam -->
@@ -194,8 +188,8 @@ const artikel = {
           </div>
         </div>
         <figure class="lg:col-span-5 lg:col-start-8">
-          <Image src={tuinset} alt="Massief teakhouten tuintafel met bank op een grasveld voor een huis" quality={76} widths={[480, 720, 1000]} sizes="(min-width: 1024px) 38vw, 100vw" class="aspect-[4/5] w-full rounded-[var(--radius-md)] object-cover" />
-          <figcaption class="mt-3 text-xs text-grijs">Teak in de tuin: jaren buiten, weinig onderhoud</figcaption>
+          <Image src={interieur} alt="Eetkamer met een teakhouten tafel, een hoge kast, een boekenkast met lades en een dressoir" quality={78} widths={[480, 800]} sizes="(min-width: 1024px) 38vw, 100vw" class="aspect-[4/3] w-full rounded-[var(--radius-md)] object-cover" />
+          <figcaption class="mt-3 text-xs text-grijs">Teak in huis: tafel, kasten en dressoir in dezelfde houtsoort</figcaption>
         </figure>
       </div>
     </section>

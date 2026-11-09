@@ -12,7 +12,7 @@ import ReviewKaart from '../../../../../../components/ReviewKaart.astro';
 import { site, url, absoluut, houtkleuren, stappen, reviews } from '../../../../../../data/site';
 import han from '../../../../../../assets/han.jpg';
 import {
-  producten, categorieHref, productHref, breedte, breedtes, euro, toonPrijs, prijsTekst, omschrijvingHtml, platteTekst, hoofdletter, fotoKlas, maatSoort, breedtesVan, houtsoortVan, collectieHref, productPad,
+  producten, categorieHref, productHref, breedte, breedtes, euro, toonPrijs, prijsTekst, omschrijvingHtml, platteTekst, hoofdletter, fotoKlas, maatSoort, breedtesVan, houtsoortVan, collectieHref, productPad, opWit,
   type Product,
 } from '../../../../../../data/catalogus';
 import { kruimelSchema, type Stap } from '../../../../../../data/seo';
@@ -136,8 +136,10 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
           <>
             <div class="relative aspect-square overflow-hidden rounded-sm bg-wit sm:aspect-[5/4]" role="group" aria-roledescription="fotogalerij" aria-label={`Foto's van ${p.titel}`} tabindex={fotos.length > 1 ? 0 : undefined} data-podium>
               {fotos.map((f, i) => (
-                <button type="button" class={`absolute inset-0 h-full w-full cursor-zoom-in ${i ? 'hidden' : ''}`} data-dia={i} aria-label={`Foto ${i + 1} van ${fotos.length} groter bekijken`}>
-                  <Image src={f} alt={i ? `${p.titel}, foto ${i + 1}` : p.titel} quality={76} widths={breedtes(f, [480, 720, 960, 1200])} sizes="(min-width: 1344px) 720px, (min-width: 1024px) 55vw, 100vw" loading={i ? 'lazy' : 'eager'} fetchpriority={i ? undefined : 'high'} class={`h-full w-full ${fotoKlas(f, 'p-4 md:p-8')}`} />
+                <button type="button" class={`absolute inset-0 h-full w-full cursor-zoom-in overflow-hidden ${i ? 'hidden' : ''}`} data-dia={i} aria-label={`Foto ${i + 1} van ${fotos.length} groter bekijken`}>
+                  {/* De hele foto is altijd zichtbaar (Han, nov 2026). Sfeerfoto's krijgen een vage versie van zichzelf als achtergrond, zodat er geen lege balken ontstaan. */}
+                  {!opWit(f) && <Image src={f} alt="" aria-hidden="true" quality={40} widths={[48]} sizes="48px" loading={i ? 'lazy' : 'eager'} class="absolute inset-0 h-full w-full scale-110 object-cover opacity-60 blur-2xl" />}
+                  <Image src={f} alt={i ? `${p.titel}, foto ${i + 1}` : p.titel} quality={76} widths={breedtes(f, [480, 720, 960, 1200])} sizes="(min-width: 1344px) 720px, (min-width: 1024px) 55vw, 100vw" loading={i ? 'lazy' : 'eager'} fetchpriority={i ? undefined : 'high'} class={`relative h-full w-full object-contain ${opWit(f) ? 'p-4 md:p-8' : ''}`} />
                 </button>
               ))}
               {fotos.length > 1 && (
@@ -435,7 +437,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
         dias.forEach((d, j) => d.classList.toggle('hidden', j !== nu));
         duimen.forEach((d, j) => d.setAttribute('aria-current', String(j === nu)));
         if (teller) teller.textContent = `${nu + 1} / ${dias.length}`;
-        if (groot?.open && grootImg) grootImg.src = grootste(dias[nu].querySelector('img')!);
+        if (groot?.open && grootImg) grootImg.src = grootste(dias[nu].querySelector('img:last-of-type')!);
       };
       const veeg = (el: HTMLElement) => {
         let x0: number | null = null;
@@ -453,7 +455,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
       if (groot && grootImg) {
         dias.forEach((d) => d.addEventListener('click', () => {
           if (podium.dataset.geveegd) return;
-          grootImg.src = grootste(d.querySelector('img')!);
+          grootImg.src = grootste(d.querySelector('img:last-of-type')!);
           groot.showModal();
         }));
         groot.querySelectorAll<HTMLElement>('[data-stap]').forEach((b) => b.addEventListener('click', () => zet(nu + Number(b.dataset.stap))));

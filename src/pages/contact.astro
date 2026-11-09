@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import Kop from '../components/Kop.astro';
+import InfoHero from '../components/InfoHero.astro';
+import heroFoto from '../assets/hero-woonkamer.jpg';
 import Voet from '../components/Voet.astro';
 import Icoon from '../components/Icoon.astro';
-import Kruimel from '../components/Kruimel.astro';
 import { site, url, absoluut, waHoi } from '../data/site';
 import { kruimelSchema } from '../data/seo';
 const contactSchema = { '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Contact Teakhuis', url: absoluut('contact/'), about: { '@id': `${absoluut('')}#organisatie` } };
@@ -11,12 +12,14 @@ const contactSchema = { '@context': 'https://schema.org', '@type': 'ContactPage'
 <Base title="Contact | Teakhuis" description={`Neem contact op met Teakhuis: bel of app ${site.tel} of mail ${site.mail}. Teakhuis heeft geen showroom meer en levert uitsluitend op bestelling.`} schema={[contactSchema, kruimelSchema([['Contact']], absoluut('contact/'))]}>
   <Kop />
   <main id="inhoud" class="pb-24 md:pb-32">
-    <section class="wrap pt-6 md:pt-8">
-      <Kruimel stappen={[['Contact']]} />
-      <div class="mt-10 grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
+    <InfoHero foto={heroFoto} pos="object-[60%_65%]" label="Persoonlijk advies van Han, eigenaar" titel="Bel, app of mail ons." id="contact-kop">
+      <p class="mt-5 max-w-xl text-lg text-wit/85">Vragen over een meubel, een maat of een levering? We denken graag met je mee.</p>
+    </InfoHero>
+    <section class="wrap pt-14 md:pt-20">
+      <div class="grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
         <div class="lg:col-span-6">
-          <h1 class="text-hero">Bel, app <span class="cursief">of mail ons.</span></h1>
-          <p class="mt-6 max-w-lg text-lg text-grijs">Vragen over een meubel, een maat of een levering? We denken graag met je mee. Teakhuis heeft geen showroom meer: we werken online, per mail en telefonisch, en leveren uitsluitend op bestelling.</p>
+          <h2 class="text-3xl">Zo bereik je ons</h2>
+          <p class="mt-4 max-w-lg text-lg text-grijs">Teakhuis heeft geen showroom meer: we werken online, per mail en telefonisch, en leveren uitsluitend op bestelling.</p>
         </div>
         <ul class="divide-y divide-lijn-2 border-y border-lijn-2 lg:col-span-5 lg:col-start-8 lg:mt-4">
           <li>

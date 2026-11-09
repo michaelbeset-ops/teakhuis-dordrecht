@@ -19,7 +19,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
   <div class="wrap flex h-9 items-center justify-between gap-6 text-xs font-semibold">
     <ul class="flex min-w-0 items-center gap-x-7 overflow-hidden">
       {site.usps.map((u, i) => (
-        <li class={`flex flex-none items-center gap-2 ${i ? 'max-md:hidden' : ''}`}><Icoon naam="vink" class="h-3.5 w-3.5 text-blad-licht" /><span class="text-wit">{u}</span></li>
+        <li class={`flex flex-none items-center gap-2 ${['', 'max-md:hidden', 'max-lg:hidden', 'max-xl:hidden'][i] ?? 'max-xl:hidden'}`}><Icoon naam="vink" class="h-3.5 w-3.5 text-blad-licht" /><span class="text-wit">{u}</span></li>
       ))}
     </ul>
     <a href={site.telHref} class="num flex flex-none items-center gap-2 text-wit no-underline hover:text-blad-licht max-sm:hidden"><Icoon naam="tel" class="h-3.5 w-3.5" />{site.tel}</a>

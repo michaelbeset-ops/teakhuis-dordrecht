@@ -62,6 +62,15 @@ const robots = noindex || site.voorstel || site.testadres ? 'noindex, nofollow' 
     <meta name="twitter:card" content="summary_large_image" />
     {!site.voorstel && <script type="application/ld+json" set:html={JSON.stringify(jsonld.length === 1 ? jsonld[0] : jsonld).replace(/</g, '\\u003c')} />}
     <script is:inline>document.documentElement.classList.add('js')</script>
+    <script is:inline>
+      // Sfeervariant om te vergelijken (zie global.css): ?sfeer=warm | licht | standaard, onthouden in deze browser.
+      try {
+        const v = new URLSearchParams(location.search).get('sfeer');
+        if (v) v === 'standaard' ? localStorage.removeItem('sfeer') : localStorage.setItem('sfeer', v);
+        const s = localStorage.getItem('sfeer');
+        if (s) document.documentElement.dataset.sfeer = s;
+      } catch {}
+    </script>
     {site.statistiek.plausible && <script is:inline>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>}
     {site.statistiek.plausible && <script is:inline defer data-domain={site.statistiek.plausible} src="https://plausible.io/js/script.js"></script>}
     {site.statistiek.goatcounter && <script is:inline async data-goatcounter={`https://${site.statistiek.goatcounter}.goatcounter.com/count`} src="https://gc.zgo.at/count.js"></script>}

@@ -5,6 +5,7 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Kop from '../components/Kop.astro';
+import InfoHero from '../components/InfoHero.astro';
 import Voet from '../components/Voet.astro';
 import Icoon from '../components/Icoon.astro';
 import Kruimel from '../components/Kruimel.astro';
@@ -71,20 +72,13 @@ const pagina = {
   <main id="inhoud">
 
     <!-- HERO: volledig foto, de showroom zoals klanten hem kenden -->
-    <section class="relative -mt-[4.75rem] flex min-h-[78svh] flex-col justify-end overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem] lg:min-h-[88svh]" aria-labelledby="over-kop">
-      <Image src={heroFoto} alt="" quality={78} widths={[640, 960, 1280, 1600, 2000, 2600]} sizes="100vw" loading="eager" fetchpriority="high" class="hero-zoom absolute inset-0 h-full w-full object-cover object-[60%_55%]" />
-      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-nacht/95 via-nacht/45 to-nacht/25"></div>
-      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-nacht/80 via-nacht/30 to-transparent max-lg:hidden"></div>
-      <div class="wrap relative pb-14 pt-36 md:pb-20">
-        <p class="hero-op label text-blad-licht">Over Teakhuis Dordrecht</p>
-        <h1 id="over-kop" class="hero-op mt-5 max-w-[14ch] text-[clamp(2.6rem,6vw,5.8rem)] leading-[.95]" style="--d:.08s">Sinds 2007 in teak op maat.</h1>
-        <p class="hero-op mt-6 max-w-xl text-lg text-wit/85 md:text-xl" style="--d:.18s">Van een showroom van 1.000 m² in Dordrecht naar een bedrijf zonder winkel, met dezelfde aandacht voor elk meubel. Dit is het verhaal.</p>
-        <a href="#tijdlijn" class="hero-op mt-9 inline-flex items-center gap-3 font-kop text-sm font-bold text-wit no-underline" style="--d:.28s">
-          <span class="grid h-11 w-11 place-items-center rounded-full ring-1 ring-wit/40 transition-colors hover:bg-wit/10"><Icoon naam="pijl" class="h-4 w-4 rotate-90" /></span>
-          Lees het verhaal
-        </a>
-      </div>
-    </section>
+    <InfoHero foto={heroFoto} pos="object-[60%_55%]" label="Over Teakhuis Dordrecht" titel="Sinds 2007 gespecialiseerd in teak" id="over-kop">
+      <p class="mt-5 max-w-xl text-lg text-wit/85">Van een showroom van 1.000 m² in Dordrecht naar een bedrijf zonder winkel, met dezelfde aandacht voor elk meubel. Dit is het verhaal.</p>
+      <a href="#tijdlijn" class="mt-7 inline-flex items-center gap-3 font-kop text-sm font-bold text-wit no-underline">
+        <span class="grid h-11 w-11 place-items-center rounded-full ring-1 ring-wit/40 transition-colors hover:bg-wit/10"><Icoon naam="pijl" class="h-4 w-4 rotate-90" /></span>
+        Lees het verhaal
+      </a>
+    </InfoHero>
 
     <!-- Intro met de feiten uit Hans tekst -->
     <section class="wrap py-16 md:py-24">
