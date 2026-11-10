@@ -1,29 +1,33 @@
 {
   "titel": "Bristol salontafel",
   "categorie": "tuinmeubelen",
-  "prijsVanaf": 109,
-  "prijsTonen": true,
-  "omschrijving": "De Bristol is een salontafel voor de tuin, gemaakt van massief teak grade A/B. Hij staat op stevige blokpoten van 5 cm, wat hem een eenvoudige, robuuste vorm geeft.\n\nJe kiest uit drie standaardmaten, allemaal 45 cm hoog. Overige afmetingen zijn op aanvraag mogelijk. De tafel is uitsluitend op bestelling leverbaar.\n\n**Kenmerken**\n\n- Materiaal: massief teak grade A/B\n- Blokpoten van 5 cm\n- 3 standaardmaten, overige afmetingen op aanvraag\n- Met de hand gemaakt in Indonesië\n- Uitsluitend op bestelling leverbaar",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/31074/1.jpg",
     "../../assets/producten/31074/2.jpg"
   ],
+  "prijsVanaf": 109,
+  "omschrijving": "De Bristol is een salontafel voor de tuin, gemaakt van massief teak grade A/B. Hij staat op stevige blokpoten van 5 cm, wat hem een eenvoudige, robuuste vorm geeft.\n\nJe kiest uit drie standaardmaten, allemaal 45 cm hoog. Overige afmetingen zijn op aanvraag mogelijk. De tafel is uitsluitend op bestelling leverbaar.\n\n**Kenmerken**\n\n- Materiaal: massief teak grade A/B\n- Blokpoten van 5 cm\n- 3 standaardmaten, overige afmetingen op aanvraag\n- Met de hand gemaakt in Indonesië\n- Uitsluitend op bestelling leverbaar",
   "maten": [
     {
-      "label": "B70 x D70 x H45"
+      "label": "B70 x D70 x H45",
+      "prijs": null
     },
     {
-      "label": "B100 x D60 x H45"
+      "label": "B100 x D60 x H45",
+      "prijs": null
     },
     {
-      "label": "B120 x D70 x H45"
+      "label": "B120 x D70 x H45",
+      "prijs": null
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 9,
   "seoTitel": "Bristol salontafel teak voor de tuin | Teakhuis",
   "seoOmschrijving": "Bristol salontafel voor de tuin van massief teak grade A/B, met blokpoten van 5 cm. Overige afmetingen op aanvraag. Vraag vrijblijvend een offerte aan.",
