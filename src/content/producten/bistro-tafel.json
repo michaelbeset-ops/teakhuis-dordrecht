@@ -1,37 +1,43 @@
 {
   "titel": "Bistro tafel",
   "categorie": "tuinmeubelen",
-  "prijsVanaf": 199,
-  "prijsTonen": true,
-  "omschrijving": "Een stevige, degelijke tuintafel met vierkante poten, gemaakt van massief teak grade A/B. De bistrotafel is er van een klein vierkant model voor twee tot een lange tafel van 220 cm.\n\nDeze tafel is uitsluitend op bestelling leverbaar. Afwijkende afmetingen zijn mogelijk, de prijs daarvan is op aanvraag.\n\n**Kenmerken**\n- Materiaal: massief teak, grade A/B\n- Vierkante poten\n- 5 standaardmaten, van 80 x 80 tot 220 x 100 cm, hoogte 78 cm\n- Afwijkende afmetingen mogelijk, prijs op aanvraag\n- Uitsluitend op bestelling",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/31058/1.jpg",
     "../../assets/producten/31058/2.jpg",
     "../../assets/producten/31058/3.jpg",
     "../../assets/producten/31058/4.jpg"
   ],
+  "prijsVanaf": 199,
+  "omschrijving": "Een stevige, degelijke tuintafel met vierkante poten, gemaakt van massief teak grade A/B. De bistrotafel is er van een klein vierkant model voor twee tot een lange tafel van 220 cm.\n\nDeze tafel is uitsluitend op bestelling leverbaar. Afwijkende afmetingen zijn mogelijk, de prijs daarvan is op aanvraag.\n\n**Kenmerken**\n- Materiaal: massief teak, grade A/B\n- Vierkante poten\n- 5 standaardmaten, van 80 x 80 tot 220 x 100 cm, hoogte 78 cm\n- Afwijkende afmetingen mogelijk, prijs op aanvraag\n- Uitsluitend op bestelling",
   "maten": [
     {
-      "label": "B80xD80xH78"
+      "label": "B80xD80xH78",
+      "prijs": null
     },
     {
-      "label": "B140xD80xH78"
+      "label": "B140xD80xH78",
+      "prijs": null
     },
     {
-      "label": "B180xD90xH78"
+      "label": "B180xD90xH78",
+      "prijs": null
     },
     {
-      "label": "B200 x D95 x H78"
+      "label": "B200 x D95 x H78",
+      "prijs": null
     },
     {
-      "label": "B220 x D100 x H78"
+      "label": "B220 x D100 x H78",
+      "prijs": null
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 7,
   "seoTitel": "Bistro tafel teak voor de tuin | Teakhuis",
   "seoOmschrijving": "Stevige bistro tuintafel van massief teak grade A/B met vierkante poten, van 80 tot 220 cm breed. Uitsluitend op bestelling. Vraag een offerte aan.",
