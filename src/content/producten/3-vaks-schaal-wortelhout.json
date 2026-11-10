@@ -1,12 +1,12 @@
 {
   "titel": "3 vaks schaal wortelhout",
   "categorie": "accessoires",
-  "prijsVanaf": 25,
-  "prijsTonen": true,
-  "omschrijving": "Een schaal van wortelhout met drie vakken. Handig voor nootjes, olijven en toastjes op tafel, of om sleutels en kleine spullen bij elkaar te houden. Door het wortelhout is elke schaal net anders getekend.\n\n**Kenmerken**\n- Materiaal: wortelhout\n- Verdeeld in 3 vakken\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/4912/1.jpg"
   ],
+  "prijsVanaf": 25,
+  "omschrijving": "Een schaal van wortelhout met drie vakken. Handig voor nootjes, olijven en toastjes op tafel, of om sleutels en kleine spullen bij elkaar te houden. Door het wortelhout is elke schaal net anders getekend.\n\n**Kenmerken**\n- Materiaal: wortelhout\n- Verdeeld in 3 vakken\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
       "label": "Ø 30 cm (ca)",
@@ -14,10 +14,11 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": false,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": false,
   "volgorde": 31,
   "seoTitel": "3-vaks schaal wortelhout | Teakhuis",
   "seoOmschrijving": "Handige schaal van wortelhout met drie vakken, voor hapjes op tafel of kleine spullen. Elke schaal heeft een eigen tekening. Vraag een offerte aan.",
