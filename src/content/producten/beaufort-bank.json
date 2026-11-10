@@ -1,28 +1,32 @@
 {
   "titel": "Beaufort bank",
   "categorie": "tuinmeubelen",
-  "prijsVanaf": 199,
-  "prijsTonen": true,
-  "omschrijving": "Een degelijke tuinbank van goede kwaliteit teak, grade A/B. De Beaufort is een stevige bank voor in de tuin.\n\nLet op: de maten 150 en 180 cm breed zijn uitverkocht. Die zijn uitsluitend nog op bestelling verkrijgbaar, met een levertijd van ca. 2 maanden.\n\n**Kenmerken**\n- Materiaal: teak, grade A/B\n- Breedte 120, 150 of 180 cm\n- 150 en 180 cm uitverkocht: op bestelling, levertijd ca. 2 maanden\n- Ook op maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/29712/1.jpg"
   ],
+  "prijsVanaf": 199,
+  "omschrijving": "Een degelijke tuinbank van goede kwaliteit teak, grade A/B. De Beaufort is een stevige bank voor in de tuin.\n\nLet op: de maten 150 en 180 cm breed zijn uitverkocht. Die zijn uitsluitend nog op bestelling verkrijgbaar, met een levertijd van ca. 2 maanden.\n\n**Kenmerken**\n- Materiaal: teak, grade A/B\n- Breedte 120, 150 of 180 cm\n- 150 en 180 cm uitverkocht: op bestelling, levertijd ca. 2 maanden\n- Ook op maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
-      "label": "B120"
+      "label": "B120",
+      "prijs": null
     },
     {
-      "label": "B150"
+      "label": "B150",
+      "prijs": null
     },
     {
-      "label": "B180"
+      "label": "B180",
+      "prijs": null
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 3,
   "seoTitel": "Tuinbank Beaufort teak | Teakhuis",
   "seoOmschrijving": "Degelijke tuinbank Beaufort van teak grade A/B, 120, 150 of 180 cm breed. Grotere maten op bestelling, levertijd ca. 2 maanden. Vraag een offerte aan.",
