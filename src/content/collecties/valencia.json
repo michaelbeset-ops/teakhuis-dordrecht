@@ -1,7 +1,7 @@
 {
   "naam": "Valencia",
   "intro": "",
-  "volgorde": 130,
   "foto": "../../assets/collecties/oud-valencia.jpg",
-  "zichtbaar": true
+  "volgorde": 130,
+  "zichtbaar": false
 }
