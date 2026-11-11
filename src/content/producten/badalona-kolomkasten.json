@@ -1,9 +1,7 @@
 {
   "titel": "Badalona Kolomkasten",
   "categorie": "wastafelmeubels",
-  "prijsVanaf": 729,
-  "prijsTonen": true,
-  "omschrijving": "Een smalle, hoge kolomkast die past bij de Badalona wastafelmeubels. Met soft close deuren en een nette afwerking, zodat handdoeken en toiletspullen uit het zicht staan.\n\nJe kiest de indeling: met lades achter de deuren, met deuren en lades, of met deuren en een open vak, en steeds links of rechts draaiend. De rotan mand op de foto hoort er niet bij.\n\n**Kenmerken**\n- Soft close deuren\n- Afmeting: H182 x B37 x D37 cm\n- 6 varianten in indeling en draairichting\n- Zonder rotan mand\n- Ook op maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "badalona",
   "fotos": [
     "../../assets/producten/2844/1.jpg",
     "../../assets/producten/2844/2.jpg",
@@ -11,9 +9,12 @@
     "../../assets/producten/2844/4.jpg",
     "../../assets/producten/2844/5.jpg"
   ],
+  "prijsVanaf": 729,
+  "omschrijving": "Een smalle, hoge kolomkast die past bij de Badalona wastafelmeubels. Met soft close deuren en een nette afwerking, zodat handdoeken en toiletspullen uit het zicht staan.\n\nJe kiest de indeling: met lades achter de deuren, met deuren en lades, of met deuren en een open vak, en steeds links of rechts draaiend. De rotan mand op de foto hoort er niet bij.\n\n**Kenmerken**\n- Soft close deuren\n- Afmeting: H182 x B37 x D37 cm\n- 6 varianten in indeling en draairichting\n- Zonder rotan mand\n- Ook op maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
-      "label": "H182 x B37 x D37, 2 lades achter de deuren, links"
+      "label": "H182 x B37 x D37, 2 lades achter de deuren, links",
+      "prijs": null
     },
     {
       "label": "H182 x B37 x D37, 2 lades achter de deuren, rechts",
@@ -37,13 +38,13 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 281,
   "seoTitel": "Badalona kolomkast voor de badkamer | Teakhuis",
   "seoOmschrijving": "Badalona kolomkast met soft close deuren, passend bij de wastafelmeubels. Met lades, deuren of open vak, links of rechts. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2844/wastafelmeubels/badalona-kolomkasten",
-  "collectie": "badalona"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2844/wastafelmeubels/badalona-kolomkasten"
 }
