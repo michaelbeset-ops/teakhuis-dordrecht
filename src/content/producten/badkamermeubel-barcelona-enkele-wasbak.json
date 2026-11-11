@@ -1,25 +1,28 @@
 {
   "titel": "Badkamermeubel Barcelona enkele wasbak",
   "categorie": "badkamer-hangende-modellen",
-  "prijsVanaf": 1099,
-  "prijsTonen": true,
-  "omschrijving": "De Barcelona met enkele wasbak is een hangend badkamermeubel van grade A teakhout. Op het meubel ligt een massief natuurstenen blad met waskom, eronder zitten twee laden die zacht dichtgaan.\n\nEr zijn twee standaardbreedtes, 70 en 90 cm. Heb je een andere maat nodig, dan maken we hem zonder meerprijs op maat.\n\n**Kenmerken**\n- Materiaal: grade A teakhout\n- Massief natuurstenen bovenkant met waskom\n- 2 laden op soft closing rails\n- Hangend model, 2 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/4197/1.jpg"
   ],
+  "prijsVanaf": 1099,
+  "omschrijving": "De Barcelona met enkele wasbak is een hangend badkamermeubel van grade A teakhout. Op het meubel ligt een massief natuurstenen blad met waskom, eronder zitten twee laden die zacht dichtgaan.\n\nEr zijn twee standaardbreedtes, 70 en 90 cm. Heb je een andere maat nodig, dan maken we hem zonder meerprijs op maat.\n\n**Kenmerken**\n- Materiaal: grade A teakhout\n- Massief natuurstenen bovenkant met waskom\n- 2 laden op soft closing rails\n- Hangend model, 2 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
-      "label": "b70 x d47 x h45"
+      "label": "b70 x d47 x h45",
+      "prijs": null
     },
     {
-      "label": "b90 x d47 x h45"
+      "label": "b90 x d47 x h45",
+      "prijs": null
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 294,
   "seoTitel": "Badkamermeubel Barcelona enkel, teak | Teakhuis",
   "seoOmschrijving": "Hangend badkamermeubel Barcelona van grade A teak met natuurstenen top en waskom, 2 soft close laden. In 70 of 90 cm of op maat. Vraag een offerte aan.",
