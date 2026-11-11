@@ -1,12 +1,13 @@
 {
-  "titel": "boekenkast 1",
+  "titel": "boekenkast klassiek groot",
   "categorie": "teak-boekenkasten",
-  "prijsVanaf": 849,
-  "prijsTonen": true,
-  "omschrijving": "Boekenkast 1 is een teakhouten boekenkast die op elke maat gemaakt wordt. Zo past hij precies in die nis of langs de hele muur.\n\nJe kiest uit koloniaal, thee of blank teakhout.\n\n**Kenmerken**\n- Materiaal: teakhout\n- Houtkleuren: Blank teak, Thee kleur of Koloniale kleur\n- Op elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "",
   "fotos": [
-    "../../assets/producten/1648/1.jpg"
+    "../../assets/producten/1648/1.jpg",
+    "../../assets/producten/boekenkast-klassiek-groot-koloniale-kleur.webp"
   ],
+  "prijsVanaf": 849,
+  "omschrijving": "Deze boekenkast is een teakhouten boekenkast die op elke maat gemaakt wordt. Zo past hij precies in die nis of langs de hele muur.\n\nJe kiest uit koloniaal, thee of blank teakhout.\n\n**Kenmerken**\n\n- Materiaal: teakhout\n- Houtkleuren: Blank teak, Thee kleur of Koloniale kleur\n- Op elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "200x100x30cm",
@@ -14,10 +15,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 440,
   "seoTitel": "Boekenkast 1 teak, op maat | Teakhuis",
   "seoOmschrijving": "Teakhouten boekenkast, op elke maat gemaakt zonder meerprijs, in blank, thee of koloniale kleur. Handgemaakt in Indonesië. Vraag een offerte aan.",
