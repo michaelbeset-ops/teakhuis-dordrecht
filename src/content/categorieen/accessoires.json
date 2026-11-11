@@ -1,9 +1,9 @@
 {
   "naam": "Accessoires",
   "hoofd": "",
-  "volgorde": 8,
   "intro": "",
-  "oudeId": "221",
   "foto": "../../assets/categorieen/oud-accessoires.jpg",
-  "zichtbaar": true
+  "volgorde": 8,
+  "zichtbaar": false,
+  "oudeId": "221"
 }
