@@ -1,7 +1,7 @@
 {
   "naam": "The Edge",
   "intro": "",
-  "volgorde": 50,
   "foto": "../../assets/collecties/oud-edge-line.jpg",
-  "zichtbaar": true
+  "volgorde": 50,
+  "zichtbaar": false
 }
