@@ -1,25 +1,28 @@
 {
   "titel": "Badkamermeubel Barcelona dubbele wasbak",
   "categorie": "badkamer-hangende-modellen",
-  "prijsVanaf": 1599,
-  "prijsTonen": true,
-  "omschrijving": "Hangend badkamermeubel van grade A teakhout met een massief natuurstenen bovenkant en twee waskommen. Met twee wasbakken naast elkaar is de Barcelona gemaakt voor een badkamer die je samen gebruikt.\n\nHet meubel heeft 4 laden op soft closing rails. Je kiest uit 120 of 150 cm breed, of laat hem op maat maken zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: grade A teakhout\n- Massief natuurstenen bovenkant met 2 waskommen\n- 4 laden op soft closing rails\n- Hangend model, 2 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/4194/1.jpg"
   ],
+  "prijsVanaf": 1599,
+  "omschrijving": "Hangend badkamermeubel van grade A teakhout met een massief natuurstenen bovenkant en twee waskommen. Met twee wasbakken naast elkaar is de Barcelona gemaakt voor een badkamer die je samen gebruikt.\n\nHet meubel heeft 4 laden op soft closing rails. Je kiest uit 120 of 150 cm breed, of laat hem op maat maken zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: grade A teakhout\n- Massief natuurstenen bovenkant met 2 waskommen\n- 4 laden op soft closing rails\n- Hangend model, 2 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
-      "label": "b120 x d47 x h45"
+      "label": "b120 x d47 x h45",
+      "prijs": null
     },
     {
-      "label": "b150 x d47 x h45"
+      "label": "b150 x d47 x h45",
+      "prijs": null
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 295,
   "seoTitel": "Badkamermeubel Barcelona dubbel, teak | Teakhuis",
   "seoOmschrijving": "Hangend badkamermeubel Barcelona van grade A teak met natuurstenen top en twee waskommen, 4 soft close laden. Ook op maat. Vraag een offerte aan.",
