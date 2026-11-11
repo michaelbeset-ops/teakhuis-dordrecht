@@ -1,25 +1,28 @@
 {
   "titel": "Bank wortelhout",
   "categorie": "banken-teak",
-  "prijsVanaf": 399,
-  "prijsTonen": true,
-  "omschrijving": "Een bank van wortelhout, een stoer stuk hout om op te zitten. Hij is ook geschikt om buiten te staan.\n\nStandaard is de bank ongeveer 120 of 160 cm breed. Op bestelling is hij leverbaar in afwijkende afmetingen.\n\n**Kenmerken**\n- Materiaal: wortelhout\n- Geschikt voor binnen en buiten\n- Breedte ca. 120 of ca. 160 cm\n- Op bestelling in afwijkende afmetingen, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/4956/1.jpg"
   ],
+  "prijsVanaf": 399,
+  "omschrijving": "Een bank van wortelhout, een stoer stuk hout om op te zitten. Hij is ook geschikt om buiten te staan.\n\nStandaard is de bank ongeveer 120 of 160 cm breed. Op bestelling is hij leverbaar in afwijkende afmetingen.\n\n**Kenmerken**\n- Materiaal: wortelhout\n- Geschikt voor binnen en buiten\n- Breedte ca. 120 of ca. 160 cm\n- Op bestelling in afwijkende afmetingen, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
-      "label": "B ca. 160"
+      "label": "B ca. 160",
+      "prijs": null
     },
     {
-      "label": "B ca. 120"
+      "label": "B ca. 120",
+      "prijs": null
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 264,
   "seoTitel": "Bank wortelhout, binnen en buiten | Teakhuis",
   "seoOmschrijving": "Bank van wortelhout, ook geschikt voor buiten. Ca. 120 of 160 cm breed, op bestelling ook in afwijkende afmetingen. Vraag vrijblijvend een offerte aan.",
