@@ -1,9 +1,9 @@
 {
   "naam": "Tuinmeubelen",
   "hoofd": "",
-  "volgorde": 6,
   "intro": "Tuintafels, banken en stoelen van teak, ook van gerecycled teak. Teak kan goed tegen weer en wind en vraagt weinig onderhoud.",
-  "oudeId": "206",
   "foto": "../../assets/categorieen/oud-tuinmeubelen.jpg",
-  "zichtbaar": true
+  "volgorde": 6,
+  "zichtbaar": false,
+  "oudeId": "206"
 }
