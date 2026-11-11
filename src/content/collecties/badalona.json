@@ -1,7 +1,7 @@
 {
   "naam": "Badalona",
   "intro": "",
-  "volgorde": 140,
   "foto": "../../assets/collecties/oud-badalona.jpg",
-  "zichtbaar": true
+  "volgorde": 140,
+  "zichtbaar": false
 }
