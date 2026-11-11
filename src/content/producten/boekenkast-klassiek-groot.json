@@ -1,0 +1,27 @@
+{
+  "titel": "boekenkast klassiek groot",
+  "categorie": "geen",
+  "collectie": "koloniale-meubelen",
+  "fotos": [
+    "../../assets/producten/boekenkast-klassiek-groot-koloniale-kleur.webp",
+    "../../assets/producten/1648/1.jpg"
+  ],
+  "prijsVanaf": 849,
+  "omschrijving": "Deze boekenkast is een teakhouten boekenkast die op elke maat gemaakt wordt. Zo past hij precies in die nis of langs de hele muur.\n\nJe kiest uit koloniaal, thee of blank teakhout.\n\n**Kenmerken**\n\n- Materiaal: teakhout\n- Houtkleuren: Blank teak, Thee kleur of Koloniale kleur\n- Op elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "maten": [
+    {
+      "label": "200x100x30cm",
+      "prijs": 849
+    }
+  ],
+  "houtkleuren": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
+  "volgorde": 440,
+  "seoTitel": "",
+  "seoOmschrijving": "",
+  "oudeUrl": ""
+}
