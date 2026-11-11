@@ -1,12 +1,12 @@
 {
   "titel": "Badkamermeubel Q double",
   "categorie": "badkamer-hangende-modellen",
-  "prijsVanaf": 1899,
-  "prijsTonen": true,
-  "omschrijving": "De Q double is een hangend badkamermeubel voor twee waskommen. Omdat hij aan de wand hangt, oogt de badkamer ruimer en maak je de vloer makkelijk schoon.\n\nDe prijs is exclusief waskommen. Wil je andere afmetingen, dan maken we hem op maat zonder meerprijs.\n\n**Kenmerken**\n- Hangend model\n- Prijs exclusief waskommen\n- Ook op maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/4203/1.jpg"
   ],
+  "prijsVanaf": 1899,
+  "omschrijving": "De Q double is een hangend badkamermeubel voor twee waskommen. Omdat hij aan de wand hangt, oogt de badkamer ruimer en maak je de vloer makkelijk schoon.\n\nDe prijs is exclusief waskommen. Wil je andere afmetingen, dan maken we hem op maat zonder meerprijs.\n\n**Kenmerken**\n- Hangend model\n- Prijs exclusief waskommen\n- Ook op maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "b180 x d50 x h44",
@@ -14,10 +14,11 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 296,
   "seoTitel": "Badkamermeubel Q double, hangend | Teakhuis",
   "seoOmschrijving": "Hangend badkamermeubel Q double, ook op maat te maken zonder meerprijs. Met de hand gemaakt in Indonesië, exclusief waskommen. Vraag een offerte aan.",
