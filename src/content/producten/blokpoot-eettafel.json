@@ -1,96 +1,96 @@
 {
   "titel": "Blokpoot eettafel",
   "categorie": "teak-eettafels",
-  "prijsVanaf": 299,
-  "prijsTonen": true,
-  "omschrijving": "Een strakke teakhouten eettafel met blokpoten van 8 cm op de hoeken. Met een top van 3 cm en een regel van 6 cm blijft er 69 cm vrije ruimte onder de tafel.\n\nLiever forsere poten van 10 cm, dan betaal je € 60 meer. Er zijn vierkante en rechthoekige maten, van 70 x 70 tot 300 x 100 cm.\n\n**Kenmerken**\n- Blokpoten van 8 cm (10 cm: + € 60)\n- Top 3 cm, regel 6 cm, vrije ruimte onder de tafel 69 cm\n- Uitvoeringen: Blank onbehandeld teak, Gerecycled onbehandeld teak, Milaan kleur, Koloniale kleur, Geborsteld teak\n- 17 standaardmaten, ook op maat zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
+    "../../assets/producten/31393/3.jpg",
     "../../assets/producten/31393/1.jpg",
     "../../assets/producten/31393/2.jpg",
-    "../../assets/producten/31393/3.jpg",
     "../../assets/producten/31393/4.jpg"
   ],
+  "prijsVanaf": 329,
+  "omschrijving": "Een strakke teakhouten eettafel met blokpoten van 8 cm op de hoeken. Met een top van 3 cm en een regel van 6 cm blijft er 69 cm vrije ruimte onder de tafel.\n\nLiever forsere poten van 10 cm, dan betaal je € 60 meer. Er zijn vierkante en rechthoekige maten, van 70 x 70 tot 300 x 100 cm.\n\n**Kenmerken**\n- Blokpoten van 8 cm (10 cm: + € 60)\n- Top 3 cm, regel 6 cm, vrije ruimte onder de tafel 69 cm\n- Uitvoeringen: Blank onbehandeld teak, Gerecycled onbehandeld teak, Milaan kleur, Koloniale kleur, Geborsteld teak\n- 17 standaardmaten, ook op maat zonder meerprijs\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
       "label": "B70 x D70 x H78",
-      "prijs": 299
-    },
-    {
-      "label": "B80 x D80 x H78",
       "prijs": 329
     },
     {
+      "label": "B80 x D80 x H78",
+      "prijs": 359
+    },
+    {
       "label": "B90 x D90 x H78",
-      "prijs": 369
+      "prijs": 399
     },
     {
       "label": "B120 x D80 x H78",
-      "prijs": 419
-    },
-    {
-      "label": "B100 x D100 x H78",
-      "prijs": 439
-    },
-    {
-      "label": "B140 x D90 x H78",
       "prijs": 459
     },
     {
-      "label": "B150 x D90 x H78",
-      "prijs": 469
-    },
-    {
-      "label": "B160 x D90 x H78",
+      "label": "B100 x D100 x H78",
       "prijs": 479
     },
     {
-      "label": "B120 x D120 x H78",
-      "prijs": 479
-    },
-    {
-      "label": "B180 x D90 x H78",
+      "label": "B140 x D90 x H78",
       "prijs": 499
     },
     {
-      "label": "B200 x D100 x H78",
+      "label": "B150 x D90 x H78",
+      "prijs": 525
+    },
+    {
+      "label": "B160 x D90 x H78",
       "prijs": 549
+    },
+    {
+      "label": "B120 x D120 x H78",
+      "prijs": 539
+    },
+    {
+      "label": "B180 x D90 x H78",
+      "prijs": 579
+    },
+    {
+      "label": "B200 x D100 x H78",
+      "prijs": 619
     },
     {
       "label": "B140 x D140 x H78",
-      "prijs": 549
+      "prijs": 609
     },
     {
       "label": "B220 x D100 x H78",
-      "prijs": 589
+      "prijs": 649
     },
     {
       "label": "B240 x D100 x H78",
-      "prijs": 629
-    },
-    {
-      "label": "B260 x D100 x H78",
       "prijs": 689
     },
     {
+      "label": "B260 x D100 x H78",
+      "prijs": 729
+    },
+    {
       "label": "B280 x D100 x H78",
-      "prijs": 749
+      "prijs": 789
     },
     {
       "label": "B300 x D100 x H78",
-      "prijs": 809
+      "prijs": 849
     }
   ],
-  "houtkleuren": false,
+  "houtkleuren": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
   "uitvoeringen": [
     "Blank onbehandeld teak",
     "Gerecycled onbehandeld teak",
-    "Milaan kleur",
     "Koloniale kleur",
     "Geborsteld teak"
   ],
+  "prijsTonen": true,
   "maatwerk": true,
-  "uitgelicht": false,
-  "zichtbaar": true,
   "volgorde": 71,
   "seoTitel": "Blokpoot eettafel teak, op maat | Teakhuis",
   "seoOmschrijving": "Strakke eettafel van teak met 8 cm blokpoten, 3 cm top en 69 cm vrije ruimte eronder. Van 70 tot 300 cm, ook op maat. Vraag vrijblijvend een offerte aan.",
