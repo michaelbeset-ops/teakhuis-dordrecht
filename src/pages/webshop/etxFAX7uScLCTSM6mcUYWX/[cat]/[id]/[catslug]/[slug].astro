@@ -179,7 +179,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
             <>
               <p class="num font-kop text-3xl font-extrabold" data-prijs>{maten.length && maten[0].prijs ? euro(maten[0].prijs) : prijsTekst(p)}</p>
               <p class="text-sm text-grijs" data-prijs-uitleg>{maten.some((m) => m.prijs) ? 'indicatie voor de gekozen maat' : 'indicatieprijs'}</p>
-              {/* Opbouw bij thee, koloniaal of wit: "€ 1.299,- + € 162,- kleurtoeslag (12,5%)". */}
+              {/* Bij thee, koloniaal of wit: "incl. 12,5% kleurtoeslag". */}
               <p class="num w-full text-sm font-bold text-blad-diep" data-toeslag-regel hidden></p>
             </>
           ) : (
@@ -536,13 +536,12 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
           const basis = eigen ? d.vanaf : pr || d.vanaf;
           if (basis) prijsEl.textContent = `${eigen || !pr ? 'v.a. ' : ''}${euro(plus(basis))}`;
           if (uitleg) uitleg.textContent = eigen ? 'je eigen maat, zonder meerprijs' : startUitleg;
-          // De toeslag apart en in euro's: bij de prijs (opbouw) en op de kleurknoppen.
+          // De toeslag als percentage bij de prijs (Michael: alleen het percentage, geen bedrag).
           const regel = document.querySelector<HTMLElement>('[data-toeslag-regel]');
           if (regel) {
             regel.hidden = !(metToeslag() && basis);
-            if (basis) regel.textContent = `${euro(basis)} + ${euro(plus(basis) - basis)} kleurtoeslag (${d.toeslagTekst.slice(1)})`;
+            regel.textContent = `incl. ${d.toeslagTekst.slice(1)} kleurtoeslag`;
           }
-          if (basis && d.toeslag > 0) form.querySelectorAll<HTMLElement>('[data-kleur-plus]').forEach((el) => { el.textContent = `+ ${euro(Math.round(basis * (1 + d.toeslag / 100)) - basis)}`; });
           const balkPrijs = document.querySelector('[data-balk-prijs]');
           if (balkPrijs) balkPrijs.textContent = prijsEl.textContent;
           form.querySelectorAll<HTMLElement>('[data-maat-prijs]').forEach((el) => { el.textContent = `v.a. ${euro(plus(Number(el.dataset.maatPrijs)))}`; });
