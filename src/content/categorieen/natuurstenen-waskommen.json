@@ -1,8 +1,9 @@
 {
   "naam": "Natuurstenen waskommen",
   "hoofd": "badkamermeubelen",
-  "volgorde": 402,
   "intro": "",
-  "oudeId": "211",
-  "zichtbaar": true
+  "foto": "",
+  "volgorde": 402,
+  "zichtbaar": false,
+  "oudeId": "211"
 }
