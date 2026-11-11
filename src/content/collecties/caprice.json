@@ -1,7 +1,7 @@
 {
   "naam": "Caprice",
   "intro": "",
-  "volgorde": 150,
   "foto": "../../assets/collecties/oud-caprice.jpg",
-  "zichtbaar": true
+  "volgorde": 150,
+  "zichtbaar": false
 }
