@@ -16,7 +16,9 @@
   "houtkleuren": true,
   "uitgelicht": false,
   "zichtbaar": true,
-  "uitvoeringen": [],
+  "uitvoeringen": [
+    "Geborsteld teak +10%"
+  ],
   "prijsTonen": true,
   "maatwerk": true,
   "volgorde": 173,
