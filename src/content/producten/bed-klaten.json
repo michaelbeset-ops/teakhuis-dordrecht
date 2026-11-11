@@ -1,14 +1,14 @@
 {
   "titel": "Bed Klaten",
   "categorie": "teak-bedden",
-  "prijsVanaf": 1449,
-  "prijsTonen": true,
-  "omschrijving": "Bed Klaten is modern en strak, met grote lades eronder. Daarmee heb je veel opbergruimte voor beddengoed of kleding, zonder dat je een extra kast nodig hebt.\n\nEr zijn vier standaardmaten voor matrassen van 140 tot 200 cm breed. Het bed is ook leverbaar in iedere gewenste afmeting, zonder meerprijs.\n\n**Kenmerken**\n- Grote lades voor opbergruimte\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Matrasmaten van 140 x 200 tot 200 x 200 cm, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/4853/1.jpg",
     "../../assets/producten/4853/2.jpg",
     "../../assets/producten/4853/3.jpg"
   ],
+  "prijsVanaf": 1449,
+  "omschrijving": "Bed Klaten is modern en strak, met grote lades eronder. Daarmee heb je veel opbergruimte voor beddengoed of kleding, zonder dat je een extra kast nodig hebt.\n\nEr zijn vier standaardmaten voor matrassen van 140 tot 200 cm breed. Het bed is ook leverbaar in iedere gewenste afmeting, zonder meerprijs. \nHet kan ook geschikt gemaakt worden voor electrische lattenbodems\n\n**Kenmerken**\n\n- Grote lades voor opbergruimte\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Matrasmaten van 140 x 200 tot 200 x 200 cm, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "140 x 200",
@@ -28,10 +28,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 276,
   "seoTitel": "Bed Klaten teak met lades | Teakhuis",
   "seoOmschrijving": "Strak teakhouten bed Klaten met grote lades voor veel opbergruimte. Van 140 tot 200 cm breed of op maat, in vier houtkleuren. Vraag een offerte aan.",
