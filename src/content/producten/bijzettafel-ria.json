@@ -1,7 +1,7 @@
 {
   "titel": "Bijzettafel Ria",
   "categorie": "mangohout-salon-tafels",
-  "collectie": "",
+  "collectie": "india",
   "fotos": [
     "../../assets/producten/32584/1.jpg",
     "../../assets/producten/32584/2.jpg",
@@ -17,7 +17,7 @@
   ],
   "houtkleuren": false,
   "uitgelicht": false,
-  "zichtbaar": false,
+  "zichtbaar": true,
   "uitvoeringen": [],
   "prijsTonen": true,
   "maatwerk": true,
