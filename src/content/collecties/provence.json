@@ -1,7 +1,7 @@
 {
   "naam": "Provence",
   "intro": "",
-  "volgorde": 170,
   "foto": "../../assets/collecties/oud-provence.jpg",
-  "zichtbaar": true
+  "volgorde": 170,
+  "zichtbaar": false
 }
