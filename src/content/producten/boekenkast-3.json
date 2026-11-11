@@ -1,12 +1,13 @@
 {
-  "titel": "boekenkast 3",
+  "titel": "boekenkast klassiek smal",
   "categorie": "teak-boekenkasten",
-  "prijsVanaf": 599,
-  "prijsTonen": true,
-  "omschrijving": "Een teakhouten boekenkast die op elke maat gemaakt kan worden. Heb je een lastige muur of een bepaalde hoogte nodig, geef de maten door en hij wordt daarop gemaakt.\n\nEr zijn drie kleuren: koloniaal, thee en blank teakhout.\n\n**Kenmerken**\n- Materiaal: teakhout\n- Houtkleuren: Blank teak, Thee kleur of Koloniale kleur\n- Op elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "",
   "fotos": [
-    "../../assets/producten/1653/1.jpg"
+    "../../assets/producten/1653/1.jpg",
+    "../../assets/producten/boekenkast-klassiek-smal-koloniale-kleur-1.webp"
   ],
+  "prijsVanaf": 599,
+  "omschrijving": "Een teakhouten boekenkast die op elke maat gemaakt kan worden. Heb je een lastige muur of een bepaalde hoogte nodig, geef de maten door en hij wordt daarop gemaakt.\n\nEr zijn drie kleuren: koloniaal, thee en blank teakhout.\n\n**Kenmerken**\n- Materiaal: teakhout\n- Houtkleuren: Blank teak, Thee kleur of Koloniale kleur\n- Op elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "200x50x30cm",
@@ -14,10 +15,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 442,
   "seoTitel": "Boekenkast 3 teak, op maat | Teakhuis",
   "seoOmschrijving": "Boekenkast 3 van teakhout, op elke maat te maken zonder meerprijs. Leverbaar in koloniaal, thee of blank teak. Vraag vrijblijvend een offerte aan.",
