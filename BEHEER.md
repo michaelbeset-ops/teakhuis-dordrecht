@@ -33,10 +33,27 @@ Na ongeveer 3 minuten staat het op de site.
 Een collectie is een serie meubels in één stijl, zoals Venice of Semarang. Bij een product kies je bij **Collectie**
 de serie. Onder **Collecties** pas je per serie de naam, een korte tekst en een sfeerfoto aan.
 
-## Een product weghalen
+## Een product, categorie of collectie weghalen
 
-- **Even niet laten zien**: zet **Zichtbaar op de site** uit en klik op Opslaan.
-- **Voor altijd weg**: open het product en klik op **Verwijderen**.
+- **Even niet laten zien**: zet **Zichtbaar op de site** uit en klik op Opslaan. In de lijst staat er dan *(verborgen)*
+  achter. Bij een categorie verdwijnen ook de soorten eronder en de meubels erin; die blijven wel bewaard.
+- **Voor altijd weg**: open het product, de categorie of de collectie en klik op **Verwijderen**. Meubels in een
+  verwijderde categorie komen onder *Overig* te staan; geef ze dus eerst een andere categorie.
+
+## De volgorde veranderen
+
+Producten, categorieën en collecties hebben een veld **Volgorde**: een lager getal staat eerder op de site.
+In de lijst zie je het getal achter de naam. Wil je iets tussen twee andere zetten, kies dan een getal ertussen
+(bijvoorbeeld 15 tussen 10 en 20).
+
+- **Hoofdmenu's** (zoals Tafels, Kasten) hebben 1, 2, 3, ...
+- **Soorten binnen een menu** (zoals Eettafels, Salontafels onder Tafels) hebben hun eigen volgorde: 10, 20, 30, ...
+- **Producten**: in de lijst kun je bovenaan sorteren op *Volgorde* om de huidige getallen te zien.
+
+## Kleurtoeslag
+
+Thee kleur, koloniale kleur en wit kosten 12,5% meer dan blank teak. De site rekent dat zelf uit en rondt af op hele
+euro's. Het percentage pas je aan onder **Instellingen** > **Contactgegevens** > *Toeslag thee, koloniale kleur en wit*.
 
 ## Telefoonnummer of e-mail veranderen
 
@@ -67,7 +84,7 @@ teruggedraaid.
   links van andere sites blijven werken. Het oude adres staat per product in het (verborgen) veld `oudeUrl`; nooit
   wijzigen. Nieuwe producten krijgen hetzelfde patroon met `nieuw` als id. Oude pagina's die nu onderdeel van een andere
   pagina zijn, verwijzen door via `src/pages/[...oud].astro`.
-- Beheer bewust minimaal gehouden: technische velden (SEO, volgorde, maatwerk, oude URL's, sociale media,
+- Beheer bewust minimaal gehouden: technische velden (SEO, maatwerk, oude URL's, sociale media,
   formuliersleutels) zijn `widget: hidden` in `public/admin/config.yml`. Ze blijven bewaard bij opslaan; aanpassen
   doe je in de JSON-bestanden.
 - Inloggen voor Han: maak eenmalig op zijn computer een fine-grained token (alleen deze repository, *Contents: Read and

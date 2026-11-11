@@ -2,5 +2,6 @@
   "naam": "Semarang",
   "intro": "",
   "volgorde": 40,
-  "foto": "../../assets/collecties/oud-semarang.jpg"
+  "foto": "../../assets/collecties/oud-semarang.jpg",
+  "zichtbaar": true
 }

@@ -3,5 +3,6 @@
   "hoofd": "tafels",
   "volgorde": 30,
   "intro": "",
-  "oudeId": "168"
+  "oudeId": "168",
+  "zichtbaar": true
 }

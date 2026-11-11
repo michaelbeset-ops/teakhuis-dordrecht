@@ -2,5 +2,6 @@
   "naam": "Bonaparte",
   "intro": "",
   "volgorde": 70,
-  "foto": "../../assets/collecties/oud-bonaparte.jpg"
+  "foto": "../../assets/collecties/oud-bonaparte.jpg",
+  "zichtbaar": true
 }

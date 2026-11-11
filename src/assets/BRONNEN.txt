@@ -14,7 +14,7 @@ productie-indonesie.jpg      /maatwerk/voorbeelden-maatwerk-teakhout (foto_6_tea
 han.jpg                      /over-ons (Han)
 kleur-*.jpg                  /leverbare-kleuren-teak
 hero-eetkamer.jpg            webshop Eettafel Dijawa (4556), foto 1: homepage-hero (los gekopieerd, zodat de hero blijft als het product verdwijnt)
-duurzaam-interieur.jpg       aangeleverd door Han (mail 2 nov 2026)
+duurzaam-interieur.jpg       aangeleverd door Han (mail 2 nov 2026), groter exemplaar (2000 px) 10 nov 2026; origineel als .tif (44 MB) bij Han
 duurzaam-werkplaats.jpg      aangeleverd door Han (mail 2 nov 2026)
 duurzaam-tuinset.jpg         aangeleverd door Han (mail 2 nov 2026)
 duurzaam-plantage.jpg        aangeleverd door Han (mail 2 nov 2026), door Copilot "erbij gezocht": herkomst/rechten onbekend, liefst vervangen door eigen foto
@@ -28,3 +28,4 @@ categorieen/slaapkamer-hemelbed.jpg, categorieen/badkamer-teak.jpg  aangeleverd 
 home-woonkamer.jpg           aangeleverd door Han (8 nov 2026): Rubix_DSC8302, homepagekop
 home-slaapkamer.jpg          aangeleverd door Han (8 nov 2026): Rubix_DSC8436, homepagekop
 home-eetkamer.jpg            aangeleverd door Han (8 nov 2026): Rubix_DSC8352, homepagekop
+sfeer-showroom-dressoir.jpg  aangeleverd door Han (mail 10 nov 2026): dezelfde showroomopstelling vanuit een andere hoek (dressoir, boekenkast, lampen). Nog niet in gebruik; origineel als .tif bij Han

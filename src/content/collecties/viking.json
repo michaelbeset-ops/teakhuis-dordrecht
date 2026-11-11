@@ -2,5 +2,6 @@
   "naam": "Viking",
   "intro": "",
   "volgorde": 10,
-  "foto": "../../assets/collecties/oud-viking.jpg"
+  "foto": "../../assets/collecties/oud-viking.jpg",
+  "zichtbaar": true
 }

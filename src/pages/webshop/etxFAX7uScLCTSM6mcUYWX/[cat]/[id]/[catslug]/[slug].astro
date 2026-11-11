@@ -9,7 +9,7 @@ import GeenFoto from '../../../../../../components/GeenFoto.astro';
 import ProductKaart from '../../../../../../components/ProductKaart.astro';
 import MaatTekening from '../../../../../../components/MaatTekening.astro';
 import ReviewKaart from '../../../../../../components/ReviewKaart.astro';
-import { site, url, absoluut, houtkleuren, stappen, reviews } from '../../../../../../data/site';
+import { site, url, absoluut, houtkleuren, stappen, reviews, kleurToeslag, toeslagTekst } from '../../../../../../data/site';
 import han from '../../../../../../assets/han.jpg';
 import {
   producten, categorieHref, productHref, breedte, breedtes, euro, toonPrijs, prijsTekst, omschrijvingHtml, platteTekst, hoofdletter, fotoKlas, maatSoort, breedtesVan, houtsoortVan, collectieHref, productPad, opWit,
@@ -86,7 +86,7 @@ const ZICHTBAAR = 6;
 // Maten leesbaarder: "70x70x78/120x70x78" wordt "70 × 70 × 78 / 120 × 70 × 78". De waarde in de aanvraag blijft het origineel.
 const toonMaat = (l: string) => l.replace(/\s*[xX×]\s*(?=[A-Za-z]?\d)/g, ' × ').replace(/\s*\/\s*/g, ' / ');
 const lang = maten.some((m) => toonMaat(m.label).length > 20);
-const kleurOpties = p.houtkleuren ? houtkleuren.map((h) => ({ naam: h.naam, img: h.img as ImageMetadata | undefined })) : p.uitvoeringen.map((u) => ({ naam: hoofdletter(u), img: undefined }));
+const kleurOpties = p.houtkleuren ? houtkleuren.map((h) => ({ naam: h.naam, img: h.img as ImageMetadata | undefined, toeslag: h.toeslag && kleurToeslag > 0 })) : p.uitvoeringen.map((u) => ({ naam: hoofdletter(u), img: undefined, toeslag: false }));
 const kleurLabel = p.houtkleuren ? 'houtkleur' : 'uitvoering';
 let stap = 0;
 const nr = () => ++stap;
@@ -120,7 +120,7 @@ const productSchema = {
 };
 // Ook gebruikt in de offertemail: jpg, omdat Outlook geen webp toont.
 const eersteFotoKlein = fotos[0] ? (await getImage({ src: fotos[0], width: Math.min(192, breedte(fotos[0])), format: 'jpg', quality: 70 })).src : '';
-const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: eersteFotoKlein, indicatie: prijzen ? prijsTekst(p) : '', wa: site.wa };
+const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: eersteFotoKlein, indicatie: prijzen ? prijsTekst(p) : '', wa: site.wa, vanaf: prijzen ? p.prijsVanaf : null, toeslag: kleurToeslag, toeslagTekst };
 ---
 <Base title={titel} description={beschrijving} ogType="product" ogImage={ogFotos[0] ? new URL(ogFotos[0].src, Astro.site).href : undefined} schema={[productSchema, kruimelSchema(kruimel, zelf)]}>
   <Kop onderbalk={false} />
@@ -198,7 +198,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
                   <label class={`tegel min-h-[3.4rem] px-3 py-2 ${i >= ZICHTBAAR ? 'hidden' : ''}`} data-extra={i >= ZICHTBAAR ? '' : undefined}>
                     <input type="radio" name="maat" value={m.label} data-prijs={prijzen && m.prijs ? m.prijs : ''} checked={i === 0} class="sr-only" />
                     <span class="num text-[.85rem] font-bold leading-tight">{toonMaat(m.label)}</span>
-                    {prijzen && m.prijs && <span class="num text-xs text-grijs">v.a. {euro(m.prijs)}</span>}
+                    {prijzen && m.prijs && <span class="num text-xs text-grijs" data-maat-prijs={m.prijs}>v.a. {euro(m.prijs)}</span>}
                   </label>
                 ))}
                 {!maten.length && (
@@ -251,9 +251,10 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
               <div class="mt-4 flex flex-wrap gap-2">
                 {kleurOpties.map((k, i) => (
                   <label class={`kies ${k.img ? 'met-staal' : ''}`}>
-                    <input type="radio" name="kleur" value={k.naam} checked={i === 0} class="sr-only" />
+                    <input type="radio" name="kleur" value={k.naam} checked={i === 0} data-toeslag={k.toeslag ? '' : undefined} class="sr-only" />
                     {k.img && <Image src={k.img} alt="" quality={70} widths={[64]} sizes="28px" class="staal object-cover" />}
                     {k.naam}
+                    {k.toeslag && prijzen && <span class="num text-xs font-semibold text-grijs">{toeslagTekst}</span>}
                   </label>
                 ))}
                 {p.houtkleuren && <label class="kies"><input type="radio" name="kleur" value="Weet ik nog niet" class="sr-only" />Weet ik nog niet</label>}
@@ -468,7 +469,7 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
     }
 
     // Samenstellen: maat (standaard of eigen), kleur, aantal en wensen. Prijs en WhatsApp-bericht volgen de keuze.
-    const d = JSON.parse(document.getElementById('product-data')!.textContent!) as { slug: string; titel: string; href: string; foto: string; indicatie: string; wa: string };
+    const d = JSON.parse(document.getElementById('product-data')!.textContent!) as { slug: string; titel: string; href: string; foto: string; indicatie: string; wa: string; vanaf: number | null; toeslag: number; toeslagTekst: string };
     const form = document.querySelector<HTMLFormElement>('[data-samenstellen]');
     if (form) {
       const prijsEl = document.querySelector('[data-prijs]');
@@ -479,8 +480,10 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
       const klaar = form.querySelector<HTMLElement>('[data-toegevoegd]')!;
       const aantalVeld = form.querySelector<HTMLInputElement>('[name="aantal"]')!;
       const euro = (n: number) => { const [e, c] = n.toFixed(2).split('.'); return `€ ${e.replace(/\B(?=(\d{3})+(?!\d))/g, '.')},${c === '00' ? '-' : c}`; };
-      const startPrijs = prijsEl?.textContent ?? '';
       const startUitleg = uitleg?.textContent ?? '';
+      // Kleurtoeslag (thee, koloniaal, wit): percentage bovenop de prijs, afgerond op hele euro's.
+      const metToeslag = () => d.toeslag > 0 && form.querySelector<HTMLInputElement>('[name="kleur"]:checked')?.dataset.toeslag !== undefined;
+      const plus = (n: number) => (metToeslag() ? Math.round(n * (1 + d.toeslag / 100)) : n);
       const cm = (v: FormDataEntryValue | null) => String(v ?? '').replace(/\D/g, '').slice(0, 4);
       // Maattekening: breedte, diepte en hoogte uit een maatlabel als "B200 x D100 x H78", "h=70cm br=70cm d=13cm" of "120x80cm h=105cm".
       const tekening = form.querySelectorAll<HTMLElement>('[data-mt]');
@@ -511,7 +514,9 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
           aantal, opmerking: String(f.get('opmerking') ?? '').trim().slice(0, 300) || undefined,
           indicatie: (() => {
             const pr = Number(form.querySelector<HTMLInputElement>('[name="maat"]:checked')?.dataset.prijs);
-            return pr ? `v.a. ${euro(pr)}` : d.indicatie || undefined;
+            const basis = maat === 'anders' ? d.vanaf : pr || d.vanaf;
+            if (!basis) return d.indicatie || undefined;
+            return `v.a. ${euro(plus(basis))}${metToeslag() ? ` (incl. ${d.toeslagTekst.slice(1)} kleurtoeslag)` : ''}`;
           })(),
         };
       };
@@ -520,12 +525,15 @@ const productData = { slug: p.slug, titel: p.titel, href: productHref(p), foto: 
         const gekozen = form.querySelector<HTMLInputElement>('[name="maat"]:checked');
         const eigen = gekozen?.value === 'anders';
         if (velden) velden.hidden = !eigen;
-        if (prijsEl && gekozen) {
-          const pr = Number(gekozen.dataset.prijs);
-          if (eigen) { prijsEl.textContent = startPrijs.startsWith('v.a.') || !startPrijs ? startPrijs : `v.a. ${startPrijs}`; if (uitleg) uitleg.textContent = 'je eigen maat, zonder meerprijs'; }
-          else if (pr) { prijsEl.textContent = euro(pr); if (uitleg) uitleg.textContent = startUitleg; }
+        if (prijsEl) {
+          // Prijs van de gekozen maat; bij een eigen maat of een maat zonder prijs de vanaf-prijs. Plus eventuele kleurtoeslag.
+          const pr = Number(gekozen?.dataset.prijs) || 0;
+          const basis = eigen ? d.vanaf : pr || d.vanaf;
+          if (basis) prijsEl.textContent = `${eigen || !pr ? 'v.a. ' : ''}${euro(plus(basis))}`;
+          if (uitleg) uitleg.textContent = (eigen ? 'je eigen maat, zonder meerprijs' : startUitleg) + (metToeslag() && basis ? `, incl. ${d.toeslagTekst.slice(1)} kleurtoeslag` : '');
           const balkPrijs = document.querySelector('[data-balk-prijs]');
           if (balkPrijs) balkPrijs.textContent = prijsEl.textContent;
+          form.querySelectorAll<HTMLElement>('[data-maat-prijs]').forEach((el) => { el.textContent = `v.a. ${euro(plus(Number(el.dataset.maatPrijs)))}`; });
         }
         if (tekening && gekozen) {
           const f = new FormData(form);

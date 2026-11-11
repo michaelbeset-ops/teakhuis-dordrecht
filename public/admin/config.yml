@@ -49,9 +49,9 @@ collections:
     delete: true
     slug: '{{titel}}'
     identifier_field: titel
-    summary: '{{titel}}{{zichtbaar | ternary("", "  (verborgen)")}}'
+    summary: '{{titel}}{{zichtbaar | ternary("", "  (verborgen)")}}  ·  {{volgorde}}'
     sortable_fields:
-      fields: [titel]
+      fields: [titel, volgorde]
       default: { field: titel, direction: ascending }
     view_groups:
       - { label: Categorie, field: categorie }
@@ -61,7 +61,7 @@ collections:
     # Relatief aan het productbestand, zodat Astro de foto's vindt en optimaliseert.
     media_folder: ../../assets/producten
     public_folder: ../../assets/producten
-    # Alleen wat nodig is staat in beeld. Technische velden (SEO, volgorde, oude adressen) zijn verborgen:
+    # Alleen wat nodig is staat in beeld. Technische velden (SEO, oude adressen) zijn verborgen:
     # ze blijven bewaard en de site vult ze zelf in als ze leeg zijn.
     fields:
       - { label: Naam, name: titel, widget: string, hint: 'Bijvoorbeeld: Eettafel Viking' }
@@ -117,7 +117,7 @@ collections:
       - { label: Andere uitvoeringen, name: uitvoeringen, widget: list, required: false, field: { label: Uitvoering, name: uitvoering, widget: string }, hint: 'Meestal leeg laten.' }
       - { name: prijsTonen, widget: hidden, default: true }
       - { name: maatwerk, widget: hidden, default: true }
-      - { name: volgorde, widget: hidden, default: 999 }
+      - { label: Volgorde, name: volgorde, widget: number, value_type: int, min: 0, default: 999, required: false, hint: 'Lager getal = eerder in de lijst. Wil je een meubel tussen twee andere zetten, kies dan een getal ertussen (bijv. 15 tussen 10 en 20). Sorteer de lijst links op "Volgorde" om de huidige getallen te zien.' }
       - { name: seoTitel, widget: hidden, default: '' }
       - { name: seoOmschrijving, widget: hidden, default: '' }
       - { name: oudeUrl, widget: hidden, default: '' }
@@ -125,16 +125,18 @@ collections:
   - name: categorieen
     label: Categorieën
     label_singular: Categorie
-    description: De menu's van de site. Meestal hoef je hier niets te doen.
+    description: 'De menu''s van de site. Een categorie met "Valt onder" leeg is een hoofdmenu; de andere zijn de soorten daaronder. Volgorde: lager getal = eerder.'
     folder: src/content/categorieen
     format: json
     extension: json
     create: true
-    delete: false
+    delete: true
     slug: '{{naam}}'
     identifier_field: naam
-    summary: '{{naam}}'
-    sortable_fields: [naam]
+    summary: '{{naam}}{{zichtbaar | ternary("", "  (verborgen)")}}  ·  {{volgorde}}'
+    sortable_fields:
+      fields: [volgorde, naam]
+      default: { field: volgorde, direction: ascending }
     editor:
       preview: false
     media_folder: ../../assets/categorieen
@@ -152,7 +154,8 @@ collections:
         hint: Leeg = eigen menu bovenaan de site.
       - { label: Tekst bovenaan de pagina, name: intro, widget: markdown, required: false, buttons: [bold], editor_components: [], minimal: true }
       - { label: Foto, name: foto, widget: image, required: false }
-      - { name: volgorde, widget: hidden, default: 100 }
+      - { label: Volgorde, name: volgorde, widget: number, value_type: int, min: 0, default: 100, required: false, hint: 'Lager getal = eerder. Hoofdmenu''s onderling (1, 2, 3, ...) en de soorten binnen een hoofdmenu (10, 20, 30, ...) hebben elk hun eigen volgorde.' }
+      - { label: Zichtbaar op de site, name: zichtbaar, widget: boolean, default: true, hint: 'Uit = de categorie, de soorten eronder en de meubels erin zijn tijdelijk niet te zien. Niets wordt verwijderd.' }
       - { name: oudeId, widget: hidden, default: '' }
 
   - name: collecties
@@ -166,8 +169,10 @@ collections:
     delete: true
     slug: '{{naam}}'
     identifier_field: naam
-    summary: '{{naam}}'
-    sortable_fields: [naam]
+    summary: '{{naam}}{{zichtbaar | ternary("", "  (verborgen)")}}  ·  {{volgorde}}'
+    sortable_fields:
+      fields: [volgorde, naam]
+      default: { field: volgorde, direction: ascending }
     editor:
       preview: false
     media_folder: ../../assets/collecties
@@ -176,7 +181,8 @@ collections:
       - { label: Naam, name: naam, widget: string }
       - { label: Tekst bovenaan de pagina, name: intro, widget: markdown, required: false, buttons: [bold], editor_components: [], minimal: true, hint: 'Een paar zinnen over deze serie. Leeg laten = de site maakt zelf een korte tekst.' }
       - { label: Sfeerfoto, name: foto, widget: image, required: false, hint: 'Een foto van meubels uit deze serie in een interieur. Leeg laten = een productfoto.' }
-      - { name: volgorde, widget: hidden, default: 100 }
+      - { label: Volgorde, name: volgorde, widget: number, value_type: int, min: 0, default: 100, required: false, hint: 'Lager getal = eerder op de site (nu 10, 20, 30, ...). Kies 15 om een collectie tussen 10 en 20 te zetten.' }
+      - { label: Zichtbaar op de site, name: zichtbaar, widget: boolean, default: true, hint: 'Uit = deze collectie tijdelijk niet tonen. De meubels zelf blijven in de webshop.' }
 
   - name: instellingen
     label: Instellingen
@@ -198,6 +204,7 @@ collections:
             widget: list
             field: { label: Belofte, name: usp, widget: string }
             max: 3
+          - { label: 'Toeslag thee, koloniale kleur en wit (%)', name: kleurToeslag, widget: number, value_type: float, min: 0, max: 100, default: 12.5, hint: 'Komt bovenop de prijs als de klant een van deze kleuren kiest, afgerond op hele euro''s. Blank teak heeft geen toeslag.' }
           # Technisch (formulier, sociale media, Google): beheerd door Sitefront.
           - { name: web3formsKey, widget: hidden, default: '' }
           - { name: emailjs, widget: hidden, default: { service: '', template: '', templateKlant: '', publicKey: '' } }

@@ -12,6 +12,11 @@ Eerste reactie van Han Rietdijk op de testversie, 26 oktober 2026. Status per pu
 | Teksten voor de pagina's, ook over duurzaamheid | Han levert aan | Duurzaam: pagina /duurzaam/ gemaakt (2 nov) met zijn tekst en foto's, in het menu tussen Over ons en Contact. Maatwerk: zijn tekst verwerkt (2 nov). Over ons: zijn tekst verwerkt (5 nov) als tijdlijn 2007-nu met foto's van de panden in Dordrecht en Leiderdorp, de werkplaats en veelgestelde vragen |
 | Maatwerk: knop bij "Hoe werkt maatwerk" naar een formulier (naam, adres, telefoon, e-mail, wensen, maten, foto's) en een altijd zichtbare knop naar de voorbeelden | Michael | Gedaan (2 nov): /maatwerk/aanvragen/ en zwevende knop "Bekijk voorbeelden". Foto's meesturen vraagt een EmailJS-bijlage (zie BEHEER.md) |
 | Catalogus en weergave van de producten aanpassen | Han, daarna Michael | Han duikt er nog in |
+| Hero wordt wazig na naar beneden en weer omhoog scrollen (desktop en mobiel) | Michael | Opgelost (11 nov): een vage achtergrondfoto in "Uitgelicht" liep over het eerste scherm |
+| Categorie verwijderen of onzichtbaar maken | Michael | Gedaan (11 nov): Verwijderen-knop en "Zichtbaar op de site" bij categorieën en collecties |
+| Volgorde van producten, categorieën, soorten en collecties zelf bepalen | Michael | Gedaan (11 nov): veld Volgorde in het beheer, getal zichtbaar in de lijst |
+| Toeslag thee, koloniaal en wit: 12,5% (was 7,5%), afgerond op hele euro's | Michael | Gedaan (11 nov): prijs past zich aan bij de kleurkeuze, percentage aanpasbaar in Instellingen |
+| Grotere foto "hoogwaardige teakmeubels" + zelfde opstelling andere hoek | Han | Groter exemplaar staat op /duurzaam/; tweede foto klaargezet (src/assets/sfeer-showroom-dressoir.jpg), nog een plek kiezen |
 | Verhaal met foto's over soorten teak, afwerkingen en kleuren | Han levert aan, Michael maakt er een pagina van | Wacht op verhaal en foto's |
 
 ## Wat al klaarstaat voor zijn materiaal

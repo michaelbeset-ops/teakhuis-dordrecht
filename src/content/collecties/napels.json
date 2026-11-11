@@ -2,5 +2,6 @@
   "naam": "Napels",
   "intro": "",
   "volgorde": 100,
-  "foto": "../../assets/collecties/oud-napels.jpg"
+  "foto": "../../assets/collecties/oud-napels.jpg",
+  "zichtbaar": true
 }

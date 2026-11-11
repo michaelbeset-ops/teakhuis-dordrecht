@@ -2,5 +2,6 @@
   "naam": "Le Matin",
   "intro": "",
   "volgorde": 160,
-  "foto": "../../assets/collecties/oud-le-matin.jpg"
+  "foto": "../../assets/collecties/oud-le-matin.jpg",
+  "zichtbaar": true
 }

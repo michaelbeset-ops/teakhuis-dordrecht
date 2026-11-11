@@ -24,8 +24,13 @@ const netteTitel = (t: string) => hoofdletter(t.trim().replace(/\b\p{Lu}{3,}\b/g
 const nl = new Intl.Collator('nl', { numeric: true });
 
 const ruweCats = await getCollection('categorieen');
+// Verborgen categorieen (in het beheer "Zichtbaar op de site" uit) doen niet mee, en hun subcategorieen en producten ook
+// niet. Zo kan Han een categorie tijdelijk weghalen zonder iets te verwijderen.
+const verborgen = new Set(ruweCats.filter((c) => !c.data.zichtbaar).map((c) => c.id));
+for (const c of ruweCats) if (c.data.hoofd && verborgen.has(c.data.hoofd)) verborgen.add(c.id);
 export const categorieen: Categorie[] = ruweCats
-  .map((c) => ({ slug: c.id, ...c.data }))
+  .filter((c) => !verborgen.has(c.id))
+  .map(({ id, data: { zichtbaar: _, ...d } }) => ({ slug: id, ...d }))
   .sort((a, b) => a.volgorde - b.volgorde || nl.compare(a.naam, b.naam));
 const catOpSlug = new Map(categorieen.map((c) => [c.slug, c]));
 
@@ -33,11 +38,12 @@ const catOpSlug = new Map(categorieen.map((c) => [c.slug, c]));
 const overig: Categorie = { slug: 'overig', naam: 'Overig', hoofd: '', volgorde: 999, intro: '' };
 
 const ruweCollecties = await getCollection('collecties');
-const colOpSlug = new Map<string, Collectie>(ruweCollecties.map((c) => [c.id, { slug: c.id, ...c.data }]));
+// Een verborgen collectie verdwijnt van de site; de meubels zelf blijven gewoon in de webshop staan.
+const colOpSlug = new Map<string, Collectie>(ruweCollecties.filter((c) => c.data.zichtbaar).map(({ id, data: { zichtbaar: _, ...d } }) => [id, { slug: id, ...d }]));
 
 const ruweProducten = await getCollection('producten');
 export const producten: Product[] = ruweProducten
-  .filter((p) => p.data.zichtbaar)
+  .filter((p) => p.data.zichtbaar && !verborgen.has(p.data.categorie))
   .map((p) => {
     const d = p.data;
     const cat = catOpSlug.get(d.categorie) ?? overig;

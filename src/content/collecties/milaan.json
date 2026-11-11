@@ -2,5 +2,6 @@
   "naam": "Milaan",
   "intro": "",
   "volgorde": 20,
-  "foto": "../../assets/collecties/oud-milaan.jpg"
+  "foto": "../../assets/collecties/oud-milaan.jpg",
+  "zichtbaar": true
 }

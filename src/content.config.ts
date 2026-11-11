@@ -44,6 +44,7 @@ const categorieen = defineCollection({
     volgorde: z.preprocess(leeg, z.coerce.number().default(999)),
     intro: tekst(),
     foto: z.preprocess(leeg, image().optional()),
+    zichtbaar: vlag(true),
     oudeId: z.preprocess(leeg, z.string().optional()),
   }),
 });
@@ -56,6 +57,7 @@ const collecties = defineCollection({
     intro: tekst(),
     volgorde: z.preprocess(leeg, z.coerce.number().default(999)),
     foto: z.preprocess(leeg, image().optional()),
+    zichtbaar: vlag(true),
   }),
 });
 

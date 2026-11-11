@@ -2,5 +2,6 @@
   "naam": "Bayakayu",
   "intro": "",
   "volgorde": 110,
-  "foto": "../../assets/collecties/oud-bayakayu.jpg"
+  "foto": "../../assets/collecties/oud-bayakayu.jpg",
+  "zichtbaar": true
 }

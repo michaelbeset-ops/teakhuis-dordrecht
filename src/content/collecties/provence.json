@@ -2,5 +2,6 @@
   "naam": "Provence",
   "intro": "",
   "volgorde": 170,
-  "foto": "../../assets/collecties/oud-provence.jpg"
+  "foto": "../../assets/collecties/oud-provence.jpg",
+  "zichtbaar": true
 }

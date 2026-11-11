@@ -40,11 +40,16 @@ import kleurBlank from '../assets/kleur-blank.jpg';
 import kleurThee from '../assets/kleur-thee.jpg';
 import kleurKoloniaal from '../assets/kleur-koloniaal.jpg';
 import kleurWit from '../assets/kleur-wit.jpg';
+// Thee, koloniaal en wit worden behandeld en kosten meer: een percentage bovenop de prijs, afgerond op hele euro's
+// (Han, 10 nov: was 7,5%, wordt 12,5%). Het percentage staat in het beheer onder Instellingen > Contactgegevens.
+export const kleurToeslag = Number((inst as { kleurToeslag?: number }).kleurToeslag ?? 12.5) || 0;
+export const metToeslag = (prijs: number) => Math.round(prijs * (1 + kleurToeslag / 100));
+export const toeslagTekst = `+${String(kleurToeslag).replace('.', ',')}%`;
 export const houtkleuren = [
-  { naam: 'Blank teak', img: kleurBlank },
-  { naam: 'Thee kleur', img: kleurThee },
-  { naam: 'Koloniale kleur', img: kleurKoloniaal },
-  { naam: 'Wit', img: kleurWit },
+  { naam: 'Blank teak', img: kleurBlank, toeslag: false },
+  { naam: 'Thee kleur', img: kleurThee, toeslag: true },
+  { naam: 'Koloniale kleur', img: kleurKoloniaal, toeslag: true },
+  { naam: 'Wit', img: kleurWit, toeslag: true },
 ];
 
 export const maatwerkExtra = ['metaal', 'glas', 'wielen'];
