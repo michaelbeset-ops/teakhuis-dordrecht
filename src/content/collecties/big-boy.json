@@ -1,7 +1,7 @@
 {
   "naam": "Big Boy",
   "intro": "",
-  "volgorde": 180,
   "foto": "../../assets/collecties/oud-big-boy.jpg",
-  "zichtbaar": true
+  "volgorde": 180,
+  "zichtbaar": false
 }
