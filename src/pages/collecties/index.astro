@@ -36,7 +36,7 @@ const lijstSchema = {
     </section>
 
     <section class="wrap pb-12 md:pb-16" aria-label="Alle collecties">
-      <ul class="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+      <ul class="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3">
         {collecties.map((g, i) => {
           const f = sfeerFoto(g.collectie.foto, g.producten);
           const s = soorten(g.producten);
@@ -44,12 +44,12 @@ const lijstSchema = {
             <li class="min-w-0">
               <a href={collectieHref(g.collectie)} class="product">
                 <div class="beeld aspect-[4/3]">
-                  {f ? <HeleFoto src={f} widths={[400, 640, 800, 1000]} sizes="(min-width: 1344px) 420px, (min-width: 1024px) 31vw, (min-width: 640px) 46vw, 92vw" loading={i < 3 ? 'eager' : 'lazy'} ruimte="p-6" quality={72} /> : <GeenFoto naam={g.collectie.naam} />}
+                  {f ? <HeleFoto src={f} widths={[400, 640, 800, 1000]} sizes="(min-width: 1344px) 420px, (min-width: 1024px) 31vw, 46vw" loading={i < 4 ? 'eager' : 'lazy'} ruimte="p-3 sm:p-6" quality={72} /> : <GeenFoto naam={g.collectie.naam} />}
                 </div>
-                <div class="mt-4 flex items-baseline justify-between gap-3">
-                  <h2 class="naam font-kop text-2xl">{g.collectie.naam}</h2>
+                <div class="mt-3 flex items-baseline justify-between gap-3 sm:mt-4">
+                  <h2 class="naam font-kop text-lg sm:text-2xl">{g.collectie.naam}</h2>
                 </div>
-                <p class="mt-1 text-sm text-grijs">{s.slice(0, 3).join(' · ')}{s.length > 3 ? ' en meer' : ''}</p>
+                <p class="mt-1 text-xs text-grijs sm:text-sm">{s.slice(0, 3).join(' · ')}{s.length > 3 ? ' en meer' : ''}</p>
               </a>
             </li>
           );
