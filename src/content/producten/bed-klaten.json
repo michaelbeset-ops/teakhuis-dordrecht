@@ -12,19 +12,19 @@
   "maten": [
     {
       "label": "140 x 200",
-      "prijs": 1449
+      "prijs": 1499
     },
     {
       "label": "160 x 200",
-      "prijs": 1529
+      "prijs": 1599
     },
     {
       "label": "180 x 200",
-      "prijs": 1609
+      "prijs": 1699
     },
     {
       "label": "200 x 200",
-      "prijs": 1699
+      "prijs": 1799
     }
   ],
   "houtkleuren": true,
