@@ -4,14 +4,15 @@
   "collectie": "",
   "fotos": [
     "../../assets/producten/1653/1.jpg",
-    "../../assets/producten/boekenkast-klassiek-50cm-koloniaal.webp"
+    "../../assets/producten/boekenkast-klassiek-50cm-koloniaal.webp",
+    "../../assets/producten/boekenkast_klassiek.webp"
   ],
-  "prijsVanaf": 599,
-  "omschrijving": "Een teakhouten boekenkast die op elke maat gemaakt kan worden. Heb je een lastige muur of een bepaalde hoogte nodig, geef de maten door en hij wordt daarop gemaakt.\n\nEr zijn drie kleuren: koloniaal, thee en blank teakhout.\n\n**Kenmerken**\n- Materiaal: teakhout\n- Houtkleuren: Blank teak, Thee kleur of Koloniale kleur\n- Op elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "prijsVanaf": 629,
+  "omschrijving": "Een klassieke teakhouten boekenkast die op elke maat gemaakt kan worden. Heb je een lastige muur of een bepaalde hoogte nodig, geef de maten door en hij wordt daarop gemaakt. Kan worden uitgevoerd met 1 of 2 laden.\n\nEr zijn drie kleuren: koloniaal, thee en blank teakhout.\n\n**Kenmerken**\n\n- Materiaal: teakhout\n- Houtkleuren: Blank teak, Thee kleur of Koloniale kleur\n- 1 of 2 laden naast elkaar\n- Op elke maat te maken\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "200x50x30cm",
-      "prijs": 599
+      "prijs": 629
     }
   ],
   "houtkleuren": true,
