@@ -1,5 +1,5 @@
 {
-  "titel": "boekenkast Joey",
+  "titel": "Boekenkast Joey",
   "categorie": "teak-boekenkasten",
   "collectie": "",
   "fotos": [
@@ -10,7 +10,7 @@
   "maten": [
     {
       "label": "210x50cm d=35cm",
-      "prijs": 649
+      "prijs": 659
     }
   ],
   "houtkleuren": true,
