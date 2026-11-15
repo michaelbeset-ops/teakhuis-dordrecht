@@ -1,16 +1,16 @@
 {
   "titel": "Bed Java",
   "categorie": "teak-bedden",
-  "prijsVanaf": 1299,
-  "prijsTonen": true,
-  "omschrijving": "Bed Java is een fraai vormgegeven teakhouten bed. Op de foto zie je hem in de koloniale kleur, maar hij kan ook in blank teak.\n\nEr zijn vier standaardmaten voor matrassen van 140 tot 200 cm breed, steeds 200 cm lang. Daarnaast is het bed in iedere gewenste maat te maken, zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: teakhout\n- Houtkleuren: Blank teak of Koloniale kleur\n- Matrasmaten van 140 x 200 tot 200 x 200 cm\n- In iedere gewenste maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/4056/1.jpg"
   ],
+  "prijsVanaf": 1349,
+  "omschrijving": "Bed Java is een fraai vormgegeven teakhouten bed. Op de foto zie je hem in de koloniale kleur, maar hij kan ook in blank teak.\n\nEr zijn vier standaardmaten voor matrassen van 140 tot 200 cm breed, steeds 200 cm lang. Daarnaast is het bed in iedere gewenste maat te maken, zonder meerprijs.\n\n**Kenmerken**\n\n- Materiaal: teakhout\n- Houtkleuren: Blank teak of Koloniale kleur\n- Matrasmaten van 140 x 200 tot 200 x 200 cm\n- In iedere gewenste maat te maken.\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
       "label": "matrasmaat 140 x 200",
-      "prijs": 1299
+      "prijs": 1349
     },
     {
       "label": "matrasmaat 160 x 200",
@@ -18,18 +18,19 @@
     },
     {
       "label": "matrasmaat 180 x 200",
-      "prijs": 1479
+      "prijs": 1449
     },
     {
       "label": "matrasmaat 200 x 200",
-      "prijs": 1559
+      "prijs": 1499
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 274,
   "seoTitel": "Bed Java teak, op maat | Teakhuis",
   "seoOmschrijving": "Teakhouten bed Java, fraai vormgegeven, voor matrassen van 140 tot 200 cm breed of in iedere maat. In blank teak of koloniaal. Vraag een offerte aan.",
