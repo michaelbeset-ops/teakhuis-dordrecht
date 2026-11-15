@@ -1,12 +1,12 @@
 {
-  "titel": "buffetkast 12",
+  "titel": "Buffetkast Johannes",
   "categorie": "teak-buffetkasten",
-  "prijsVanaf": 1499,
-  "prijsTonen": true,
-  "omschrijving": "Met buffetkast 12 haal je een teakhouten kast in huis die op bestelling voor je gemaakt wordt. Een vakman in Indonesië maakt hem met de hand, in de maat die jij opgeeft.\n\nGeef door welke maat en houtkleur je wilt. Daarna krijg je een vrijblijvende offerte op maat.\n\n**Kenmerken**\n\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Op maat gemaakt zonder meerprijs\n- Materiaal: teakhout\n- Met de hand gemaakt door lokale producenten in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/1889/1.jpg"
   ],
+  "prijsVanaf": 1499,
+  "omschrijving": "Zowel lades in de bovenkast als in de onderkast zorgt voor lekker veel lades. Uitgevoerd met fraaie kussenpanelen geeft de kast een tijdloze luxe uitstraling.\n\nGeef door welke maat en houtkleur je wilt. Daarna krijg je een vrijblijvende offerte op maat.\n\n**Kenmerken**\n\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Op maat gemaakt zonder meerprijs\n- Materiaal: teakhout\n- Met de hand gemaakt door lokale producenten in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "h=210cm br=135cm d=35/45cm",
@@ -14,10 +14,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 418,
   "seoTitel": "Buffetkast 12 teakhout, maatwerk | Teakhuis",
   "seoOmschrijving": "Buffetkast 12 in teakhout: elke maat mogelijk zonder meerprijs, leverbaar in blank, thee, koloniaal of wit. Op bestelling gemaakt. Vraag een offerte aan.",
