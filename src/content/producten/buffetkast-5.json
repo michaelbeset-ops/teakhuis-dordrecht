@@ -1,12 +1,12 @@
 {
-  "titel": "buffetkast 5",
+  "titel": "Buffetkast Adri",
   "categorie": "teak-buffetkasten",
-  "prijsVanaf": 1379,
-  "prijsTonen": true,
-  "omschrijving": "Wil je een buffetkast die net iets breder, hoger of ondieper is dan standaard? Buffetkast 5 laten we in teakhout maken op precies de maat die jij kiest.\n\nGeef door welke maat en houtkleur je wilt. Daarna krijg je een vrijblijvende offerte op maat.\n\n**Kenmerken**\n\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Op maat gemaakt zonder meerprijs\n- Materiaal: teakhout\n- Met de hand gemaakt door lokale producenten in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/1877/1.jpg"
   ],
+  "prijsVanaf": 1379,
+  "omschrijving": "Wil je een buffetkast die net iets breder, hoger of ondieper is dan standaard? Buffetkast Adri laten we van massief teakhout maken op precies de maat die jij kiest.\n\nGeef door welke maat en houtkleur je wilt. Daarna krijg je een vrijblijvende offerte op maat.\n\n**Kenmerken**\n\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Op maat gemaakt \n- Materiaal: teakhout\n- Met de hand gemaakt door lokale producenten in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "h=210cm br=120cm d=35/45cm",
@@ -14,10 +14,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 148,
   "seoTitel": "Buffetkast 5 teakhout, maatwerk | Teakhuis",
   "seoOmschrijving": "Buffetkast 5 van teakhout, met de hand gemaakt in Indonesië. Elke maat zonder meerprijs, in vier houtkleuren. Vraag vrijblijvend een offerte aan.",
