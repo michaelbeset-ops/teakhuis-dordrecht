@@ -1,12 +1,12 @@
 {
   "titel": "Closther table",
   "categorie": "teak-eettafels",
-  "prijsVanaf": 819,
-  "prijsTonen": true,
-  "omschrijving": "De Closther table is een teakhouten eettafel die je kiest in een gladde of een robuuste uitvoering. Zo bepaal je zelf hoe de tafel eruitziet.\n\nDe standaardmaten lopen van 160 tot 300 cm lang, met een hoogte van 78 cm. Een andere maat kan ook, zonder meerprijs. Daarna kies je de houtkleur.\n\n**Kenmerken**\n\n- Uitvoering: glad of robuust\n- 8 standaardmaten, ook op maat zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/3784/1.jpg"
   ],
+  "prijsVanaf": 819,
+  "omschrijving": "De closther table is een ambachtelijk gemaakte eettafel met 2 poten en een balk onder de tafel. Deze balk is met een houten pen bevestigd aan de poten.\n\nDe standaardmaten lopen van 160 tot 300 cm lang, met een hoogte van 78 cm. Een andere maat kan ook, zonder meerprijs. Daarna kies je de houtkleur.\n\n**Kenmerken**\n\n- Uitvoering: glad of robuust\n- 8 standaardmaten, ook op maat zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "160 x 90 x 78",
@@ -42,10 +42,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 82,
   "seoTitel": "Closther table teak eettafel, op maat | Teakhuis",
   "seoOmschrijving": "Closther table: teakhouten eettafel in gladde of robuuste uitvoering, van 160 tot 300 cm lang. Maatwerk zonder meerprijs. Vraag een offerte aan.",
