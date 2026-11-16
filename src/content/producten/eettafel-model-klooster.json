@@ -1,67 +1,52 @@
 {
-  "titel": "eettafel model klooster",
+  "titel": "Eettafel Klooster",
   "categorie": "teak-eettafels",
-  "prijsVanaf": 599,
-  "prijsTonen": true,
-  "omschrijving": "Een zwaar uitgevoerde eettafel in kloosterstijl, met een blad van 5 cm en poten van 12 x 12 cm. Een tafel met gewicht en uitstraling.\n\nJe kiest een gladde of robuuste uitvoering en een maat van 120 tot 300 cm breed. Een andere maat maken we zonder meerprijs.\n\n**Kenmerken**\n\n- Blad van 5 cm, poten van 12 x 12 cm\n- Glad of robuust uitgevoerd\n- Leverbaar in 12 standaardmaten, ook op maat zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/132/1.jpg"
   ],
+  "prijsVanaf": 1159,
+  "omschrijving": "Een zwaar uitgevoerde eettafel in kloosterstijl, met een blad van 5 cm en poten van 12 x 12 cm. en onderstel. Een tafel met gewicht en uitstraling.\n\nJe kiest een gladde of robuuste uitvoering en een maat van 160 tot 300 cm breed. Een andere maat maken we zonder meerprijs.\n\n**Kenmerken**\n\n- Blad van 5 cm, poten van 12 x 12 cm\n- Glad of robuust uitgevoerd\n- Leverbaar in 12 standaardmaten, ook op maat zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
-      "label": "120x80cm h=78cm",
-      "prijs": 599
-    },
-    {
-      "label": "130x80cm h=78cm",
-      "prijs": 689
-    },
-    {
-      "label": "140x90cm h=78cm",
-      "prijs": 779
-    },
-    {
-      "label": "150x90cm h=78cm",
-      "prijs": 829
-    },
-    {
       "label": "160x90cm h=78cm",
-      "prijs": 969
-    },
-    {
-      "label": "180x90/95/100cm h=78cm",
-      "prijs": 1109
-    },
-    {
-      "label": "200x90/95/100cm h=78cm",
       "prijs": 1159
     },
     {
-      "label": "220x90/95/100cm h=78cm",
-      "prijs": 1269
+      "label": "180x90cm h=78cm",
+      "prijs": 1259
     },
     {
-      "label": "240x90/95/100cm h=78cm",
+      "label": "200x95cm h=78cm",
       "prijs": 1379
     },
     {
-      "label": "260x90/95/100cm h=78cm",
-      "prijs": 1489
+      "label": "220x100cm h=78cm",
+      "prijs": 1499
     },
     {
-      "label": "280x90/95/100cm h=78cm",
-      "prijs": 1579
+      "label": "240x100cm h=78cm",
+      "prijs": 1599
     },
     {
-      "label": "300x90.95.100cm h=78cm",
-      "prijs": 1669
+      "label": "260x100cm h=78cm",
+      "prijs": 1699
+    },
+    {
+      "label": "280x100cm h=78cm",
+      "prijs": 1799
+    },
+    {
+      "label": "300x100cm h=78cm",
+      "prijs": 1899
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 77,
   "seoTitel": "Eettafel Klooster teak, zwaar uitgevoerd | Teakhuis",
   "seoOmschrijving": "Eettafel Klooster van teak, zwaar uitgevoerd met een 5 cm blad en poten van 12 x 12 cm. Glad of robuust, maatwerk zonder meerprijs. Vraag een offerte aan.",
