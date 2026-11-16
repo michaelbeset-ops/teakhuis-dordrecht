@@ -117,7 +117,9 @@ collections:
       - { label: Andere uitvoeringen, name: uitvoeringen, widget: list, required: false, field: { label: Uitvoering, name: uitvoering, widget: string }, hint: 'Meestal leeg laten.' }
       - { name: prijsTonen, widget: hidden, default: true }
       - { name: maatwerk, widget: hidden, default: true }
-      - { label: Volgorde, name: volgorde, widget: number, value_type: int, min: 0, default: 999, required: false, hint: 'Lager getal = eerder in de lijst. Wil je een meubel tussen twee andere zetten, kies dan een getal ertussen (bijv. 15 tussen 10 en 20). Sorteer de lijst links op "Volgorde" om de huidige getallen te zien.' }
+      - { label: Volgorde, name: volgorde, widget: number, value_type: int, min: 0, default: 999, required: false, hint: 'Lager getal = eerder in de lijst. Makkelijker: de knop **Volgorde slepen** rechtsonder, daar sleep je de meubels van een categorie of collectie in de goede volgorde.' }
+      # Volgorde binnen de collectie: wordt gezet door de sleeppagina (admin/volgorde.html).
+      - { name: volgordeCollectie, widget: hidden, required: false }
       - { name: seoTitel, widget: hidden, default: '' }
       - { name: seoOmschrijving, widget: hidden, default: '' }
       - { name: oudeUrl, widget: hidden, default: '' }

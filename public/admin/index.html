@@ -37,5 +37,17 @@
     </script>
     <script src="https://unpkg.com/@sveltia/cms@0.227.4/dist/sveltia-cms.js"></script>
     <script src="preview.js"></script>
+    <!-- Knop naar de sleeppagina voor de volgorde van meubels binnen een categorie of collectie (Han, 16 nov). -->
+    <a href="volgorde.html" id="volgorde-knop" title="Bepaal de volgorde van de meubels door te slepen"
+       style="position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;background:#17201b;color:#fff;font:600 14px/1 system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px #17201b88">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4v16M3 8l4-4 4 4M17 20V4M13 16l4 4 4-4"/></svg>
+      Volgorde slepen
+    </a>
+    <script>
+      // Alleen tonen na het inloggen (dan bestaat het toegangstoken).
+      const vk = document.getElementById('volgorde-knop');
+      const tv = () => { let t = ''; try { t = JSON.parse(localStorage.getItem('sveltia-cms.user') || 'null')?.token || ''; } catch {} vk.hidden = !t; };
+      tv(); setInterval(tv, 2000);
+    </script>
   </body>
 </html>

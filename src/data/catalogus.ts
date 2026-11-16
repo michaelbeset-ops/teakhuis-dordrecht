@@ -11,7 +11,7 @@ export interface Product {
   slug: string; titel: string; categorie: Categorie; hoofd?: Categorie;
   prijsVanaf: number | null; prijsTonen: boolean; omschrijving: string;
   fotos: ImageMetadata[]; maten: Maat[]; houtkleuren: boolean; uitvoeringen: string[];
-  maatwerk: boolean; uitgelicht: boolean; volgorde: number;
+  maatwerk: boolean; uitgelicht: boolean; volgorde: number; volgordeCollectie?: number;
   seoTitel?: string; seoOmschrijving?: string; oudeUrl?: string;
   collectie?: Collectie;
 }
@@ -191,9 +191,11 @@ export const maatSoort = (p: Product) => {
 };
 
 // Collecties met hun (zichtbare) producten, de grootste eerst bij gelijke volgorde. Lege collecties tellen niet mee.
+// Binnen een collectie telt de eigen collectievolgorde (sleeppagina in het beheer), anders de gewone volgorde.
+const colVolg = (p: Product) => p.volgordeCollectie ?? p.volgorde;
 export interface CollectieGroep { collectie: Collectie; producten: Product[] }
 export const collecties: CollectieGroep[] = [...colOpSlug.values()]
-  .map((c) => ({ collectie: c, producten: producten.filter((p) => p.collectie?.slug === c.slug).sort((a, b) => (a.fotos.length ? 0 : 1) - (b.fotos.length ? 0 : 1)) }))
+  .map((c) => ({ collectie: c, producten: producten.filter((p) => p.collectie?.slug === c.slug).sort((a, b) => (a.fotos.length ? 0 : 1) - (b.fotos.length ? 0 : 1) || colVolg(a) - colVolg(b) || nl.compare(a.titel, b.titel)) }))
   // Ook collecties zonder producten (zoals India en Big Boy op de oude site): die tonen een uitnodiging voor maatwerk.
   .sort((a, b) => a.collectie.volgorde - b.collectie.volgorde || b.producten.length - a.producten.length);
 export const collectieHref = (c: Collectie) => url(`collecties/${c.slug}/`);

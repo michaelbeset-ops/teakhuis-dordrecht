@@ -2,6 +2,7 @@
 // Kop met grote sfeerfoto voor de informatiepagina's (Maatwerk, Over ons, Duurzaam, Contact), zodat die dezelfde sfeer
 // hebben. Op verzoek van Han (nov 2026): de groene regel is de belangrijkste en dus groot, de titel eronder iets kleiner.
 // De kop is precies zo hoog als het scherm, op elk apparaat; de foto vult hem zonder in te zoomen.
+// Op de telefoon houdt de kop onderin ruimte vrij voor de vaste balk met Bellen/WhatsApp.
 // De donkere laag over de foto gebruikt de kleur 'nacht' en is gemarkeerd met data-tint (zie sfeervarianten in global.css).
 import { Image } from 'astro:assets';
 import { breedtes } from '../data/catalogus';
@@ -12,9 +13,12 @@ const { foto, pos = 'object-center', label, titel, id } = Astro.props;
   <Image src={foto} alt="" quality={90} widths={breedtes(foto, [828, 1280, 1680, 2200, 2880, 3840])} sizes="100vw" loading="eager" fetchpriority="high" class={`absolute inset-0 h-full w-full object-cover ${pos}`} />
   <div aria-hidden="true" data-tint class="absolute inset-0 bg-gradient-to-t from-nacht/90 via-nacht/40 to-nacht/20"></div>
   <div aria-hidden="true" data-tint class="absolute inset-0 bg-gradient-to-r from-nacht/75 via-nacht/25 to-transparent max-lg:hidden"></div>
-  <div class="wrap relative pb-12 pt-36 md:pb-16">
+  <!-- Telefoon: de tekst staat onderaan over de foto. Een extra donkere laag (niet lichter gemaakt door de sfeervariant)
+       houdt de tekst leesbaar, ook op lichte foto's zoals de slaapkamer (Han, 16 nov). -->
+  <div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-[80%] bg-gradient-to-t from-inkt/80 via-inkt/50 to-transparent lg:hidden"></div>
+  <div class="wrap relative pb-[calc(5.5rem+env(safe-area-inset-bottom))] pt-28 md:pb-16 md:pt-36">
     <p class="hero-op max-w-[26ch] font-kop text-[clamp(1.6rem,3vw,2.8rem)] font-extrabold leading-[1.08] text-blad-licht">{label}</p>
-    <h1 id={id} class="hero-op mt-3 max-w-[20ch] text-[clamp(1.5rem,2.4vw,2.3rem)] font-semibold leading-[1.1] [font-stretch:100%]" style="--d:.08s">{titel}</h1>
-    <div class="hero-op" style="--d:.18s"><slot /></div>
+    <h1 id={id} class="hero-op mt-3 laag:mt-2 max-w-[20ch] text-[clamp(1.5rem,2.4vw,2.3rem)] font-semibold leading-[1.1] [font-stretch:100%]" style="--d:.08s">{titel}</h1>
+    <div class="hero-op laag:[&>p]:mt-3 laag:[&>p]:text-base laag:[&>div]:mt-5 zeerlaag:[&>p]:hidden" style="--d:.18s"><slot /></div>
   </div>
 </section>

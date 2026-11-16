@@ -3,6 +3,12 @@
 @import "@fontsource-variable/archivo/wdth.css";
 @import "@fontsource-variable/mulish/wght.css";
 
+/* Telefoons met weinig schermhoogte (iPhone 11, of elk toestel met de werkbalken van de browser in beeld): de kop met
+   sfeerfoto wordt compacter in plaats van tekst weg te laten, zodat de indeling gelijk blijft aan een groot toestel.
+   Pas op heel lage schermen (iPhone SE) vallen de lopende tekst en het kaartje van Han weg. */
+@custom-variant laag (@media (max-width: 1023px) and (max-height: 760px));
+@custom-variant zeerlaag (@media (max-width: 1023px) and (max-height: 640px));
+
 @theme {
   --color-*: initial;
   --text-*: initial;
@@ -19,7 +25,7 @@
   --color-grijs: #55605a;       /* bijtekst, 6,4:1 op papier */
   --color-blad: #6aab35;        /* logo-groen: knoppen */
   --color-blad-hover: #5c9a2a;
-  --color-blad-licht: #a3d47a;  /* groen op donker */
+  --color-blad-licht: #6aab35;  /* groen op donker: zelfde logo-groen als de knoppen (Han, 16 nov: niet twee tinten) */
   --color-blad-diep: #36641a;   /* groen als tekst op papier, 6,6:1 */
   --color-nacht: #17231d;       /* donkere panelen: bosgroen */
   --color-nacht-2: #213028;
@@ -181,4 +187,6 @@
 html:not([data-sfeer='warm']):not([data-sfeer='donker']) { --color-nacht: #3a2c22; --color-nacht-2: #4a3a2e; }
 html:not([data-sfeer='warm']):not([data-sfeer='donker']) [data-tint] { opacity: .55; }
 html:not([data-sfeer='warm']):not([data-sfeer='donker']) .hero-op { text-shadow: 0 1px 14px rgb(0 0 0 / .35); }
+/* Op de telefoon staat de tekst over het drukste deel van de foto: een iets stevigere schaduw houdt hem leesbaar. */
+@media (max-width: 1023px) { .hero-op { text-shadow: 0 1px 3px rgb(0 0 0 / .45), 0 2px 18px rgb(0 0 0 / .4); } }
 html[data-sfeer='warm'] { --color-nacht: #2a2019; --color-nacht-2: #372a21; }

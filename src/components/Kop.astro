@@ -29,6 +29,12 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
 <header class="sticky top-0 z-40 px-3 pt-3 md:px-6" data-kop>
   <div class="relative mx-auto flex h-16 max-w-[82rem] items-center justify-between gap-3 rounded-[var(--radius-md)] bg-wit/95 pr-2 shadow-kaart ring-1 ring-lijn backdrop-blur-md lg:h-[4.5rem] lg:pr-3">
     <Merk balk />
+    <!-- Telefoon en tablet: de twee belangrijkste ingangen direct in de balk (Han, 16 nov: "de balk is bijna leeg").
+         Collecties alleen als er ruimte is; de rest staat onder Menu. -->
+    <nav aria-label="Snelmenu" class="flex min-w-0 flex-1 items-center gap-0.5 lg:hidden">
+      <a href={url('webshop/')} class={`whitespace-nowrap rounded-full px-2.5 py-2.5 font-kop text-[.875rem] font-bold no-underline [font-stretch:100%] transition-colors hover:bg-zand min-[400px]:px-3 ${actief('webshop/') ? 'bg-zand' : ''}`} aria-current={pad === url('webshop/') ? 'page' : undefined}>Producten</a>
+      <a href={url('collecties/')} class={`whitespace-nowrap rounded-full px-2.5 py-2.5 font-kop text-[.875rem] font-bold no-underline [font-stretch:100%] transition-colors hover:bg-zand max-[389px]:hidden min-[400px]:px-3 ${actief('collecties/') ? 'bg-zand' : ''}`} aria-current={actief('collecties/') ? 'page' : undefined}>Collecties</a>
+    </nav>
     <nav aria-label="Hoofdmenu" class="hidden lg:block">
       <ul class="flex items-center gap-1 font-kop text-[.95rem] font-bold [font-stretch:105%]">
         <li data-mega-li>
@@ -59,7 +65,7 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
       <a href={url('webshop/')} class="knop knop-blad min-h-11 px-5 text-sm max-md:hidden lg:max-xl:hidden">Kies je meubel</a>
       <button type="button" class="flex h-11 items-center gap-2 rounded-full bg-nacht px-4 font-kop text-sm font-bold text-wit lg:hidden" aria-expanded="false" aria-controls="menu-nav" data-menu-knop>
         <svg viewBox="0 0 24 24" class="h-[1.1rem] w-[1.1rem]" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
-        <span class="max-[379px]:sr-only">Menu</span>
+        <span class="max-[429px]:sr-only">Menu</span>
       </button>
     </div>
 

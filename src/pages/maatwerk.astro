@@ -167,14 +167,20 @@ const dienst = {
   <script>
     const knop = document.querySelector<HTMLElement>('[data-naar-voorbeelden]');
     const sectie = document.querySelector('[data-voorbeelden]');
+    // Weg zolang de voorbeelden zelf in beeld zijn, en zolang de kop met de eigen knop "Bekijk voorbeelden" in beeld is
+    // (op mobiel stonden ze anders over elkaar heen).
+    const kop = document.querySelector('#maatwerk-kop')?.closest('section');
     if (knop && sectie) {
-      new IntersectionObserver(([e]) => {
-        const weg = e.isIntersecting;
+      const zichtbaar = new Map<Element, boolean>();
+      const zet = () => {
+        const weg = [...zichtbaar.values()].some(Boolean);
         knop.style.opacity = weg ? '0' : '';
         knop.style.transform = weg ? 'translateY(8px)' : '';
         knop.style.pointerEvents = weg ? 'none' : '';
         knop.tabIndex = weg ? -1 : 0;
-      }, { rootMargin: '-20% 0px -20% 0px' }).observe(sectie);
+      };
+      new IntersectionObserver((es) => { es.forEach((e) => zichtbaar.set(e.target, e.isIntersecting)); zet(); }, { rootMargin: '-20% 0px -20% 0px' }).observe(sectie);
+      if (kop) new IntersectionObserver(([e]) => { zichtbaar.set(kop, e.intersectionRatio > 0.35); zet(); }, { threshold: [0, 0.35, 1] }).observe(kop);
     }
   </script>
 </Base>

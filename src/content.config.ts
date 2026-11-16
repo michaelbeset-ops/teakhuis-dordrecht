@@ -28,6 +28,8 @@ const producten = defineCollection({
     uitgelicht: vlag(false),
     zichtbaar: vlag(true),
     volgorde: z.preprocess(leeg, z.coerce.number().default(999)),
+    // Volgorde binnen de collectie (sleeppagina in het beheer); leeg = dezelfde als 'volgorde'.
+    volgordeCollectie: z.preprocess(leeg, z.coerce.number().optional()),
     seoTitel: z.preprocess(leeg, z.string().optional()),
     seoOmschrijving: z.preprocess(leeg, z.string().optional()),
     oudeUrl: z.preprocess(leeg, z.string().optional()),
