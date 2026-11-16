@@ -1,53 +1,53 @@
 {
   "titel": "Eettafel Robuust",
   "categorie": "teak-eettafels",
-  "prijsVanaf": 599,
-  "prijsTonen": true,
-  "omschrijving": "Eettafel Robuust is standaard uitgevoerd met een massieve top van 5 cm en massieve blokpoten van 10 cm. Wil je zwaardere poten van 12 cm, dan is de meerprijs 90 euro.\n\nDe tafel is leverbaar in nieuw glad teak en in robuust gerecycled teak. Op de foto zie je B220 x D100 x H78 in gerecycled ruw teak met 12 cm blokpoten.\n\n**Kenmerken**\n\n- Massieve top van 5 cm, blokpoten van 10 cm (12 cm tegen meerprijs)\n- Uitvoeringen: blank teak, koloniale kleur, Milaan kleur, gerecycled teak of geborsteld teak\n- Leverbaar in 12 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/32264/1.jpg",
     "../../assets/producten/32264/2.jpg"
   ],
+  "prijsVanaf": 599,
+  "omschrijving": "Eettafel Robuust is standaard uitgevoerd met een massieve top van 5 cm en massieve blokpoten van 10 cm. Wil je zwaardere poten van 12 cm, dan is de meerprijs 90 euro.\n\nDe tafel is leverbaar in nieuw glad teak en in robuust gerecycled teak. Op de foto zie je B220 x D100 x H78 in gerecycled ruw teak met 12 cm blokpoten.\n\n**Kenmerken**\n\n- Massieve top van 5 cm, blokpoten van 10 cm (12 cm tegen meerprijs)\n- Uitvoeringen: blank teak, koloniale kleur, Milaan kleur, gerecycled teak of geborsteld teak\n- Leverbaar in 12 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "B100 x D100 x H78",
-      "prijs": 599
-    },
-    {
-      "label": "B160 x D90 x H78",
-      "prijs": 649
-    },
-    {
-      "label": "B120 x D120 x H78",
-      "prijs": 649
-    },
-    {
-      "label": "B180 x D90 x H78",
-      "prijs": 679
-    },
-    {
-      "label": "B200 x D95 x H78",
-      "prijs": 749
-    },
-    {
-      "label": "B220 x D100 x H78",
       "prijs": 799
     },
     {
+      "label": "B160 x D90 x H78",
+      "prijs": 999
+    },
+    {
+      "label": "B120 x D120 x H78",
+      "prijs": 999
+    },
+    {
+      "label": "B180 x D90 x H78",
+      "prijs": 1099
+    },
+    {
+      "label": "B200 x D95 x H78",
+      "prijs": 1219
+    },
+    {
+      "label": "B220 x D100 x H78",
+      "prijs": 1339
+    },
+    {
       "label": "B240 x D100 x H78",
-      "prijs": 859
+      "prijs": 1439
     },
     {
       "label": "B260 x D100 x H78",
-      "prijs": 939
+      "prijs": 1539
     },
     {
       "label": "B280 x D100 x H78",
-      "prijs": 1019
+      "prijs": 1639
     },
     {
       "label": "B300 x D100 x H78",
-      "prijs": 1099
+      "prijs": 1739
     },
     {
       "label": "B140 x D140 x H78",
@@ -59,6 +59,8 @@
     }
   ],
   "houtkleuren": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
   "uitvoeringen": [
     "Blank teak",
     "Koloniale kleur",
@@ -66,9 +68,8 @@
     "Gerecycled teak",
     "Geborsteld teak"
   ],
+  "prijsTonen": true,
   "maatwerk": true,
-  "uitgelicht": false,
-  "zichtbaar": true,
   "volgorde": 69,
   "seoTitel": "Eettafel Robuust teak met blokpoten | Teakhuis",
   "seoOmschrijving": "Eettafel Robuust met een massieve 5 cm top en 10 cm blokpoten, in nieuw glad of gerecycled teak en ook op maat. Vraag vrijblijvend een offerte aan.",
