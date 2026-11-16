@@ -1,12 +1,12 @@
 {
   "titel": "geslotenkast Le Matin",
   "categorie": "geslotenkasten",
-  "prijsVanaf": 1399,
-  "prijsTonen": true,
-  "omschrijving": "Gesloten kast Le Matin is een moderne, zeer strak afgewerkte teakkast van eerste kwaliteit teakhout. De deuren hebben dempers, zodat ze zacht sluiten.\n\nDe kast is 210 cm hoog en 45 cm diep, in breedtes van 110 tot 140 cm. Een andere maat is ook mogelijk.\n\n**Kenmerken**\n\n- Materiaal: eerste kwaliteit teakhout\n- Dempers op de deuren\n- Leverbaar in 3 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië",
+  "collectie": "le-matin",
   "fotos": [
     "../../assets/producten/3275/1.jpg"
   ],
+  "prijsVanaf": 1399,
+  "omschrijving": "Gesloten kast Le Matin is een moderne, zeer strak afgewerkte teakkast van eerste kwaliteit teakhout. De deuren hebben dempers, zodat ze zacht sluiten.\n\nDe kast is 210 cm hoog en 45 cm diep, in breedtes van 110 tot 140 cm. Een andere maat is ook mogelijk.\n\n**Kenmerken**\n\n- Materiaal: eerste kwaliteit teakhout\n- Dempers op de deuren\n- Leverbaar in 3 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
       "label": "afm. 210x110x45cm",
@@ -22,13 +22,13 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 474,
   "seoTitel": "Gesloten kast Le Matin modern teak | Teakhuis",
   "seoOmschrijving": "Gesloten kast Le Matin: moderne, strak afgewerkte kast van eerste kwaliteit teak met dempers op de deuren, 210 cm hoog. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/189/3275/geslotenkasten/geslotenkast-le-matin",
-  "collectie": "le-matin"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/189/3275/geslotenkasten/geslotenkast-le-matin"
 }
