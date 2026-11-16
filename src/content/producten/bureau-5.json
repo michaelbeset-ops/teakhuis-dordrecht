@@ -1,23 +1,24 @@
 {
-  "titel": "bureau 5",
+  "titel": "Bureau",
   "categorie": "bureaus",
-  "prijsVanaf": 1019,
-  "prijsTonen": true,
-  "omschrijving": "Heb je weinig ruimte voor een werkplek? Bureau 5 is bedoeld voor de niet te grote werkplek en is netjes afgewerkt in teakhout.\n\nKies de houtkleur die bij je interieur past. Het bureau kan ook op maat gemaakt worden, zonder meerprijs. Je ontvangt eerst een vrijblijvende offerte.\n\n**Kenmerken**\n\n- Geschikt voor een niet te grote werkplek\n- Ook op maat, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/1640/1.jpg"
   ],
+  "prijsVanaf": 999,
+  "omschrijving": "Heb je weinig ruimte voor een werkplek? Bureau 5 is bedoeld voor de niet te grote werkplek en is netjes afgewerkt in teakhout.\n\nKies de houtkleur die bij je interieur past. Het bureau kan ook op maat gemaakt worden, zonder meerprijs. Je ontvangt eerst een vrijblijvende offerte.\n\n**Kenmerken**\n\n- Geschikt voor een niet te grote werkplek\n- Ook op maat, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
-      "label": "140x80cm h=78cm",
-      "prijs": 1019
+      "label": "140x70cm h=78cm",
+      "prijs": 999
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 106,
   "seoTitel": "Bureau 5 teak voor een kleine werkplek | Teakhuis",
   "seoOmschrijving": "Bureau 5 van teakhout, ideaal voor een niet te grote werkplek. Met de hand gemaakt in Indonesië, ook op maat zonder meerprijs. Vraag een offerte aan.",
