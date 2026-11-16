@@ -1,12 +1,13 @@
 {
   "titel": "Gesloten kast Viking",
   "categorie": "geslotenkasten",
-  "prijsVanaf": 1749,
-  "prijsTonen": true,
-  "omschrijving": "Deze gesloten kast komt uit de Viking-serie en combineert oud gerecycled teakhout met staal. Het geleefde hout geeft de kast een sfeervolle, robuuste en stoere uitstraling.\n\nOok deze kast kunnen we op maat maken, zodat hij precies in je ruimte past.\n\n**Kenmerken**\n\n- Materiaal: oud gerecycled teakhout en staal\n- Uit de Viking-serie\n- Op maat te maken\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "viking",
   "fotos": [
+    "../../assets/producten/gesloten-kast-viking-met-zwarte-poten.webp",
     "../../assets/producten/29415/1.jpg"
   ],
+  "prijsVanaf": 1749,
+  "omschrijving": "Deze grote moderne gesloten kast wordt standaard uitgevoerd in blank teak met zwart metalen poten. Het is ook mogelijk in gerecycled ruw teak en of met blank stalen poten voor een meer industriele en stoere uitstraling\n\nOok deze kast kunnen we op maat maken, zodat hij precies in je ruimte past.\n\n**Kenmerken**\n\n- Materiaal: oud gerecycled teakhout en staal\n- Uit de Viking-serie\n- Op maat te maken\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "H200 x B120 x D50",
@@ -14,13 +15,13 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 170,
   "seoTitel": "Gesloten kast Viking gerecycled teak | Teakhuis",
   "seoOmschrijving": "Gesloten kast Viking van oud gerecycled teakhout en staal, robuust en stoer, ook op maat te maken. Past bij de Viking-serie. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/189/29415/geslotenkasten/gesloten-kast-viking",
-  "collectie": "viking"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/189/29415/geslotenkasten/gesloten-kast-viking"
 }
