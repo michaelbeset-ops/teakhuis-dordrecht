@@ -1,23 +1,29 @@
 {
-  "titel": "bureau 2",
+  "titel": "Bureau Ben",
   "categorie": "bureaus",
-  "prijsVanaf": 1199,
-  "prijsTonen": true,
-  "omschrijving": "Bureau 2 is een fraai afgewerkt teakhouten bureau voor je werkkamer of thuiswerkplek. Je kiest de houtkleur en, als je wilt, een andere maat dan standaard.\n\nMaatwerk kost niets extra. Na je aanvraag ontvang je eerst een vrijblijvende offerte.\n\n**Kenmerken**\n\n- Materiaal: teakhout\n- Elke maat mogelijk, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "",
   "fotos": [
+    "../../assets/producten/bureau-blank-teak-met-zwarte-handgrepen.webp",
     "../../assets/producten/1634/1.jpg"
   ],
+  "prijsVanaf": 999,
+  "omschrijving": "Bureau Ben is een fraai afgewerkt teakhouten bureau voor je werkkamer of thuiswerkplek. Je kiest de houtkleur en, als je wilt, een andere maat en/of indeling dan standaard.\n\nMaatwerk kost niets extra. Na je aanvraag ontvang je eerst een vrijblijvende offerte.\n\n**Kenmerken**\n\n- Materiaal: teakhout\n- Elke maat mogelijk, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
-      "label": "180x100cm h=78cm",
-      "prijs": 1199
+      "label": "B140 x D70 x H78",
+      "prijs": 999
+    },
+    {
+      "label": "B180 x D90 x H78",
+      "prijs": 1249
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 103,
   "seoTitel": "Bureau 2 van teakhout, op maat | Teakhuis",
   "seoOmschrijving": "Bureau 2 van teakhout, mooi afgewerkt en met de hand gemaakt in Indonesië. Elke maat mogelijk zonder meerprijs, in vier houtkleuren. Vraag een offerte aan.",
