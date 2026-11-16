@@ -1,12 +1,12 @@
 {
   "titel": "geslotenkast 3",
   "categorie": "geslotenkasten",
-  "prijsVanaf": 1349,
-  "prijsTonen": true,
-  "omschrijving": "Gesloten kast 3 is een mooie teakhouten kast met drie legplanken. Wat je erin zet, blijft uit het zicht.\n\nKies een houtkleur. Wil je een andere maat, dan kan de kast op maat gemaakt worden.\n\n**Kenmerken**\n\n- 3 legplanken\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Op maat te maken\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "koloniale-meubelen",
   "fotos": [
     "../../assets/producten/1324/1.jpg"
   ],
+  "prijsVanaf": 1349,
+  "omschrijving": "Deze klassiek koloniale kast wordt meestal uitgevoerd in een koloniale kleur maar ook in blank teak is het een eyecatcher. Standaard 2 legplanken aan de bovenkant en 1 legplank onder. Op bestelling leverbaar dus kan op maat worden gemaakt.\nIndien gewenst ook demontabel te maken.\n\nKies een houtkleur. Wil je een andere maat, dan kan de kast op maat gemaakt worden.\n\n**Kenmerken**\n\n- 3 legplanken\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Op maat te maken\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "200x120x55cm",
@@ -14,10 +14,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 179,
   "seoTitel": "Gesloten kast 3 teak met legplanken | Teakhuis",
   "seoOmschrijving": "Gesloten kast 3 van teak met drie legplanken, in Blank teak, Thee kleur, Koloniale kleur of Wit en ook op maat. Vraag vrijblijvend een offerte aan.",
