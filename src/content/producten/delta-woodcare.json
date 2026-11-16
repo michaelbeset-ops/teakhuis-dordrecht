@@ -1,28 +1,32 @@
 {
   "titel": "Delta Woodcare",
   "categorie": "onderhoudsmiddelen",
-  "prijsVanaf": 16.95,
-  "prijsTonen": true,
-  "omschrijving": "Delta Woodcare is een watergedragen polyurethaan impregneerolie. Hij geeft onbehandeld hout een bijna kleurloze, matte bescherming en is zeer geschikt voor onze onbehandeld teak meubelen.\n\nGoed schudden en aanbrengen met een kwast, roller of zachte doek. Laat drogen en breng nog een tweede en derde laag aan; schuur eventueel fijn tussen de eerste en tweede laag. Behandel het hout daarna 2 tot 3 keer per jaar opnieuw.\n\n**Kenmerken**\n\n- Inhoud: 250 ml\n- Watergedragen polyurethaan impregneerolie\n- Bijna kleurloos en mat\n- Per 1, 2 of 3 stuks, inclusief verzenden binnen Nederland",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/32648/1.jpg"
   ],
+  "prijsVanaf": 16.95,
+  "omschrijving": "Delta Woodcare is een watergedragen polyurethaan impregneerolie. Hij geeft onbehandeld hout een bijna kleurloze, matte bescherming en is zeer geschikt voor onze onbehandeld teak meubelen.\n\nGoed schudden en aanbrengen met een kwast, roller of zachte doek. Laat drogen en breng nog een tweede en derde laag aan; schuur eventueel fijn tussen de eerste en tweede laag. Behandel het hout daarna 2 tot 3 keer per jaar opnieuw.\n\n**Kenmerken**\n\n- Inhoud: 250 ml\n- Watergedragen polyurethaan impregneerolie\n- Bijna kleurloos en mat\n- Per 1, 2 of 3 stuks, inclusief verzenden binnen Nederland",
   "maten": [
     {
-      "label": "1 x 250 ml inclusief verzenden binnen Nederland"
+      "label": "1 x 250 ml inclusief verzenden binnen Nederland",
+      "prijs": 17
     },
     {
-      "label": "2 x 250 ml incl. verzenden binnen Nederland"
+      "label": "2 x 250 ml incl. verzenden binnen Nederland",
+      "prijs": 31
     },
     {
-      "label": "3 x 250 ml incl. verzenden binnen Nederland"
+      "label": "3 x 250 ml incl. verzenden binnen Nederland",
+      "prijs": 44
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": false,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": false,
   "volgorde": 317,
   "seoTitel": "Delta Woodcare impregneerolie, 250 ml | Teakhuis",
   "seoOmschrijving": "Delta Woodcare is een watergedragen impregneerolie die onbehandeld hout bijna kleurloos en mat beschermt. Geschikt voor teak. Verzenden in NL inbegrepen.",
