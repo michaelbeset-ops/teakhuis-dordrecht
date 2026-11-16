@@ -1,12 +1,12 @@
 {
   "titel": "eettafel model Fatleg",
   "categorie": "teak-eettafels",
-  "prijsVanaf": 649,
-  "prijsTonen": true,
-  "omschrijving": "Eettafel Fatleg is een teakhouten eettafel die je kiest in vierkant of rechthoekig formaat. De vierkante maten lopen van 100 x 100 tot 140 x 140 cm, de rechthoekige van 140 tot 300 cm breed.\n\nStaat jouw maat er niet bij, dan maken we de tafel op maat. Je kiest ook de houtkleur.\n\n**Kenmerken**\n\n- Leverbaar in 12 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/206/1.jpg"
   ],
+  "prijsVanaf": 649,
+  "omschrijving": "Eettafel Fatleg is een teakhouten eettafel die je kiest in vierkant of rechthoekig formaat. De vierkante maten lopen van 100 x 100 tot 140 x 140 cm, de rechthoekige van 140 tot 300 cm breed.\n\nStaat jouw maat er niet bij, dan maken we de tafel op maat. Je kiest ook de houtkleur.\n\n**Kenmerken**\n\n- Leverbaar in 12 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "100x100cm h=78cm",
@@ -14,54 +14,55 @@
     },
     {
       "label": "120x120cm h=78cm",
-      "prijs": 699
+      "prijs": 749
     },
     {
       "label": "140x140cm h=78cm",
-      "prijs": 799
+      "prijs": 849
     },
     {
       "label": "140x80cm h=78cm",
-      "prijs": 649
+      "prijs": 689
     },
     {
       "label": "160x90cm h=78cm",
-      "prijs": 699
+      "prijs": 749
     },
     {
-      "label": "180x100cm h=78cm",
-      "prijs": 779
+      "label": "180x90cm h=78cm",
+      "prijs": 819
     },
     {
-      "label": "200x100cm h=78cm",
-      "prijs": 869
+      "label": "200x95cm h=78cm",
+      "prijs": 899
     },
     {
       "label": "220x100cm h=78cm",
-      "prijs": 929
-    },
-    {
-      "label": "240x100cm h=78cm",
       "prijs": 989
     },
     {
-      "label": "260x100cm h=78cm",
+      "label": "240x100cm h=78cm",
       "prijs": 1049
     },
     {
+      "label": "260x100cm h=78cm",
+      "prijs": 1109
+    },
+    {
       "label": "280x100cm h=78cm",
-      "prijs": 1149
+      "prijs": 1189
     },
     {
       "label": "300x100cm h=78cm",
-      "prijs": 1249
+      "prijs": 1269
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 76,
   "seoTitel": "Eettafel Fatleg teak, vierkant of lang | Teakhuis",
   "seoOmschrijving": "Eettafel Fatleg van teak, vierkant of rechthoekig van 140 tot 300 cm breed, in vier houtkleuren en ook op maat. Vraag vrijblijvend een offerte aan.",
