@@ -1,48 +1,56 @@
 {
   "titel": "Eettafel Viking",
   "categorie": "teak-eettafels",
-  "prijsVanaf": 899,
-  "prijsTonen": true,
-  "omschrijving": "Eettafel Viking is gemaakt van oud gerecycled teakhout op staal. Het hout met zijn sporen van eerder gebruik geeft de tafel een sfeervolle, robuuste uitstraling.\n\nJe kiest een breedte van 160 tot 280 cm. Ook in deze collectie is maatwerk mogelijk.\n\n**Kenmerken**\n\n- Materiaal: oud gerecycled teakhout en staal\n- Robuuste, stoere uitstraling\n- Leverbaar in 8 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "viking",
   "fotos": [
+    "../../assets/producten/viking-eettafel-zwarte-poten.webp",
     "../../assets/producten/28682/1.jpg",
-    "../../assets/producten/28682/2.jpg",
-    "../../assets/producten/28682/3.jpg"
+    "../../assets/producten/28682/2.jpg"
   ],
+  "prijsVanaf": 899,
+  "omschrijving": "Standaard wordt de eettafel Viking gemaakt van ruw gerecycled teak met een zwarte metalen poot. Ook mogelijk met glad blank teak en/of een blank metalen poot.\n\nJe kiest een breedte van 160 tot 280 cm. Ook in deze collectie is maatwerk mogelijk.\n\n**Kenmerken**\n\n- Materiaal: oud gerecycled teakhout en staal\n- Robuuste, stoere uitstraling\n- Leverbaar in 8 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
-      "label": "B160 x D90 x H78"
+      "label": "B160 x D90 x H78",
+      "prijs": null
     },
     {
-      "label": "B180 x D100 x H78"
+      "label": "B180 x D100 x H78",
+      "prijs": null
     },
     {
-      "label": "B200 x D100 x H78"
+      "label": "B200 x D100 x H78",
+      "prijs": null
     },
     {
-      "label": "B220 x D100 x H78"
+      "label": "B220 x D100 x H78",
+      "prijs": null
     },
     {
-      "label": "B240 x D100 x H78"
+      "label": "B240 x D100 x H78",
+      "prijs": null
     },
     {
-      "label": "B250 x D100 x H78"
+      "label": "B250 x D100 x H78",
+      "prijs": null
     },
     {
-      "label": "B260 x D100 x H78"
+      "label": "B260 x D100 x H78",
+      "prijs": null
     },
     {
-      "label": "B280 x D100 x H78"
+      "label": "B280 x D100 x H78",
+      "prijs": null
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": true,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 78,
   "seoTitel": "Eettafel Viking van gerecycled teak, op maat | Teakhuis",
   "seoOmschrijving": "Eettafel Viking van oud gerecycled teakhout en staal, robuust en sfeervol, van 160 tot 280 cm breed en op maat. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/28682/teak-eettafels/eettafel-viking",
-  "collectie": "viking"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/28682/teak-eettafels/eettafel-viking"
 }
