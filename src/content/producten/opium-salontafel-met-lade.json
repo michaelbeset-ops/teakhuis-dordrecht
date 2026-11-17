@@ -39,71 +39,71 @@
     },
     {
       "label": "100x60cm h=36cm 2 laden",
-      "prijs": 399
+      "prijs": 469
     },
     {
       "label": "110x70cm h=36cm 2 laden",
-      "prijs": 409
-    },
-    {
-      "label": "120x80cm h=36cm 2 laden",
       "prijs": 509
     },
     {
-      "label": "130x80cm h=36cm 2 laden",
-      "prijs": 539
-    },
-    {
-      "label": "140x80cm h=36cm 2 laden",
-      "prijs": 559
-    },
-    {
-      "label": "40x40cm h=45cm 1 lade",
-      "prijs": 179
-    },
-    {
-      "label": "50x50cm h=45cm 1 lade",
-      "prijs": 239
-    },
-    {
-      "label": "60x60cm h=45cm 1 lade",
-      "prijs": 259
-    },
-    {
-      "label": "70x70cm h=45cm 1 lade",
-      "prijs": 289
-    },
-    {
-      "label": "80x80cm h=45cm 1 lade",
-      "prijs": 359
-    },
-    {
-      "label": "90x90cm h=45cm 2 laden",
-      "prijs": 399
-    },
-    {
-      "label": "100x100cm h=45cm 2 laden",
-      "prijs": 419
-    },
-    {
-      "label": "100x60cm h=45cm 2 laden",
-      "prijs": 409
-    },
-    {
-      "label": "110x70cm h=45cm 2 laden",
-      "prijs": 429
-    },
-    {
-      "label": "120x80cm h=45cm 2 laden",
+      "label": "120x70cm h=36cm 2 laden",
       "prijs": 529
     },
     {
+      "label": "130x80cm h=36cm 2 laden",
+      "prijs": 579
+    },
+    {
+      "label": "140x80cm h=36cm 2 laden",
+      "prijs": 619
+    },
+    {
+      "label": "40x40cm h=45cm 1 lade",
+      "prijs": 239
+    },
+    {
+      "label": "50x50cm h=45cm 1 lade",
+      "prijs": 309
+    },
+    {
+      "label": "60x60cm h=45cm 1 lade",
+      "prijs": 339
+    },
+    {
+      "label": "70x70cm h=45cm 1 lade",
+      "prijs": 369
+    },
+    {
+      "label": "80x80cm h=45cm 1 lade",
+      "prijs": 419
+    },
+    {
+      "label": "90x90cm h=45cm 2 laden",
+      "prijs": 459
+    },
+    {
+      "label": "100x100cm h=45cm 2 laden",
+      "prijs": 529
+    },
+    {
+      "label": "100x60cm h=45cm 2 laden",
+      "prijs": 489
+    },
+    {
+      "label": "110x70cm h=45cm 2 laden",
+      "prijs": 529
+    },
+    {
+      "label": "120x70cm h=45cm 2 laden",
+      "prijs": 549
+    },
+    {
       "label": "130x80cm h=45cm 2 laden",
-      "prijs": 559
+      "prijs": 599
     },
     {
       "label": "140x80cm h=45cm 2 laden",
-      "prijs": 579
+      "prijs": 639
     }
   ],
   "houtkleuren": true,
