@@ -1,12 +1,12 @@
 {
-  "titel": "ladenkast 13",
+  "titel": "Ladekast Brindisi",
   "categorie": "ladenkasten",
-  "prijsVanaf": 329,
-  "prijsTonen": true,
-  "omschrijving": "Ladenkast 13 is een klein teakhouten kastje dat je ook goed als nachtkastje kunt gebruiken. Naast het bed of als bijzetkast in de woonkamer.\n\nJe kiest de houtkleur, en het kastje is op elke maat te leveren.\n\n**Kenmerken**\n\n- Klein kastje, ook geschikt als nachtkastje\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Op elke maat te maken\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "brindisi",
   "fotos": [
     "../../assets/producten/1795/1.jpg"
   ],
+  "prijsVanaf": 359,
+  "omschrijving": "Deze ladekast is ideaal als bijzettafel (met wieltjes eronder) of als nachtkastje. \n\nJe kiest de houtkleur, en het kastje is op elke maat te leveren.\n\n**Kenmerken**\n\n- Klein kastje, ook geschikt als nachtkastje\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Op elke maat te maken\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "h=60 br=50cm d=40cm",
@@ -14,10 +14,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 229,
   "seoTitel": "Ladenkast 13 teak, ook als nachtkastje | Teakhuis",
   "seoOmschrijving": "Ladenkast 13: klein teakhouten kastje, ook te gebruiken als nachtkastje. Op elke maat te maken en in vier houtkleuren. Vraag vrijblijvend een offerte aan.",
