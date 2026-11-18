@@ -59,51 +59,51 @@
     },
     {
       "label": "40x40cm h=45cm met lade",
-      "prijs": 149
-    },
-    {
-      "label": "50x50cm h=45cm met lade",
-      "prijs": 169
-    },
-    {
-      "label": "60x60cm h=45cm met lade",
       "prijs": 189
     },
     {
-      "label": "70x70cm h=45cm met lade",
+      "label": "50x50cm h=45cm met lade",
       "prijs": 219
     },
     {
-      "label": "80x80cm h=45cm met lade",
+      "label": "60x60cm h=45cm met lade",
       "prijs": 249
     },
     {
-      "label": "90x90cm h=45cm met 2 laden",
-      "prijs": 289
-    },
-    {
-      "label": "100x100cm h=45cm met 2 laden",
-      "prijs": 359
-    },
-    {
-      "label": "100x60cm h=45cm met 2 laden",
-      "prijs": 259
-    },
-    {
-      "label": "110x70cm h=45cm met 2 laden",
+      "label": "70x70cm h=45cm met lade",
       "prijs": 299
     },
     {
+      "label": "80x80cm h=45cm met lade",
+      "prijs": 339
+    },
+    {
+      "label": "90x90cm h=45cm met 2 laden",
+      "prijs": 419
+    },
+    {
+      "label": "100x100cm h=45cm met 2 laden",
+      "prijs": 479
+    },
+    {
+      "label": "100x60cm h=45cm met 2 laden",
+      "prijs": 349
+    },
+    {
+      "label": "110x70cm h=45cm met 2 laden",
+      "prijs": 389
+    },
+    {
       "label": "120x70cmh=45cm met 2 laden",
-      "prijs": 319
+      "prijs": 419
     },
     {
       "label": "130x80cm h=45cm met 2 laden",
-      "prijs": 359
+      "prijs": 489
     },
     {
       "label": "140x80cm h=45cm met 2 laden",
-      "prijs": 389
+      "prijs": 519
     }
   ],
   "houtkleuren": false,
