@@ -1,24 +1,25 @@
 {
   "titel": "Salontafel Naomi",
   "categorie": "mangohout-salon-tafels",
-  "prijsVanaf": 125,
-  "prijsTonen": true,
-  "omschrijving": "Naomi is een stoere ronde salontafel met een handig opbergraster. De massieve top van 3 cm dik is van mangohout en afgewerkt met matte lak tegen kringen en vlekken. Het metalen onderstel is mat zwart.\n\nDe prijs is inclusief verzenden binnen Nederland.\n\n**Kenmerken**\n- Rond model met opbergraster\n- Massieve top van mangohout, 3 cm dik\n- Matte lak tegen kringen en vlekken\n- Mat zwart metalen onderstel\n- Prijs inclusief verzending binnen Nederland",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/32578/1.jpg",
     "../../assets/producten/32578/2.jpg"
   ],
+  "prijsVanaf": 125,
+  "omschrijving": "Naomi is een stoere ronde salontafel met een handig opbergraster. De massieve top van 3 cm dik is van mangohout en afgewerkt met matte lak tegen kringen en vlekken. Het metalen onderstel is mat zwart.\n\nDe prijs is inclusief verzenden binnen Nederland.\n\n**Kenmerken**\n- Rond model met opbergraster\n- Massieve top van mangohout, 3 cm dik\n- Matte lak tegen kringen en vlekken\n- Mat zwart metalen onderstel\n- Prijs inclusief verzending binnen Nederland",
   "maten": [
     {
-      "label": "Ø60 x H48",
+      "label": "Ø60 x H45",
       "prijs": 125
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 41,
   "seoTitel": "Salontafel Naomi rond mangohout | Teakhuis",
   "seoOmschrijving": "Ronde salontafel Naomi met massieve top van mangohout, opbergraster en mat zwart metalen onderstel. Vraag vrijblijvend een offerte aan bij Teakhuis.",
