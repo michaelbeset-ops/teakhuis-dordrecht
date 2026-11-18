@@ -1,61 +1,61 @@
 {
   "titel": "Salontafel Blokpoot met onderplank",
   "categorie": "teak-salontafels",
-  "prijsVanaf": 129,
-  "prijsTonen": true,
-  "omschrijving": "Deze strakke salontafel staat op stevige blokpoten van 8 cm dik en heeft een onderplank voor tijdschriften of een mand. Je kiest hem met of zonder laden.\n\nEr zijn maten van 40 x 40 tot 140 x 80 cm, 45 cm hoog, maar elke gewenste afmeting is mogelijk. Ook de dikte van het blad en van de poten passen we op verzoek aan.\n\n**Kenmerken**\n- Blokpoten van 8 cm dik, met onderplank\n- Met of zonder laden\n- Dikte van blad en poten aan te passen\n- Uitvoeringen: Blank teak, Koloniale kleur, Wit, Milaan kleur, Gerecycled teak of Geborsteld teak\n- In iedere afmeting leverbaar\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/12228/1.jpg",
     "../../assets/producten/12228/2.jpg"
   ],
+  "prijsVanaf": 169,
+  "omschrijving": "Deze strakke salontafel staat op stevige blokpoten van 8 cm dik en heeft een onderplank voor tijdschriften of een mand. Je kiest hem met of zonder laden.\n\nEr zijn maten van 40 x 40 tot 140 x 80 cm, 45 cm hoog, maar elke gewenste afmeting is mogelijk. Ook de dikte van het blad en van de poten passen we op verzoek aan.\n\n**Kenmerken**\n- Blokpoten van 8 cm dik, met onderplank\n- Met of zonder laden\n- Dikte van blad en poten aan te passen\n- Uitvoeringen: Blank teak, Koloniale kleur, Wit, Milaan kleur, Gerecycled teak of Geborsteld teak\n- In iedere afmeting leverbaar\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
       "label": "40x40cm h=45cm zonder lade",
-      "prijs": 129
-    },
-    {
-      "label": "50x50cm h=45cm zonder lade",
-      "prijs": 149
-    },
-    {
-      "label": "60x60cm h=45cm zonder lade",
       "prijs": 169
     },
     {
-      "label": "70x70cm h=45cm zonder lade",
+      "label": "50x50cm h=45cm zonder lade",
       "prijs": 199
     },
     {
-      "label": "80x80cm h=45cm zonder lade",
+      "label": "60x60cm h=45cm zonder lade",
       "prijs": 229
+    },
+    {
+      "label": "70x70cm h=45cm zonder lade",
+      "prijs": 279
+    },
+    {
+      "label": "80x80cm h=45cm zonder lade",
+      "prijs": 319
     },
     {
       "label": "90x90cm h=45cm zonder lade",
-      "prijs": 269
+      "prijs": 379
     },
     {
       "label": "100x100cm h=45cm zonder laden",
-      "prijs": 329
+      "prijs": 439
     },
     {
       "label": "100x60cm h=45cm zonder laden",
-      "prijs": 229
+      "prijs": 309
     },
     {
       "label": "110x70cm h=45cm zonder laden",
-      "prijs": 269
+      "prijs": 349
     },
     {
       "label": "120x70cm h=45cm zonder laden",
-      "prijs": 289
+      "prijs": 379
     },
     {
       "label": "130x80cm h=45cm zonder laden",
-      "prijs": 329
+      "prijs": 449
     },
     {
       "label": "140x80cm h=45cm zonder laden",
-      "prijs": 359
+      "prijs": 469
     },
     {
       "label": "40x40cm h=45cm met lade",
@@ -107,6 +107,8 @@
     }
   ],
   "houtkleuren": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
   "uitvoeringen": [
     "Blank teak",
     "Koloniale kleur",
@@ -115,9 +117,8 @@
     "Gerecycled teak",
     "Geborsteld teak"
   ],
+  "prijsTonen": true,
   "maatwerk": true,
-  "uitgelicht": false,
-  "zichtbaar": true,
   "volgorde": 61,
   "seoTitel": "Salontafel Blokpoot met onderplank, teak | Teakhuis",
   "seoOmschrijving": "Strakke teakhouten salontafel met 8 cm dikke blokpoten en onderplank, met of zonder laden. In iedere afmeting leverbaar. Vraag een offerte aan.",
