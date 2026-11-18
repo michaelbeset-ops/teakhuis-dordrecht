@@ -1,9 +1,7 @@
 {
   "titel": "Romantisch hemelbed",
   "categorie": "teak-bedden",
-  "prijsVanaf": 1899,
-  "prijsTonen": true,
-  "omschrijving": "Dit romantische hemelbed is met de hand gemaakt en degelijk vakwerk. Het houtsnijwerk is fantastisch; bekijk de detailfoto's om het goed te zien.\n\nHet bed is er voor matrassen van 140 x 200 tot 200 x 200 cm en is in iedere gewenste maat leverbaar. Je kiest koloniaal of blank teak.\n\n**Kenmerken**\n- Materiaal: teak\n- Rijk houtsnijwerk\n- Koloniaal of blank teak\n- In iedere gewenste maat leverbaar\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/4061/1.jpg",
     "../../assets/producten/4061/2.jpg",
@@ -12,6 +10,8 @@
     "../../assets/producten/4061/5.jpg",
     "../../assets/producten/4061/6.jpg"
   ],
+  "prijsVanaf": 1899,
+  "omschrijving": "Dit romantische hemelbed is met de hand gemaakt en degelijk vakwerk. Het houtsnijwerk is fantastisch; bekijk de detailfoto's om het goed te zien.\n\nHet bed is er voor matrassen van 140 x 200 tot 200 x 200 cm en is in iedere gewenste maat leverbaar. Je kiest koloniaal of blank teak.\n\n**Kenmerken**\n- Materiaal: teak\n- Rijk houtsnijwerk\n- Koloniaal of blank teak\n- In iedere gewenste maat leverbaar\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "matrasmaat 140 x 200",
@@ -27,14 +27,15 @@
     },
     {
       "label": "matrasmaat 200 x 200",
-      "prijs": 2199
+      "prijs": 2249
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 275,
   "seoTitel": "Romantisch hemelbed teak met houtsnijwerk | Teakhuis",
   "seoOmschrijving": "Romantisch hemelbed van teak, met de hand gemaakt en voorzien van rijk houtsnijwerk. In iedere maat, koloniaal of blank. Vraag een offerte aan.",
