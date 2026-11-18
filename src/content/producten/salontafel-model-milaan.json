@@ -1,35 +1,37 @@
 {
   "titel": "salontafel model Milaan",
   "categorie": "teak-salontafels",
-  "prijsVanaf": 349,
-  "prijsTonen": true,
-  "omschrijving": "Model Milaan is een zeer strakke salontafel op forse poten van 20x10 cm. Je kunt hem in een gladde of in een robuuste uitvoering laten maken.\n\nDe standaardmaten lopen van 100x60 tot 140x80 cm, allemaal 45 cm hoog. Wil je een andere maat, dan maken we hem op maat zonder meerprijs.\n\n**Kenmerken**\n- Poten van 20x10 cm\n- Gladde of robuuste uitvoering\n- Uitvoeringen: Blank teak, Koloniale kleur, Wit, Milaan, Gerecycled teak of Geborsteld teak\n- Leverbaar in 5 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "milaan",
   "fotos": [
     "../../assets/producten/1076/1.jpg"
   ],
+  "prijsVanaf": 419,
+  "omschrijving": "Model Milaan is een zeer strakke salontafel op forse poten van 20x10 cm. Je kunt hem in een gladde of in een robuuste uitvoering laten maken.\n\nDe standaardmaten lopen van 100x60 tot 140x80 cm, allemaal 45 cm hoog. Wil je een andere maat, dan maken we hem op maat zonder meerprijs.\n\n**Kenmerken**\n- Poten van 20x10 cm\n- Gladde of robuuste uitvoering\n- Uitvoeringen: Blank teak, Koloniale kleur, Wit, Milaan, Gerecycled teak of Geborsteld teak\n- Leverbaar in 5 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
       "label": "100x60cm h=45cm",
-      "prijs": 349
+      "prijs": 419
     },
     {
       "label": "110x70cm h=45cm",
-      "prijs": 369
+      "prijs": 469
     },
     {
       "label": "120x70cm h=45cm",
-      "prijs": 379
+      "prijs": 489
     },
     {
       "label": "130x80cm h=45cm",
-      "prijs": 429
+      "prijs": 549
     },
     {
       "label": "140x80cm h=45cm",
-      "prijs": 449
+      "prijs": 579
     }
   ],
   "houtkleuren": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
   "uitvoeringen": [
     "Blank teak",
     "Koloniale kleur",
@@ -38,12 +40,10 @@
     "Gerecycled teak",
     "Geborsteld teak"
   ],
+  "prijsTonen": true,
   "maatwerk": true,
-  "uitgelicht": false,
-  "zichtbaar": true,
   "volgorde": 65,
   "seoTitel": "Salontafel Milaan teak, strak en op maat | Teakhuis",
   "seoOmschrijving": "Zeer strakke teakhouten salontafel Milaan op poten van 20x10 cm, glad of robuust en ook op maat. Vraag vrijblijvend een offerte aan bij Teakhuis.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/1076/teak-salontafels/salontafel-model-milaan",
-  "collectie": "milaan"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/1076/teak-salontafels/salontafel-model-milaan"
 }
