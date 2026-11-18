@@ -1,55 +1,57 @@
 {
   "titel": "salontafel model Brindisi",
   "categorie": "teak-salontafels",
-  "prijsVanaf": 339,
-  "prijsTonen": true,
-  "omschrijving": "Brindisi is een stoere, robuuste salontafel met doorschuifladen die je aan beide kanten van de tafel opent. De verbindingen zijn ambachtelijk uitgevoerd met zwaluwstaarten.\n\nStandaard maken we hem van gerecycled teak, glad afgewerkt. Je kunt ook een andere uitvoering kiezen. Elke gewenste afmeting is mogelijk, zonder meerprijs.\n\n**Kenmerken**\n- Doorschuifladen, aan beide kanten te openen\n- Zwaluwstaartverbindingen\n- Standaard van gerecycled teak, glad afgewerkt\n- Uitvoeringen: Gerecycled teak, Theekleur, Koloniale kleur, Wit of Milaan kleur\n- Leverbaar in 10 standaardmaten, ook op maat zonder meerprijs",
+  "collectie": "brindisi",
   "fotos": [
     "../../assets/producten/1079/1.jpg"
   ],
+  "prijsVanaf": 389,
+  "omschrijving": "Brindisi is een stoere, robuuste salontafel met doorschuifladen die je aan beide kanten van de tafel opent. De verbindingen zijn ambachtelijk uitgevoerd met zwaluwstaarten.\n\nStandaard maken we hem van gerecycled teak, glad afgewerkt. Je kunt ook een andere uitvoering kiezen. Elke gewenste afmeting is mogelijk, zonder meerprijs.\n\n**Kenmerken**\n- Doorschuifladen, aan beide kanten te openen\n- Zwaluwstaartverbindingen\n- Standaard van gerecycled teak, glad afgewerkt\n- Uitvoeringen: Gerecycled teak, Theekleur, Koloniale kleur, Wit of Milaan kleur\n- Leverbaar in 10 standaardmaten, ook op maat zonder meerprijs",
   "maten": [
     {
       "label": "50x50cm h=45cm met 1 lade",
-      "prijs": 339
+      "prijs": 389
     },
     {
       "label": "60x60cm h=45cm met 1 lade",
-      "prijs": 399
+      "prijs": 459
     },
     {
       "label": "70x70cm h=45cm met 1 lade",
-      "prijs": 479
+      "prijs": 549
     },
     {
       "label": "80x80cm h=45cm met 1 lade",
-      "prijs": 519
+      "prijs": 589
     },
     {
       "label": "90x90cm h=45cm met 2 laden",
-      "prijs": 499
+      "prijs": 689
     },
     {
       "label": "100x60cm h=45cm met 2 laden",
-      "prijs": 519
+      "prijs": 579
     },
     {
       "label": "110x70cm h=45cm met 2 laden",
-      "prijs": 569
-    },
-    {
-      "label": "120x70cm h=45cm met 2 laden",
-      "prijs": 619
-    },
-    {
-      "label": "130x70cm h=45cm met 2 laden",
       "prijs": 669
     },
     {
+      "label": "120x70cm h=45cm met 2 laden",
+      "prijs": 699
+    },
+    {
+      "label": "130x70cm h=45cm met 2 laden",
+      "prijs": 769
+    },
+    {
       "label": "140x70cm h=45cm met 2 laden",
-      "prijs": 729
+      "prijs": 819
     }
   ],
   "houtkleuren": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
   "uitvoeringen": [
     "Gerecycled teak",
     "Theekleur",
@@ -57,12 +59,10 @@
     "Wit",
     "Milaan kleur"
   ],
+  "prijsTonen": true,
   "maatwerk": true,
-  "uitgelicht": false,
-  "zichtbaar": true,
   "volgorde": 66,
   "seoTitel": "Salontafel Brindisi gerecycled teak, op maat | Teakhuis",
   "seoOmschrijving": "Robuuste salontafel Brindisi van gerecycled teak met doorschuifladen en zwaluwstaartverbindingen, ook op maat. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/1079/teak-salontafels/salontafel-model-brindisi",
-  "collectie": "brindisi"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/1079/teak-salontafels/salontafel-model-brindisi"
 }
