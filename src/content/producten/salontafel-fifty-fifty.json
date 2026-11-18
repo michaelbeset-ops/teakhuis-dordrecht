@@ -1,12 +1,12 @@
 {
   "titel": "Salontafel Fifty-fifty",
   "categorie": "teak-salontafels",
-  "prijsVanaf": 489,
-  "prijsTonen": true,
-  "omschrijving": "Fifty-fifty is een praktische salontafel met aan beide kanten 2 laden en een open vak. Hij staat op stevige blokpoten en is netjes afgewerkt. Net even anders dan een gewone salontafel.\n\nJe kiest een standaardmaat van 70x70 tot 140x80 cm en een houtkleur. Andere afmetingen maken we op maat, zonder meerprijs.\n\n**Kenmerken**\n- Aan beide kanten 2 laden en een open vak\n- Stevige blokpoten\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Leverbaar in 8 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/12471/1.jpg"
   ],
+  "prijsVanaf": 489,
+  "omschrijving": "Fifty-fifty is een robuuste salontafel met aan beide kanten 2 laden en een open vak. Hij staat op stevige blokpoten en is netjes afgewerkt. Net even anders dan een gewone salontafel.\n\nJe kiest een standaardmaat van 70x70 tot 140x80 cm en een houtkleur. Andere afmetingen maken we op maat, zonder meerprijs.\n\n**Kenmerken**\n\n- Aan beide kanten 2 laden en een open vak\n- Stevige blokpoten\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Leverbaar in 8 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
       "label": "B70 x D70 x H45",
@@ -14,38 +14,39 @@
     },
     {
       "label": "B80 x D80 x H45",
-      "prijs": 519
+      "prijs": 539
     },
     {
       "label": "B90 x D90 x H45",
-      "prijs": 559
+      "prijs": 599
     },
     {
       "label": "B100 x D60 x H45",
-      "prijs": 499
+      "prijs": 529
     },
     {
       "label": "B110 x D70 x H45",
-      "prijs": 549
+      "prijs": 599
     },
     {
       "label": "B120 x D70 x H45",
-      "prijs": 569
+      "prijs": 619
     },
     {
       "label": "B130 x D80 x H45",
-      "prijs": 629
+      "prijs": 699
     },
     {
       "label": "B140 x D80 x H45",
-      "prijs": 659
+      "prijs": 739
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 62,
   "seoTitel": "Salontafel Fifty-fifty teak met laden | Teakhuis",
   "seoOmschrijving": "Teakhouten salontafel Fifty-fifty met aan beide kanten 2 laden en een open vak, op blokpoten en ook op maat. Vraag vrijblijvend een offerte aan.",
