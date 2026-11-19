@@ -1,12 +1,12 @@
 {
   "titel": "Semarang vakkenkast Hudson small",
   "categorie": "teak-boekenkasten",
-  "prijsVanaf": 1080,
-  "prijsTonen": true,
-  "omschrijving": "De kleine vakkenkast uit de Hudson-lijn is gemaakt van verweerd oud teak erosi met een zwart stalen frame. Op de 2 lades zit zwart staal.\n\nEen andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: verweerd oud teak erosi\n- Zwart stalen frame\n- 2 lades met zwart staal\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "semarang",
   "fotos": [
     "../../assets/producten/32528/1.jpg"
   ],
+  "prijsVanaf": 1080,
+  "omschrijving": "De kleine vakkenkast uit de Hudson-lijn is gemaakt van verweerd oud teak erosi met een zwart stalen frame. Op de 2 lades zit zwart staal.\n\nEen andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: verweerd oud teak erosi\n- Zwart stalen frame\n- 2 lades met zwart staal\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
       "label": "H203 x B80 x D40",
@@ -14,13 +14,13 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 159,
   "seoTitel": "Semarang vakkenkast Hudson small teak | Teakhuis",
   "seoOmschrijving": "Stoere vakkenkast Hudson small van verweerd oud teak erosi met zwart stalen frame en 2 lades. Ook op maat. Vraag vrijblijvend een offerte aan bij Teakhuis.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/180/32528/teak-boekenkasten/semarang-vakkenkast-hudson-small",
-  "collectie": "semarang"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/180/32528/teak-boekenkasten/semarang-vakkenkast-hudson-small"
 }
