@@ -1,12 +1,12 @@
 {
   "titel": "Semarang vakkenkast Hudson large",
   "categorie": "teak-boekenkasten",
-  "prijsVanaf": 1324,
-  "prijsTonen": true,
-  "omschrijving": "De grote vakkenkast uit de Hudson-lijn combineert verweerd teak erosi met zwart staal. Hij heeft 4 lades.\n\nEen andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: verweerd teak erosi met zwart staal\n- 4 lades\n- Grote uitvoering (large)\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "semarang",
   "fotos": [
     "../../assets/producten/32525/1.jpg"
   ],
+  "prijsVanaf": 1324,
+  "omschrijving": "De grote vakkenkast uit de Hudson-lijn combineert verweerd teak erosi met zwart staal. Hij heeft 4 lades.\n\nEen andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: verweerd teak erosi met zwart staal\n- 4 lades\n- Grote uitvoering (large)\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
       "label": "H203 x B130 x D40 teak erosi met zwart staal",
@@ -14,13 +14,13 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 158,
   "seoTitel": "Semarang vakkenkast Hudson large teak | Teakhuis",
   "seoOmschrijving": "Grote vakkenkast Hudson van verweerd teak erosi met zwart staal en 4 lades, ook op maat te maken. Vraag vrijblijvend een offerte aan bij Teakhuis.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/180/32525/teak-boekenkasten/semarang-vakkenkast-hudson-large",
-  "collectie": "semarang"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/180/32525/teak-boekenkasten/semarang-vakkenkast-hudson-large"
 }
