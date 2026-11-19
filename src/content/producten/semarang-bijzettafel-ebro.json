@@ -1,0 +1,42 @@
+{
+  "titel": "Semarang bijzettafel Ebro",
+  "categorie": "teak-bijzettafels",
+  "collectie": "semarang",
+  "fotos": [
+    "../../assets/producten/img_2661.webp",
+    "../../assets/producten/img_2662.webp",
+    "../../assets/producten/28655/1.jpg",
+    "../../assets/producten/ebro80geborsteld.webp",
+    "../../assets/producten/ebro80.webp"
+  ],
+  "prijsVanaf": 199,
+  "omschrijving": "Een handige ronde bijzettafel of salontafel met een teakhouten top op schuine zwarte metalen poten. Standaard met diameter 60 x H44 maar uiteraard ook leverbaar in afwijkende afmetingen.\n\n**Kenmerken**\n\n- Teakhouten top met zwarte stalen poten\n- Ø 60 x H44 cm\n- Leverbaar in blank teak of naturel geborsteld\n- Uit voorraad leverbaar in diameter 60 \n- Ook op maat te maken",
+  "maten": [
+    {
+      "label": "Ø 60 x H44 blank teak",
+      "prijs": 199
+    },
+    {
+      "label": "Ø 60 x H44 naturel geborsteld",
+      "prijs": 219
+    },
+    {
+      "label": "Ø 80 x H44 blank teak",
+      "prijs": 299
+    },
+    {
+      "label": "Ø 80 x H44 naturel geborsteld",
+      "prijs": 329
+    }
+  ],
+  "houtkleuren": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
+  "volgorde": 333,
+  "seoTitel": "",
+  "seoOmschrijving": "",
+  "oudeUrl": ""
+}
