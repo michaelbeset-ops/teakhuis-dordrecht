@@ -1,12 +1,12 @@
 {
   "titel": "Semarang ladenkast Hudson",
   "categorie": "ladenkasten",
-  "prijsVanaf": 445,
-  "prijsTonen": true,
-  "omschrijving": "Een stoere ladenkast uit de Hudson-lijn, van oud verweerd teakhout met een zwart stalen frame. Ook de laden zijn gecombineerd met staal.\n\nHij heeft 2 lades en een open vak. Een andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: oud verweerd teak met zwart staal\n- 2 lades en een open vak\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "semarang",
   "fotos": [
     "../../assets/producten/32531/1.jpg"
   ],
+  "prijsVanaf": 445,
+  "omschrijving": "Een stoere ladenkast uit de Hudson-lijn, van oud verweerd teakhout met een zwart stalen frame. Ook de laden zijn gecombineerd met staal.\n\nHij heeft 2 lades en een open vak. Een andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: oud verweerd teak met zwart staal\n- 2 lades en een open vak\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "H93 x B56 x D50 teak erosi met zwart frame",
@@ -14,13 +14,13 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 497,
   "seoTitel": "Semarang ladenkast Hudson verweerd teak | Teakhuis",
   "seoOmschrijving": "Stoere ladenkast Hudson van oud verweerd teak met zwart stalen frame, 2 lades en een open vak. Ook op maat. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/175/32531/ladenkasten/semarang-ladenkast-hudson",
-  "collectie": "semarang"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/175/32531/ladenkasten/semarang-ladenkast-hudson"
 }
