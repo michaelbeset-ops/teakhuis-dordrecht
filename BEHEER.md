@@ -42,8 +42,9 @@ de serie. Onder **Collecties** pas je per serie de naam, een korte tekst en een 
 
 ## De volgorde veranderen
 
-**Meubels binnen een categorie of collectie: slepen.** Klik in het beheer rechtsonder op **Volgorde slepen**. Kies
-bovenaan *Categorie* of *Collectie* en daarna welke. Sleep een meubel aan het bolletjesrijtje links naar de goede plek
+**Slepen.** Klik in het beheer rechtsonder op **Volgorde slepen**. Kies bovenaan wat je wilt ordenen: *Meubels in een
+categorie*, *Meubels in een collectie*, *Menu's* (de hoofdmenu's zoals Tafels en Kasten, of de soorten eronder) of
+*Collecties* (de volgorde van de series zelf). Kies daarna eventueel welke. Sleep een meubel aan het bolletjesrijtje links naar de goede plek
 (of gebruik de pijltjes) en klik op **Opslaan**. Na ongeveer 3 minuten staat het op de site. Meubels zonder foto staan
 op de site altijd achteraan.
 
@@ -77,7 +78,7 @@ teruggedraaid.
 
 - Lokaal: `npm ci`, `npm run dev` (poort 4447), `npm run build`.
 - Sleeppagina volgorde: `public/admin/volgorde.html` (token uit Sveltia's localStorage, commit via de Git Data API;
-  categorie -> `volgorde`, collectie -> `volgordeCollectie`). Foto's: `src/pages/admin/volgorde-fotos.json.ts`.
+  categorie -> `volgorde`, collectie -> `volgordeCollectie`; menu's en collecties zelf -> hun `volgorde`). Foto's: `src/pages/admin/volgorde-fotos.json.ts`.
 - Data: `src/content/producten/*.json` en `src/content/categorieen/*.json` (schema in `src/content.config.ts`).
   Foto's in `src/assets/producten/`. Contactgegevens in `src/data/instellingen.json`.
 - Deploy: `.github/workflows/deploy.yml` (GitHub Pages, bron: GitHub Actions).

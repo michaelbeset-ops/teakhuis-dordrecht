@@ -19,6 +19,7 @@ Eerste reactie van Han Rietdijk op de testversie, 26 oktober 2026. Status per pu
 | Grotere foto "hoogwaardige teakmeubels" + zelfde opstelling andere hoek | Han | Groter exemplaar staat op /duurzaam/; tweede foto klaargezet (src/assets/sfeer-showroom-dressoir.jpg), nog een plek kiezen |
 | Verhaal met foto's over soorten teak, afwerkingen en kleuren | Han levert aan, Michael maakt er een pagina van | Wacht op verhaal en foto's |
 | Volgorde binnen een categorie (en collectie) door te slepen, zoals bij foto's | Michael | Gedaan (16 nov): knop "Volgorde slepen" rechtsonder in het beheer (admin/volgorde.html). Categorie zet het veld Volgorde, collectie een eigen collectievolgorde |
+| Ook de volgorde van de menu's en van de collecties zelf slepen (mail 20 nov) | Michael | Gedaan (20 nov): op dezelfde pagina "Volgorde slepen" de keuzes Menu's en Collecties |
 | Twee tinten groen: letters gelijk aan knoppen en logo | Michael | Gedaan (16 nov): groen op donker is nu het logo-groen #6aab35. Kleine groene tekst op wit blijft iets donkerder (#36641a) voor de leesbaarheid |
 | Mobiel: tekst op de foto's slecht leesbaar (slaapkamerfoto, maatwerkpagina) | Michael | Gedaan (16 nov): extra donkere laag onder de tekst en sterkere schaduw, alleen op telefoon en tablet |
 | Mobiel: onderste regel contactpagina half onder de balk Bellen/WhatsApp | Michael | Gedaan (16 nov): kop houdt ruimte vrij voor die balk (alle informatiepagina's) |

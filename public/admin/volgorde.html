@@ -9,7 +9,8 @@
     <!-- Volgorde van de meubels binnen een categorie of collectie bepalen door te slepen (Han, 16 nov).
          Werkt met de inlog van het beheer (Sveltia bewaart het toegangstoken in localStorage onder "sveltia-cms.user").
          Leest de actuele bestanden uit GitHub en slaat alle gewijzigde producten op in een enkele commit:
-         categorie -> veld "volgorde", collectie -> veld "volgordeCollectie" (10, 20, 30, ...). -->
+         categorie -> veld "volgorde", collectie -> veld "volgordeCollectie" (10, 20, 30, ...).
+         Ook de volgorde van de menu's (categorieen, per niveau) en van de collecties zelf (Han, 20 nov): veld "volgorde". -->
     <style>
       :root { --inkt:#17201b; --grijs:#55605a; --blad:#6aab35; --blad-h:#5c9a2a; --diep:#36641a; --papier:#fbfaf7; --zand:#f1eee7; --lijn:#e3ddd1; --rood:#a3301f; }
       * { box-sizing: border-box; }
@@ -20,7 +21,7 @@
       h1 { font-size: 20px; margin: 0; }
       main { max-width: 860px; margin: 0 auto; padding: 16px 16px 120px; }
       .kies { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 4px 0 14px; }
-      .tabs { display: inline-flex; border: 1px solid var(--lijn); border-radius: 999px; overflow: hidden; background: #fff; }
+      .tabs { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--lijn); border-radius: 999px; overflow: hidden; background: #fff; }
       .tabs button { border: 0; background: none; padding: 9px 16px; font: inherit; font-weight: 600; cursor: pointer; color: var(--grijs); }
       .tabs button[aria-pressed="true"] { background: var(--inkt); color: #fff; }
       select { font: inherit; padding: 9px 12px; border: 1px solid var(--lijn); border-radius: 10px; background: #fff; min-width: 260px; max-width: 100%; }
@@ -53,18 +54,20 @@
     <header>
       <div class="rij">
         <a class="terug" href="./">&larr; Terug naar het beheer</a>
-        <h1>Volgorde van de meubels</h1>
+        <h1>Volgorde</h1>
       </div>
     </header>
     <main>
       <div class="kies">
         <div class="tabs" role="group" aria-label="Soort lijst">
-          <button type="button" data-soort="categorie" aria-pressed="true">Categorie</button>
-          <button type="button" data-soort="collectie" aria-pressed="false">Collectie</button>
+          <button type="button" data-soort="categorie" aria-pressed="true">Meubels in een categorie</button>
+          <button type="button" data-soort="collectie" aria-pressed="false">Meubels in een collectie</button>
+          <button type="button" data-soort="menu" aria-pressed="false">Menu's</button>
+          <button type="button" data-soort="series" aria-pressed="false">Collecties</button>
         </div>
         <label><span hidden>Kies</span><select id="keuze" disabled><option>Laden...</option></select></label>
       </div>
-      <p class="uitleg" id="uitleg">Sleep een meubel aan het bolletjesrijtje naar de goede plek, of gebruik de pijltjes. Klik daarna onderaan op <b>Opslaan</b>. Na ongeveer 3 minuten staat de nieuwe volgorde op de site.</p>
+      <p class="uitleg" id="uitleg">Sleep een regel aan het bolletjesrijtje naar de goede plek, of gebruik de pijltjes. Klik daarna onderaan op <b>Opslaan</b>. Na ongeveer 3 minuten staat de nieuwe volgorde op de site.</p>
       <div id="inhoud"><p class="melding">Even geduld, de meubels worden geladen...</p></div>
     </main>
     <div class="balk">
@@ -122,30 +125,47 @@
         }
 
         const getal = (v, std = 999) => (v === '' || v === null || v === undefined || isNaN(+v) ? std : +v);
+        // Vier soorten lijsten. Elk item: { slug, data, map } (map = welke content-map), titel via naamVan.
         let soort = 'categorie', lijst = [], begin = [];
-        const veld = () => (soort === 'categorie' ? 'volgorde' : 'volgordeCollectie');
-        const huidig = (p) => (soort === 'categorie' ? getal(p.data.volgorde) : getal(p.data.volgordeCollectie, getal(p.data.volgorde)));
+        const SOORT = {
+          categorie: { map: 'producten', veld: 'volgorde', kies: 'categorie', woord: 'categorie' },
+          collectie: { map: 'producten', veld: 'volgordeCollectie', kies: 'collectie', woord: 'collectie' },
+          menu: { map: 'categorieen', veld: 'volgorde', kies: 'niveau', woord: 'menu' },
+          series: { map: 'collecties', veld: 'volgorde', kies: null, woord: 'collectie' },
+        };
+        const S = () => SOORT[soort];
+        const veld = () => S().veld;
+        const naamVan = (p) => p.data.titel || p.data.naam || p.slug;
+        const huidig = (p) => (soort === 'collectie' ? getal(p.data.volgordeCollectie, getal(p.data.volgorde)) : getal(p.data.volgorde));
+        const fotoSleutel = (p) => (S().map === 'producten' ? p.slug : (S().map === 'categorieen' ? 'cat:' : 'col:') + p.slug);
+        const opCat = () => new Map(categorieen.map((c) => [c.slug, c]));
+        const telIn = (sleutel) => { const t = new Map(); for (const p of producten) if (p.data[sleutel]) t.set(p.data[sleutel], (t.get(p.data[sleutel]) || 0) + 1); return t; };
 
         const vulKeuze = () => {
-          const tel = new Map();
-          const sleutel = soort === 'categorie' ? 'categorie' : 'collectie';
-          for (const p of producten) if (p.data[sleutel]) tel.set(p.data[sleutel], (tel.get(p.data[sleutel]) || 0) + 1);
-          let opties;
+          let opties = [];
           if (soort === 'categorie') {
-            const opSlug = new Map(categorieen.map((c) => [c.slug, c]));
-            const hoofdVan = (c) => (c.data.hoofd ? opSlug.get(c.data.hoofd) : null);
+            const tel = telIn('categorie'), m = opCat();
             opties = categorieen.filter((c) => tel.get(c.slug)).map((c) => {
-              const h = hoofdVan(c);
-              return { slug: c.slug, naam: (h ? `${h.data.naam} › ` : '') + c.data.naam, sort: [getal(h ? h.data.volgorde : c.data.volgorde), h ? getal(c.data.volgorde) : -1, c.data.naam] };
-            }).sort((a, b) => a.sort[0] - b.sort[0] || a.sort[1] - b.sort[1] || nl.compare(a.naam, b.naam));
-          } else {
-            opties = collecties.filter((c) => tel.get(c.slug)).map((c) => ({ slug: c.slug, naam: c.data.naam, sort: [getal(c.data.volgorde)] }))
-              .sort((a, b) => a.sort[0] - b.sort[0] || nl.compare(a.naam, b.naam));
+              const h = c.data.hoofd ? m.get(c.data.hoofd) : null;
+              return { slug: c.slug, naam: (h ? `${h.data.naam} › ` : '') + c.data.naam + ` (${tel.get(c.slug)})`, s: [getal(h ? h.data.volgorde : c.data.volgorde), h ? getal(c.data.volgorde) : -1] };
+            }).sort((a, b) => a.s[0] - b.s[0] || a.s[1] - b.s[1] || nl.compare(a.naam, b.naam));
+          } else if (soort === 'collectie') {
+            const tel = telIn('collectie');
+            opties = collecties.filter((c) => tel.get(c.slug)).map((c) => ({ slug: c.slug, naam: c.data.naam + ` (${tel.get(c.slug)})`, s: getal(c.data.volgorde) }))
+              .sort((a, b) => a.s - b.s || nl.compare(a.naam, b.naam));
+          } else if (soort === 'menu') {
+            // Eerst de hoofdmenu's onderling, daarna per hoofdmenu de soorten eronder.
+            const subsVan = (h) => categorieen.filter((c) => c.data.hoofd === h.slug);
+            const hoofden = categorieen.filter((c) => !c.data.hoofd).sort((a, b) => getal(a.data.volgorde) - getal(b.data.volgorde) || nl.compare(a.data.naam, b.data.naam));
+            opties = [{ slug: '#hoofd', naam: `Hoofdmenu's (${hoofden.length})` }, ...hoofden.filter((h) => subsVan(h).length > 1).map((h) => ({ slug: h.slug, naam: `Soorten onder ${h.data.naam} (${subsVan(h).length})` }))];
           }
+          if (!S().kies) { keuze.innerHTML = ''; keuze.disabled = true; keuze.parentElement.hidden = true; toon(); return; }
+          keuze.parentElement.hidden = false;
           const vorige = sessionStorage.getItem('volgorde-' + soort);
-          keuze.innerHTML = '<option value="">Kies een ' + soort + '...</option>' + opties.map((o) => `<option value="${esc(o.slug)}">${esc(o.naam)} (${tel.get(o.slug)})</option>`).join('');
+          keuze.innerHTML = `<option value="">Kies een ${S().woord}...</option>` + opties.map((o) => `<option value="${esc(o.slug)}">${esc(o.naam)}</option>`).join('');
           keuze.disabled = false;
           if (vorige && opties.some((o) => o.slug === vorige)) keuze.value = vorige;
+          else if (soort === 'menu') keuze.value = '#hoofd';
           toon();
         };
 
@@ -153,9 +173,12 @@
         const toon = () => {
           const k = keuze.value;
           try { sessionStorage.setItem('volgorde-' + soort, k); } catch {}
-          if (!k) { inhoud.innerHTML = '<p class="melding">Kies hierboven een ' + soort + '.</p>'; lijst = begin = []; wijzig(); return; }
-          const sleutel = soort === 'categorie' ? 'categorie' : 'collectie';
-          lijst = producten.filter((p) => p.data[sleutel] === k).sort((a, b) => huidig(a) - huidig(b) || nl.compare(a.data.titel, b.data.titel));
+          if (S().kies && !k) { inhoud.innerHTML = `<p class="melding">Kies hierboven een ${S().woord}.</p>`; lijst = begin = []; wijzig(); return; }
+          if (soort === 'categorie') lijst = producten.filter((p) => p.data.categorie === k);
+          else if (soort === 'collectie') lijst = producten.filter((p) => p.data.collectie === k);
+          else if (soort === 'menu') lijst = categorieen.filter((c) => (k === '#hoofd' ? !c.data.hoofd : c.data.hoofd === k));
+          else lijst = collecties.slice();
+          lijst.sort((a, b) => huidig(a) - huidig(b) || nl.compare(naamVan(a), naamVan(b)));
           begin = lijst.slice();
           teken();
         };
@@ -165,7 +188,7 @@
               <span class="greep" title="Slepen" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/><circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/></svg></span>
               <span class="nr">${i + 1}</span>
               <span class="geen" data-foto></span>
-              <span class="naam">${esc(p.data.titel)}${p.data.zichtbaar === false ? '<small>verborgen op de site</small>' : ''}</span>
+              <span class="naam">${esc(naamVan(p))}${p.data.zichtbaar === false ? '<small>verborgen op de site</small>' : ''}</span>
               <button type="button" class="pijl" data-op="-1" aria-label="Omhoog">&uarr;</button>
               <button type="button" class="pijl" data-op="1" aria-label="Omlaag">&darr;</button>
             </li>`).join('') + '</ol>';
@@ -184,7 +207,7 @@
           wijzig();
         };
         const tekenFotos = () => document.querySelectorAll('li[data-slug]').forEach((li) => {
-          const src = fotos[li.dataset.slug], plek = li.querySelector('[data-foto]');
+          const p = lijst.find((x) => x.slug === li.dataset.slug), src = p && fotos[fotoSleutel(p)], plek = li.querySelector('[data-foto]');
           if (src && plek && plek.tagName !== 'IMG') { const img = new Image(); img.src = src; img.alt = ''; img.loading = 'lazy'; img.dataset.foto = ''; plek.replaceWith(img); }
         });
         const leesVolgorde = () => {
@@ -221,23 +244,23 @@
             const tree = [];
             for (const { p, nieuw } of te) {
               // Opnieuw lezen van de laatste versie, zodat een wijziging die Han net in het beheer deed niet verloren gaat.
-              const vers = await gh(`/repos/${OWNER}/${REPO}/contents/${MAP.producten}/${encodeURIComponent(p.slug)}.json?ref=${top}`);
+              const vers = await gh(`/repos/${OWNER}/${REPO}/contents/${MAP[S().map]}/${encodeURIComponent(p.slug)}.json?ref=${top}`);
               const tekst = new TextDecoder().decode(Uint8Array.from(atob(vers.content.replace(/\n/g, '')), (c) => c.charCodeAt(0)));
               const data = JSON.parse(tekst);
               data[f] = nieuw;
               p.data = data;
-              tree.push({ path: `${MAP.producten}/${p.slug}.json`, mode: '100644', type: 'blob', content: JSON.stringify(data, null, 2) + '\n' });
+              tree.push({ path: `${MAP[S().map]}/${p.slug}.json`, mode: '100644', type: 'blob', content: JSON.stringify(data, null, 2) + '\n' });
             }
-            const naam = keuze.options[keuze.selectedIndex].text.replace(/\s*\(\d+\)$/, '');
+            const naam = S().kies ? keuze.options[keuze.selectedIndex].text.replace(/\s*\(\d+\)$/, '') : 'alle collecties';
             const nieuweTree = await gh(`/repos/${OWNER}/${REPO}/git/trees`, { method: 'POST', body: JSON.stringify({ base_tree: commit.tree.sha, tree }) });
-            const nieuweCommit = await gh(`/repos/${OWNER}/${REPO}/git/commits`, { method: 'POST', body: JSON.stringify({ message: `Beheer: volgorde van ${soort} "${naam}" aangepast`, tree: nieuweTree.sha, parents: [top] }) });
+            const nieuweCommit = await gh(`/repos/${OWNER}/${REPO}/git/commits`, { method: 'POST', body: JSON.stringify({ message: `Beheer: volgorde van ${S().woord} "${naam}" aangepast`, tree: nieuweTree.sha, parents: [top] }) });
             await gh(`/repos/${OWNER}/${REPO}/git/refs/heads/${BRANCH}`, { method: 'PATCH', body: JSON.stringify({ sha: nieuweCommit.sha }) });
             begin = lijst.slice();
             zeg(`Opgeslagen. Over ongeveer 3 minuten staat de nieuwe volgorde op de site.`, 'goed');
           } catch (e) {
             zeg('Opslaan is niet gelukt. Probeer het nog eens, of bel Michael. (' + e.message.slice(0, 80) + ')', 'fout');
           } finally {
-            keuze.disabled = false; wijzig();
+            keuze.disabled = !S().kies; wijzig();
           }
         });
 
