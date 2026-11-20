@@ -1,46 +1,55 @@
 {
   "titel": "Salontafel Viking",
   "categorie": "teak-salontafels",
-  "prijsVanaf": 299,
-  "prijsTonen": true,
-  "omschrijving": "Deze salontafel hoort bij de serie Viking. Hij combineert oud gerecycled teakhout met staal en heeft daardoor een robuuste, stoere uitstraling.\n\nDe standaardmaten lopen van 60x60 tot 130x80 cm, met een hoogte van 40 cm. Een andere maat is ook mogelijk.\n\n**Kenmerken**\n- Materiaal: oud gerecycled teak en staal\n- Uit de serie Viking\n- Leverbaar in 8 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "viking",
   "fotos": [
+    "../../assets/producten/viking-salontafel-poten-zwart.webp",
     "../../assets/producten/29412/1.jpg"
   ],
+  "prijsVanaf": 289,
+  "omschrijving": "Deze salontafel hoort bij de industriele Viking collectie. Standaard uitgevoerd in blank teak met zwart stalen poten, maar kan ook in gerecycled teak met blank stalen poten\n\nDe standaardmaten lopen van 60x60 tot 130x80 cm, met een hoogte van 40 cm. Een andere maat is ook mogelijk.\n\n**Kenmerken**\n\n- Materiaal: oud gerecycled teak en staal\n- Uit de serie Viking\n- Leverbaar in 8 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
-      "label": "B60 x D60 x H40"
+      "label": "B60 x D60 x H40",
+      "prijs": 289
     },
     {
-      "label": "B70 x D70 x H40"
+      "label": "B70 x D70 x H40",
+      "prijs": 349
     },
     {
-      "label": "B100 x D60 x H40"
+      "label": "B100 x D60 x H40",
+      "prijs": 399
     },
     {
-      "label": "B80 x D80 x H40"
+      "label": "B80 x D80 x H40",
+      "prijs": 429
     },
     {
-      "label": "B90 x D90 x H40"
+      "label": "B90 x D90 x H40",
+      "prijs": 499
     },
     {
-      "label": "B120 x D70 x H40"
+      "label": "B120 x D70 x H40",
+      "prijs": 499
     },
     {
-      "label": "B100 x D100 x H40"
+      "label": "B100 x D100 x H40",
+      "prijs": 599
     },
     {
-      "label": "B130 x D80 x H40"
+      "label": "B130 x D80 x H40",
+      "prijs": 599
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 67,
   "seoTitel": "Salontafel Viking gerecycled teak en staal | Teakhuis",
   "seoOmschrijving": "Stoere salontafel Viking van oud gerecycled teak en staal, in 8 standaardmaten en ook op maat. Vraag vrijblijvend een offerte aan bij Teakhuis.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/29412/teak-salontafels/salontafel-viking",
-  "collectie": "viking"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/29412/teak-salontafels/salontafel-viking"
 }

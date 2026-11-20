@@ -1,37 +1,38 @@
 {
   "titel": "Delta Antiekwas",
   "categorie": "onderhoudsmiddelen",
-  "prijsVanaf": 18.95,
-  "prijsTonen": true,
-  "omschrijving": "Delta Antiekwas is een traditionele was naar oudhollands recept, gemaakt van zuivere bijenwas en carnaubawas. De was onderhoudt en beschermt houten meubels en camoufleert kleine krasjes en putjes. Zet je meubels twee keer per jaar in de was, dan blijven ze als nieuw.\n\nBreng de was aan met een zachte doek en boen hem na 15 minuten uit.\n\n**Kenmerken**\n\n- Inhoud: blik van 375 ml\n- Kleuren: Naturel, Middenbruin (licht koloniaal) of Donkerbruin (donker koloniaal)\n- Van zuivere bijenwas en carnaubawas\n- Per 1, 2 of 3 blikken, inclusief verzenden binnen Nederland",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/32666/1.jpg",
     "../../assets/producten/32666/2.jpg",
     "../../assets/producten/32666/3.jpg"
   ],
+  "prijsVanaf": 16,
+  "omschrijving": "Delta Antiekwas is een traditionele was naar oudhollands recept, gemaakt van zuivere bijenwas en carnaubawas. De was onderhoudt en beschermt houten meubels en camoufleert kleine krasjes en putjes. Zet je meubels twee keer per jaar in de was, dan blijven ze als nieuw.\n\nBreng de was aan met een zachte doek en boen hem na 15 minuten uit.\n\n**Kenmerken**\n\n- Inhoud: blik van 375 ml\n- Kleuren: Naturel, Middenbruin (licht koloniaal) of Donkerbruin (donker koloniaal)\n- Van zuivere bijenwas en carnaubawas\n- Per 1, 2 of 3 blikken, inclusief verzenden binnen Nederland",
   "maten": [
     {
       "label": "1 blik van 375 ml incl. verzenden binnen Nederland",
-      "prijs": 18.95
+      "prijs": 16
     },
     {
       "label": "2 blikken van 375 ml incl. verzenden binnen Nederland",
-      "prijs": 34.95
+      "prijs": 29
     },
     {
       "label": "3 blikken van 375 ml incl. verzenden binnen Nederland",
-      "prijs": 59.23
+      "prijs": 44
     }
   ],
   "houtkleuren": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
   "uitvoeringen": [
     "Naturel",
     "Middenbruin",
     "Donkerbruin"
   ],
+  "prijsTonen": true,
   "maatwerk": false,
-  "uitgelicht": false,
-  "zichtbaar": true,
   "volgorde": 319,
   "seoTitel": "Delta Antiekwas met bijenwas, 375 ml | Teakhuis",
   "seoOmschrijving": "Delta Antiekwas van bijenwas en carnaubawas, naar oudhollands recept. Beschermt houten meubels en camoufleert krasjes. Inclusief verzenden in Nederland.",

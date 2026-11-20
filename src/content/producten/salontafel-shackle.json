@@ -1,14 +1,14 @@
 {
   "titel": "Salontafel Shackle",
   "categorie": "mangohout-salon-tafels",
-  "prijsVanaf": 175,
-  "prijsTonen": true,
-  "omschrijving": "Shackle is een industriële salontafel, gemaakt van aan elkaar gelaste kettingen. Het blad is van robuust mangohout met een matte lak, gecombineerd met mat zwart metaal.\n\nDe prijs is inclusief verzenden binnen Nederland.\n\n**Kenmerken**\n- Gemaakt van aan elkaar gelaste kettingen\n- Materiaal: robuust mangohout met mat zwart metaal\n- Mat gelakt\n- Ook op maat te maken\n- Prijs inclusief verzending binnen Nederland",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/32603/1.jpg",
     "../../assets/producten/32603/2.jpg",
     "../../assets/producten/32603/3.jpg"
   ],
+  "prijsVanaf": 175,
+  "omschrijving": "Shackle is een industriële salontafel, gemaakt van aan elkaar gelaste kettingen. Het blad is van robuust mangohout met een matte lak, gecombineerd met mat zwart metaal.\n\nDe prijs is inclusief verzenden binnen Nederland.\n\n**Kenmerken**\n- Gemaakt van aan elkaar gelaste kettingen\n- Materiaal: robuust mangohout met mat zwart metaal\n- Mat gelakt\n- Ook op maat te maken\n- Prijs inclusief verzending binnen Nederland",
   "maten": [
     {
       "label": "B120 x D70 x H45",
@@ -16,10 +16,11 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 48,
   "seoTitel": "Salontafel Shackle mangohout industrieel | Teakhuis",
   "seoOmschrijving": "Salontafel Shackle van robuust mangohout, gemaakt van aan elkaar gelaste kettingen en mat zwart metaal. Vraag vrijblijvend een offerte aan bij Teakhuis.",

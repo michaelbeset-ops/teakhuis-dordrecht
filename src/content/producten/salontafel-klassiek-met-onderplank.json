@@ -1,112 +1,114 @@
 {
   "titel": "salontafel Klassiek met onderplank",
   "categorie": "teak-salontafels",
-  "prijsVanaf": 139,
-  "prijsTonen": true,
-  "omschrijving": "Een klassieke salontafel met taps toelopende poten waarin een bewerking is aangebracht en een onderplank. Je kiest hem met of zonder laden.\n\nDe uitvoering met laden krijgt standaard ringetjes als greep. Liever andere grepen? Dat kan zonder meerprijs. De standaardmaten lopen van 40x40 tot 140x80 cm, en op maat maken we hem ook zonder meerprijs.\n\n**Kenmerken**\n- Taps toelopende poten met bewerking\n- Met onderplank, met of zonder laden\n- Standaard ringetjes op de laden, andere grepen zonder meerprijs\n- Uitvoeringen: Blank teak, Wit, Koloniale kleur, Milaan kleur, Gerecycled teak of Geborsteld teak\n- Ook op maat, zonder meerprijs",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/12378/1.jpg",
     "../../assets/producten/12378/2.jpg"
   ],
+  "prijsVanaf": 179,
+  "omschrijving": "Een klassieke salontafel met taps toelopende poten met inkeping, voorzien van een onderplank. Kan worden uitgevoerd met of zonder laden. Op verzoek kunnen de poten ook taps, zonder inkeping voor een wat strakker model. \n\nDe uitvoering met laden krijgt standaard ringetjes als greep. Liever andere grepen? Dat kan zonder meerprijs. De standaardmaten lopen van 40x40 tot 140x80 cm, en op maat maken we hem ook zonder meerprijs.\n\n**Kenmerken**\n\n- Taps toelopende poten met bewerking\n- Met onderplank, met of zonder laden\n- Standaard ringetjes op de laden, andere grepen zonder meerprijs\n- Uitvoeringen: Blank teak, Wit, Koloniale kleur, Gerecycled teak of Geborsteld teak\n- Ook op maat, zonder meerprijs",
   "maten": [
     {
       "label": "B40 X D40 X H45 zonder lade",
-      "prijs": 139
+      "prijs": 179
     },
     {
       "label": "B50 X D50 x H45 zonder lade",
-      "prijs": 159
-    },
-    {
-      "label": "B60 x D60 x H45 zonder lade",
-      "prijs": 179
-    },
-    {
-      "label": "B70 X D70 X H45 zonder lade",
       "prijs": 209
     },
     {
+      "label": "B60 x D60 x H45 zonder lade",
+      "prijs": 239
+    },
+    {
+      "label": "B70 X D70 X H45 zonder lade",
+      "prijs": 289
+    },
+    {
       "label": "B80 X D80 X H45 zonder lade",
-      "prijs": 239
-    },
-    {
-      "label": "B90 X D90 X H45 zonder lade",
-      "prijs": 279
-    },
-    {
-      "label": "B100 X D100 X H45 zonder lade",
-      "prijs": 339
-    },
-    {
-      "label": "B100 X D60 X H45 zonder laden",
-      "prijs": 239
-    },
-    {
-      "label": "B110 X D70 X H45 zonder laden",
-      "prijs": 279
-    },
-    {
-      "label": "B120 X D70 X H45 zonder laden",
-      "prijs": 299
-    },
-    {
-      "label": "B130 X D80 X H45 zonder laden",
-      "prijs": 339
-    },
-    {
-      "label": "B140 X D80 X H45 zonder laden",
-      "prijs": 369
-    },
-    {
-      "label": "B40 X D40 X H45 met lade",
-      "prijs": 159
-    },
-    {
-      "label": "B50 X D50 X H45 met lade",
-      "prijs": 179
-    },
-    {
-      "label": "B60 X D60 X H45 met lade",
-      "prijs": 199
-    },
-    {
-      "label": "B70 X D70 X H45 met lade",
-      "prijs": 229
-    },
-    {
-      "label": "B80 X D80 X H45 met lade",
-      "prijs": 259
-    },
-    {
-      "label": "B90 X D90 X H45 met 2 laden",
-      "prijs": 299
-    },
-    {
-      "label": "B100 X D100 X H45 met 2 laden",
-      "prijs": 369
-    },
-    {
-      "label": "B100 X D60 X H45 met 2 laden",
-      "prijs": 269
-    },
-    {
-      "label": "B110 X D70 X H45 met 2 laden",
-      "prijs": 309
-    },
-    {
-      "label": "B120 X D70 X H45 met 2 laden",
       "prijs": 329
     },
     {
+      "label": "B90 X D90 X H45 zonder lade",
+      "prijs": 389
+    },
+    {
+      "label": "B100 X D100 X H45 zonder lade",
+      "prijs": 449
+    },
+    {
+      "label": "B100 X D60 X H45 zonder laden",
+      "prijs": 319
+    },
+    {
+      "label": "B110 X D70 X H45 zonder laden",
+      "prijs": 359
+    },
+    {
+      "label": "B120 X D70 X H45 zonder laden",
+      "prijs": 389
+    },
+    {
+      "label": "B130 X D80 X H45 zonder laden",
+      "prijs": 459
+    },
+    {
+      "label": "B140 X D80 X H45 zonder laden",
+      "prijs": 479
+    },
+    {
+      "label": "B40 X D40 X H45 met lade",
+      "prijs": 199
+    },
+    {
+      "label": "B50 X D50 X H45 met lade",
+      "prijs": 229
+    },
+    {
+      "label": "B60 X D60 X H45 met lade",
+      "prijs": 259
+    },
+    {
+      "label": "B70 X D70 X H45 met lade",
+      "prijs": 309
+    },
+    {
+      "label": "B80 X D80 X H45 met lade",
+      "prijs": 349
+    },
+    {
+      "label": "B90 X D90 X H45 met 2 laden",
+      "prijs": 429
+    },
+    {
+      "label": "B100 X D100 X H45 met 2 laden",
+      "prijs": 489
+    },
+    {
+      "label": "B100 X D60 X H45 met 2 laden",
+      "prijs": 359
+    },
+    {
+      "label": "B110 X D70 X H45 met 2 laden",
+      "prijs": 399
+    },
+    {
+      "label": "B120 X D70 X H45 met 2 laden",
+      "prijs": 429
+    },
+    {
       "label": "B130 X D80 X H45 met 2 laden",
-      "prijs": 369
+      "prijs": 499
     },
     {
       "label": "B140 X D80 X H45 met 2 laden",
-      "prijs": 399
+      "prijs": 529
     }
   ],
   "houtkleuren": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
   "uitvoeringen": [
     "Blank teak",
     "Wit",
@@ -115,9 +117,8 @@
     "Gerecycled teak",
     "Geborsteld teak"
   ],
+  "prijsTonen": true,
   "maatwerk": true,
-  "uitgelicht": false,
-  "zichtbaar": true,
   "volgorde": 64,
   "seoTitel": "Salontafel Klassiek met onderplank, teak | Teakhuis",
   "seoOmschrijving": "Klassieke teakhouten salontafel met onderplank en taps toelopende poten, met of zonder laden en ook op maat. Vraag vrijblijvend een offerte aan.",

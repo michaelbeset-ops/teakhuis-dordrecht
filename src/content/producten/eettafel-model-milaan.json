@@ -1,54 +1,54 @@
 {
-  "titel": "Eettafel model Milaan",
+  "titel": "Eettafel Milaan",
   "categorie": "teak-eettafels",
-  "prijsVanaf": 679,
-  "prijsTonen": true,
-  "omschrijving": "Eettafel Milaan is strak vormgegeven. De poten zijn hol en meten 30 x 12 cm, wat de tafel een moderne, rechte lijn geeft.\n\nDe standaardmaten lopen van 160 tot 300 cm breed. Een andere maat of houtkleur stem je met ons af.\n\n**Kenmerken**\n\n- Holle poten van 30 x 12 cm\n- Leverbaar in 8 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "milaan",
   "fotos": [
     "../../assets/producten/4577/1.jpg"
   ],
+  "prijsVanaf": 729,
+  "omschrijving": "Eettafel Milaan is strak vormgegeven. De poten zijn hol en meten 30 x 12 cm, wat de tafel een moderne, rechte lijn geeft.\n\nDe standaardmaten lopen van 160 tot 300 cm breed. Een andere maat of houtkleur stem je met ons af.\n\n**Kenmerken**\n\n- Holle poten van 30 x 12 cm\n- Leverbaar in 8 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "160 x 90 x 78",
-      "prijs": 679
+      "prijs": 729
     },
     {
       "label": "180 x 95 x 78",
-      "prijs": 739
-    },
-    {
-      "label": "200 x 100 x 78",
       "prijs": 789
     },
     {
-      "label": "220 x 100 x 78",
+      "label": "200 x 100 x 78",
       "prijs": 849
     },
     {
+      "label": "220 x 100 x 78",
+      "prijs": 889
+    },
+    {
       "label": "240 x 100 x 78",
-      "prijs": 899
+      "prijs": 949
     },
     {
       "label": "260 x 100 x 78",
-      "prijs": 959
+      "prijs": 999
     },
     {
       "label": "280 x 100 x 78",
-      "prijs": 1019
+      "prijs": 1079
     },
     {
       "label": "300 x 100 x 78",
-      "prijs": 1099
+      "prijs": 1149
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 72,
   "seoTitel": "Eettafel Milaan strak teak, op maat | Teakhuis",
   "seoOmschrijving": "Eettafel Milaan: strak vormgegeven teakhouten tafel met holle poten van 30 x 12 cm, van 160 tot 300 cm breed en op maat. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4577/teak-eettafels/eettafel-model-milaan",
-  "collectie": "milaan"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4577/teak-eettafels/eettafel-model-milaan"
 }

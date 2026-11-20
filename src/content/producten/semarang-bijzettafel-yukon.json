@@ -1,28 +1,30 @@
 {
   "titel": "Semarang bijzettafel Yukon",
-  "categorie": "teak-salontafels",
-  "prijsVanaf": 194,
-  "prijsTonen": true,
-  "omschrijving": "Een vierkante bijzettafel uit de Yukon-lijn, met een blad van licht geborsteld teak in een zwart stalen frame. Strak en stevig.\n\nOp voorraad in de afmetingen 60 x 60 en 80 x 80 cm, beide 40 cm hoog.\n\n**Kenmerken**\n- Materiaal: licht geborsteld teak\n- Zwart stalen frame\n- Op voorraad in 60 x 60 en 80 x 80 cm\n- Ook op maat te maken\n- Met de hand gemaakt in Indonesië",
+  "categorie": "teak-bijzettafels",
+  "collectie": "semarang",
   "fotos": [
     "../../assets/producten/29474/1.jpg"
   ],
+  "prijsVanaf": 219,
+  "omschrijving": "Een vierkante bijzettafel of salontafel, met een blad van glad nieuw teak en een zwart stalen frame. Strak en stevig. \n\n**Kenmerken**\n\n- Materiaal: nieuw glad teak\n- Zwart stalen frame\n- Ook op maat te maken\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
-      "label": "60 x 60 x 40"
+      "label": "60 x 60 x 40",
+      "prijs": 219
     },
     {
-      "label": "80 x 80 x 40"
+      "label": "80 x 80 x 40",
+      "prijs": 349
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 334,
   "seoTitel": "Semarang bijzettafel Yukon teak en staal | Teakhuis",
   "seoOmschrijving": "Vierkante bijzettafel Yukon van licht geborsteld teak met zwart stalen frame, op voorraad in 60x60 en 80x80 cm. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/29474/teak-salontafels/semarang-bijzettafel-yukon",
-  "collectie": "semarang"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/29474/teak-salontafels/semarang-bijzettafel-yukon"
 }

@@ -1,12 +1,12 @@
 {
   "titel": "Semarang nachtkastje Hudson",
   "categorie": "nachtkastjes",
-  "prijsVanaf": 354,
-  "prijsTonen": true,
-  "omschrijving": "Nachtkastje Hudson heeft 2 lades en is gemaakt van oud verweerd teak erosi in combinatie met zwart staal. Het hoort bij de stoere Hudson-lijn.\n\nEen andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- 2 lades\n- Materiaal: oud verweerd teak erosi met zwart staal\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "semarang",
   "fotos": [
     "../../assets/producten/32534/1.jpg"
   ],
+  "prijsVanaf": 354,
+  "omschrijving": "Nachtkastje Hudson heeft 2 lades en is gemaakt van oud verweerd teak erosi in combinatie met zwart staal. Het hoort bij de stoere Hudson-lijn.\n\nEen andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- 2 lades\n- Materiaal: oud verweerd teak erosi met zwart staal\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "H68 x B46 x D40 teak erosi met zwart frame",
@@ -14,13 +14,13 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 269,
   "seoTitel": "Semarang nachtkastje Hudson verweerd teak | Teakhuis",
   "seoOmschrijving": "Nachtkastje Hudson met 2 lades, gemaakt van oud verweerd teak erosi in combinatie met zwart staal. Ook op maat. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/248/32534/nachtkastjes/semarang-nachtkastje-hudson",
-  "collectie": "semarang"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/248/32534/nachtkastjes/semarang-nachtkastje-hudson"
 }

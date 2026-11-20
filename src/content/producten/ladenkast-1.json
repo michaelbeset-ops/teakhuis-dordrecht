@@ -1,23 +1,24 @@
 {
-  "titel": "ladenkast 1",
+  "titel": "Ladekast Saskia",
   "categorie": "ladenkasten",
-  "prijsVanaf": 1029,
-  "prijsTonen": true,
-  "omschrijving": "Ladenkast 1 is een grote teakhouten ladenkast met veel opbergruimte. Zowel de maat als de indeling van de laden bepaal je zelf.\n\nKies de houtkleur, geef je wensen door en je krijgt eerst een vrijblijvende offerte.\n\n**Kenmerken**\n\n- Grote ladenkast\n- Op elke maat en indeling te maken\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/1762/1.jpg"
   ],
+  "prijsVanaf": 1099,
+  "omschrijving": "Deze ladenkast biedt veel opbergruimte. Met lades in 3 verschillende maten kun je er veel verschillende spullen in kwijt. Zowel indeling als afmetingen zijn op maat te maken.\n\nKies de houtkleur, geef je wensen door en je krijgt eerst een vrijblijvende offerte.\n\n**Kenmerken**\n\n- Grote ladenkast\n- Op elke maat en indeling te maken\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "170x90x50cm",
-      "prijs": 1029
+      "prijs": 1099
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 217,
   "seoTitel": "Ladenkast 1 groot teak, eigen indeling | Teakhuis",
   "seoOmschrijving": "Ladenkast 1: grote teakhouten ladenkast, op elke maat en met een eigen indeling te maken, in vier houtkleuren. Vraag vrijblijvend een offerte aan.",

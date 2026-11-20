@@ -1,36 +1,37 @@
 {
-  "titel": "hemelbed met zon",
+  "titel": "Hemelbed met zon",
   "categorie": "teak-bedden",
-  "prijsVanaf": 1499,
-  "prijsTonen": true,
-  "omschrijving": "Hemelbed met zon is een teakhouten hemelbed dat compleet geleverd wordt met een bodem van houten latten. Je hoeft er alleen nog een matras op te leggen.\n\nStandaard leverbaar van 140 x 200 tot 200 x 200 cm. Elke andere maat is ook mogelijk.\n\n**Kenmerken**\n\n- Compleet met houten lattenbodem\n- Leverbaar in 4 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/2502/1.jpg",
     "../../assets/producten/2502/2.jpg"
   ],
+  "prijsVanaf": 1599,
+  "omschrijving": "Hemelbed met zon (of maan) is een teakhouten hemelbed dat compleet geleverd wordt met een bodem van houten latten. Hier kun je nog een eigen lattenbodem op leggen of direct het matras.\nWil je liever ander houtsnijwerk? Bij ons is dat mogelijk.\n\nStandaard leverbaar van 140 x 200 tot 200 x 200 cm. Elke andere maat is ook mogelijk.\n\n**Kenmerken**\n\n- Compleet met houten lattenbodem\n- Leverbaar in 4 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "140x200cm",
-      "prijs": 1499
-    },
-    {
-      "label": "160x200cm",
       "prijs": 1599
     },
     {
+      "label": "160x200cm",
+      "prijs": 1649
+    },
+    {
       "label": "180x200cm",
-      "prijs": 1699
+      "prijs": 1749
     },
     {
       "label": "200x200cm",
-      "prijs": 1799
+      "prijs": 1849
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 270,
   "seoTitel": "Hemelbed met zon teak, met lattenbodem | Teakhuis",
   "seoOmschrijving": "Hemelbed met zon van teak, compleet geleverd met houten lattenbodem, van 140 tot 200 cm breed en in elke andere maat. Vraag vrijblijvend een offerte aan.",

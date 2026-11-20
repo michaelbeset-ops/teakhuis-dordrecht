@@ -1,23 +1,29 @@
 {
-  "titel": "geslotenkast 16",
+  "titel": "Grote kledingkast",
   "categorie": "geslotenkasten",
-  "prijsVanaf": 2099,
-  "prijsTonen": true,
-  "omschrijving": "Gesloten kast 16 is een ruime linnenkast van teak. De indeling ligt nog niet vast: die bepalen we samen met jou, zodat de kast past bij wat je erin wilt opbergen.\n\nDe kast is demontabel, wat handig is bij smalle trappen of deuren. Maatwerk is mogelijk zonder meerprijs.\n\n**Kenmerken**\n\n- Linnenkast, indeling naar wens\n- Demontabel\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Op maat te maken zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "koloniale-meubelen",
   "fotos": [
-    "../../assets/producten/1375/1.jpg"
+    "../../assets/producten/1375/1.jpg",
+    "../../assets/producten/700_450_150_gk13.webp"
   ],
+  "prijsVanaf": 2099,
+  "omschrijving": "Deze grote kledingkast is een ruime linnenkast van teak. De indeling ligt nog niet vast: die bepalen we samen met jou, zodat de kast past bij wat je erin wilt opbergen. Standaard 180 breed met 3 of 210 breed met 4 deuren. Leverbaar in iedere afmeting.\n\nDe kast is demontabel, wat handig is bij smalle trappen of deuren. Maatwerk is mogelijk zonder meerprijs.\n\n**Kenmerken**\n\n- Linnenkast, indeling naar wens\n- Demontabel\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Op maat te maken zonder meerprijs\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
-      "label": "h=220x br=210x d=60cm",
+      "label": "H220 x B180 x D60",
       "prijs": 2099
+    },
+    {
+      "label": "h=220x br=210x d=60cm",
+      "prijs": 2349
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 466,
   "seoTitel": "Linnenkast teak demontabel, kast 16 | Teakhuis",
   "seoOmschrijving": "Gesloten kast 16: teakhouten linnenkast met een indeling naar wens, demontabel en op maat zonder meerprijs. Vraag vrijblijvend een offerte aan.",

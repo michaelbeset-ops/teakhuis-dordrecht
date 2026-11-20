@@ -1,96 +1,93 @@
 {
   "titel": "Eettafel klassiek",
   "categorie": "teak-eettafels",
-  "prijsVanaf": 319,
-  "prijsTonen": true,
-  "omschrijving": "Een klassieke eettafel met tapse poten met inkeping en standaard 3 cm overhang. De top is 3 cm dik en de regel 6 cm, waardoor je onder de tafel 69 cm vrije ruimte hebt.\n\nEr zijn vierkante en rechthoekige maten, van 70 x 70 tot 300 x 100 cm. Je kiest een van de uitvoeringen hieronder of laat de tafel op maat maken.\n\n**Kenmerken**\n\n- Tapse poten met inkeping, 3 cm overhang\n- Top van 3 cm, regel van 6 cm, 69 cm vrije ruimte\n- Uitvoeringen: blank onbehandeld teak, theekleur, koloniale kleur, wit, gerecycled teak, Milaan kleur of geborsteld teak\n- Leverbaar in 17 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "koloniale-meubelen",
   "fotos": [
     "../../assets/producten/229/1.jpg",
     "../../assets/producten/229/2.jpg"
   ],
+  "prijsVanaf": 349,
+  "omschrijving": "Een klassieke eettafel met tapse poten met inkeping en standaard 3 cm overhang. De top is 3 cm dik en de regel 6 cm, waardoor je onder de tafel 69 cm vrije ruimte hebt.\nOok mogelijk met lades, prijs op aanvraag.\n\nEr zijn vierkante en rechthoekige maten, van 70 x 70 tot 300 x 100 cm. Je kiest een van de uitvoeringen hieronder of laat de tafel op maat maken.\n\n**Kenmerken**\n\n- Tapse poten met inkeping, 3 cm overhang\n- Top van 3 cm, regel van 6 cm, 69 cm vrije ruimte\n- Uitvoeringen: blank onbehandeld teak, theekleur, koloniale kleur, wit, gerecycled teak, Milaan kleur of geborsteld teak\n- Leverbaar in 17 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "70x70cm h=78cm",
-      "prijs": 319
-    },
-    {
-      "label": "80x80cm h=78cm",
       "prijs": 349
     },
     {
-      "label": "90x90cm h=78cm",
+      "label": "80x80cm h=78cm",
       "prijs": 389
     },
     {
+      "label": "90x90cm h=78cm",
+      "prijs": 429
+    },
+    {
       "label": "120x80cm h=78cm",
-      "prijs": 439
+      "prijs": 489
     },
     {
       "label": "140x90cm h=78cm",
-      "prijs": 479
+      "prijs": 539
     },
     {
       "label": "150x90cm h=78cm",
-      "prijs": 489
+      "prijs": 559
     },
     {
       "label": "160x90cm h=78cm",
-      "prijs": 499
+      "prijs": 589
     },
     {
       "label": "180x90cm h=78cm",
-      "prijs": 519
+      "prijs": 639
     },
     {
       "label": "200x100cm h=78cm",
-      "prijs": 569
+      "prijs": 699
     },
     {
       "label": "220x100cm h=78cm",
-      "prijs": 609
+      "prijs": 749
     },
     {
       "label": "240x100cm h=78cm",
-      "prijs": 649
+      "prijs": 799
     },
     {
       "label": "260x100cm h=78cm",
-      "prijs": 709
+      "prijs": 899
     },
     {
       "label": "280x100cm h=78cm",
-      "prijs": 769
+      "prijs": 999
     },
     {
       "label": "300x100cm h=78cm",
-      "prijs": 809
+      "prijs": 1099
     },
     {
       "label": "100x100 cm h=78",
-      "prijs": 459
+      "prijs": 499
     },
     {
       "label": "120 x 120 cm h = 78",
-      "prijs": 489
+      "prijs": 559
     },
     {
       "label": "140 x 140 cm h = 78",
-      "prijs": 569
+      "prijs": 699
     }
   ],
   "houtkleuren": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
   "uitvoeringen": [
     "Blank onbehandeld teak",
     "Theekleur",
-    "Koloniale kleur",
-    "Wit",
-    "Gerecycled teak",
-    "Milaan kleur",
-    "Geborsteld teak"
+    "Koloniale kleur"
   ],
+  "prijsTonen": true,
   "maatwerk": true,
-  "uitgelicht": false,
-  "zichtbaar": true,
   "volgorde": 73,
   "seoTitel": "Eettafel klassiek teak met tapse poten | Teakhuis",
   "seoOmschrijving": "Klassieke teakhouten eettafel met tapse poten, 3 cm top en 69 cm vrije ruimte eronder. Vierkant of rechthoekig, ook op maat. Vraag een offerte aan.",

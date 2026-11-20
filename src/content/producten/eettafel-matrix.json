@@ -1,29 +1,33 @@
 {
-  "titel": "Eettafel MATRIX",
+  "titel": "Eettafel Matrix",
   "categorie": "teak-eettafels",
-  "prijsVanaf": 1149,
-  "prijsTonen": true,
-  "omschrijving": "Eettafel Matrix heeft een ellipsvormig blad van 5 cm massief teakhout. De afgeronde vorm geeft de tafel een zachte lijn in de ruimte.\n\nJe kiest oud gerecycled teak, ruw of glad, of nieuw teakhout. De maten lopen van 200 tot 300 cm breed, en maatwerk is mogelijk.\n\n**Kenmerken**\n\n- Ellipsvormig blad van 5 cm massief teak\n- In gerecycled teak (ruw of glad) of nieuw teak\n- Leverbaar in 6 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/4980/1.jpg",
     "../../assets/producten/4980/2.jpg"
   ],
+  "prijsVanaf": 1149,
+  "omschrijving": "Eettafel Matrix heeft een ellipsvormig blad van 5 cm massief teakhout. De afgeronde vorm geeft de tafel een zachte lijn in de ruimte.\n\nJe kiest oud gerecycled teak, ruw of glad, of nieuw teakhout. De standaardmaten lopen van 180 tot 300 cm breed, en maatwerk is mogelijk.\n\n**Kenmerken**\n\n- Ellipsvormig blad van 5 cm massief teak\n- In gerecycled teak (ruw of glad) of nieuw teak\n- Leverbaar in 6 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
-      "label": "B200 x D120 x H78",
+      "label": "B180 x D100 x H78",
       "prijs": 1149
     },
     {
+      "label": "B200 x D120 x H78",
+      "prijs": 1249
+    },
+    {
       "label": "B220 x D120 x H79",
-      "prijs": 1259
+      "prijs": 1329
     },
     {
       "label": "B240 x D120 x H78",
-      "prijs": 1379
+      "prijs": 1399
     },
     {
       "label": "B260 x D120 x H78",
-      "prijs": 1489
+      "prijs": 1499
     },
     {
       "label": "B280 x D130 x H78",
@@ -31,14 +35,15 @@
     },
     {
       "label": "B300 x D130 x H78",
-      "prijs": 1749
+      "prijs": 1729
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 74,
   "seoTitel": "Eettafel Matrix ellipsvormig teak | Teakhuis",
   "seoOmschrijving": "Eettafel Matrix met een ellipsvormig blad van 5 cm massief teak, in gerecycled of nieuw teakhout en ook op maat. Vraag vrijblijvend een offerte aan.",

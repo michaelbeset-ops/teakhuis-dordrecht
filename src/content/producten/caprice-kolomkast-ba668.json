@@ -1,18 +1,19 @@
 {
   "titel": "Caprice kolomkast BA668",
   "categorie": "wastafelmeubels",
-  "prijsVanaf": 949,
-  "prijsTonen": true,
-  "omschrijving": "De Caprice kolomkast BA668 hoort bij de Caprice badkamercollectie en is mooi afgewerkt. Achter beide soft close deuren zit een lade en zitten glazen planken.\n\nDe kast is 182 cm hoog, 42 cm breed en 42 cm diep. Je kiest of hij links- of rechtsdraaiend is. Maatwerk is mogelijk.\n\n**Kenmerken**\n\n- Soft close deuren\n- Achter beide deuren een lade en glazen planken\n- Links- of rechtsdraaiend\n- Maatwerk mogelijk\n- Met de hand gemaakt in Indonesië",
+  "collectie": "caprice",
   "fotos": [
     "../../assets/producten/2893/1.jpg",
     "../../assets/producten/2893/2.jpg",
     "../../assets/producten/2893/3.jpg",
     "../../assets/producten/2893/4.jpg"
   ],
+  "prijsVanaf": 949,
+  "omschrijving": "De Caprice kolomkast BA668 hoort bij de Caprice badkamercollectie en is mooi afgewerkt. Achter beide soft close deuren zit een lade en zitten glazen planken.\n\nDe kast is 182 cm hoog, 42 cm breed en 42 cm diep. Je kiest of hij links- of rechtsdraaiend is. Maatwerk is mogelijk.\n\n**Kenmerken**\n\n- Soft close deuren\n- Achter beide deuren een lade en glazen planken\n- Links- of rechtsdraaiend\n- Maatwerk mogelijk\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
-      "label": "h=182 br=42 d=42cm linksdraaiend"
+      "label": "h=182 br=42 d=42cm linksdraaiend",
+      "prijs": null
     },
     {
       "label": "h=182 br=42 d=42cm rechtsdraaiend",
@@ -20,13 +21,13 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 287,
   "seoTitel": "Caprice kolomkast BA668 voor de badkamer | Teakhuis",
   "seoOmschrijving": "Caprice kolomkast BA668 voor de badkamer, 182 cm hoog, met soft close deuren, lades en glazen planken. Links- of rechtsdraaiend. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2893/wastafelmeubels/caprice-kolomkast-ba668",
-  "collectie": "caprice"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2893/wastafelmeubels/caprice-kolomkast-ba668"
 }

@@ -1,26 +1,34 @@
 {
   "titel": "Salontafel Bayakayu",
   "categorie": "teak-salontafels",
-  "prijsVanaf": 629,
-  "prijsTonen": true,
-  "omschrijving": "Salontafel Bayakayu is stevig en praktisch: rustiek teak gecombineerd met donkergrijs staal. In de tafel zitten 4 handige lades die op metalen geleiderails lopen.\n\nMaatwerk is mogelijk, zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: rustiek teak en donkergrijs staal\n- 4 lades op metalen geleiderails\n- Ook op maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "bayakayu",
   "fotos": [
     "../../assets/producten/29725/1.jpg"
   ],
+  "prijsVanaf": 599,
+  "omschrijving": "Salontafel Bayakayu is stevig en praktisch: blank teak gecombineerd met donkergrijs of zwart staal. In de tafel zitten 4 handige lades die op metalen geleiderails lopen.\n\nMaatwerk is mogelijk, zonder meerprijs.\n\n**Kenmerken**\n\n- Materiaal: rustiek teak en donkergrijs of zwart staal\n- 4 lades op metalen geleiderails\n- Ook op maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
+      "label": "B100 x D60 x H42",
+      "prijs": 599
+    },
+    {
       "label": "B120 x D70 x H42",
-      "prijs": 629
+      "prijs": 679
+    },
+    {
+      "label": "B140 x D80 x H42",
+      "prijs": 759
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": true,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 335,
   "seoTitel": "Salontafel Bayakayu teak met 4 lades | Teakhuis",
   "seoOmschrijving": "Salontafel Bayakayu van rustiek teak en donkergrijs staal, met 4 lades op metalen geleiderails. Ook op maat te maken. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/29725/teak-salontafels/salontafel-bayakayu",
-  "collectie": "bayakayu"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/29725/teak-salontafels/salontafel-bayakayu"
 }

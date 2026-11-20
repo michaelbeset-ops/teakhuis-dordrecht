@@ -1,12 +1,12 @@
 {
-  "titel": "computerkast 4",
+  "titel": "Computerkast Ankie",
   "categorie": "teak-computerkasten",
-  "prijsVanaf": 1699,
-  "prijsTonen": true,
-  "omschrijving": "Computerkast 4 heeft veel ruimte voor je computer en alles wat erbij hoort. De teakhouten kast is op elke afmeting te bestellen.\n\nMaatwerk kost bij deze kast niets extra. Vraag een vrijblijvende offerte aan met de maat die je zoekt.\n\n**Kenmerken**\n\n- In elke maat te maken, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Materiaal: teakhout\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/2022/1.jpg"
   ],
+  "prijsVanaf": 1699,
+  "omschrijving": "Deze ruime computerkast biedt ruimte aan een computer met een groot scherm en ook nog een plank voor boeken of ordners. Uiteraard voorzien van een uitschuifplateau en onderin lades en een plank voor bijvoorbeeld de printer.\n\nMaatwerk kost bij deze kast niets extra. Vraag een vrijblijvende offerte aan met de maat die je zoekt.\n\n**Kenmerken**\n\n- In elke maat te maken, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Materiaal: teakhout\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "h=200cm br=120cm d=60cm",
@@ -14,10 +14,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 234,
   "seoTitel": "Computerkast 4 teak, ruim en op maat | Teakhuis",
   "seoOmschrijving": "Computerkast 4 van teakhout met veel ruimte voor je computer en spullen. Op elke afmeting te bestellen, zonder meerprijs. Vraag een offerte aan.",

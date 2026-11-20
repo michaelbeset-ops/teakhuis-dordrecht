@@ -1,35 +1,36 @@
 {
   "titel": "Opiumbed",
   "categorie": "teak-bedden",
-  "prijsVanaf": 979,
-  "prijsTonen": true,
-  "omschrijving": "Het Opiumbed is een teakhouten bed in Opium stijl. Je krijgt het compleet met een bodem van houten latten.\n\nKies een maat van 140 x 200 tot 200 x 200 cm. Heb je een andere matrasmaat, dan maken we het bed daarop, zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: teakhout\n- Inclusief houten lattenbodem\n- Ook op maat te maken, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/2533/1.jpg"
   ],
+  "prijsVanaf": 1029,
+  "omschrijving": "Het Opiumbed is een teakhouten bed in Opium stijl. Je krijgt het compleet met een bodem van houten latten.\n\nKies een maat van 140 x 200 tot 200 x 200 cm. Heb je een andere matrasmaat, dan maken we het bed daarop, zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: teakhout\n- Inclusief houten lattenbodem\n- Ook op maat te maken, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "140x200cm",
-      "prijs": 979
+      "prijs": 1029
     },
     {
       "label": "160x200cm",
-      "prijs": 1049
-    },
-    {
-      "label": "180x200cm",
       "prijs": 1099
     },
     {
-      "label": "200x200cm",
+      "label": "180x200cm",
       "prijs": 1149
+    },
+    {
+      "label": "200x200cm",
+      "prijs": 1199
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 273,
   "seoTitel": "Opiumbed van teakhout, ook op maat | Teakhuis",
   "seoOmschrijving": "Opiumbed van teakhout met houten lattenbodem, van 140 x 200 tot 200 x 200 cm en ook op elke andere maat. Vraag vrijblijvend een offerte aan.",

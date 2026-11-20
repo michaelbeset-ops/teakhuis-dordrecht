@@ -1,8 +1,9 @@
 {
-  "naam": "Ladenkasten",
+  "naam": "Ladekasten",
   "hoofd": "kasten",
-  "volgorde": 316,
   "intro": "",
-  "oudeId": "175",
-  "zichtbaar": true
+  "foto": "",
+  "volgorde": 316,
+  "zichtbaar": true,
+  "oudeId": "175"
 }

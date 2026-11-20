@@ -1,14 +1,14 @@
 {
   "titel": "Caprice BA 004M2",
   "categorie": "wastafelmeubels",
-  "prijsVanaf": 2499,
-  "prijsTonen": true,
-  "omschrijving": "Met twee Toto waskommen in een top van golden galaxy graniet is de Caprice BA 004M2 handig als je met z'n tweeën tegelijk in de badkamer staat. De bolle deuren en lades sluiten met soft close.\n\nOok leverbaar met een houten top en natuurstenen waskommen. Maatwerk is mogelijk.\n\n**Kenmerken**\n\n- Bolle deuren en lades met soft close\n- Top: golden galaxy graniet met 2 Toto waskommen, of houten top met natuurstenen waskommen\n- Maatwerk mogelijk\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
+  "collectie": "caprice",
   "fotos": [
     "../../assets/producten/2863/1.jpg",
     "../../assets/producten/2863/2.jpg",
     "../../assets/producten/2863/3.jpg"
   ],
+  "prijsVanaf": 2499,
+  "omschrijving": "Met twee Toto waskommen in een top van golden galaxy graniet is de Caprice BA 004M2 handig als je met z'n tweeën tegelijk in de badkamer staat. De bolle deuren en lades sluiten met soft close.\n\nOok leverbaar met een houten top en natuurstenen waskommen. Maatwerk is mogelijk.\n\n**Kenmerken**\n\n- Bolle deuren en lades met soft close\n- Top: golden galaxy graniet met 2 Toto waskommen, of houten top met natuurstenen waskommen\n- Maatwerk mogelijk\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "h=90cm br=154cm d=72cm",
@@ -16,13 +16,13 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 285,
   "seoTitel": "Caprice BA 004M2 badkamermeubel, 2 waskommen | Teakhuis",
   "seoOmschrijving": "Badkamermeubel Caprice BA 004M2 met 2 Toto waskommen in een granieten top (golden galaxy) en bolle soft close deuren en lades. Maatwerk mogelijk.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2863/wastafelmeubels/caprice-ba-004m2",
-  "collectie": "caprice"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2863/wastafelmeubels/caprice-ba-004m2"
 }

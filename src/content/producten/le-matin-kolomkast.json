@@ -1,17 +1,18 @@
 {
   "titel": "Le Matin kolomkast",
   "categorie": "wastafelmeubels",
-  "prijsVanaf": 849,
-  "prijsTonen": true,
-  "omschrijving": "Deze kolomkast hoort bij de Le Matin collectie en is net zo zorgvuldig afgewerkt als de badkamermeubels. Achter beide soft close deuren zit een lade en glazen planken.\n\nDe kast is 182 cm hoog, 42 cm breed en 42 cm diep. Je kiest een links- of rechtsdraaiende uitvoering. Maatwerk is mogelijk.\n\n**Kenmerken**\n- Afmetingen: h 182 x br 42 x d 42 cm\n- Links- of rechtsdraaiend\n- Soft close deuren, met lade en glazen planken\n- Past bij de Le Matin badkamermeubels\n- Ook op maat te maken",
+  "collectie": "le-matin",
   "fotos": [
     "../../assets/producten/2895/1.jpg",
     "../../assets/producten/2895/2.jpg",
     "../../assets/producten/2895/3.jpg"
   ],
+  "prijsVanaf": 849,
+  "omschrijving": "Deze kolomkast hoort bij de Le Matin collectie en is net zo zorgvuldig afgewerkt als de badkamermeubels. Achter beide soft close deuren zit een lade en glazen planken.\n\nDe kast is 182 cm hoog, 42 cm breed en 42 cm diep. Je kiest een links- of rechtsdraaiende uitvoering. Maatwerk is mogelijk.\n\n**Kenmerken**\n- Afmetingen: h 182 x br 42 x d 42 cm\n- Links- of rechtsdraaiend\n- Soft close deuren, met lade en glazen planken\n- Past bij de Le Matin badkamermeubels\n- Ook op maat te maken",
   "maten": [
     {
-      "label": "h=182cm br=42cm d=42cm linksdraaiend"
+      "label": "h=182cm br=42cm d=42cm linksdraaiend",
+      "prijs": null
     },
     {
       "label": "h=182cm br=42cm d=42cm rechtsdraaiend",
@@ -19,13 +20,13 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 288,
   "seoTitel": "Le Matin kolomkast badkamer | Teakhuis",
   "seoOmschrijving": "Kolomkast Le Matin voor de badkamer: soft close deuren met lade en glazen planken, links- of rechtsdraaiend. Maatwerk mogelijk. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2895/wastafelmeubels/le-matin-kolomkast",
-  "collectie": "le-matin"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2895/wastafelmeubels/le-matin-kolomkast"
 }

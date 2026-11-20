@@ -1,26 +1,14 @@
 {
   "titel": "Eettafel Dijawa",
   "categorie": "teak-eettafels",
-  "prijsVanaf": 699,
-  "prijsTonen": true,
-  "omschrijving": "Eettafel Dijawa is in elkaar gezet met ambachtelijke houten verbindingen. De top is 5 cm dik, de poten 12 cm, en alles is massief.\n\nDe top werk je robuust of geborsteld af, en glad afgewerkt kan ook. Je kiest een standaardmaat van 130 tot 300 cm breed of laat de tafel op maat maken.\n\n**Kenmerken**\n\n- Ambachtelijke houten verbindingen, volledig massief\n- Top van 5 cm, poten van 12 cm\n- Robuust, geborsteld of glad afgewerkt\n- Leverbaar in 11 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/4556/1.jpg",
     "../../assets/producten/4556/2.jpg"
   ],
+  "prijsVanaf": 969,
+  "omschrijving": "Eettafel Dijawa is in elkaar gezet met ambachtelijke houten verbindingen. De top is 5 cm dik, de poten 12 cm, en alles is massief.\n\nDe top is van glad afgewerkt teak, geborsteld kan ook. Iedere afwijkende maat en afwerking is mogelijk.\n\n**Kenmerken**\n\n- Ambachtelijke houten verbindingen, volledig massief\n- Top van 5 cm, poten van 12 cm\n- Robuust, geborsteld of glad afgewerkt\n- Leverbaar in 11 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië",
   "maten": [
-    {
-      "label": "130 x 80 x 78",
-      "prijs": 699
-    },
-    {
-      "label": "140 x 80 x 78",
-      "prijs": 779
-    },
-    {
-      "label": "150 x 90 x 78",
-      "prijs": 849
-    },
     {
       "label": "160 x 90 x 78",
       "prijs": 969
@@ -55,10 +43,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 81,
   "seoTitel": "Eettafel Dijawa massief teak, op maat | Teakhuis",
   "seoOmschrijving": "Eettafel Dijawa van massief teak met houten verbindingen, een 5 cm top en 12 cm poten. Robuust, geborsteld of glad. Vraag vrijblijvend een offerte aan.",

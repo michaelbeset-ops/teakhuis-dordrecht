@@ -1,26 +1,34 @@
 {
   "titel": "Semarang bank Yukon",
   "categorie": "banken-teak",
-  "prijsVanaf": 548,
-  "prijsTonen": true,
-  "omschrijving": "Bank Yukon is een strakke eetkamerbank van licht geborsteld rustiek teak op een zwart stalen onderstel.\n\nWil je hem langer of korter, dan maken we hem op maat zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: licht geborsteld rustiek teak\n- Zwart stalen onderstel\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
+  "collectie": "semarang",
   "fotos": [
     "../../assets/producten/12882/1.jpg"
   ],
+  "prijsVanaf": 499,
+  "omschrijving": "Bank Yukon is geschikt voor plaatsing bij de eettafel. We leveren deze bank in een aantal standaardmaten, maar als een afwijkende beter uitkomt laten we deze bank door een lokale producent in Indonesie op maat maken.\nStandaard heeft deze bank een zwart metalen onderstel, gecombineerd met blank teak, al dan niet geborsteld.\n\n**Kenmerken**\n\n- Materiaal: licht geborsteld rustiek teak\n- Zwart stalen onderstel\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
   "maten": [
     {
+      "label": "B140 x D40 x H47",
+      "prijs": 499
+    },
+    {
+      "label": "B160 x D40 x H47",
+      "prijs": 549
+    },
+    {
       "label": "B180 x D40 x H47",
-      "prijs": 548
+      "prijs": 599
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 265,
   "seoTitel": "Semarang bank Yukon teak eetkamerbank | Teakhuis",
   "seoOmschrijving": "Strakke eetkamerbank Yukon van licht geborsteld rustiek teak met zwart stalen onderstel, ook op maat. Vraag vrijblijvend een offerte aan bij Teakhuis.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/177/12882/banken-teak/semarang-bank-yukon",
-  "collectie": "semarang"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/177/12882/banken-teak/semarang-bank-yukon"
 }

@@ -1,12 +1,12 @@
 {
   "titel": "Peanut bank",
   "categorie": "tuinmeubelen",
-  "prijsVanaf": 349,
-  "prijsTonen": true,
-  "omschrijving": "De Peanut bank is een degelijke bank van teak in topkwaliteit, grade A/B. Een bank die tegen een stootje kan.\n\nDeze bank is uitsluitend op bestelling leverbaar. Maatwerk is mogelijk.\n\n**Kenmerken**\n- Materiaal: teak, grade A/B\n- Uitsluitend op bestelling\n- Ook op maat te maken\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/29709/1.jpg"
   ],
+  "prijsVanaf": 349,
+  "omschrijving": "De Peanut bank is een degelijke bank van teak in topkwaliteit, grade A/B. Een bank die tegen een stootje kan.\n\nDeze bank is uitsluitend op bestelling leverbaar. Maatwerk is mogelijk.\n\n**Kenmerken**\n- Materiaal: teak, grade A/B\n- Uitsluitend op bestelling\n- Ook op maat te maken\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
       "label": "B 160 cm exclusief verzendkosten",
@@ -14,10 +14,11 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 2,
   "seoTitel": "Peanut bank van teak grade A/B | Teakhuis",
   "seoOmschrijving": "De Peanut bank is een degelijke bank van teak in topkwaliteit grade A/B, uitsluitend op bestelling leverbaar. Vraag vrijblijvend een offerte aan.",

@@ -1,31 +1,34 @@
 {
   "titel": "Semarang eetkamerbank Amazon",
   "categorie": "banken-teak",
-  "prijsVanaf": 368,
-  "prijsTonen": true,
-  "omschrijving": "Eetkamerbank Amazon heeft een massieve teakhouten top van 5 cm dik, licht geborsteld, op zwarte stalen poten. Een eenvoudige, stevige bank voor aan de eettafel.\n\nStandaard leverbaar in 3 lengtes, van 160 tot 200 cm. Past dat niet bij je tafel, dan maken we hem op maat.\n\n**Kenmerken**\n- Massieve teakhouten top van 5 cm, licht geborsteld\n- Zwarte stalen poten\n- Leverbaar in 3 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
+  "collectie": "semarang",
   "fotos": [
     "../../assets/producten/32463/1.jpg"
   ],
+  "prijsVanaf": 368,
+  "omschrijving": "Eetkamerbank Amazon heeft een massieve teakhouten top van 5 cm dik, licht geborsteld, op zwarte stalen poten. Een eenvoudige, stevige bank voor aan de eettafel.\n\nStandaard leverbaar in 3 lengtes, van 160 tot 200 cm. Past dat niet bij je tafel, dan maken we hem op maat.\n\n**Kenmerken**\n- Massieve teakhouten top van 5 cm, licht geborsteld\n- Zwarte stalen poten\n- Leverbaar in 3 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
   "maten": [
     {
-      "label": "B160 x D40 x H47"
+      "label": "B160 x D40 x H47",
+      "prijs": null
     },
     {
-      "label": "B180 x D40 x H47"
+      "label": "B180 x D40 x H47",
+      "prijs": null
     },
     {
-      "label": "B200 x D40 x H47"
+      "label": "B200 x D40 x H47",
+      "prijs": null
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 266,
   "seoTitel": "Semarang eetkamerbank Amazon teak | Teakhuis",
   "seoOmschrijving": "Eetkamerbank Amazon met massieve teakhouten top van 5 cm en zwarte stalen poten, van 160 tot 200 cm. Vraag vrijblijvend een offerte aan bij Teakhuis.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/177/32463/banken-teak/semarang-eetkamerbank-amazon",
-  "collectie": "semarang"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/177/32463/banken-teak/semarang-eetkamerbank-amazon"
 }

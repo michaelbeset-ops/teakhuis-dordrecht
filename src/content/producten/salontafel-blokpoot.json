@@ -1,122 +1,121 @@
 {
   "titel": "Salontafel Blokpoot",
   "categorie": "teak-salontafels",
-  "prijsVanaf": 119,
-  "prijsTonen": true,
-  "omschrijving": "Een strakke salontafel op stevige blokpoten van 8 cm dik. Je kiest zelf of je hem met of zonder laden wilt, en in welke afmeting. Ook de dikte van het blad en van de poten passen we op verzoek aan.\n\nDe standaardmaten lopen van 40x40 tot 140x80 cm, allemaal 45 cm hoog. Past dat niet in je kamer, dan maken we hem op maat zonder meerprijs.\n\n**Kenmerken**\n- Blokpoten van 8 cm dik\n- Met of zonder laden\n- Uitvoeringen: Blank teak, Koloniale kleur, Wit, Milaan kleur, Gerecycled teak of Geborsteld teak\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/994/1.jpg"
   ],
+  "prijsVanaf": 149,
+  "omschrijving": "Een strakke salontafel op stevige blokpoten van 8 cm dik. Je kiest zelf of je hem met of zonder laden wilt, en in welke afmeting. Ook de dikte van het blad en van de poten passen we op verzoek aan.\n\nDe standaardmaten lopen van 40x40 tot 140x80 cm, allemaal 45 cm hoog. Past dat niet in je kamer, dan maken we hem op maat zonder meerprijs.\n\n**Kenmerken**\n\n- Blokpoten van 8 cm dik\n- Met of zonder laden\n- Uitvoeringen: Blank teak, Koloniale kleur, Wit, Gerecycled teak of Geborsteld teak\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
       "label": "40x40cm h=45cm zonder lade",
-      "prijs": 119
+      "prijs": 149
     },
     {
       "label": "50x50cm h=45cm zonder lade",
-      "prijs": 139
+      "prijs": 179
     },
     {
       "label": "60x60cm h=45cm zonder lade",
-      "prijs": 159
+      "prijs": 209
     },
     {
       "label": "70x70cm h=45cm zonder lade",
-      "prijs": 179
+      "prijs": 249
     },
     {
       "label": "80x80cm h=45cm zonder lade",
-      "prijs": 209
+      "prijs": 289
     },
     {
       "label": "90x90cm h=45cm zonder lade",
-      "prijs": 249
+      "prijs": 339
     },
     {
       "label": "100x100cm h=45cm zonder laden",
-      "prijs": 299
+      "prijs": 399
     },
     {
       "label": "100x60cm h=45cm zonder laden",
-      "prijs": 209
-    },
-    {
-      "label": "110x70cm h=45cm zonder laden",
-      "prijs": 249
-    },
-    {
-      "label": "120x70cm h=45cm zonder laden",
-      "prijs": 269
-    },
-    {
-      "label": "130x80cm h=45cm zonder laden",
-      "prijs": 299
-    },
-    {
-      "label": "140x80cm h=45cm zonder laden",
-      "prijs": 329
-    },
-    {
-      "label": "40x40cm h=45cm met lade",
-      "prijs": 139
-    },
-    {
-      "label": "50x50cm h=45cm met lade",
-      "prijs": 159
-    },
-    {
-      "label": "60x60cm h=45cm met lade",
-      "prijs": 179
-    },
-    {
-      "label": "70x70cm h=45cm met lade",
-      "prijs": 199
-    },
-    {
-      "label": "80x80cm h=45cm met lade",
-      "prijs": 229
-    },
-    {
-      "label": "90x90cm h=45cm met 2 laden",
-      "prijs": 269
-    },
-    {
-      "label": "100x100cm h=45cm met 2 laden",
-      "prijs": 329
-    },
-    {
-      "label": "100x60cm h=45cm met 2 laden",
-      "prijs": 239
-    },
-    {
-      "label": "110x70cm h=45cm met 2 laden",
       "prijs": 279
     },
     {
+      "label": "110x70cm h=45cm zonder laden",
+      "prijs": 319
+    },
+    {
+      "label": "120x70cm h=45cm zonder laden",
+      "prijs": 339
+    },
+    {
+      "label": "130x80cm h=45cm zonder laden",
+      "prijs": 409
+    },
+    {
+      "label": "140x80cm h=45cm zonder laden",
+      "prijs": 429
+    },
+    {
+      "label": "40x40cm h=45cm met lade",
+      "prijs": 169
+    },
+    {
+      "label": "50x50cm h=45cm met lade",
+      "prijs": 199
+    },
+    {
+      "label": "60x60cm h=45cm met lade",
+      "prijs": 229
+    },
+    {
+      "label": "70x70cm h=45cm met lade",
+      "prijs": 269
+    },
+    {
+      "label": "80x80cm h=45cm met lade",
+      "prijs": 309
+    },
+    {
+      "label": "90x90cm h=45cm met 2 laden",
+      "prijs": 379
+    },
+    {
+      "label": "100x100cm h=45cm met 2 laden",
+      "prijs": 439
+    },
+    {
+      "label": "100x60cm h=45cm met 2 laden",
+      "prijs": 319
+    },
+    {
+      "label": "110x70cm h=45cm met 2 laden",
+      "prijs": 359
+    },
+    {
       "label": "120x70cmh=45cm met 2 laden",
-      "prijs": 299
+      "prijs": 379
     },
     {
       "label": "130x80cm h=45cm met 2 laden",
-      "prijs": 329
+      "prijs": 449
     },
     {
       "label": "140x80cm h=45cm met 2 laden",
-      "prijs": 359
+      "prijs": 469
     }
   ],
   "houtkleuren": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
   "uitvoeringen": [
     "Blank teak",
     "Koloniale kleur",
-    "Wit",
-    "Milaan kleur",
-    "Gerecycled teak",
-    "Geborsteld teak"
+    "Theekleur",
+    "Wit"
   ],
+  "prijsTonen": true,
   "maatwerk": true,
-  "uitgelicht": false,
-  "zichtbaar": true,
   "volgorde": 60,
   "seoTitel": "Salontafel Blokpoot teak, met of zonder lade | Teakhuis",
   "seoOmschrijving": "Strakke teakhouten salontafel Blokpoot met 8 cm dikke poten, met of zonder laden en ook op maat. Vraag vrijblijvend een offerte aan bij Teakhuis.",

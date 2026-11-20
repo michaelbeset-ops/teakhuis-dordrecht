@@ -1,14 +1,14 @@
 {
   "titel": "Le Matin Wildwater BA 450A",
   "categorie": "wastafelmeubels",
-  "prijsVanaf": 1149,
-  "prijsTonen": true,
-  "omschrijving": "De Le Matin Wildwater BA 450A is een badkamermeubel met soft close deuren en een blad van golden galaxy graniet met Toto waskom. Wil je liever hout, dan kan hij ook met een houten top en natuurstenen waskommen.\n\nDe prijs is exclusief kolomkasten en spiegel, en het meubel wordt geleverd zonder kraan.Maatwerk is mogelijk.\n\n**Kenmerken**\n- Blad van golden galaxy graniet met Toto waskom\n- Ook met houten top en natuurstenen waskommen\n- Soft close deuren\n- Exclusief kolomkasten, spiegel en kraan\n- Ook op maat te maken",
+  "collectie": "le-matin",
   "fotos": [
     "../../assets/producten/2900/1.jpg",
     "../../assets/producten/2900/2.jpg",
     "../../assets/producten/2900/3.jpg"
   ],
+  "prijsVanaf": 1149,
+  "omschrijving": "De Le Matin Wildwater BA 450A is een badkamermeubel met soft close deuren en een blad van golden galaxy graniet met Toto waskom. Wil je liever hout, dan kan hij ook met een houten top en natuurstenen waskommen.\n\nDe prijs is exclusief kolomkasten en spiegel, en het meubel wordt geleverd zonder kraan.Maatwerk is mogelijk.\n\n**Kenmerken**\n- Blad van golden galaxy graniet met Toto waskom\n- Ook met houten top en natuurstenen waskommen\n- Soft close deuren\n- Exclusief kolomkasten, spiegel en kraan\n- Ook op maat te maken",
   "maten": [
     {
       "label": "h=88cm br=70cm d=59cm",
@@ -16,13 +16,13 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 290,
   "seoTitel": "Le Matin Wildwater BA 450A badmeubel | Teakhuis",
   "seoOmschrijving": "Badkamermeubel Le Matin Wildwater BA 450A met soft close deuren, granieten blad en Toto waskom, ook met houten top. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2900/wastafelmeubels/le-matin-wildwater-ba-450a",
-  "collectie": "le-matin"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2900/wastafelmeubels/le-matin-wildwater-ba-450a"
 }

@@ -1,12 +1,12 @@
 {
-  "titel": "hoekkast 3",
+  "titel": "Hoekkast hoog",
   "categorie": "hoekkasten",
-  "prijsVanaf": 1139,
-  "prijsTonen": true,
-  "omschrijving": "Hoekkast 3 is een teakhouten kast die precies in de hoek past. Je laat hem maken in de maat die jouw hoek nodig heeft.\n\nKies een van de houtkleuren, zodat de kast aansluit bij je andere meubels.\n\n**Kenmerken**\n\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- In elke gewenste maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/1988/1.jpg"
   ],
+  "prijsVanaf": 1139,
+  "omschrijving": "Deze hoge hoekkast is een teakhouten kast die precies in de hoek past om ook die onmogelijke hoek efficient te kunnen gebruiken. Je laat hem maken in de maat die jouw hoek nodig heeft.\n\nKies een van de houtkleuren, zodat de kast aansluit bij je andere meubels.\n\n**Kenmerken**\n\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- In elke gewenste maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "h=200cm d=55cm br=95cm",
@@ -14,10 +14,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 201,
   "seoTitel": "Hoekkast 3 teakhout, elke maat | Teakhuis",
   "seoOmschrijving": "Hoekkast 3 van teakhout, in elke gewenste maat te maken zodat hij precies in je hoek past. In vier houtkleuren. Vraag vrijblijvend een offerte aan.",

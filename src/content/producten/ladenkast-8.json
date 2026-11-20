@@ -1,23 +1,24 @@
 {
-  "titel": "ladenkast 8",
+  "titel": "Ladekast Dewi",
   "categorie": "ladenkasten",
-  "prijsVanaf": 559,
-  "prijsTonen": true,
-  "omschrijving": "Ladenkast 8 maken we van teakhout, met de hand, bij een producent in Indonesië. Er staat niets op voorraad: je kast wordt gemaakt als je bestelt.\n\nDaardoor kun je de maat zelf kiezen, zonder meerprijs. Ook de houtkleur bepaal je zelf.\n\n**Kenmerken**\n- Materiaal: teakhout\n- In elke maat te leveren, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "koloniale-meubelen",
   "fotos": [
     "../../assets/producten/1783/1.jpg"
   ],
+  "prijsVanaf": 599,
+  "omschrijving": "Dit voorbeeld is een klassieke koloniale ladenkast. Liever een andere afmeting? Wij leveren dit model op maat, ook met  afwijkende indeling.\n\n**Kenmerken**\n\n- Materiaal: teakhout\n- In elke maat te leveren\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "h=110cm br=80cm d=35cm",
-      "prijs": 559
+      "prijs": 599
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 224,
   "seoTitel": "Ladenkast 8 van teakhout | Teakhuis",
   "seoOmschrijving": "Ladenkast 8 van teakhout, op bestelling met de hand gemaakt in Indonesië. In elke maat zonder meerprijs en in vier houtkleuren. Vraag een offerte aan.",
