@@ -1,9 +1,9 @@
 {
   "naam": "Lampen",
   "hoofd": "",
-  "volgorde": 7,
   "intro": "",
-  "oudeId": "212",
   "foto": "../../assets/categorieen/oud-lampen.jpg",
-  "zichtbaar": true
+  "volgorde": 7,
+  "zichtbaar": false,
+  "oudeId": "212"
 }
