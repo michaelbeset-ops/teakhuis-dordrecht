@@ -1,30 +1,29 @@
 {
   "titel": "Semarang Neva vakkenkast smal",
   "categorie": "teak-boekenkasten",
-  "prijsVanaf": 728,
-  "prijsTonen": true,
-  "omschrijving": "Een speelse vakkenkast met een zwart metalen frame en planken van licht geborsteld teak. Hij is standaard ook volledig zwart leverbaar.\n\nAndere afmetingen maken we op maat, zonder meerprijs.\n\n**Kenmerken**\n- Zwart metalen frame\n- Planken van licht geborsteld teak\n- Uitvoeringen: Geborsteld teak met zwart frame of Zwart\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "semarang",
   "fotos": [
-    "../../assets/producten/29445/1.jpg",
-    "../../assets/producten/29445/2.jpg"
+    "../../assets/producten/29445/1.jpg"
   ],
+  "prijsVanaf": 799,
+  "omschrijving": "Een speelse vakkenkast met een zwart metalen frame en planken van licht geborsteld teak. Ook te gebruiken als roomdivider; voor en achterkant zijn netjes afgewerkt.\n\nAndere afmetingen of indeling maken we op maat.\n\n**Kenmerken**\n\n- Zwart metalen frame\n- Planken van licht geborsteld teak\n- Uitvoering: Geborsteld teak met zwart frame\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
-      "label": "b 80 x d 40 x H 210",
-      "prijs": 728
+      "label": "H210 x B80 x D35",
+      "prijs": 799
     }
   ],
   "houtkleuren": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
   "uitvoeringen": [
     "Geborsteld teak met zwart frame",
     "Zwart"
   ],
+  "prijsTonen": true,
   "maatwerk": true,
-  "uitgelicht": false,
-  "zichtbaar": true,
   "volgorde": 157,
   "seoTitel": "Semarang Neva vakkenkast smal teak | Teakhuis",
   "seoOmschrijving": "Smalle vakkenkast Neva met zwart metalen frame en planken van licht geborsteld teak, ook volledig zwart. Vraag vrijblijvend een offerte aan bij Teakhuis.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/180/29445/teak-boekenkasten/semarang-neva-vakkenkast-smal",
-  "collectie": "semarang"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/180/29445/teak-boekenkasten/semarang-neva-vakkenkast-smal"
 }
