@@ -1,0 +1,42 @@
+{
+  "titel": "Semarang eettafel Elbe",
+  "categorie": "teak-eettafels",
+  "collectie": "semarang",
+  "fotos": [
+    "../../assets/producten/eettafel-elbe.webp"
+  ],
+  "prijsVanaf": 1098,
+  "omschrijving": "Stoere eettafel met een 5 cm massieve teakhouten top gecombineerd met een zwart of blank metalen matrix poot. \nKan in iedere gewenste afmeting worden geleverd, ook rond.\nDaarnaast kunnen we dit model ook leveren als salontafel.",
+  "maten": [
+    {
+      "label": "B180 x D90 x H77",
+      "prijs": 1098
+    },
+    {
+      "label": "B200 x D95 x H77",
+      "prijs": 1209
+    },
+    {
+      "label": "B220 x D95 x H77",
+      "prijs": 1319
+    },
+    {
+      "label": "B240 x D100 x H77",
+      "prijs": 1419
+    },
+    {
+      "label": "B280 x D100 x H77",
+      "prijs": 1659
+    }
+  ],
+  "houtkleuren": false,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
+  "volgorde": 999,
+  "seoTitel": "",
+  "seoOmschrijving": "",
+  "oudeUrl": ""
+}
