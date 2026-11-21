@@ -1,27 +1,24 @@
 {
-  "titel": "set bijzet tafeltjes",
+  "titel": "Set bijzettafels",
   "categorie": "kleinmeubelen",
-  "prijsVanaf": 449,
-  "prijsTonen": true,
-  "omschrijving": "Een set van drie bijzettafeltjes van teak in de maten 30x30x30, 40x40x40 en 50x50x50 cm. Het hout is ongeveer 2 cm dik.\n\nJe kiest de set in blank teakhout of in de koloniale kleur. Een andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- Set van 3 tafeltjes: 30, 40 en 50 cm\n- Houtdikte ongeveer 2 cm\n- In blank teak of koloniale kleur\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/2438/1.jpg"
   ],
+  "prijsVanaf": 449,
+  "omschrijving": "Een set van drie bijzettafeltjes van teak in de maten 30x30x30, 40x40x40 en 50x50x50 cm. Gemaakt van 2 cm dik massief teak.\n\n**Kenmerken**\n\n- Set van 3 tafeltjes: 30, 40 en 50 cm\n- Houtdikte ongeveer 2 cm\n- In blank teak of koloniale kleur\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
-      "label": "set bijzettafeltjes blank teakhout",
+      "label": "30x30x30/40x40x40/50x50x50",
       "prijs": 449
-    },
-    {
-      "label": "set bijzettafeltjes koloniale kleur",
-      "prijs": 499
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 33,
   "seoTitel": "Set bijzettafeltjes teak, 3 stuks | Teakhuis",
   "seoOmschrijving": "Set van 3 teakhouten bijzettafeltjes van 30, 40 en 50 cm, in blank teak of koloniale kleur en ook op maat. Vraag vrijblijvend een offerte aan.",
