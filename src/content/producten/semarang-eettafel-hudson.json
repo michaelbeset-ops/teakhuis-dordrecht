@@ -1,50 +1,46 @@
 {
   "titel": "Semarang eettafel Hudson",
   "categorie": "teak-eettafels",
-  "prijsVanaf": 659,
-  "prijsTonen": true,
-  "omschrijving": "Eettafel Hudson is een stoere tafel met een massieve top van 4 cm dik, gemaakt van licht geborsteld oud teak. Je kiest zwart stalen U-poten of een zwart stalen matrix poot.\n\nDe tafel is 95 cm diep en leverbaar van 180 tot 240 cm lang. Met U-poten is er ook een versie van 300 x 100 cm. Een andere maat maken we op maat.\n\n**Kenmerken**\n- Massieve top van oud verweerd teak, 4 cm dik\n- Zwart stalen U-poten of matrix poot\n- Leverbaar in 9 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "semarang",
   "fotos": [
-    "../../assets/producten/32540/1.jpg",
-    "../../assets/producten/32540/2.jpg"
+    "../../assets/producten/eettafel-hudson.webp"
   ],
+  "prijsVanaf": 925,
+  "omschrijving": "Eettafel Hudson is een stoere tafel met een massieve top van 4 cm dik, gemaakt van licht geborsteld blank teak. Uiteraard is een gladde afwerking ook mogelijk. Je kiest zwart stalen U-poten of een zwart stalen X-poten.\n\nDe tafel is leverbaar in iedere gewenste afmeting\n\n**Kenmerken**\n\n- Massieve top van blank teak, 4 cm dik\n- Zwart stalen U-poten of X-poot\n- Leverbaar in iedere afmeting\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
-      "label": "B180 x D95 x H77 oud verweerd teak met zwart stalen U-poten"
+      "label": "B160 x D90 x H77",
+      "prijs": 925
     },
     {
-      "label": "B200 x D95 x H77 oud verweerd teak met zwart stalen U-poten"
+      "label": "B180 x D90 x H77",
+      "prijs": 999
     },
     {
-      "label": "B220 x D95 x H77 oud verweerd teak met zwart stalen U-poten"
+      "label": "B200 x D95 x H77",
+      "prijs": 1099
     },
     {
-      "label": "B240 x D95 x H77 oud verweerd teak met zwart stalen U-poten"
+      "label": "B220 x D95 x H77",
+      "prijs": 1189
     },
     {
-      "label": "B300 x D100 x H77 oud verweerd teak met zwart stalen U-poten"
+      "label": "B240 x D100 x H77 oud verweerd teak met zwart stalen U-poten",
+      "prijs": 1309
     },
     {
-      "label": "B180 x D95 x H77 oud verweerd teak met zwart stalen matrix poot"
-    },
-    {
-      "label": "B200 x D95 x H77 oud verweerd teak met zwart stalen matrix poot"
-    },
-    {
-      "label": "B220 x D95 x H77 oud verweerd teak met zwart stalen matrix poot"
-    },
-    {
-      "label": "B240 x D95 x H77 oud verweerd teak met zwart stalen matrix poot"
+      "label": "B300 x D100 x H77",
+      "prijs": 1550
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 70,
   "seoTitel": "Semarang eettafel Hudson oud teak en staal | Teakhuis",
   "seoOmschrijving": "Stoere eettafel Hudson met 4 cm massieve top van oud teak op zwart stalen U-poten of matrix poot, ook op maat. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/32540/teak-eettafels/semarang-eettafel-hudson",
-  "collectie": "semarang"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/32540/teak-eettafels/semarang-eettafel-hudson"
 }
