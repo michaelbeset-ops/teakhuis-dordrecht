@@ -1,30 +1,29 @@
 {
   "titel": "Semarang ladenkast Neva",
   "categorie": "ladenkasten",
-  "prijsVanaf": 430,
-  "prijsTonen": true,
-  "omschrijving": "Ladenkast Neva is een handige kast met 3 lades in een zwart stalen frame. Je kiest geborsteld teak met zwart frame, of de volledig zwarte uitvoering.\n\nWil je een andere maat, dan maken we hem op maat zonder meerprijs.\n\n**Kenmerken**\n- 3 lades\n- Zwart stalen frame\n- Uitvoeringen: Geborsteld teak met zwart frame of Zwart\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "semarang",
   "fotos": [
-    "../../assets/producten/29448/1.jpg",
-    "../../assets/producten/29448/2.jpg"
+    "../../assets/producten/29448/1.jpg"
   ],
+  "prijsVanaf": 499,
+  "omschrijving": "Ladenkast Neva is een handige kast met 3 lades in een zwart stalen frame. Je kiest geborsteld of glad afgewerkt teak met zwart frame.\n\nWil je een andere maat, dan laten we de kast op maat maken.\n\n**Kenmerken**\n\n- 3 lades\n- Zwart stalen frame\n- Uitvoeringen: Geborsteld teak oif glad blank teak met zwart frame \n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
       "label": "H88 x B55 x D40",
-      "prijs": 430
+      "prijs": 499
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [
-    "Geborsteld teak met zwart frame",
-    "Zwart"
-  ],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [
+    "Geborsteld teak met zwart frame",
+    "Glad teak met zwart frame"
+  ],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 496,
   "seoTitel": "Semarang ladenkast Neva met 3 lades | Teakhuis",
   "seoOmschrijving": "Ladenkast Neva met 3 lades en zwart stalen frame, in geborsteld teak of volledig zwart en ook op maat. Vraag vrijblijvend een offerte aan bij Teakhuis.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/175/29448/ladenkasten/semarang-ladenkast-neva",
-  "collectie": "semarang"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/175/29448/ladenkasten/semarang-ladenkast-neva"
 }
