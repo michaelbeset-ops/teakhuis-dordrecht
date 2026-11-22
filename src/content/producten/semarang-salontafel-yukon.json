@@ -1,26 +1,34 @@
 {
   "titel": "Semarang salontafel Yukon",
   "categorie": "teak-salontafels",
-  "prijsVanaf": 452,
-  "prijsTonen": true,
-  "omschrijving": "Salontafel Yukon heeft een onderplank. Hij is gemaakt van licht geborsteld rustiek teak met een zwart stalen frame.\n\nWil je een andere maat, dan maken we hem op maat zonder meerprijs.\n\n**Kenmerken**\n- Met onderplank\n- Materiaal: licht geborsteld rustiek teak\n- Zwart stalen frame\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "semarang",
   "fotos": [
     "../../assets/producten/12886/1.jpg"
   ],
+  "prijsVanaf": 479,
+  "omschrijving": "Deze uitvoering van de salontafel Yukon heeft een onderplank. Uitegevoerd in licht geborsteld of glad afgewerkt blank teak.\nWordt op bestelling op maat geleverd\n\n**Kenmerken**\n\n- Met onderplank\n- Materiaal: licht geborsteld of glad teak\n- Zwart stalen frame\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
+      "label": "B110 x D60 x H42",
+      "prijs": 409
+    },
+    {
       "label": "B120 x D70 x H42",
-      "prijs": 452
+      "prijs": 479
+    },
+    {
+      "label": "B140 x D75 x H42",
+      "prijs": 569
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 331,
   "seoTitel": "Semarang salontafel Yukon met onderplank | Teakhuis",
   "seoOmschrijving": "Salontafel Yukon met onderplank, van licht geborsteld rustiek teak met zwart stalen frame. Ook op maat. Vraag vrijblijvend een offerte aan bij Teakhuis.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/12886/teak-salontafels/semarang-salontafel-yukon",
-  "collectie": "semarang"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/12886/teak-salontafels/semarang-salontafel-yukon"
 }

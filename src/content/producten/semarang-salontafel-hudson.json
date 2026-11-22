@@ -1,26 +1,38 @@
 {
   "titel": "Semarang salontafel Hudson",
   "categorie": "teak-salontafels",
-  "prijsVanaf": 429,
-  "prijsTonen": true,
-  "omschrijving": "Salontafel Hudson heeft een massieve top van 4 cm dik, van licht geborsteld teak erosi. Hij staat op zwart stalen U-poten.\n\nEen andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- Massieve top van licht geborsteld teak erosi, 4 cm dik\n- Zwart stalen U-poten\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "semarang",
   "fotos": [
     "../../assets/producten/32545/1.jpg"
   ],
+  "prijsVanaf": 439,
+  "omschrijving": "Salontafel Hudson heeft een massieve top van 4 cm dik, van licht geborsteld teak. Hij staat op zwart stalen U-poten.\n\nOok te leveren met metalen X-poot of matrixpoot. Prijs op aanvraag\n\n**Kenmerken**\n\n- Massieve top van licht geborsteld teak, 4 cm dik\n- Zwart stalen U-poten\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
-      "label": "B120 x D70 x H45 licht geborsteld teak erosi met zwart stalen poten",
-      "prijs": 429
+      "label": "B110 x D65 x H45",
+      "prijs": 439
+    },
+    {
+      "label": "B120 x D70 x H45",
+      "prijs": 469
+    },
+    {
+      "label": "B130 x D70 x H45",
+      "prijs": 495
+    },
+    {
+      "label": "B140 x D75 x H45",
+      "prijs": 549
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 59,
   "seoTitel": "Semarang salontafel Hudson teak erosi | Teakhuis",
   "seoOmschrijving": "Stoere salontafel Hudson met 4 cm massieve top van licht geborsteld teak erosi op zwart stalen U-poten. Ook op maat. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/32545/teak-salontafels/semarang-salontafel-hudson",
-  "collectie": "semarang"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/165/32545/teak-salontafels/semarang-salontafel-hudson"
 }

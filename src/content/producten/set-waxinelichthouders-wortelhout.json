@@ -1,31 +1,36 @@
 {
   "titel": "Set waxinelichthouders wortelhout",
   "categorie": "accessoires",
-  "prijsVanaf": 12.95,
-  "prijsTonen": true,
-  "omschrijving": "Drie waxinelichthouders van massief wortelhout, elk met een eigen grillige vorm. Samen in verschillende hoogtes geven ze veel sfeer op tafel of in de vensterbank.\n\nJe kunt de hele set nemen, maar ze zijn ook per stuk verkrijgbaar.\n\n**Kenmerken**\n- Materiaal: massief wortelhout\n- Drie hoogtes, van ca. 10 tot 20 cm\n- Als set van 3 of per stuk te bestellen\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/4897/1.jpg"
   ],
+  "prijsVanaf": 12.95,
+  "omschrijving": "Drie waxinelichthouders van massief wortelhout, elk met een eigen grillige vorm. Samen in verschillende hoogtes geven ze veel sfeer op tafel of in de vensterbank.\n\nJe kunt de hele set nemen, maar ze zijn ook per stuk verkrijgbaar.\n\n**Kenmerken**\n- Materiaal: massief wortelhout\n- Drie hoogtes, van ca. 10 tot 20 cm\n- Als set van 3 of per stuk te bestellen\n- Met de hand gemaakt in Indonesië",
   "maten": [
     {
-      "label": "H20 x Ø 14 (ca)"
+      "label": "H20 x Ø 14 (ca)",
+      "prijs": null
     },
     {
-      "label": "H15 x Ø 14 (ca)"
+      "label": "H15 x Ø 14 (ca)",
+      "prijs": null
     },
     {
-      "label": "H10 x Ø 12 (ca)"
+      "label": "H10 x Ø 12 (ca)",
+      "prijs": null
     },
     {
-      "label": "Set van 3"
+      "label": "Set van 3",
+      "prijs": null
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": false,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": false,
   "volgorde": 28,
   "seoTitel": "Waxinelichthouders wortelhout, set van 3 | Teakhuis",
   "seoOmschrijving": "Set waxinelichthouders van massief wortelhout in drie hoogtes, van ca. 10 tot 20 cm. Ook per stuk verkrijgbaar. Bekijk de set en bestel bij Teakhuis.",
