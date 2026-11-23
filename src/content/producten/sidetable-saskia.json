@@ -1,13 +1,13 @@
 {
   "titel": "Sidetable Saskia",
   "categorie": "mangohout-salon-tafels",
-  "prijsVanaf": 119,
-  "prijsTonen": true,
-  "omschrijving": "Sidetable Saskia hoort bij onze collectie salontafels en bijzettafels van mangohout. Zet hem naast de bank of in de hal.\n\nWil je weten wat de afmetingen zijn of hoe hij eruitziet in het echt, neem dan contact met ons op.\n\n**Kenmerken**\n- Materiaal: mangohout\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/32600/1.jpg",
     "../../assets/producten/32600/2.jpg"
   ],
+  "prijsVanaf": 119,
+  "omschrijving": "Sidetable Saskia hoort bij onze collectie salontafels en bijzettafels van mangohout. Zet hem naast de bank of in de hal.\n\nWil je weten wat de afmetingen zijn of hoe hij eruitziet in het echt, neem dan contact met ons op.\n\n**Kenmerken**\n- Materiaal: mangohout\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
       "label": "H62 x B45 x D30",
@@ -15,10 +15,11 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 47,
   "seoTitel": "Sidetable Saskia mangohout | Teakhuis",
   "seoOmschrijving": "Sidetable Saskia uit de collectie mangohouten salon- en bijzettafels van Teakhuis, met de hand gemaakt in Indonesië. Vraag vrijblijvend een offerte aan.",
