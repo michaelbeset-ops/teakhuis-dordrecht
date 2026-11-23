@@ -73,7 +73,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
            houdt de tekst leesbaar, ook op lichte foto's zoals de slaapkamer (Han, 16 nov). -->
       <div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-[80%] bg-gradient-to-t from-inkt/80 via-inkt/50 to-transparent lg:hidden"></div>
 
-      <div class="wrap relative grid gap-8 pb-[calc(5.5rem+env(safe-area-inset-bottom))] pt-28 laag:gap-5 laag:pt-24 md:pb-10 md:pt-36 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-16">
+      <div class="wrap relative grid gap-8 pb-6 pt-28 laag:gap-5 laag:pt-24 md:pb-10 md:pt-36 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-16">
         <div class="lg:col-span-8">
           <p class="hero-op max-w-[24ch] font-kop text-[clamp(1.6rem,3vw,2.8rem)] font-extrabold leading-[1.08] text-blad-licht">Maatwerk zonder meerprijs van teakhouten meubels sinds 2007</p>
           <h1 class="hero-op mt-4 max-w-[18ch] laag:mt-3 text-[clamp(1.5rem,2.4vw,2.3rem)] font-semibold leading-[1.1] [font-stretch:100%]" style="--d:.08s">Teak op bestelling met de hand gemaakt.</h1>
@@ -83,8 +83,8 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
             <a href={url('maatwerk/')} class="knop knop-glas">Iets op maat laten maken</a>
           </div>
         </div>
-        <div class="hero-op flex flex-col gap-5 lg:col-span-4 lg:items-end lg:text-right zeerlaag:hidden" style="--d:.45s">
-          <a href={waHoi} class="group flex items-center gap-3 rounded-full bg-wit/10 py-1.5 pl-1.5 pr-5 text-left no-underline ring-1 ring-wit/20 backdrop-blur-md transition-colors hover:bg-wit/20">
+        <div class="hero-op flex flex-col items-start gap-5 lg:col-span-4 lg:items-end lg:text-right zeerlaag:hidden" style="--d:.45s">
+          <a href={waHoi} class="group flex items-center gap-3 rounded-full bg-wit/10 py-1.5 pl-1.5 pr-5 max-md:max-w-[calc(100%-4.5rem)] text-left no-underline ring-1 ring-wit/20 backdrop-blur-md transition-colors hover:bg-wit/20">
             <Image src={han} alt="" quality={80} widths={[112]} sizes="48px" class="h-12 w-12 flex-none rounded-full object-cover object-[50%_45%] ring-2 ring-blad" />
             <span><span class="block text-xs text-wit/70">Persoonlijk advies van Han, eigenaar</span><span class="num block font-kop text-lg font-extrabold leading-tight text-wit group-hover:text-blad-licht">{site.tel}</span></span>
           </a>
