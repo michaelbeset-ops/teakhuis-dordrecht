@@ -1,19 +1,25 @@
 {
   "titel": "Stoel Fenny",
   "categorie": "houten-stoelen",
-  "prijsVanaf": 109,
-  "prijsTonen": true,
-  "omschrijving": "Stoel Fenny heeft een sierlijke vorm en zit heerlijk. Fijn als je na het eten graag nog even aan tafel blijft hangen.\n\n**Kenmerken**\n- Houten stoel met sierlijk model\n- Prettige zit\n- Op maat te maken zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/12923/1.jpg",
     "../../assets/producten/12923/2.jpg"
   ],
-  "maten": [],
+  "prijsVanaf": 129,
+  "omschrijving": "Het bekende tijdeloze model houten stoel voor bij de keukentafel. Zeker ook geschikt voor bij de eetkamertafel.\n\n**Kenmerken**\n\n- Houten stoel met sierlijk model\n- Prettige zit\n- Op maat te maken zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "maten": [
+    {
+      "label": "Zithoogte 47 cm",
+      "prijs": 129
+    }
+  ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 260,
   "seoTitel": "Stoel Fenny, sierlijke houten stoel | Teakhuis",
   "seoOmschrijving": "Stoel Fenny is een sierlijke houten eetkamerstoel met een heerlijke zit, met de hand gemaakt in Indonesië. Vraag een offerte aan bij Teakhuis.",
