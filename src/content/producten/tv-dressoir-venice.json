@@ -1,26 +1,34 @@
 {
-  "titel": "TV Dressoir Venice",
+  "titel": "Tv-meubel Venice",
   "categorie": "teak-tv-kasten",
-  "prijsVanaf": 519,
-  "prijsTonen": true,
-  "omschrijving": "Bij tv dressoir Venice is de onderkast met de hand wit geschilderd en de top van geborsteld teak. Dat contrast tussen wit en warm hout maakt hem licht en landelijk. Liever een gladde top, dan kan dat ook.\n\nWe leveren hem in alle maten, zonder meerprijs.\n\n**Kenmerken**\n- Onderkant handgeschilderd wit\n- Top van geborsteld teak, ook glad leverbaar\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- In elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "venice",
   "fotos": [
     "../../assets/producten/4212/1.jpg"
   ],
+  "prijsVanaf": 569,
+  "omschrijving": "Bij tv dressoir Venice is de onderkast met de hand wit geschilderd en de top van blank teak. Dat contrast tussen wit en warm hout maakt hem licht en landelijk. Liever een gladde top, dan kan dat ook.\n\nWe leveren hem in alle maten, zonder meerprijs.\n\n**Kenmerken**\n\n- Onderkant handgeschilderd wit\n- Top van geborsteld teak, ook glad leverbaar\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- In elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
-      "label": "b150 x d45 x h45",
-      "prijs": 519
+      "label": "B150 x D45 x H45, wit met teakhouten top",
+      "prijs": 569
+    },
+    {
+      "label": "B150 x D45 x H45, volledig wit",
+      "prijs": 599
+    },
+    {
+      "label": "B150 x D45 x H45, wit met koloniale of theekleur top",
+      "prijs": 599
     }
   ],
-  "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
+  "houtkleuren": false,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 410,
   "seoTitel": "TV dressoir Venice wit met teak top | Teakhuis",
   "seoOmschrijving": "Tv dressoir Venice met handgeschilderd witte onderkast en top van geborsteld of glad teak. In alle maten leverbaar zonder meerprijs. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/174/4212/teak-tv-kasten/tv-dressoir-venice",
-  "collectie": "venice"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/174/4212/teak-tv-kasten/tv-dressoir-venice"
 }

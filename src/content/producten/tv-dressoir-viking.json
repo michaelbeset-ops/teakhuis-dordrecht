@@ -1,32 +1,36 @@
 {
-  "titel": "Tv dressoir Viking",
+  "titel": "Tv-dressoir Viking",
   "categorie": "teak-tv-kasten",
-  "prijsVanaf": 779,
-  "prijsTonen": true,
-  "omschrijving": "Tv meubel Viking is gemaakt van oud gerecycled teakhout gecombineerd met staal. Het hout heeft zichtbaar geleefd, wat het meubel een stoere, robuuste uitstraling geeft. Het past bij de andere meubels uit de Viking collectie.\n\nEr zijn drie standaardmaten, van 150 tot 200 cm breed. Ook bij deze collectie kan maatwerk, zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: oud gerecycled teak met staal\n- Leverbaar in 3 standaardmaten, ook op maat\n- Diepte 50 cm\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "viking",
   "fotos": [
+    "../../assets/producten/tv-meubel-viking-zwarte-poten.webp",
     "../../assets/producten/28703/1.jpg",
     "../../assets/producten/28703/2.jpg"
   ],
+  "prijsVanaf": 779,
+  "omschrijving": "Standaard wordt deze kast uitgevoerd in blank teak, gecombineerd met zwart stalen poten. Ook mogelijk met een meer industriele look door de kast uit te laten voeren in gerecycled teak met geleefd blank stalen poten.\n\nEr zijn drie standaardmaten, van 150 tot 200 cm breed. Ook bij deze collectie kan maatwerk, zonder meerprijs.\n\n**Kenmerken**\n\n- Materiaal: oud gerecycled teak met staal\n- Leverbaar in 3 standaardmaten, ook op maat\n- Diepte 50 cm\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
-      "label": "B150 x D50 x H60"
+      "label": "B150 x D50 x H60",
+      "prijs": 779
     },
     {
-      "label": "B180 x D50 x H60"
+      "label": "B180 x D50 x H60",
+      "prijs": 899
     },
     {
-      "label": "B200 x D50 x H50"
+      "label": "B200 x D50 x H50",
+      "prijs": 999
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 127,
   "seoTitel": "Tv dressoir Viking gerecycled teak | Teakhuis",
   "seoOmschrijving": "Stoer tv dressoir Viking van oud gerecycled teak en staal, van 150 tot 200 cm breed. Ook op maat zonder meerprijs. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/174/28703/teak-tv-kasten/tv-dressoir-viking",
-  "collectie": "viking"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/174/28703/teak-tv-kasten/tv-dressoir-viking"
 }
