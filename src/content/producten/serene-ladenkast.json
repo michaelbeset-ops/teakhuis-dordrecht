@@ -1,19 +1,19 @@
 {
-  "titel": "Serene 4 Ladenkast",
+  "titel": "Serene 4 Ladekast",
   "categorie": "ladenkasten",
   "collectie": "",
   "fotos": [
     "../../assets/producten/3793/1.jpg"
   ],
   "prijsVanaf": 449,
-  "omschrijving": "Een strakke ladenkast uit der Serene collectie. 4 Greeploze lades.\n\nDeze ladenkast wordt door een lokale producent in Indonesie op bestelling gemaakt. Kan dus worden geleverd in iedere gewenste afmeting en indeling naar wens.\n\n**Kenmerken**\n\n- B60 x H82 x D45 cm\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
+  "omschrijving": "Een strakke ladekast uit der Serene collectie. 4 Greeploze lades.\n\nDeze ladekast wordt door een lokale producent in Indonesie op bestelling gemaakt. Kan dus worden geleverd in iedere gewenste afmeting en indeling naar wens.\n\n**Kenmerken**\n\n- B60 x H82 x D45 cm\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "H82 x B60 x D42",
       "prijs": 449
     }
   ],
-  "houtkleuren": false,
+  "houtkleuren": true,
   "uitgelicht": false,
   "zichtbaar": true,
   "uitvoeringen": [],
