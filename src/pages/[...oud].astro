@@ -42,6 +42,36 @@ export async function getStaticPaths() {
   zet('teakhouten-vitrinekast-1', cat('vitrinekasten'));
   zet('teaktafel-rond', cat('teak-eettafels'));
 
+  // Pagina's van de oude site buiten de webshop (gevonden door de oude site te doorlopen, 23 nov 2026): landingspagina's,
+  // blog, winkels, juridisch. Allemaal naar de pagina die er inhoudelijk het dichtst bij komt.
+  const home = url(''), shop = url('webshop/');
+  const overig: [string, string][] = [
+    ['alle-producten', shop], ['webshop/aanbiedingen', shop], ['winkelmand', url('offerte/')],
+    ['aziatische-meubelen', url('collecties/koloniale-meubelen/')], ['koloniaal-wonen', url('collecties/koloniale-meubelen/')],
+    ['meubelen-van-teakhout', shop], ['mooie-teak-meubelen', shop], ['goedkope-teak-meubels', shop], ['strakke-teak-meubels', shop],
+    ['teak-woninginrichting', shop], ['teak-meubelen-amsterdam', shop], ['teak-meubelen-antwerpen', shop], ['teak-meubelen-utrecht', shop],
+    ['dressoir-van-teakhout', cat('dressoirs')], ['kast-van-teakhout', cat('kasten')], ['salontafel-van-teak', cat('teak-salontafels')],
+    ['tafel-van-teakhout', cat('tafels')], ['teak-eettafel', cat('teak-eettafels')], ['teak-badkamermeubels', cat('badkamermeubelen')],
+    ['maatwerk-teak', url('maatwerk/')], ['maatwerk/waarom-maatwerk', url('maatwerk/')],
+    ['onze-winkels', url('over-ons/')], ['onze-winkels/teakhuis-dordrecht', url('over-ons/')], ['onze-winkels/teakhuis-leiderdorp', url('over-ons/')], ['onze-winkels/teakhuis-roosendaal', url('over-ons/')],
+    ['waarom-teakhout', url('duurzaam/')], ['waarom-teakhout-4-voordelen-van-teakhout', url('duurzaam/')], ['waarom-teakhout-veelzijdigheid-van-teakhout', url('duurzaam/')], ['waarom-teakhout/onderhoud-teakhout', url('duurzaam/')],
+    ['juridisch-menu', url('privacy/')], ['juridisch-menu/cookie-statement', url('privacy/')], ['juridisch-menu/disclaimer', url('privacy/')],
+    ['juridisch-menu/leveringsvoorwaarden', url('contact/')], ['juridisch-menu/sitemap', shop],
+    ['blog', home], ['blog/aynSM5xKTi4DBtf9dCkqqa', home],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/74/5-tips-om-de-perfecte-thuiswerkplek-te-creeren', cat('bureaus')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/75/de-boomstamtafel-een-echte-eyecatcher', cat('teak-eettafels')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/76/tips-en-inspiratie-voor-het-aanschaffen-van-een-nieuwe-eettafel', cat('teak-eettafels')],
+    ['blog/aynSM5xKTi4DBtf9dCkqqa/77/interieur-inspiratie-een-natuurlijke-look', url('collecties/')],
+  ];
+  for (const [oud, nieuw] of overig) zet(oud, nieuw);
+  // Korte webshopadressen van de oude site (/webshop/tafels): naar die categorie, of de webshop als hij verborgen is.
+  for (const oud of oudeAdressen as string[]) {
+    const m = oud.match(/^webshop\/([a-z-]+)$/);
+    if (m) zet(oud, cat(m[1]));
+  }
+  // Onderhoud-teakhout had nog twee testberichten onder zich: ook naar Duurzaam.
+  for (const oud of oudeAdressen as string[]) if (oud.startsWith('waarom-teakhout/')) zet(oud, url('duurzaam/'));
+
   // Elk ander oud adres dat geen pagina meer heeft (product verborgen of verwijderd, categorie verborgen): door naar de
   // categorie met hetzelfde oude nummer, of het hoofdmenu erboven als die verborgen is, en anders de webshop. Zo komt
   // niemand die via Google of een oude link binnenkomt op een foutpagina.
