@@ -1,20 +1,20 @@
 {
   "titel": "sidetable Milaan",
   "categorie": "sidetables",
-  "prijsVanaf": 299,
-  "prijsTonen": true,
-  "omschrijving": "Sidetable Milaan valt op door de brede poten van 20 x 10 cm, die hol zijn uitgevoerd. Dat geeft een stevig, modern silhouet zonder dat het meubel zwaar wordt. Je laat hem glad of juist robuust afwerken.\n\nDe standaardmaten zijn 40 cm diep en 100 tot 200 cm breed. Een andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- Holle poten van 20 x 10 cm\n- Glad of robuust afgewerkt\n- Uitvoeringen: Blank teak, Koloniale kleur, Wit, Milaan, Gerecycled teak of Geborsteld teak\n- Leverbaar in 6 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "milaan",
   "fotos": [
     "../../assets/producten/1212/1.jpg"
   ],
+  "prijsVanaf": 339,
+  "omschrijving": "Sidetable Milaan valt op door de brede poten van 20 x 10 cm, die hol zijn uitgevoerd. Dat geeft een stevig, modern silhouet zonder dat het meubel zwaar wordt. Je laat hem glad of geborsteld afwerken.\n\nDe standaardmaten zijn 40 cm diep en 100 tot 200 cm breed. Een andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n\n- Holle poten van 20 x 10 cm\n- Glad of geborsteld afgewerkt\n- Leverbaar in 6 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
       "label": "100x40cm h=78cm",
-      "prijs": 299
+      "prijs": 339
     },
     {
       "label": "120x40cm h=78cm",
-      "prijs": 349
+      "prijs": 369
     },
     {
       "label": "140x40cm h=78cm",
@@ -33,21 +33,16 @@
       "prijs": 599
     }
   ],
-  "houtkleuren": false,
-  "uitvoeringen": [
-    "Blank teak",
-    "Koloniale kleur",
-    "Wit",
-    "Milaan",
-    "Gerecycled teak",
-    "Geborsteld teak"
-  ],
-  "maatwerk": true,
+  "houtkleuren": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [
+    "Geborsteld teak"
+  ],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 91,
   "seoTitel": "Sidetable Milaan teak, ook op maat | Teakhuis",
   "seoOmschrijving": "Sidetable Milaan van teak met holle poten van 20 x 10 cm, glad of robuust afgewerkt. Van 100 tot 200 cm breed en ook op maat. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/1212/sidetables/sidetable-milaan",
-  "collectie": "milaan"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/1212/sidetables/sidetable-milaan"
 }
