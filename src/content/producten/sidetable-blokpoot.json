@@ -1,13 +1,13 @@
 {
   "titel": "Sidetable blokpoot",
   "categorie": "sidetables",
-  "prijsVanaf": 169,
-  "prijsTonen": true,
-  "omschrijving": "Een sidetable zonder poespas: blokpoten van 8 cm en een blad van 3 cm dik. Daardoor oogt hij stevig en strak tegelijk. Kies hem met of zonder lades, in glad nieuw teak of in gerecycled teak, glad of ruw.\n\nDe standaardmaten gaan van 60 tot 200 cm breed. Elke andere afmeting is mogelijk, zonder meerprijs.\n\n**Kenmerken**\n- Blokpoten van 8 cm, top van 3 cm\n- Met of zonder lades\n- Uitvoeringen: Blank teak, Koloniaal, Milaan, Gerecycled teak of Geborsteld teak\n- Leverbaar in 18 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/27441/1.jpg",
     "../../assets/producten/27441/2.jpg"
   ],
+  "prijsVanaf": 169,
+  "omschrijving": "Een sidetable zonder poespas: blokpoten van 8 cm en een blad van 3 cm dik. Daardoor oogt hij stevig en strak tegelijk. Kies hem met of zonder lades, in glad nieuw teak of in gerecycled teak, glad of ruw.\n\nDe standaardmaten gaan van 60 tot 200 cm breed. Elke andere afmeting is mogelijk, zonder meerprijs.\n\n**Kenmerken**\n\n- Blokpoten van 8 cm, top van 3 cm\n- Met of zonder lades\n- Uitvoeringen: Blank teak, Koloniaal, of geborsteld teak\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
       "label": "B60 x D30 x H78",
@@ -82,17 +82,14 @@
       "prijs": 509
     }
   ],
-  "houtkleuren": false,
-  "uitvoeringen": [
-    "Blank Teak",
-    "Koloniaal",
-    "Milaan",
-    "Gerecycled teak",
-    "Geborsteld teak"
-  ],
-  "maatwerk": true,
+  "houtkleuren": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [
+    "Geborsteld teak"
+  ],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 85,
   "seoTitel": "Sidetable blokpoot teak, ook op maat | Teakhuis",
   "seoOmschrijving": "Strakke sidetable met blokpoten van 8 cm en een top van 3 cm, met of zonder lades. Nieuw of gerecycled teak, ook op maat. Vraag een offerte aan.",
