@@ -1,19 +1,24 @@
 {
   "titel": "Stoel Cross",
   "categorie": "houten-stoelen",
-  "prijsVanaf": 129,
-  "prijsTonen": true,
-  "omschrijving": "Stoel Cross is een stevige stoel die tegen een stootje kan. Een goede keuze voor een eettafel waar dagelijks aan gegeten, gewerkt en gespeeld wordt.\n\nJe kiest de houtkleur die bij je tafel past. De stoel is alleen op bestelling leverbaar.\n\n**Kenmerken**\n- Stevig model\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Alleen op bestelling leverbaar\n- Op maat te maken zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
-    "../../assets/producten/386/1.jpg",
-    "../../assets/producten/386/2.jpg"
+    "../../assets/producten/386/1.jpg"
   ],
-  "maten": [],
+  "prijsVanaf": 139,
+  "omschrijving": "Stoel Cross is een stevige stoel die tegen een stootje kan. Een goede keuze voor een eettafel waar dagelijks aan gegeten, gewerkt en gespeeld wordt.\n\nJe kiest de houtkleur die bij je tafel past. De stoel is alleen op bestelling leverbaar.\n\n**Kenmerken**\n- Stevig model\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Alleen op bestelling leverbaar\n- Op maat te maken zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "maten": [
+    {
+      "label": "Zithoogte = 47 cm",
+      "prijs": 139
+    }
+  ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 252,
   "seoTitel": "Stoel Cross teak, stevige eetkamerstoel | Teakhuis",
   "seoOmschrijving": "Stevige teakhouten stoel Cross voor aan de eettafel, in blank teak, thee kleur, koloniale kleur of wit. Alleen op bestelling. Vraag een offerte aan.",
