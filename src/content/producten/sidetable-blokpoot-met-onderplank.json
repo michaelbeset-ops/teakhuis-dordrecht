@@ -1,12 +1,12 @@
 {
   "titel": "Sidetable blokpoot met onderplank",
   "categorie": "sidetables",
-  "prijsVanaf": 179,
-  "prijsTonen": true,
-  "omschrijving": "Strakke teakhouten sidetable op blokpoten, met een onderplank voor manden, boeken of een platenspeler. Je kiest zelf of je er lades in wilt en of het hout glad of juist robuust wordt afgewerkt.\n\nDe standaardmaten lopen van 60 tot 200 cm breed, in 30 of 40 cm diep. Een andere maat maken we zonder meerprijs.\n\n**Kenmerken**\n- Met onderplank, met of zonder lades\n- Glad of robuust afgewerkt\n- Uitvoeringen: Blank teak, Koloniaal, Milaan, Gerecycled teak of Geborsteld teak\n- Leverbaar in 18 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/27367/1.jpg"
   ],
+  "prijsVanaf": 179,
+  "omschrijving": "Strakke teakhouten sidetable op blokpoten, met een onderplank voor manden, boeken of een platenspeler. Je kiest zelf of je er lades in wilt en of het hout glad of juist geborsteld wordt afgewerkt.\n\nDe standaardmaten lopen van 60 tot 200 cm breed, in 30 of 40 cm diep. Een andere maat maken we zonder meerprijs.\n\n**Kenmerken**\n\n- Met onderplank, met of zonder lades\n- Glad of geborsteld afgewerkt\n- Uitvoeringen: Blank teak, Koloniaal, geborsteld teak\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
       "label": "B60 x D30 x H78",
@@ -81,17 +81,14 @@
       "prijs": 549
     }
   ],
-  "houtkleuren": false,
-  "uitvoeringen": [
-    "Blank Teak",
-    "Koloniaal",
-    "Milaan",
-    "Gerecycled teak",
-    "Geborsteld teak"
-  ],
-  "maatwerk": true,
+  "houtkleuren": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [
+    "Geborsteld teak"
+  ],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 84,
   "seoTitel": "Sidetable blokpoot met onderplank, teak | Teakhuis",
   "seoOmschrijving": "Teakhouten sidetable op blokpoten met onderplank, met of zonder lades, van 60 tot 200 cm breed. Ook op maat zonder meerprijs. Vraag een offerte.",
