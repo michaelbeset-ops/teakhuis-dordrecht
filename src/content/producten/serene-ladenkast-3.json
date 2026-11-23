@@ -1,21 +1,26 @@
 {
-  "titel": "Serene ladenkast 3",
+  "titel": "Serene 6 ladekast",
   "categorie": "ladenkasten",
-  "prijsVanaf": 519,
-  "prijsTonen": true,
-  "omschrijving": "Een ladenkast uit de Serene-lijn. De standaardmaat is 60 cm breed, 120 cm hoog en 40 cm diep.\n\nEen andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- B60 x H120 x D40 cm\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/3800/1.jpg"
   ],
-  "maten": [],
+  "prijsVanaf": 629,
+  "omschrijving": "Strakke greeploze ladekast, standaard met 6 lades.\n\nOp maat te leveren.\n\n**Kenmerken**\n\n- B60 x H120 x D40 cm\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
+  "maten": [
+    {
+      "label": "H120 x B60 x D40",
+      "prijs": 629
+    }
+  ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 493,
   "seoTitel": "Serene ladenkast 3, smal en hoog | Teakhuis",
   "seoOmschrijving": "Ladenkast Serene 3 van 60 cm breed, 120 cm hoog en 40 cm diep, met de hand gemaakt en ook op maat. Vraag vrijblijvend een offerte aan bij Teakhuis.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/175/3800/ladenkasten/serene-ladenkast-3",
-  "collectie": ""
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/175/3800/ladenkasten/serene-ladenkast-3"
 }
