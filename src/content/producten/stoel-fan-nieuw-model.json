@@ -1,18 +1,24 @@
 {
-  "titel": "Stoel Fan nieuw model",
+  "titel": "Stoel Fan",
   "categorie": "houten-stoelen",
-  "prijsVanaf": 139,
-  "prijsTonen": true,
-  "omschrijving": "Het nieuwe model van stoel Fan is een fraaie, klassieke eetkamerstoel. Hij past goed bij een klassieke teakhouten tafel, en door de keuze in houtkleur ook in een lichter interieur.\n\nDeze stoel maken we alleen op bestelling.\n\n**Kenmerken**\n- Klassiek model\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Alleen op bestelling leverbaar\n- Op maat te maken zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/438/1.jpg"
   ],
-  "maten": [],
+  "prijsVanaf": 159,
+  "omschrijving": "De stoel Fan is een fraaie, klassieke eetkamerstoel met een licht gebogen rugleuning voor meer zitcomfort. Hij past goed bij een klassieke teakhouten tafel.\n\nDeze stoel leveren we alleen op bestelling.\n\n**Kenmerken**\n\n- Klassiek model\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Alleen op bestelling leverbaar\n- Op maat te maken zonder meerprijs\n- Met de hand gemaakt in Indonesië",
+  "maten": [
+    {
+      "label": "Zithoogte = 47 cm",
+      "prijs": 159
+    }
+  ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 255,
   "seoTitel": "Stoel Fan nieuw model, klassiek teak | Teakhuis",
   "seoOmschrijving": "Stoel Fan nieuw model: een klassieke teakhouten eetkamerstoel in blank teak, thee kleur, koloniale kleur of wit. Alleen op bestelling. Vraag een offerte.",
