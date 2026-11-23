@@ -1,13 +1,13 @@
 {
   "titel": "Sidetable klassiek met onderplank",
   "categorie": "sidetables",
-  "prijsVanaf": 189,
-  "prijsTonen": true,
-  "omschrijving": "Een klassieke sidetable met tapse poten en een onderplank, zodat je extra opbergruimte hebt. Standaard hebben de poten een inkeping, op bestelling maken we ze ook zonder. Lades zijn een keuze, net als een ruwe of gladde afwerking.\n\nJe kiest uit maten van 60 tot 200 cm breed, of je geeft je eigen maat door. Maatwerk kost niets extra.\n\n**Kenmerken**\n- Tapse poten met inkeping, op bestelling zonder\n- Onderplank, met of zonder lades\n- Uitvoeringen: Blank teak, Koloniaal, Milaan, Gerecycled teak of Geborsteld teak\n- Leverbaar in 18 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "",
   "fotos": [
-    "../../assets/producten/32056/1.jpg",
-    "../../assets/producten/32056/2.jpg"
+    "../../assets/producten/32056/2.jpg",
+    "../../assets/producten/32056/1.jpg"
   ],
+  "prijsVanaf": 189,
+  "omschrijving": "Een klassieke sidetable met tapse poten en een onderplank, zodat je extra opbergruimte hebt. Standaard hebben de poten een inkeping, op bestelling maken we ze ook zonder. Lades zijn een keuze, net als een ruwe of gladde afwerking.\n\nJe kiest uit maten van 60 tot 200 cm breed, of je geeft je eigen maat door. Maatwerk kost niets extra.\n\n**Kenmerken**\n- Tapse poten met inkeping, op bestelling zonder\n- Onderplank, met of zonder lades\n- Uitvoeringen: Blank teak, Koloniaal, Milaan, Gerecycled teak of Geborsteld teak\n- Leverbaar in 18 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
       "label": "B60 x D30 x H78",
@@ -82,17 +82,12 @@
       "prijs": 559
     }
   ],
-  "houtkleuren": false,
-  "uitvoeringen": [
-    "Blank Teak",
-    "Koloniaal",
-    "Milaan",
-    "Gerecycled teak",
-    "Geborsteld teak"
-  ],
-  "maatwerk": true,
+  "houtkleuren": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 89,
   "seoTitel": "Sidetable klassiek met onderplank, teak | Teakhuis",
   "seoOmschrijving": "Klassieke teakhouten sidetable met tapse poten en onderplank, met of zonder lades. 60 tot 200 cm breed, ook op maat zonder meerprijs. Vraag een offerte.",
