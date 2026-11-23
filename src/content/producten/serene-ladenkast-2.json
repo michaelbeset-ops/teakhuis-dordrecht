@@ -1,19 +1,19 @@
 {
-  "titel": "Serene 5 ladenkast",
+  "titel": "Serene 5 ladekast",
   "categorie": "ladenkasten",
   "collectie": "",
   "fotos": [
     "../../assets/producten/3798/1.jpg"
   ],
   "prijsVanaf": 679,
-  "omschrijving": "Deze strakke laddenkast uit de Serene collectie heeft standaard 2 smalle en 3 brede lades.\n\nEen andere afmeting en/of indeling is mogelijk\n\n**Kenmerken**\n\n- B100 x H75 x D45 cm\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
+  "omschrijving": "Deze strakke ladekast uit de Serene collectie heeft standaard 2 smalle en 3 brede lades.\n\nEen andere afmeting en/of indeling is mogelijk\n\n**Kenmerken**\n\n- B100 x H75 x D45 cm\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "B100 x H75 x D45",
       "prijs": 679
     }
   ],
-  "houtkleuren": false,
+  "houtkleuren": true,
   "uitgelicht": false,
   "zichtbaar": true,
   "uitvoeringen": [],
