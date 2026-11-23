@@ -4,6 +4,30 @@ Opgesteld 23 november 2026. Doel: de nieuwe site vervangt de oude op teakhuis.nl
 geen mail, geen vindbaarheid in Google, geen aanvragen van klanten. Per punt staat wie het doet:
 **C** = Claude (automatisch), **M** = Michael (handmatig), **H** = Han (aanleveren of beslissen).
 
+## Uitslag controle Claude (23 november 2026, productie-build met `SITE_URL=https://teakhuis.nl`)
+
+| # | Uitslag |
+| --- | --- |
+| B1 | **Groen na reparatie.** Oude site doorlopen: 625 oude adressen (517 uit de sitemap, 108 erbuiten: blog, landingspagina's als "teak-meubelen-utrecht", winkels, juridisch). Eerst gaven 195 een foutpagina (producten en categorieen die Han verborg of verwijderde, en alle pagina's buiten de webshop). Nu: 418 bestaan rechtstreeks, 206 verwijzen door naar de best passende pagina (lijst in `src/data/oude-adressen.json`, regels in `src/pages/[...oud].astro`). Alleen een winkelmand-sessielink niet. |
+| B2 | Groen: 456 pagina's, 0 kapotte interne links. |
+| B3 | Groen: 15 paginatypes op 320, 375, 390, 414, 440, 768, 1024 en 1440: geen horizontale scroll, niets buiten beeld, geen js-fouten. Een te klein label (11 px) op home vergroot. |
+| B4 | Lighthouse mobiel: home 91/100/100/100, categorie 97/100/100/100, product 98/100/100/100, maatwerk 97/100/100/100, offerte 99/100/100/66 (offertepagina staat bewust op noindex). |
+| B5 | Groen: een h1 per pagina, canonical naar teakhuis.nl, lang="nl", robots.txt goed. Gerepareerd: doorverwijspagina's stonden in de sitemap (138), nu niet meer (454 echte pagina's). Dubbel: "Ladekast Brindisi" staat twee keer in de catalogus (nachtkastjes en kleinmeubelen), zelfde titel en tekst: Han laten kiezen. |
+| B6 | Groen: geen verwijzingen meer naar github.io of /teakhuis-dordrecht/ (behalve de reponaam in het beheer, die klopt). |
+| B7 | Groen tot het versturen: maat en kleur zetten de prijs goed (toeslag 12,5% klopt), offertelijst bewaart product, maat en kleur; zoeken werkt. Versturen pas te testen na EmailJS (A1). |
+| B8 | Groen: geen `[[AANLEVEREN`, geen em-dashes, geen standaard Tailwind-kleuren. |
+| B9 | Groen: 0 cookies, geen verzoeken naar andere partijen. Geen cookiemelding nodig; privacyverklaring klopt. |
+| B10 | Groen: Lighthouse toegankelijkheid 100 op alle geteste pagina's. |
+
+Nog open uit deze controle:
+- **Bedrijfsnaam en KvK.** De site zegt "Teakhuis B.V.", Han tekent met "Teakhuis Dordrecht B.V.". Gevonden (niet officieel
+  bevestigd): KvK 24419768, "Teakhuis Dordrecht", opgericht 15-08-2007, ingeschreven op Arenberglaan 268, 4824 RE Breda
+  (bron: liza.nl). Nakijken op kvk.nl; daarna naam, KvK en adres invullen in het beheer (Instellingen > Contactgegevens).
+- **Leveringsvoorwaarden.** De oude site had een pagina leveringsvoorwaarden; de nieuwe niet (oud adres verwijst nu naar
+  Contact). Han vragen of hij die terug wil.
+- **Blog.** Vier artikelen van de oude site (eettafel kiezen, boomstamtafel, thuiswerkplek, natuurlijke look) verwijzen nu
+  door naar de passende categorie. Later voor SEO eventueel nieuwe artikelen schrijven.
+
 ## A. Blokkers: eerst geregeld, anders niet live
 
 | # | Punt | Wie | Stand nu |
