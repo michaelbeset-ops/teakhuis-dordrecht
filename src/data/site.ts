@@ -27,7 +27,7 @@ export const site = {
   kvk: inst.kvk,
   adres: inst.adres,
   usps: inst.usps,
-  // Google-bedrijfsprofiel (reviews). Zoeklink, zodat hij ook werkt als de profiel-URL verandert.
+  // Link naar de Google-reviews (beheer: Instellingen > Contactgegevens). Zonder ingevulde link: het profiel via Maps.
   google: inst.google || 'https://www.google.com/maps/search/?api=1&query=Teakhuis+Dordrecht',
   themeColor: '#f6f3ed',
   voorstel: import.meta.env.PUBLIC_VOORSTEL === '1',

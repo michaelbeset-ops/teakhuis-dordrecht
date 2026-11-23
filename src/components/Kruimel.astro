@@ -9,7 +9,7 @@ const alles: [string, string?][] = [['Home', url('')], ...stappen];
     {alles.map(([t, href], i) => (
       <li class="flex min-w-0 items-center gap-2">
         {i > 0 && <span aria-hidden="true" class="text-lijn-2">/</span>}
-        {href ? <a href={href} class="no-underline transition-colors hover:text-blad-diep">{t}</a> : <span aria-current="page" class="text-inkt">{t}</span>}
+        {href ? <a href={href} class="tik no-underline transition-colors hover:text-blad-diep">{t}</a> : <span aria-current="page" class="text-inkt">{t}</span>}
       </li>
     ))}
   </ol>

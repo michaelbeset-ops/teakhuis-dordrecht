@@ -58,7 +58,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
 
     <!-- 1. HERO: sfeerfoto over het hele scherm (precies schermhoogte, op elk apparaat), de tekst erover, de menubalk
          zweeft erboven. Niet ingezoomd: de foto vult het scherm en staat stil. -->
-    <section class="relative -mt-[4.75rem] flex h-[calc(100svh-2.25rem)] min-h-[34rem] flex-col justify-end overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem]" aria-label="Welkom bij Teakhuis" data-hero>
+    <section class="relative -mt-[4.75rem] flex min-h-[max(30rem,calc(100svh-2.25rem))] flex-col justify-end overflow-hidden bg-nacht text-wit lg:-mt-[5.25rem]" aria-label="Welkom bij Teakhuis" data-hero>
       <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
         <!-- Sfeerfoto's die elkaar afwisselen. De linkerkant loopt donker weg achter de tekst. -->
         {heroDias.map((d, i) => (
@@ -73,11 +73,11 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
            houdt de tekst leesbaar, ook op lichte foto's zoals de slaapkamer (Han, 16 nov). -->
       <div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-[80%] bg-gradient-to-t from-inkt/80 via-inkt/50 to-transparent lg:hidden"></div>
 
-      <div class="wrap relative grid gap-8 pb-24 pt-32 laag:gap-5 laag:pt-24 md:pb-10 md:pt-36 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-16">
+      <div class="wrap relative grid gap-8 pb-[calc(5.5rem+env(safe-area-inset-bottom))] pt-28 laag:gap-5 laag:pt-24 md:pb-10 md:pt-36 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-16">
         <div class="lg:col-span-8">
           <p class="hero-op max-w-[24ch] font-kop text-[clamp(1.6rem,3vw,2.8rem)] font-extrabold leading-[1.08] text-blad-licht">Maatwerk zonder meerprijs van teakhouten meubels sinds 2007</p>
           <h1 class="hero-op mt-4 max-w-[18ch] laag:mt-3 text-[clamp(1.5rem,2.4vw,2.3rem)] font-semibold leading-[1.1] [font-stretch:100%]" style="--d:.08s">Teak op bestelling met de hand gemaakt.</h1>
-          <p class="hero-op mt-6 max-w-xl text-lg text-wit/90 laag:mt-4 laag:text-base md:text-xl zeerlaag:hidden" style="--d:.18s">Duurzaam teak, direct voor jou gemaakt. Zonder winkel en voorraad, dus voordeliger. Kies een ontwerp, geef je maten door en ontvang een vrijblijvende offerte.</p>
+          <p class="hero-op mt-6 max-w-xl text-lg text-wit/90 laag:mt-4 laag:text-base md:text-xl zeerlaag:hidden" style="--d:.18s"><span class="sm:hidden">Duurzaam teak, op jouw maat gemaakt. Zonder winkel, dus voordeliger.</span><span class="max-sm:hidden">Duurzaam teak, direct voor jou gemaakt. Zonder winkel en voorraad, dus voordeliger. Kies een ontwerp, geef je maten door en ontvang een vrijblijvende offerte.</span></p>
           <div class="hero-op mt-9 flex flex-col gap-3 laag:mt-6 sm:flex-row" style="--d:.28s">
             <a href={url('webshop/')} class="knop knop-blad">Kies je meubel<Icoon naam="pijl" /></a>
             <a href={url('maatwerk/')} class="knop knop-glas">Iets op maat laten maken</a>
@@ -168,8 +168,8 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
               <p class="text-as">Eigenaar van Teakhuis</p>
             </div>
             <div class="flex w-full flex-wrap gap-2 sm:mt-4 sm:w-auto">
-              <a href={waHoi} class="knop knop-blad min-h-11 px-4 text-sm"><Icoon naam="wa" />App Han</a>
-              <a href={site.telHref} class="knop knop-glas min-h-11 px-4 text-sm"><Icoon naam="tel" /><span class="num">{site.tel}</span></a>
+              <a href={waHoi} class="knop knop-blad min-h-12 px-4 text-sm"><Icoon naam="wa" />App Han</a>
+              <a href={url('over-ons/')} class="knop knop-glas min-h-12 px-4 text-sm">Lees mijn verhaal<Icoon naam="pijl" /></a>
             </div>
           </div>
         </div>
@@ -316,10 +316,11 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
         </li>
         {[...reviews].sort((x, y) => Number(y.bron === 'google') - Number(x.bron === 'google')).map((r) => {
           const google = r.bron === 'google';
-          const link = google ? site.google : url('over-ons/#referenties');
+          // Elke review klikt door naar de reviews op Google (Michael, 23 nov).
+          const link = site.google;
           return (
             <li class="flex w-[19rem] sm:w-[23rem]">
-              <a href={link} {...(google ? { target: '_blank', rel: 'noopener' } : {})} class="flex w-full flex-col rounded-[var(--radius-xl)] bg-wit p-7 text-inkt no-underline shadow-zacht ring-1 ring-lijn transition-shadow hover:shadow-kaart">
+              <a href={link} target="_blank" rel="noopener" aria-label={`Review van ${r.naam}, lees alle reviews op Google`} class="flex w-full flex-col rounded-[var(--radius-xl)] bg-wit p-7 text-inkt no-underline shadow-zacht ring-1 ring-lijn transition-shadow hover:shadow-kaart">
                 <div class="flex items-center justify-between gap-3">
                   {google
                     ? <span class="flex items-center gap-1.5 text-xs font-bold text-grijs"><Icoon naam="g" class="h-4 w-4" />Google</span>
@@ -347,7 +348,7 @@ const webSite = { '@context': 'https://schema.org', '@type': 'WebSite', name: si
           <h2 id="offerte-kop" class="mt-4 text-4xl">Vertel ons wat je zoekt.</h2>
           <p class="mt-5 text-lg">Kies een meubel, laat iets op maat tekenen of stuur een foto van wat je in gedachten hebt. Je krijgt een offerte met tekening en prijs.</p>
           <p class="mt-10 font-semibold">Liever direct iemand spreken?</p>
-          <a href={site.telHref} class="num mt-1 inline-block font-kop text-3xl font-extrabold text-inkt no-underline hover:underline">{site.tel}</a>
+          <a href={site.telHref} class="tik num mt-1 inline-block font-kop text-3xl font-extrabold text-inkt no-underline hover:underline">{site.tel}</a>
         </div>
         <ul class="grid content-center gap-3 bg-wit p-5 sm:p-8 lg:col-span-7 lg:p-12">
           {[

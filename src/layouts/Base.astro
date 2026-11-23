@@ -75,7 +75,7 @@ const robots = noindex || site.voorstel || site.testadres ? 'noindex, nofollow' 
     {site.statistiek.plausible && <script is:inline defer data-domain={site.statistiek.plausible} src="https://plausible.io/js/script.js"></script>}
     {site.statistiek.goatcounter && <script is:inline async data-goatcounter={`https://${site.statistiek.goatcounter}.goatcounter.com/count`} src="https://gc.zgo.at/count.js"></script>}
   </head>
-  <body class="min-h-dvh pb-14 md:pb-0">
+  <body class="min-h-dvh">
     {site.voorstel && (
       <div class="relative z-50 bg-inkt text-wit">
         <p class="wrap py-2 text-xs font-medium leading-snug" style="font-family: system-ui, sans-serif">

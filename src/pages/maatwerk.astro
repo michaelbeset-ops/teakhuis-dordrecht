@@ -41,7 +41,7 @@ const dienst = {
   <Kop />
   <main id="inhoud">
     <InfoHero foto={barkast} pos="object-[45%_55%]" label="Maatwerk zonder meerprijs" titel="Jouw maten. Onze vakmensen." id="maatwerk-kop">
-      <p class="mt-5 max-w-xl text-lg text-wit/85">Een dressoir, tv-meubel, boekenkast, tafel, badkamermeubel of iets heel eigens: al bijna 20 jaar maken we teakhouten meubels precies op maat. Zonder standaard beperkingen, en zonder meerprijs.</p>
+      <p class="mt-5 max-w-xl text-lg text-wit/85"><span class="sm:hidden">Al bijna 20 jaar maken we teakhouten meubels precies op maat, zonder meerprijs.</span><span class="max-sm:hidden">Een dressoir, tv-meubel, boekenkast, tafel, badkamermeubel of iets heel eigens: al bijna 20 jaar maken we teakhouten meubels precies op maat. Zonder standaard beperkingen, en zonder meerprijs.</span></p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
         <a href={aanvragen} class="knop knop-blad">Maatwerk aanvragen<Icoon naam="pijl" /></a>
         <a href="#voorbeelden" class="knop knop-glas">Bekijk voorbeelden</a>
@@ -158,7 +158,7 @@ const dienst = {
   </main>
 
   <!-- Altijd zichtbare knop naar de voorbeelden (verdwijnt zodra die in beeld zijn) -->
-  <a href="#voorbeelden" class="fixed right-3 z-30 flex items-center gap-2 rounded-full bg-nacht px-4 py-3 font-kop text-sm font-bold text-wit no-underline shadow-kaart transition-[opacity,transform] duration-300 bottom-[calc(4.75rem+env(safe-area-inset-bottom))] md:bottom-6 md:right-6" data-naar-voorbeelden>
+  <a href="#voorbeelden" class="fixed left-4 z-30 flex min-h-12 items-center gap-2 rounded-full bg-nacht px-5 font-kop text-sm font-bold text-wit no-underline shadow-kaart transition-[opacity,transform] duration-300 bottom-[calc(1.25rem+env(safe-area-inset-bottom))] md:bottom-7 md:left-6" data-naar-voorbeelden>
     <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="m3 16 5-5 4 4 3-3 6 6" /></svg>
     Bekijk voorbeelden
   </a>

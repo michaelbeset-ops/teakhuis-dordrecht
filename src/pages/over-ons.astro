@@ -90,7 +90,7 @@ const pagina = {
         </p>
         <div class="lg:col-span-3 lg:col-start-10 lg:pb-2">
           <p class="text-grijs">Vakmanschap, persoonlijke service en maatwerk zonder meerprijs. Daar draait het om, al vanaf de eerste dag.</p>
-          <a href="#tijdlijn" class="mt-5 inline-flex items-center gap-2 font-kop text-sm font-bold text-inkt underline decoration-blad decoration-2 underline-offset-[6px] hover:text-blad-diep">Naar de tijdlijn<Icoon naam="pijl" class="h-4 w-4 rotate-90" /></a>
+          <a href="#tijdlijn" class="mt-5 inline-flex min-h-11 items-center gap-2 font-kop text-sm font-bold text-inkt underline decoration-blad decoration-2 underline-offset-[6px] hover:text-blad-diep">Naar de tijdlijn<Icoon naam="pijl" class="h-4 w-4 rotate-90" /></a>
         </div>
       </div>
 
@@ -121,7 +121,7 @@ const pagina = {
       <nav class="tl-nav sticky top-[4.6rem] z-20 mt-10 border-y border-lijn bg-wit/95 backdrop-blur-sm lg:top-[5.4rem]" aria-label="Jaartallen">
         <ol class="wrap flex gap-1 overflow-x-auto py-2.5 [scrollbar-width:none]">
           {hoofdstukken.map((h) => (
-            <li class="flex-none"><a href={`#j-${h.id}`} class="tl-jaar num block whitespace-nowrap rounded-full px-4 py-2 font-kop text-sm font-bold no-underline" data-tl-link={h.id}>{h.jaar}</a></li>
+            <li class="flex-none"><a href={`#j-${h.id}`} class="tl-jaar num flex min-h-11 items-center whitespace-nowrap rounded-full px-4 py-2 font-kop text-sm font-bold no-underline" data-tl-link={h.id}>{h.jaar}</a></li>
           ))}
         </ol>
       </nav>

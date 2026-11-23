@@ -214,7 +214,7 @@ collections:
           - { name: facebook, widget: hidden, default: '' }
           - { name: instagram, widget: hidden, default: '' }
           - { name: pinterest, widget: hidden, default: '' }
-          - { name: google, widget: hidden, default: '' }
+          - { label: Link naar je Google-reviews, name: google, widget: string, required: false, hint: 'Uit je Google Bedrijfsprofiel: "Vraag om reviews" of "Delen". Leeg = de site zoekt Teakhuis Dordrecht op in Google Maps.' }
           - { name: eigenaar, widget: hidden, default: '' }
       - name: reviews
         label: Reviews

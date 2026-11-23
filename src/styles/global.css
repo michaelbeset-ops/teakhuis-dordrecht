@@ -171,6 +171,15 @@
   .hero-dia { opacity: 0; transition: opacity 1.6s ease; }
   .hero-dia.is-aan { opacity: 1; }
   /* Geen inzoomen meer op de wisselende foto's: dat maakte ze onscherp (nov 2026). */
+  /* Tikvlak: losse tekstlinks (voet, kruimelpad, lijsten) krijgen op een touchscreen minstens 44 px hoogte, zodat je ze
+     met een vinger raakt. Met een muis verandert er niets. */
+  @media (pointer: coarse) { .tik { display: inline-flex; align-items: center; min-height: 2.75rem; } }
+  /* Beloftebalk mobiel: loopt in ~32 s een keer rond, pauzeert bij aanraken. */
+  @keyframes usp-loop { to { transform: translateX(-50%); } }
+  .usp-spoor { animation: usp-loop 32s linear infinite; }
+  .usp-band:hover .usp-spoor, .usp-band:active .usp-spoor { animation-play-state: paused; }
+  .usp-band { mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  @media (prefers-reduced-motion: reduce) { .usp-spoor { animation: none; } }
   .hero-op { animation: hero-op .8s var(--ease-zacht) both; animation-delay: var(--d, 0s); }
   @media (prefers-reduced-motion: reduce) { .hero-zoom, .hero-op { animation: none; } .hero-dia img { transition: none; transform: none; } }
 

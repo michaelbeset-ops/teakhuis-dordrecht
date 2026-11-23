@@ -7,6 +7,7 @@ import { Image } from 'astro:assets';
 import Icoon from './Icoon.astro';
 import Merk from './Merk.astro';
 
+// onderbalk: false = de pagina heeft zelf een balk onderin (productpagina); de WhatsApp-knop schuift dan op mobiel omhoog.
 interface Props { onderbalk?: boolean }
 const { onderbalk = true } = Astro.props;
 const pad = Astro.url.pathname;
@@ -17,12 +18,24 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
 ---
 <div class="bg-nacht text-as">
   <div class="wrap flex h-9 items-center justify-between gap-6 text-xs font-semibold">
-    <ul class="flex min-w-0 items-center gap-x-7 overflow-hidden">
+    <ul class="flex min-w-0 items-center gap-x-7 overflow-hidden max-md:hidden">
       {site.usps.map((u, i) => (
-        <li class={`flex flex-none items-center gap-2 ${['', 'max-md:hidden', 'max-lg:hidden', 'max-xl:hidden'][i] ?? 'max-xl:hidden'}`}><Icoon naam="vink" class="h-3.5 w-3.5 text-blad-licht" /><span class="text-wit">{u}</span></li>
+        <li class={`flex flex-none items-center gap-2 ${['', '', 'max-lg:hidden', 'max-xl:hidden'][i] ?? 'max-xl:hidden'}`}><Icoon naam="vink" class="h-3.5 w-3.5 text-blad-licht" /><span class="text-wit">{u}</span></li>
       ))}
     </ul>
-    <a href={site.telHref} class="num flex flex-none items-center gap-2 text-wit no-underline hover:text-blad-licht max-sm:hidden"><Icoon naam="tel" class="h-3.5 w-3.5" />{site.tel}</a>
+    <!-- Mobiel: twee beloftes passen niet naast elkaar, dus ze lopen rustig door (Michael, 23 nov: "anders is het zo kaal").
+         De lijst staat er twee keer in zodat de band naadloos rondloopt; de kopie is verborgen voor schermlezers. Zonder
+         beweging (voorkeur van het toestel) staan de eerste twee stil en mag de tweede afkappen. -->
+    <div class="usp-band relative min-w-0 flex-1 overflow-hidden md:hidden" aria-label="Onze beloftes">
+      <div class="usp-spoor flex w-max">
+        {[0, 1].map((kopie) => (
+          <ul class="flex flex-none items-center gap-x-6 pr-6" aria-hidden={kopie ? 'true' : undefined}>
+            {site.usps.map((u) => <li class="flex flex-none items-center gap-2"><Icoon naam="vink" class="h-3.5 w-3.5 text-blad-licht" /><span class="text-wit">{u}</span></li>)}
+          </ul>
+        ))}
+      </div>
+    </div>
+    <a href={site.telHref} class="num flex flex-none items-center gap-2 text-wit no-underline hover:text-blad-licht max-sm:hidden pointer-coarse:max-xl:hidden"><Icoon naam="tel" class="h-3.5 w-3.5" />{site.tel}</a>
   </div>
 </div>
 
@@ -32,15 +45,15 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
     <!-- Telefoon en tablet: de twee belangrijkste ingangen direct in de balk (Han, 16 nov: "de balk is bijna leeg").
          Collecties alleen als er ruimte is; de rest staat onder Menu. -->
     <nav aria-label="Snelmenu" class="flex min-w-0 flex-1 items-center gap-0.5 lg:hidden">
-      <a href={url('webshop/')} class={`whitespace-nowrap rounded-full px-2.5 py-2.5 font-kop text-[.875rem] font-bold no-underline [font-stretch:100%] transition-colors hover:bg-zand min-[400px]:px-3 ${actief('webshop/') ? 'bg-zand' : ''}`} aria-current={pad === url('webshop/') ? 'page' : undefined}>Producten</a>
-      <a href={url('collecties/')} class={`whitespace-nowrap rounded-full px-2.5 py-2.5 font-kop text-[.875rem] font-bold no-underline [font-stretch:100%] transition-colors hover:bg-zand max-[389px]:hidden min-[400px]:px-3 ${actief('collecties/') ? 'bg-zand' : ''}`} aria-current={actief('collecties/') ? 'page' : undefined}>Collecties</a>
+      <a href={url('webshop/')} class={`flex min-h-11 items-center whitespace-nowrap rounded-full px-2.5 font-kop text-[.875rem] font-bold no-underline [font-stretch:100%] transition-colors hover:bg-zand min-[400px]:px-3 ${actief('webshop/') ? 'bg-zand' : ''}`} aria-current={pad === url('webshop/') ? 'page' : undefined}>Producten</a>
+      <a href={url('collecties/')} class={`flex min-h-11 items-center whitespace-nowrap rounded-full px-2.5 font-kop text-[.875rem] font-bold no-underline [font-stretch:100%] transition-colors hover:bg-zand max-[389px]:hidden min-[400px]:px-3 ${actief('collecties/') ? 'bg-zand' : ''}`} aria-current={actief('collecties/') ? 'page' : undefined}>Collecties</a>
     </nav>
     <nav aria-label="Hoofdmenu" class="hidden lg:block">
       <ul class="flex items-center gap-1 font-kop text-[.95rem] font-bold [font-stretch:105%]">
         <li data-mega-li>
           <div class={`flex items-center rounded-full transition-colors hover:bg-zand ${actief('webshop/') ? 'bg-zand' : ''}`}>
             <a href={url('webshop/')} class="whitespace-nowrap py-2.5 pl-3 no-underline xl:pl-4" aria-current={pad === url('webshop/') ? 'page' : undefined}>Producten</a>
-            <button type="button" class="grid h-10 w-8 place-items-center rounded-full pr-1" aria-label="Toon de categorieën" aria-expanded="false" aria-controls="mega" data-mega-knop>
+            <button type="button" class="grid h-10 w-8 place-items-center rounded-full pr-1 pointer-coarse:h-11 pointer-coarse:w-11" aria-label="Toon de categorieën" aria-expanded="false" aria-controls="mega" data-mega-knop>
               <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-grijs transition-transform" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
           </div>
@@ -135,11 +148,13 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
   </nav>
 </header>
 
-<!-- Onderbalk op mobiel: bellen en appen altijd binnen bereik -->
-{onderbalk && <div class="fixed inset-x-0 bottom-0 z-30 grid grid-cols-2 gap-2 border-t border-lijn bg-wit/95 p-2 pb-[max(.5rem,env(safe-area-inset-bottom))] backdrop-blur-sm md:hidden">
-  <a href={site.telHref} class="knop min-h-11 min-w-0 px-3 text-sm ring-1 ring-lijn-2"><Icoon naam="tel" />Bellen</a>
-  <a href={waHoi} class="knop knop-blad min-h-11 min-w-0 px-3 text-sm"><Icoon naam="wa" />WhatsApp</a>
-</div>}
+<!-- Zwevende WhatsApp-knop (Michael, 23 nov: in plaats van de balk Bellen/WhatsApp onderin, die het scherm kleiner
+     maakte). Altijd rechtsonder; op pagina's met een eigen balk onderin (productpagina) op mobiel erboven. Op een smal
+     scherm alleen het icoon, vanaf tablet met tekst. -->
+<a href={waHoi} class={`fixed right-4 z-30 flex h-14 min-w-14 items-center justify-center gap-2 rounded-full bg-[#25d366] px-4 font-kop text-sm font-bold text-[#0b2e17] no-underline shadow-[0_10px_28px_-8px_rgb(0_0_0/.45)] ring-2 ring-wit transition-transform hover:scale-105 md:bottom-6 md:right-6 ${onderbalk ? 'bottom-[calc(1rem+env(safe-area-inset-bottom))]' : 'bottom-[calc(5rem+env(safe-area-inset-bottom))]'}`} aria-label="Stuur ons een WhatsApp-bericht" data-wa-zweef>
+  <Icoon naam="wa" class="h-7 w-7 flex-none" />
+  <span class="max-md:sr-only">App ons</span>
+</a>
 
 <script>
   import { aantal, opWijziging } from '../scripts/offerte';
@@ -154,6 +169,15 @@ const omslag = (g: (typeof groepen)[number]) => g.hoofd.foto ?? g.producten.map(
   };
   zet();
   opWijziging(zet);
+
+  // Zwevende WhatsApp-knop: even weg zolang iemand in een formulier typt (op mobiel staat hij anders over het
+  // toetsenbord en de velden).
+  const zweef = document.querySelector<HTMLElement>('[data-wa-zweef]');
+  if (zweef) {
+    const isVeld = (el: EventTarget | null) => el instanceof HTMLElement && el.matches('input:not([type=checkbox]):not([type=radio]):not([type=search]), textarea, select');
+    addEventListener('focusin', (e) => { if (isVeld(e.target)) zweef.style.display = 'none'; });
+    addEventListener('focusout', () => setTimeout(() => { if (!isVeld(document.activeElement)) zweef.style.display = ''; }, 50));
+  }
 
   // Mobiel menu
   const k = document.querySelector<HTMLButtonElement>('[data-menu-knop]');
