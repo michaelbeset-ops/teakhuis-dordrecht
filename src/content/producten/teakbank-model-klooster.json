@@ -1,43 +1,44 @@
 {
-  "titel": "Teakbank model Klooster",
+  "titel": "Teak kloosterbank",
   "categorie": "banken-teak",
-  "prijsVanaf": 339,
-  "prijsTonen": true,
-  "omschrijving": "Teakbank Klooster is een eenvoudige, degelijke zitbank in kloosterstijl. Hij staat goed aan een lange eettafel of als zitplek in de gang. Je kiest een gladde of robuuste uitvoering.\n\nDe standaardmaten lopen van 120 tot 220 cm lang. Elke andere maat leveren we zonder meerprijs.\n\n**Kenmerken**\n- Glad of robuust uitgevoerd\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Leverbaar in 6 standaardmaten, ook op maat\n- Diepte 40 cm, hoogte 45 cm\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/1478/1.jpg"
   ],
+  "prijsVanaf": 359,
+  "omschrijving": "Teakbank Klooster is een eenvoudige, degelijke zitbank in kloosterstijl. Hij staat goed aan een lange eettafel of als zitplek in de gang. Je kiest een gladde of robuuste uitvoering.\n\nDe standaardmaten lopen van 120 tot 220 cm lang. Elke andere maat leveren we zonder meerprijs.\n\n**Kenmerken**\n- Glad of robuust uitgevoerd\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Leverbaar in 6 standaardmaten, ook op maat\n- Diepte 40 cm, hoogte 45 cm\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
       "label": "120x40cm h=45cm",
-      "prijs": 339
+      "prijs": 359
     },
     {
       "label": "140x40cm h=45cm",
-      "prijs": 369
+      "prijs": 389
     },
     {
       "label": "160x40cm h=45cm",
-      "prijs": 419
+      "prijs": 439
     },
     {
       "label": "180x40cm h=45cm",
-      "prijs": 469
+      "prijs": 499
     },
     {
       "label": "200x40cm h=45cm",
-      "prijs": 549
+      "prijs": 569
     },
     {
       "label": "220x40cm h=45cm",
-      "prijs": 629
+      "prijs": 649
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 263,
   "seoTitel": "Teakbank model Klooster, op maat | Teakhuis",
   "seoOmschrijving": "Teakbank model Klooster, glad of robuust, van 120 tot 220 cm lang. Elke andere maat zonder meerprijs, in vier houtkleuren. Vraag een offerte aan.",
