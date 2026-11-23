@@ -1,21 +1,26 @@
 {
   "titel": "Serene Vitrinekast",
   "categorie": "vitrinekasten",
-  "prijsVanaf": 799,
-  "prijsTonen": true,
-  "omschrijving": "Een vitrinekast uit de Serene-lijn. De standaardmaat is 190 cm hoog, 100 cm breed en 40 cm diep.\n\nEen andere maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n- H190 x B100 x D40 cm\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/3827/1.jpg"
   ],
-  "maten": [],
-  "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
+  "prijsVanaf": 949,
+  "omschrijving": "Deze strakke vitrinekast uit de Serene collectie heeft standaard aan 3 kanten glas en is uitgevoerd met een minimalistisch slotje op de deur.\n\nOp maat te maken.\n\n**Kenmerken**\n\n- H190 x B100 x D40 cm\n- Ook op maat, zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling, eerst een vrijblijvende offerte",
+  "maten": [
+    {
+      "label": "H190 x B100 x D40",
+      "prijs": 949
+    }
+  ],
+  "houtkleuren": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 478,
   "seoTitel": "Serene vitrinekast 100 cm breed | Teakhuis",
   "seoOmschrijving": "Vitrinekast Serene van 190 cm hoog, 100 cm breed en 40 cm diep, met de hand gemaakt in Indonesië en ook op maat. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/173/3827/vitrinekasten/serene-vitrinekast",
-  "collectie": ""
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/173/3827/vitrinekasten/serene-vitrinekast"
 }
