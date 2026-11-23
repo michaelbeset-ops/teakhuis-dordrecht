@@ -19,6 +19,16 @@ geen mail, geen vindbaarheid in Google, geen aanvragen van klanten. Per punt sta
 | B9 | Groen: 0 cookies, geen verzoeken naar andere partijen. Geen cookiemelding nodig; privacyverklaring klopt. |
 | B10 | Groen: Lighthouse toegankelijkheid 100 op alle geteste pagina's. |
 
+Tweede ronde (zelfde dag), extra:
+- Productgegevens (400 zichtbare producten): allemaal foto, omschrijving en prijs. Gerepareerd: bij 16 producten was een maat
+  goedkoper dan de getoonde "vanaf"-prijs; de vanaf-prijs is nu altijd de laagste.
+- Gestructureerde gegevens: 400 Product, 452 BreadcrumbList, Organization, FAQ: geldige JSON, prijzen als getal, geen
+  testadres. Elke pagina een bestaande og-afbeelding.
+- Bediening: mobiel menu (open, Escape, links), megamenu, sorteren op prijs, filterpaneel, fotogalerij, "toon alle maten",
+  WhatsApp- en belnummer, toetsenbord (skiplink, zichtbare focus), 404 met status 404: alles werkt, geen js-fouten.
+  Gerepareerd: een filterkeuze met 0 producten was aan te vinken en gaf een lege lijst; nu uitgeschakeld.
+- Hele pagina's op 390 breed bekeken (home, product, over ons, maatwerk): geen opmaakfouten.
+
 Nog open uit deze controle:
 - **Bedrijfsnaam en KvK.** De site zegt "Teakhuis B.V.", Han tekent met "Teakhuis Dordrecht B.V.". Gevonden (niet officieel
   bevestigd): KvK 24419768, "Teakhuis Dordrecht", opgericht 15-08-2007, ingeschreven op Arenberglaan 268, 4824 RE Breda

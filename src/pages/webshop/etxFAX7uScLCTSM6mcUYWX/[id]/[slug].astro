@@ -312,7 +312,11 @@ const lijstSchema = {
           t.textContent = String(c);
           const lab = t.closest('label')!;
           const cb = lab.querySelector('input')!;
-          lab.classList.toggle('opacity-40', c === 0 && !cb.checked);
+          // Een keuze zonder producten is grijs en niet aan te vinken (anders levert hij een lege lijst op).
+          const leegKeuze = c === 0 && !cb.checked;
+          lab.classList.toggle('opacity-40', leegKeuze);
+          lab.classList.toggle('cursor-pointer', !leegKeuze);
+          cb.disabled = leegKeuze;
         });
         const aantal = Object.values(k).reduce((a, w) => a + w.length, 0);
         if (wis) wis.hidden = aantal === 0;

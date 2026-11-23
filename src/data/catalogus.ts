@@ -48,9 +48,11 @@ export const producten: Product[] = ruweProducten
     const d = p.data;
     const cat = catOpSlug.get(d.categorie) ?? overig;
     const hoofd = cat.hoofd ? catOpSlug.get(cat.hoofd) : undefined;
-    // "Vanaf"-prijs: ingevuld veld, anders de laagste maatprijs.
+    // "Vanaf"-prijs: de laagste van het ingevulde veld en de maatprijzen. Anders staat er "v.a. € 969" terwijl een
+    // kleinere maat € 699 kost (kwam bij 16 producten voor, controle 23 nov).
     const maatPrijzen = d.maten.map((m) => m.prijs).filter((x): x is number => typeof x === 'number' && x > 0);
-    const prijsVanaf = d.prijsVanaf && d.prijsVanaf > 0 ? d.prijsVanaf : maatPrijzen.length ? Math.min(...maatPrijzen) : null;
+    const kandidaten = [...(d.prijsVanaf && d.prijsVanaf > 0 ? [d.prijsVanaf] : []), ...maatPrijzen];
+    const prijsVanaf = kandidaten.length ? Math.min(...kandidaten) : null;
     return { ...d, slug: p.id, titel: netteTitel(d.titel), categorie: cat, hoofd, prijsVanaf, collectie: colOpSlug.get(d.collectie), maten: d.maten.map((m) => ({ label: m.label, prijs: m.prijs ?? null })) };
   })
   .sort((a, b) => a.volgorde - b.volgorde || nl.compare(a.titel, b.titel));
