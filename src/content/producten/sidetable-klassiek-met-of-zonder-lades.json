@@ -1,12 +1,12 @@
 {
   "titel": "Sidetable klassiek met of zonder lades",
   "categorie": "sidetables",
-  "prijsVanaf": 179,
-  "prijsTonen": true,
-  "omschrijving": "Deze klassieke sidetable staat op tapse poten met een inkeping. Wil je een strakker model dat toch slank blijft, dan maken we de poten op bestelling zonder inkeping. Je kiest met of zonder lades en een ruwe of gladde afwerking.\n\nDe standaardmaten lopen van 60 tot 200 cm breed. Elke andere afmeting maken we zonder meerprijs.\n\n**Kenmerken**\n- Tapse poten met inkeping, op bestelling zonder inkeping\n- Met of zonder lades, ruw of glad afgewerkt\n- Uitvoeringen: Blank teak, Koloniaal, Milaan, Gerecycled teak of Geborsteld teak\n- Leverbaar in 18 standaardmaten, ook op maat\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/31947/1.jpg"
   ],
+  "prijsVanaf": 179,
+  "omschrijving": "Deze klassieke sidetable staat op tapse poten met een inkeping. Wil je een strakker model dat toch slank blijft, dan maken we de poten op bestelling zonder inkeping. Je kiest met of zonder lades en een ruwe of gladde afwerking.\n\nDe standaardmaten lopen van 60 tot 200 cm breed. Elke andere afmeting maken we zonder meerprijs.\n\n**Kenmerken**\n\n- Tapse poten met inkeping, op bestelling zonder inkeping\n- Met of zonder lades\n- Overhangend blad\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
       "label": "B60 x D30 x H78",
@@ -81,17 +81,12 @@
       "prijs": 519
     }
   ],
-  "houtkleuren": false,
-  "uitvoeringen": [
-    "Blank Teak",
-    "Koloniaal",
-    "Milaan",
-    "Gerecycled teak",
-    "Geborsteld teak"
-  ],
-  "maatwerk": true,
+  "houtkleuren": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 88,
   "seoTitel": "Sidetable klassiek teak, met of zonder lades | Teakhuis",
   "seoOmschrijving": "Klassieke teakhouten sidetable met tapse poten, met of zonder lades en ruw of glad afgewerkt. Van 60 tot 200 cm breed en ook op maat. Vraag een offerte.",
