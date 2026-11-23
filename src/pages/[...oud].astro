@@ -63,6 +63,7 @@ export async function getStaticPaths() {
     ['blog/aynSM5xKTi4DBtf9dCkqqa/76/tips-en-inspiratie-voor-het-aanschaffen-van-een-nieuwe-eettafel', cat('teak-eettafels')],
     ['blog/aynSM5xKTi4DBtf9dCkqqa/77/interieur-inspiratie-een-natuurlijke-look', url('collecties/')],
   ];
+  overig.push([SHOP, shop]);
   for (const [oud, nieuw] of overig) zet(oud, nieuw);
   // Korte webshopadressen van de oude site (/webshop/tafels): naar die categorie, of de webshop als hij verborgen is.
   for (const oud of oudeAdressen as string[]) {

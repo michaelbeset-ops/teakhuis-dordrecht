@@ -29,8 +29,10 @@ Tweede ronde (zelfde dag), extra:
   Gerepareerd: een filterkeuze met 0 producten was aan te vinken en gaf een lege lijst; nu uitgeschakeld.
 - Hele pagina's op 390 breed bekeken (home, product, over ons, maatwerk): geen opmaakfouten.
 
+Ronde 3: bedrijfsnaam gelijkgetrokken, oud webshop-hoofdadres verwijst door; mobiele ronde en bedieningstest (15/15) opnieuw groen.
+
 Nog open uit deze controle:
-- **Bedrijfsnaam en KvK.** De site zegt "Teakhuis B.V.", Han tekent met "Teakhuis Dordrecht B.V.". Gevonden (niet officieel
+- **KvK.** Bedrijfsnaam op de site is nu "Teakhuis Dordrecht B.V." (zoals Han tekent). Gevonden (niet officieel
   bevestigd): KvK 24419768, "Teakhuis Dordrecht", opgericht 15-08-2007, ingeschreven op Arenberglaan 268, 4824 RE Breda
   (bron: liza.nl). Nakijken op kvk.nl; daarna naam, KvK en adres invullen in het beheer (Instellingen > Contactgegevens).
 - **Leveringsvoorwaarden.** De oude site had een pagina leveringsvoorwaarden; de nieuwe niet (oud adres verwijst nu naar

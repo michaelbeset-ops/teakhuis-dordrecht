@@ -13,7 +13,7 @@ import inst from './instellingen.json';
 const cijfers = inst.telefoon.replace(/\D/g, '');
 export const site = {
   naam: 'Teakhuis',
-  bv: 'Teakhuis B.V.',
+  bv: 'Teakhuis Dordrecht B.V.', // zoals Han tekent (mail 23 nov); KvK: Teakhuis Dordrecht
   tel: inst.telefoon,
   telHref: `tel:+31${cijfers.replace(/^0/, '')}`,
   wa: `https://wa.me/${inst.whatsapp.replace(/\D/g, '')}`,
