@@ -2,9 +2,12 @@
 // Doorverwijzingen van de oude teakhuis.nl-adressen naar de nieuwe pagina's. GitHub Pages kent geen serverredirects,
 // daarom een kleine pagina met meta refresh en canonical: Google volgt die en geeft de waarde door aan de nieuwe pagina.
 import { url, absoluut } from '../data/site';
-import { producten, categorieen, productHref, categorieHref, SHOP } from '../data/catalogus';
+import { getCollection } from 'astro:content';
+import { producten, categorieen, productHref, categorieHref, productPad, categoriePad, SHOP } from '../data/catalogus';
+// Alle adressen uit de sitemap van de oude site (opgehaald 23 nov 2026, voor de livegang).
+import oudeAdressen from '../data/oude-adressen.json';
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
   const naar = new Map<string, string>();
   const zet = (oud: string, nieuw: string) => {
     const pad = oud.replace(/^\/+|\/+$/g, '');
@@ -26,6 +29,38 @@ export function getStaticPaths() {
   zet('collectie', url('webshop/'));
   for (const p of producten) zet(`product/${p.slug}`, productHref(p));
   for (const c of categorieen) zet(`collectie/${c.slug}`, categorieHref(c));
+  // Oude zoekpagina's van de vorige site.
+  const opSlug = new Map(categorieen.map((c) => [c.slug, c]));
+  const cat = (slug: string) => (opSlug.get(slug) ? categorieHref(opSlug.get(slug)!) : url('webshop/'));
+  zet('teakhouten-bartafel', cat('bartafels'));
+  zet('teakhouten-bartafel-1', cat('bartafels'));
+  zet('teakhouten-bijzettafel', cat('teak-salontafels'));
+  zet('teakhouten-bijzettafel-1', cat('teak-salontafels'));
+  zet('teakhouten-keukentafel', cat('teak-eettafels'));
+  zet('teakhouten-keukentafel-1', cat('teak-eettafels'));
+  zet('teakhouten-vitrinekast', cat('vitrinekasten'));
+  zet('teakhouten-vitrinekast-1', cat('vitrinekasten'));
+  zet('teaktafel-rond', cat('teak-eettafels'));
+
+  // Elk ander oud adres dat geen pagina meer heeft (product verborgen of verwijderd, categorie verborgen): door naar de
+  // categorie met hetzelfde oude nummer, of het hoofdmenu erboven als die verborgen is, en anders de webshop. Zo komt
+  // niemand die via Google of een oude link binnenkomt op een foutpagina.
+  const bestaat = new Set([...producten.map(productPad), ...categorieen.map(categoriePad)]);
+  const alleCats = await getCollection('categorieen');
+  const zichtbaar = new Map(categorieen.map((c) => [c.slug, c]));
+  const naarCat = (oudeId?: string) => {
+    let c = alleCats.find((x) => x.data.oudeId === oudeId);
+    for (let i = 0; c && i < 3; i++) {
+      if (zichtbaar.has(c.id)) return categorieHref(zichtbaar.get(c.id)!);
+      c = alleCats.find((x) => x.id === c!.data.hoofd);
+    }
+    return url('webshop/');
+  };
+  for (const oud of oudeAdressen as string[]) {
+    if (bestaat.has(oud) || naar.has(oud)) continue;
+    const m = oud.match(new RegExp(`^${SHOP}/(\\d+)(?:/|$)`));
+    if (oud.startsWith(SHOP)) zet(oud, naarCat(m?.[1]));
+  }
   return [...naar].map(([oud, nieuw]) => ({ params: { oud }, props: { nieuw } }));
 }
 const { nieuw } = Astro.props as { nieuw: string };

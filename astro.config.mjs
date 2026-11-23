@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
+import { readFileSync } from 'node:fs';
 
 // SITE_URL en BASE_PATH komen uit de deploy-workflow: zolang het domein nog niet gekoppeld is draait de site als
 // preview op https://michaelbeset-ops.github.io/teakhuis-dordrecht/, daarna op het eigen domein zonder submap.
@@ -21,7 +22,10 @@ export default defineConfig({
   integrations: [sitemap({
     filter: (page) => {
       const pad = new URL(page).pathname.slice(base.replace(/\/$/, '').length);
-      return !uitSitemap.some((u) => pad.startsWith(u));
+      if (uitSitemap.some((u) => pad.startsWith(u))) return false;
+      // Doorverwijspagina's (oude adressen, zie src/pages/[...oud].astro) horen niet in de sitemap: Google ziet ze anders
+      // als fout. De sitemap wordt pas na het bouwen gemaakt, dus de pagina staat al in dist.
+      try { return !readFileSync(`dist${pad.replace(/\/?$/, '/')}index.html`, 'utf8').slice(0, 1500).includes('http-equiv="refresh"'); } catch { return true; }
     },
   })],
   vite: { plugins: [tailwindcss()] },
