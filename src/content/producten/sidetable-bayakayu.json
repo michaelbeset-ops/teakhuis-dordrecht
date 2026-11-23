@@ -1,26 +1,34 @@
 {
   "titel": "Sidetable Bayakayu",
   "categorie": "sidetables",
-  "prijsVanaf": 699,
-  "prijsTonen": true,
-  "omschrijving": "Een strakke sidetable met drie grote lades die soepel lopen op metalen geleiderails. Rustiek teak en donkergrijs metaal geven hem een stoer, modern karakter. Hij doet het goed in de woonkamer of hal, maar is ook heel geschikt als badkamermeubel.\n\nPast de standaardmaat niet, dan maken we hem op maat zonder meerprijs. Je krijgt eerst een vrijblijvende offerte.\n\n**Kenmerken**\n- Materiaal: rustiek teak met donkergrijs metaal\n- 3 grote lades op metalen geleiderails\n- Ook geschikt voor de badkamer\n- Maatwerk zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "bayakayu",
   "fotos": [
     "../../assets/producten/29737/1.jpg"
   ],
+  "prijsVanaf": 549,
+  "omschrijving": "Industriele sidetable van blank teak gecombineerd met een donkergrijs of zwart metalen frame. Deze uitvoering heeft 3 grote lades en een onderplank\n\nDe meubels uit de Bayakayu collectie worden door een lokale producent in Indonesie op bestelling gemaakt. Maatwerk is dus geen probleem voor ons!\n\n**Kenmerken**\n\n- Materiaal: blank teak met donkergrijs metaal\n- 3 grote lades op metalen geleiderails\n- Ook geschikt voor de badkamer\n- Maatwerk zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
+    {
+      "label": "B100 x D30 x H85 met 2 lades",
+      "prijs": 549
+    },
     {
       "label": "B130 x D40 x H85",
       "prijs": 699
+    },
+    {
+      "label": "B160 x D40 x H85",
+      "prijs": 829
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 87,
   "seoTitel": "Sidetable Bayakayu rustiek teak, 3 lades | Teakhuis",
   "seoOmschrijving": "Sidetable Bayakayu van rustiek teak en donkergrijs metaal met 3 grote lades, ook geschikt als badkamermeubel. Op maat zonder meerprijs. Vraag een offerte.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/29737/sidetables/sidetable-bayakayu",
-  "collectie": "bayakayu"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/29737/sidetables/sidetable-bayakayu"
 }
