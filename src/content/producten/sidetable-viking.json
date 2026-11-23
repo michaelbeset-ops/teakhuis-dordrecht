@@ -1,45 +1,54 @@
 {
   "titel": "Sidetable Viking",
   "categorie": "sidetables",
-  "prijsVanaf": 329,
-  "prijsTonen": true,
-  "omschrijving": "Oud gerecycled teakhout en staal: daar is sidetable Viking van gemaakt. Het hout heeft de sporen van een eerder leven, wat het meubel een robuuste en stoere uitstraling geeft. Hij past bij de rest van de Viking collectie.\n\nDe standaardmaten zijn 40 cm diep en 80 tot 200 cm breed. Ook bij deze collectie is maatwerk mogelijk, zonder meerprijs.\n\n**Kenmerken**\n- Materiaal: oud gerecycled teak met staal\n- Leverbaar in 7 standaardmaten, ook op maat\n- Hoogte 78 cm\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
+  "collectie": "viking",
   "fotos": [
+    "../../assets/producten/sidetable-viking-met-zwart-metalen-frame.webp",
+    "../../assets/producten/sidetable-viking-met-zwarte-poten.webp",
     "../../assets/producten/28710/1.jpg",
     "../../assets/producten/28710/2.jpg",
     "../../assets/producten/28710/3.jpg"
   ],
+  "prijsVanaf": 329,
+  "omschrijving": "Blank teak gecombineerd met metalen poten. Zwarte poten voor een moderne uitstraling. \nPoten van blank verweerd metaal gecombineerd met gerecycled teak voor een meer industriele uitstraling.\n\n**Kenmerken**\n\n- Materiaal: blank teak met staal\n- Leverbaar in 7 standaardmaten, ook op maat\n- Hoogte 78 cm\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt",
   "maten": [
     {
-      "label": "B80 x D40 x H78"
+      "label": "B80 x D40 x H78",
+      "prijs": 329
     },
     {
-      "label": "B100 x D40 x H78"
+      "label": "B100 x D40 x H78",
+      "prijs": 369
     },
     {
-      "label": "B120 x D40 x H78"
+      "label": "B120 x D40 x H78",
+      "prijs": 409
     },
     {
-      "label": "B140 x D40 x H78"
+      "label": "B140 x D40 x H78",
+      "prijs": 449
     },
     {
-      "label": "B160 x D40 x H78"
+      "label": "B160 x D40 x H78",
+      "prijs": 499
     },
     {
-      "label": "B180 x D40 x H78"
+      "label": "B180 x D40 x H78",
+      "prijs": 549
     },
     {
-      "label": "B200 x D40 x H78"
+      "label": "B200 x D40 x H78",
+      "prijs": 629
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 86,
   "seoTitel": "Sidetable Viking gerecycled teak en staal | Teakhuis",
   "seoOmschrijving": "Stoere sidetable Viking van oud gerecycled teak en staal, van 80 tot 200 cm breed. Ook op maat te maken zonder meerprijs. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/28710/sidetables/sidetable-viking",
-  "collectie": "viking"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/28710/sidetables/sidetable-viking"
 }
