@@ -1,14 +1,14 @@
 {
   "titel": "Valencia BA 200A",
   "categorie": "wastafelmeubels",
-  "prijsVanaf": 1269,
-  "prijsTonen": true,
-  "omschrijving": "Valencia BA 200A is een mooi afgewerkt badkamermeubel met 2 soft close lades. In plaats van de lades kan hij ook met een deur. Standaard heeft hij een bovenblad van Golden Galaxy graniet met een Toto waskom.\n\nLiever hout? Hij is ook leverbaar met een houten top en een natuurstenen waskom. Maatwerk is mogelijk, zonder meerprijs.\n\n**Kenmerken**\n\n- 2 soft close lades, of een deur\n- Top: Golden Galaxy graniet met Toto waskom\n- Ook met houten top en natuurstenen waskom\n- Ook op maat te maken\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, na een vrijblijvende offerte",
+  "collectie": "valencia",
   "fotos": [
     "../../assets/producten/2904/1.jpg",
     "../../assets/producten/2904/2.jpg",
     "../../assets/producten/2904/3.jpg"
   ],
+  "prijsVanaf": 1269,
+  "omschrijving": "Valencia BA 200A is een mooi afgewerkt badkamermeubel met 2 soft close lades. In plaats van de lades kan hij ook met een deur. Standaard heeft hij een bovenblad van Golden Galaxy graniet met een Toto waskom.\n\nLiever hout? Hij is ook leverbaar met een houten top en een natuurstenen waskom. Maatwerk is mogelijk, zonder meerprijs.\n\n**Kenmerken**\n\n- 2 soft close lades, of een deur\n- Top: Golden Galaxy graniet met Toto waskom\n- Ook met houten top en natuurstenen waskom\n- Ook op maat te maken\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, na een vrijblijvende offerte",
   "maten": [
     {
       "label": "h=90cm br=70cm d=58cm",
@@ -16,13 +16,13 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 498,
   "seoTitel": "Badkamermeubel Valencia BA 200A | Teakhuis",
   "seoOmschrijving": "Badkamermeubel Valencia BA 200A met 2 soft close lades en een granieten top met Toto waskom. Ook op maat te maken. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2904/wastafelmeubels/valencia-ba-200a",
-  "collectie": "valencia"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/2904/wastafelmeubels/valencia-ba-200a"
 }
