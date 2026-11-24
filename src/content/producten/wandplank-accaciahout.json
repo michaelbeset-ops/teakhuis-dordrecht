@@ -1,9 +1,7 @@
 {
   "titel": "Wandplank Accaciahout",
   "categorie": "kleinmeubelen",
-  "prijsVanaf": 109,
-  "prijsTonen": true,
-  "omschrijving": "Een massieve wandplank van accaciahout in boomstamvorm. Met de bijgeleverde beugel hang je hem eenvoudig op, en aan de onderkant zet je de plank vast met de meegeleverde inbusschroefjes en sleutel.\n\nDe plank is leverbaar in 4 verschillende afmetingen.\n\n**Kenmerken**\n\n- Materiaal: massief accaciahout, boomstamvorm\n- Inclusief ophangbeugel, inbusschroefjes en sleutel\n- Leverbaar in 4 afmetingen\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/32691/1.jpg",
     "../../assets/producten/32691/2.jpg",
@@ -12,17 +10,28 @@
     "../../assets/producten/32691/5.jpg",
     "../../assets/producten/32691/6.jpg"
   ],
+  "prijsVanaf": 69,
+  "omschrijving": "Een massieve wandplank van accaciahout in boomstamvorm. Met de bijgeleverde beugel hang je hem eenvoudig op, en aan de onderkant zet je de plank vast met de meegeleverde inbusschroefjes en sleutel.\n\nDe plank is leverbaar in 4 verschillende afmetingen.\n\n**Kenmerken**\n\n- Materiaal: massief accaciahout, boomstamvorm\n- Inclusief ophangbeugel, inbusschroefjes en sleutel\n- Leverbaar in 4 afmetingen\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
+      "label": "B70 x D20 x 4cm dik",
+      "prijs": 69
+    },
+    {
+      "label": "B90 x D20 x 4 cm dik",
+      "prijs": 79
+    },
+    {
       "label": "B115 x D20 x 4 cm dik",
-      "prijs": 109
+      "prijs": 99
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 36,
   "seoTitel": "Wandplank accaciahout in boomstamvorm | Teakhuis",
   "seoOmschrijving": "Massieve wandplank van accaciahout in boomstamvorm, met beugel en inbusschroefjes eenvoudig op te hangen. In 4 afmetingen. Vraag een offerte aan.",
