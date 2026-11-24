@@ -1,12 +1,12 @@
 {
   "titel": "TV kast/dressoir 15",
   "categorie": "dressoirs",
-  "prijsVanaf": 929,
-  "prijsTonen": true,
-  "omschrijving": "Een teakhouten dressoir dat op elke maat te maken is. Dressoir 15 gebruik je als opbergkast in de woonkamer of als meubel onder de televisie.\n\nJe kiest de houtkleur zelf.\n\n**Kenmerken**\n- Teakhouten dressoir, ook als tv kast\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- In elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/2331/1.jpg"
   ],
+  "prijsVanaf": 929,
+  "omschrijving": "Een teakhouten dressoir dat op elke maat te maken is. Dressoir 15 gebruik je als opbergkast in de woonkamer of als meubel onder de televisie.\n\nJe kiest de houtkleur zelf.\n\n**Kenmerken**\n- Teakhouten dressoir, ook als tv kast\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- In elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
       "label": "h=90cm br=150cm d=50cm",
@@ -14,10 +14,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 364,
   "seoTitel": "TV kast/dressoir 15 teak, op maat | Teakhuis",
   "seoOmschrijving": "Teakhouten dressoir 15, als opbergkast of tv meubel te gebruiken. Op elke maat te maken zonder meerprijs, in vier houtkleuren. Vraag een offerte aan.",
