@@ -1,31 +1,36 @@
 {
-  "titel": "Tv kast/dressoir 16",
+  "titel": "Dressoir Java",
   "categorie": "dressoirs",
-  "prijsVanaf": 919,
-  "prijsTonen": true,
-  "omschrijving": "Dressoir 16 is een hoog teakhouten dressoir van 90 cm, met veel bergruimte achter de deuren. De smallere maten hebben drie deuren, de breedste vier.\n\nStandaard van 150 tot 200 cm breed en 50 cm diep. Elke andere maat is ook te leveren, zonder meerprijs.\n\n**Kenmerken**\n- Hoogte 90 cm, diepte 50 cm\n- 3 of 4 deuren, afhankelijk van de breedte\n- Leverbaar in 3 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "koloniale-meubelen",
   "fotos": [
-    "../../assets/producten/2333/1.jpg"
+    "../../assets/producten/2333/1.jpg",
+    "../../assets/producten/dressoir-java-4-deurs.webp",
+    "../../assets/producten/dressoir_java_2_deuren_6_lades.webp",
+    "../../assets/producten/dressoir-15.webp",
+    "../../assets/producten/dressoir_java_4_deurs_wit.webp"
   ],
+  "prijsVanaf": 999,
+  "omschrijving": "Een klassiek dressoir gemaakt van massief teak, wat er standaard in verschillende afmetingen en indelingen is. Kies de grepen, de onderkangt, de kleur, het soort panelen en de afmeting. Staat de gewenste uitvoering of afmeting er nkiet tussen? Dan maken wij deze op maat.\n\n**Kenmerken**\n\n- Lades en deuren\n- Leverbaar in 3 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
-      "label": "h=90cm br=150cm d=50cm 3 deuren",
-      "prijs": 919
+      "label": "h=90cm br=150cm d=50cm",
+      "prijs": 999
     },
     {
-      "label": "h=90cm br=180cm d=50cm 3 deuren",
-      "prijs": 1019
+      "label": "h=90cm br=180cm d=50cm",
+      "prijs": 1149
     },
     {
       "label": "h=90cm br=200cm d=50cm 4 deuren",
-      "prijs": 1099
+      "prijs": 1299
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 365,
   "seoTitel": "Dressoir 16 teak met deuren, op maat | Teakhuis",
   "seoOmschrijving": "Teakhouten dressoir 16, 90 cm hoog met 3 of 4 deuren, van 150 tot 200 cm breed. Ook op maat en in vier houtkleuren. Vraag vrijblijvend een offerte aan.",
