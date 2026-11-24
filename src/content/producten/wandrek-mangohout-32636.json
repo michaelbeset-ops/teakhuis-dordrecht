@@ -1,13 +1,13 @@
 {
   "titel": "wandrek mangohout",
   "categorie": "kleinmeubelen",
-  "prijsVanaf": 279,
-  "prijsTonen": true,
-  "omschrijving": "Een origineel wandrek om op te hangen, van mangohout met een mat zwart gepoedercoat frame. Het hout is afgewerkt met een matte blanke lak, zodat de natuurlijke tekening goed zichtbaar blijft.\n\nDe prijs is inclusief verzenden binnen Nederland.\n\n**Kenmerken**\n\n- Materiaal: mangohout met mat zwart gepoedercoat frame\n- Hout afgewerkt met matte blanke lak\n- Inclusief verzending binnen Nederland\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/32636/1.jpg",
     "../../assets/producten/32636/2.jpg"
   ],
+  "prijsVanaf": 279,
+  "omschrijving": "Een origineel wandrek om op te hangen, van mangohout met een mat zwart gepoedercoat frame. Het hout is afgewerkt met een matte blanke lak, zodat de natuurlijke tekening goed zichtbaar blijft.\n\nDe prijs is inclusief verzenden binnen Nederland.\n\n**Kenmerken**\n\n- Materiaal: mangohout met mat zwart gepoedercoat frame\n- Hout afgewerkt met matte blanke lak\n- Inclusief verzending binnen Nederland\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "H100 x B100 x D25",
@@ -15,10 +15,11 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 35,
   "seoTitel": "Wandrek mangohout met zwart frame | Teakhuis",
   "seoOmschrijving": "Origineel wandrek van mangohout met mat zwart gepoedercoat frame en matte blanke lak. Inclusief verzenden binnen Nederland. Vraag een offerte aan.",
