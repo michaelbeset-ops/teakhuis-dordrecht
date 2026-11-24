@@ -1,23 +1,33 @@
 {
-  "titel": "TV kast/dressoir 18",
+  "titel": "Tv-kast basic",
   "categorie": "teak-tv-kasten",
-  "prijsVanaf": 419,
-  "prijsTonen": true,
-  "omschrijving": "Een teakhouten tv kast die we op elke maat leveren. Kast 18 maken we met de hand, in de maat die jij doorgeeft.\n\nKies de houtkleur die bij je kamer past.\n\n**Kenmerken**\n- Teakhouten tv kast\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- In elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "collectie": "",
   "fotos": [
-    "../../assets/producten/2339/1.jpg"
+    "../../assets/producten/2339/1.jpg",
+    "../../assets/producten/tv-kast_basic.webp"
   ],
+  "prijsVanaf": 439,
+  "omschrijving": "Een eenvoudig tv-meubel met open vak en lades.\nStandaard in 3 afmetingen. Ook op maat te leveren.\n\n**Kenmerken**\n\n- Teakhouten tv kast\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- In elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
-      "label": "h=100cm d=50cm, h=50cm",
-      "prijs": 419
+      "label": "h=100cm d=45cm, h=50cm 2 lades",
+      "prijs": 439
+    },
+    {
+      "label": "B120 x D45 x H50 met 2 of 3 lades",
+      "prijs": 499
+    },
+    {
+      "label": "B150 x D45 x H50 met 3 lades",
+      "prijs": 619
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 389,
   "seoTitel": "TV kast/dressoir 18 teak | Teakhuis",
   "seoOmschrijving": "Teakhouten tv kast 18, op elke maat te leveren zonder meerprijs en in blank teak, thee kleur, koloniale kleur of wit. Vraag vrijblijvend een offerte aan.",
