@@ -1,13 +1,13 @@
 {
   "titel": "wandrek mangohout",
   "categorie": "teak-boekenkasten",
-  "prijsVanaf": 279,
-  "prijsTonen": true,
-  "omschrijving": "Dit hangende wandrek van mangohout geeft je boeken en decoratie een plek aan de muur. Het frame is mat zwart gepoedercoat en het hout heeft een afwerking met matte blanke lak.\n\nVerzending binnen Nederland zit bij de prijs inbegrepen.\n\n**Kenmerken**\n\n- Materiaal: mangohout met mat zwart gepoedercoat frame\n- Hout afgewerkt met matte blanke lak\n- Inclusief verzending binnen Nederland\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "",
   "fotos": [
     "../../assets/producten/32639/1.jpg",
     "../../assets/producten/32639/2.jpg"
   ],
+  "prijsVanaf": 279,
+  "omschrijving": "Dit hangende wandrek van mangohout geeft je boeken en decoratie een plek aan de muur. Het frame is mat zwart gepoedercoat en het hout heeft een afwerking met matte blanke lak.\n\nVerzending binnen Nederland zit bij de prijs inbegrepen.\n\n**Kenmerken**\n\n- Materiaal: mangohout met mat zwart gepoedercoat frame\n- Hout afgewerkt met matte blanke lak\n- Inclusief verzending binnen Nederland\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "H100 x B100 x D25",
@@ -15,10 +15,11 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 160,
   "seoTitel": "Wandrek mangohout om op te hangen | Teakhuis",
   "seoOmschrijving": "Wandrek van mangohout om op te hangen, met mat zwart frame en matte blanke lak. Verzenden binnen Nederland inbegrepen. Vraag vrijblijvend een offerte aan.",
