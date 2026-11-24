@@ -1,12 +1,12 @@
 {
   "titel": "Valencia BA 700C",
   "categorie": "wastafelmeubels",
-  "prijsVanaf": 2390,
-  "prijsTonen": true,
-  "omschrijving": "Valencia BA 700C is een ruim badkamermeubel voor twee: 2 soft close deuren, 2 soft close lades en een Golden Galaxy granieten bovenblad met 2 Toto waskommen. Het kan ook met een houten top en natuurstenen waskommen.\n\nDe prijs is exclusief kolomkasten en spiegel, en het meubel wordt zonder kraan geleverd.Maatwerk is mogelijk.\n\n**Kenmerken**\n\n- 2 soft close deuren en 2 soft close lades\n- Top: Golden Galaxy graniet met 2 Toto waskommen\n- Ook met houten top en natuurstenen waskommen\n- Exclusief kolomkasten en spiegel, zonder kraan\n- Ook op maat te maken, zonder meerprijs\n- Op bestelling gemaakt, na een vrijblijvende offerte",
+  "collectie": "valencia",
   "fotos": [
     "../../assets/producten/3355/1.jpg"
   ],
+  "prijsVanaf": 2390,
+  "omschrijving": "Valencia BA 700C is een ruim badkamermeubel voor twee: 2 soft close deuren, 2 soft close lades en een Golden Galaxy granieten bovenblad met 2 Toto waskommen. Het kan ook met een houten top en natuurstenen waskommen.\n\nDe prijs is exclusief kolomkasten en spiegel, en het meubel wordt zonder kraan geleverd.Maatwerk is mogelijk.\n\n**Kenmerken**\n\n- 2 soft close deuren en 2 soft close lades\n- Top: Golden Galaxy graniet met 2 Toto waskommen\n- Ook met houten top en natuurstenen waskommen\n- Exclusief kolomkasten en spiegel, zonder kraan\n- Ook op maat te maken, zonder meerprijs\n- Op bestelling gemaakt, na een vrijblijvende offerte",
   "maten": [
     {
       "label": "br=150 h=90 d=58cm",
@@ -14,13 +14,13 @@
     }
   ],
   "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
-  "zichtbaar": true,
+  "zichtbaar": false,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 501,
   "seoTitel": "Badkamermeubel Valencia BA 700C dubbel | Teakhuis",
   "seoOmschrijving": "Dubbel badkamermeubel Valencia BA 700C met 2 deuren, 2 lades en granieten top met 2 Toto waskommen. Ook op maat te maken. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/3355/wastafelmeubels/valencia-ba-700c",
-  "collectie": "valencia"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/188/3355/wastafelmeubels/valencia-ba-700c"
 }
