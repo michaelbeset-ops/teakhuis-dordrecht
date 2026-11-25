@@ -256,9 +256,13 @@ const kruimel: [string, string?][] = [['Maatwerk', url('maatwerk/')], ['Aanvrage
             const r = await fetch('https://api.emailjs.com/api/v1.0/email/send-form', { method: 'POST', body: d });
             if (!r.ok) throw new Error(await r.text());
           };
-          if (fotos.length) {
+          // Het gratis EmailJS-pakket stuurt geen bijlagen mee (en meldt dat niet). Zet BIJLAGEN op true na een upgrade
+          // met een "Form File Attachment" (parameter fotos) in de template; tot dan vraagt de bedankt-melding de klant
+          // de foto's via WhatsApp te sturen.
+          const BIJLAGEN = false;
+          if (fotos.length && BIJLAGEN) {
             try { await stuur(true); } catch { fotosMislukt = true; await stuur(false); }
-          } else await stuur(false);
+          } else { fotosMislukt = fotos.length > 0; await stuur(false); }
           if (ej.templateKlant) {
             fetch('https://api.emailjs.com/api/v1.0/email/send', {
               method: 'POST',

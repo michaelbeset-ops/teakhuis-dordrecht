@@ -17,10 +17,10 @@
   "google": "",
   "eigenaar": "Han Rietdijk",
   "emailjs": {
-    "service": "",
-    "template": "",
-    "publicKey": "",
-    "templateKlant": ""
+    "service": "service_0y9v2ao",
+    "template": "teakhuis_aanvraag",
+    "publicKey": "et1EcAsLhv5Lf7W9k",
+    "templateKlant": "teakhuis_klant"
   },
   "statistiek": {
     "plausible": "",
