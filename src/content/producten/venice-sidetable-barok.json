@@ -1,16 +1,16 @@
 {
   "titel": "Venice sidetable Barok",
   "categorie": "sidetables",
-  "prijsVanaf": 249,
-  "prijsTonen": true,
-  "omschrijving": "Een sidetable met sierlijke poten voor in de gang, achter de bank of in de eetkamer. Het onderstel is met de hand wit geschilderd en de bovenkant is van geborsteld teak.\n\nJe kiest een breedte van 100 tot 200 cm. Een andere maat maken we op maat, zonder meerprijs.\n\n**Kenmerken**\n\n- Handgeschilderd wit, bovenkant van geborsteld teak\n- Sierlijke poten\n- Leverbaar in 6 standaardmaten, ook op maat zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "venice",
   "fotos": [
     "../../assets/producten/4225/1.jpg"
   ],
+  "prijsVanaf": 289,
+  "omschrijving": "Een sidetable met sierlijke poten voor in de gang, achter de bank of in de eetkamer. Het onderstel is met de hand wit geschilderd en de bovenkant is blank teak.\n\nEen afwijkende maat is mogelijk net als 1 of meer lades. Liever dit model in blank teak of koloniale kleur? Vraag om een vrijblijvende prijsopgave\n\n**Kenmerken**\n\n- Handgeschilderd wit, bovenkant van geborsteld teak\n- Sierlijke poten\n- Leverbaar in 6 standaardmaten, ook op maat zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "b100 x d35 x h78",
-      "prijs": 249
+      "prijs": 289
     },
     {
       "label": "b120 x d40 x h78",
@@ -18,29 +18,29 @@
     },
     {
       "label": "b140 x d40 x h78",
-      "prijs": 379
+      "prijs": 399
     },
     {
       "label": "b160 x d40 x h78",
-      "prijs": 409
-    },
-    {
-      "label": "b180 x d40 x h78",
       "prijs": 449
     },
     {
+      "label": "b180 x d40 x h78",
+      "prijs": 499
+    },
+    {
       "label": "b200 x d40 x h78",
-      "prijs": 489
+      "prijs": 549
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 92,
   "seoTitel": "Venice sidetable Barok, wit met teak blad | Teakhuis",
   "seoOmschrijving": "Venice sidetable Barok met sierlijke poten, handgeschilderd wit en een bovenkant van geborsteld teak. Van 100 tot 200 cm of op maat. Vraag een offerte.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/4225/sidetables/venice-sidetable-barok",
-  "collectie": "venice"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/4225/sidetables/venice-sidetable-barok"
 }
