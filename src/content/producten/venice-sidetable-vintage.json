@@ -1,12 +1,12 @@
 {
   "titel": "Venice sidetable Vintage",
   "categorie": "sidetables",
-  "prijsVanaf": 299,
-  "prijsTonen": true,
-  "omschrijving": "Deze sidetable heeft sierlijke poten zoals je ze kent uit grootmoeders tijd. Het onderstel is met de hand wit geschilderd, de bovenkant is van geborsteld teak. Zo krijg je een vintage meubel dat licht oogt.\n\nDe breedte kies je tussen 100 en 200 cm. Een afwijkende maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n\n- Handgeschilderd wit, bovenkant van geborsteld teak\n- Sierlijke poten in vintage stijl\n- Leverbaar in 6 standaardmaten, ook op maat zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "venice",
   "fotos": [
     "../../assets/producten/4405/1.png"
   ],
+  "prijsVanaf": 299,
+  "omschrijving": "Deze sidetable heeft sierlijke poten zoals je ze kent uit grootmoeders tijd. Het onderstel is met de hand wit geschilderd, de bovenkant is van geborsteld teak. Zo krijg je een vintage meubel dat licht oogt.\n\nDe breedte kies je tussen 100 en 200 cm. Een afwijkende maat is mogelijk zonder meerprijs.\n\n**Kenmerken**\n\n- Handgeschilderd wit, bovenkant van geborsteld teak\n- Sierlijke poten in vintage stijl\n- Leverbaar in 6 standaardmaten, ook op maat zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "b100 x d35 x h78",
@@ -33,14 +33,14 @@
       "prijs": 539
     }
   ],
-  "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
+  "houtkleuren": false,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 95,
   "seoTitel": "Venice sidetable Vintage, wit met teak blad | Teakhuis",
   "seoOmschrijving": "Venice sidetable Vintage met sierlijke poten uit grootmoeders tijd, wit geschilderd met geborsteld teakhouten blad. Ook op maat. Vraag een offerte.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/4405/sidetables/venice-sidetable-vintage",
-  "collectie": "venice"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/168/4405/sidetables/venice-sidetable-vintage"
 }
