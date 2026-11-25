@@ -1,12 +1,12 @@
 {
   "titel": "vitrinekast 8",
   "categorie": "vitrinekasten",
-  "prijsVanaf": 1099,
-  "prijsTonen": true,
-  "omschrijving": "Vitrinekast 8 is een teakhouten vitrinekast die we op elke maat maken. Handig als je een vaste plek hebt waar een standaardkast net niet past.\n\nKies uit koloniaal, thee of blank teak en vraag een vrijblijvende offerte aan.\n\n**Kenmerken**\n\n- Materiaal: teakhout\n- In elke maat te maken, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "koloniale-meubelen",
   "fotos": [
     "../../assets/producten/2109/1.jpg"
   ],
+  "prijsVanaf": 1099,
+  "omschrijving": "Vitrinekast 8 is een teakhouten vitrinekast die we op elke maat maken. Handig als je een vaste plek hebt waar een standaardkast net niet past.\n\nKies uit koloniaal, thee of blank teak en vraag een vrijblijvende offerte aan.\n\n**Kenmerken**\n\n- Materiaal: teakhout\n- In elke maat te maken, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
       "label": "h=210cm br=100cm d=35cm",
@@ -14,10 +14,11 @@
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 191,
   "seoTitel": "Vitrinekast 8 van teakhout, op elke maat | Teakhuis",
   "seoOmschrijving": "Vitrinekast 8 van teakhout, op elke maat gemaakt voor jouw plek, in koloniaal, thee of blank teak. Met de hand gemaakt in Indonesië. Vraag een offerte.",
