@@ -1,14 +1,15 @@
 ---
 // Offerteaanvraag: de lijst die de bezoeker op productpagina's samenstelde, plus contactgegevens.
 // Versturen gaat bij voorkeur via EmailJS: dat bezorgt de opgemaakte HTML-mail uit src/scripts/mail.ts (foto, knop en
-// link per meubel). Anders via Web3Forms (platte tekst), en zonder sleutels opent het mailprogramma met hetzelfde
-// bericht, zodat een aanvraag nooit verloren gaat. Sleutels staan in src/data/instellingen.json.
+// link per meubel). Anders via Web3Forms als daar een sleutel voor is, en anders via FormSubmit (tabel met platte tekst,
+// kopie naar Sitefront). Lukt versturen niet, dan kan de bezoeker hem alsnog per mail sturen. Sleutels staan in
+// src/data/instellingen.json.
 import Base from '../layouts/Base.astro';
 import Kop from '../components/Kop.astro';
 import Voet from '../components/Voet.astro';
 import Icoon from '../components/Icoon.astro';
 import { site, url, absoluut } from '../data/site';
-const cfg = { key: site.web3formsKey, emailjs: site.emailjs, logo: absoluut('logo.png'), contact: { tel: site.tel, telHref: site.telHref, wa: site.wa, mail: site.mail }, mail: site.mail, wa: site.wa, collectie: url('webshop/') };
+const cfg = { key: site.web3formsKey, kopie: site.formKopie, emailjs: site.emailjs, logo: absoluut('logo.png'), contact: { tel: site.tel, telHref: site.telHref, wa: site.wa, mail: site.mail }, mail: site.mail, wa: site.wa, collectie: url('webshop/') };
 ---
 <Base title="Je offerteaanvraag | Teakhuis" description="Stel je offerteaanvraag samen en verstuur hem vrijblijvend naar Teakhuis." noindex>
   <Kop />
@@ -101,7 +102,7 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, logo: absoluut('log
     import { mailHtml, bevestigingHtml, type Contact } from '../scripts/mail';
     import { meet } from '../scripts/meet';
 
-    const cfg = JSON.parse(document.getElementById('aanvraag-cfg')!.textContent!) as { key: string; emailjs: { service: string; template: string; templateKlant: string; publicKey: string }; logo: string; contact: Contact; mail: string; wa: string; collectie: string };
+    const cfg = JSON.parse(document.getElementById('aanvraag-cfg')!.textContent!) as { key: string; kopie: string; emailjs: { service: string; template: string; templateKlant: string; publicKey: string }; logo: string; contact: Contact; mail: string; wa: string; collectie: string };
     const ul = document.querySelector<HTMLUListElement>('[data-lijst]')!;
     const leegBlok = document.querySelector<HTMLElement>('[data-leeg]')!;
     const nEl = document.querySelector<HTMLElement>('[data-n]')!;
@@ -177,12 +178,6 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, logo: absoluut('log
 
       const ej = cfg.emailjs;
       const metEmailjs = Boolean(ej.service && ej.template && ej.publicKey);
-      // Geen formuliersleutel ingesteld: het mailprogramma neemt het over.
-      if (!metEmailjs && !cfg.key) {
-        meet('Offerte via mailprogramma');
-        location.href = `mailto:${cfg.mail}?subject=${encodeURIComponent(onderwerp)}&body=${encodeURIComponent(tekst)}`;
-        return;
-      }
       knop.disabled = true;
       knop.textContent = 'Bezig met versturen...';
       try {
@@ -203,7 +198,7 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, logo: absoluut('log
               body: JSON.stringify({ service_id: ej.service, template_id: ej.templateKlant, user_id: ej.publicKey, template_params: { onderwerp: 'Je offerteaanvraag bij Teakhuis', naam: klant.naam, to_email: klant.email, reply_to: cfg.mail, inhoud: bevestigingHtml(lijst(), klant, cfg.logo, cfg.contact) } }),
             }).catch(() => {});
           }
-        } else {
+        } else if (cfg.key) {
           const r = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -211,6 +206,15 @@ const cfg = { key: site.web3formsKey, emailjs: site.emailjs, logo: absoluut('log
           });
           const j = await r.json();
           if (!j.success) throw new Error(j.message);
+        } else {
+          // FormSubmit: het adres pas hier samenstellen, zodat het niet als formulieradres in de HTML staat.
+          const r = await fetch(`https://formsubmit.co/ajax/${cfg.mail}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({ _subject: onderwerp, _template: 'table', _captcha: 'false', _cc: cfg.kopie, _replyto: veld('email'), Naam: veld('naam'), email: veld('email'), Telefoon: veld('telefoon'), 'Postcode en plaats': [veld('postcode'), veld('plaats')].filter(Boolean).join(' '), Aanvraag: tekst }),
+          });
+          const j = await r.json();
+          if (String(j.success) !== 'true') throw new Error(j.message);
         }
         meet('Offerte verstuurd');
         leeg();

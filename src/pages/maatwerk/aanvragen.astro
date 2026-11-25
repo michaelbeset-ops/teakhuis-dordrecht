@@ -1,7 +1,8 @@
 ---
 // Maatwerkaanvraag: naam, adres, telefoon, e-mail, wensen, afmetingen en foto's (zoals Han vroeg, zonder kleur en
-// materiaal). Foto's worden in de browser verkleind en via EmailJS (send-form) als bijlage meegestuurd. Lukt dat niet
-// (geen bijlagen ingesteld of te groot), dan gaat de aanvraag zonder foto's en vragen we ze via WhatsApp na te sturen.
+// materiaal). Foto's worden in de browser verkleind en als bijlage meegestuurd: via EmailJS (send-form) als dat is
+// ingesteld, anders via FormSubmit als gewone POST (zoals bij ZBN; bijlagen samen tot 10 MB), met daarna terug naar
+// deze pagina met ?verstuurd=1. Lukt meesturen niet, dan gaat de aanvraag zonder foto's en vragen we ze via WhatsApp.
 import Base from '../../layouts/Base.astro';
 import Kop from '../../components/Kop.astro';
 import Voet from '../../components/Voet.astro';
@@ -9,7 +10,7 @@ import Icoon from '../../components/Icoon.astro';
 import Kruimel from '../../components/Kruimel.astro';
 import { site, url, absoluut, waHoi } from '../../data/site';
 import { kruimelSchema } from '../../data/seo';
-const cfg = { key: site.web3formsKey, emailjs: site.emailjs, logo: absoluut('logo.png'), contact: { tel: site.tel, telHref: site.telHref, wa: site.wa, mail: site.mail }, mail: site.mail, wa: site.wa };
+const cfg = { key: site.web3formsKey, kopie: site.formKopie, emailjs: site.emailjs, logo: absoluut('logo.png'), contact: { tel: site.tel, telHref: site.telHref, wa: site.wa, mail: site.mail }, mail: site.mail, wa: site.wa };
 const kruimel: [string, string?][] = [['Maatwerk', url('maatwerk/')], ['Aanvragen']];
 ---
 <Base title="Maatwerk aanvragen: vrijblijvend ontwerp | Teakhuis" description="Vraag vrijblijvend een teakhouten meubel op maat aan. Beschrijf je wensen, geef de maten door en voeg foto's of een schets toe." schema={[kruimelSchema(kruimel, absoluut('maatwerk/aanvragen/'))]}>
@@ -104,7 +105,7 @@ const kruimel: [string, string?][] = [['Maatwerk', url('maatwerk/')], ['Aanvrage
     import { maatwerkHtml, maatwerkBevestigingHtml, type Contact, type Maatwerk } from '../../scripts/mail';
     import { meet } from '../../scripts/meet';
 
-    const cfg = JSON.parse(document.getElementById('mw-cfg')!.textContent!) as { key: string; emailjs: { service: string; template: string; templateKlant: string; publicKey: string }; logo: string; contact: Contact; mail: string; wa: string };
+    const cfg = JSON.parse(document.getElementById('mw-cfg')!.textContent!) as { key: string; kopie: string; emailjs: { service: string; template: string; templateKlant: string; publicKey: string }; logo: string; contact: Contact; mail: string; wa: string };
     const form = document.querySelector<HTMLFormElement>('[data-mw-form]')!;
     const fout = form.querySelector<HTMLElement>('[data-fout]')!;
     const knop = form.querySelector<HTMLButtonElement>('[data-verstuur]')!;
@@ -114,6 +115,15 @@ const kruimel: [string, string?][] = [['Maatwerk', url('maatwerk/')], ['Aanvrage
     const fotoFout = form.querySelector<HTMLElement>('[data-foto-fout]')!;
     const bedankt = document.querySelector<HTMLElement>('[data-bedankt]')!;
     const MAX = 5;
+
+    // Terug van FormSubmit: de bedankt-melding tonen in plaats van het formulier.
+    const terug = new URLSearchParams(location.search);
+    if (terug.has('verstuurd')) {
+      form.hidden = true;
+      bedankt.hidden = false;
+      bedankt.querySelector('[data-foto-na]')!.classList.toggle('hidden', terug.get('fotos') !== '0');
+      history.replaceState(null, '', location.pathname);
+    }
 
     // Foto's: verkleind tot max. 1600 px (JPEG), zodat ze klein genoeg zijn om mee te sturen.
     type Foto = { blob: Blob; naam: string; url: string };
@@ -162,6 +172,9 @@ const kruimel: [string, string?][] = [['Maatwerk', url('maatwerk/')], ['Aanvrage
     ['dragleave', 'drop'].forEach((t) => drop.addEventListener(t, () => delete drop.dataset.sleep));
     drop.addEventListener('drop', (e) => { e.preventDefault(); if (e.dataTransfer?.files) voegFotosToe(e.dataTransfer.files); });
 
+    // Terug met de knop Vorige (pagina uit de cache): de knop weer bruikbaar maken.
+    addEventListener('pageshow', () => { knop.disabled = false; knop.textContent = 'Aanvraag versturen'; });
+
     form.addEventListener('input', () => { fout.classList.add('hidden'); form.querySelectorAll('[aria-invalid]').forEach((v) => v.removeAttribute('aria-invalid')); });
 
     form.addEventListener('submit', async (e) => {
@@ -196,7 +209,39 @@ const kruimel: [string, string?][] = [['Maatwerk', url('maatwerk/')], ['Aanvrage
 
       const ej = cfg.emailjs;
       const metEmailjs = Boolean(ej.service && ej.template && ej.publicKey);
-      if (!metEmailjs && !cfg.key) { meet('Maatwerk via mailprogramma'); location.href = mailto; return; }
+
+      // FormSubmit (geen EmailJS of Web3Forms ingesteld): een verborgen formulier met de foto's als echte bestanden
+      // posten. De browser gaat naar FormSubmit en komt via _next terug op deze pagina.
+      if (!metEmailjs && !cfg.key) {
+        knop.disabled = true;
+        knop.textContent = 'Bezig met versturen...';
+        const post = document.createElement('form');
+        post.method = 'POST';
+        post.enctype = 'multipart/form-data';
+        post.action = `https://formsubmit.co/${cfg.mail}`;
+        post.hidden = true;
+        let metFotos = false;
+        if (fotos.length) {
+          try {
+            const dt = new DataTransfer();
+            fotos.forEach((p) => dt.items.add(new File([p.blob], p.naam, { type: p.blob.type || 'image/jpeg' })));
+            const bestand = document.createElement('input');
+            bestand.type = 'file'; bestand.name = 'attachment'; bestand.multiple = true; bestand.files = dt.files;
+            post.append(bestand);
+            metFotos = true;
+          } catch { /* oude browser: zonder foto's, de bedankt-melding vraagt ze via WhatsApp */ }
+        }
+        const terugUrl = `${location.origin}${location.pathname}?verstuurd=1${fotos.length && !metFotos ? '&fotos=0' : ''}`;
+        Object.entries({
+          _subject: onderwerp, _template: 'table', _captcha: 'false', _cc: cfg.kopie, _replyto: m.email, _next: terugUrl,
+          Naam: m.naam, email: m.email, Telefoon: m.telefoon, Adres: m.adres, Wensen: m.omschrijving, Afmetingen: m.maten,
+          "Foto's": metFotos ? `${fotos.length} als bijlage` : fotos.length ? 'konden niet mee, klant stuurt ze via WhatsApp' : 'geen',
+        }).forEach(([k, v]) => { const i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = v; post.append(i); });
+        document.body.append(post);
+        meet('Maatwerk verstuurd');
+        post.submit();
+        return;
+      }
 
       knop.disabled = true;
       knop.textContent = 'Bezig met versturen...';

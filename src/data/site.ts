@@ -19,6 +19,10 @@ export const site = {
   wa: `https://wa.me/${inst.whatsapp.replace(/\D/g, '')}`,
   mail: inst.email,
   web3formsKey: inst.web3formsKey,
+  // Formulieren gaan via FormSubmit (formsubmit.co) naar `mail`, met een kopie naar Sitefront. De eerste aanvraag
+  // stuurt FormSubmit een activatiemail naar `mail`: daar een keer op "Activate Form" klikken. EmailJS (hieronder)
+  // gaat voor als het is ingesteld.
+  formKopie: 'info@sitefront.nl',
   emailjs: { service: '', template: '', templateKlant: '', publicKey: '', ...inst.emailjs },
   statistiek: { plausible: '', goatcounter: '', ...inst.statistiek },
   facebook: inst.facebook,
