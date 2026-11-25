@@ -1,31 +1,31 @@
 {
   "titel": "Venice Dressoir klassiek 3 deurs",
   "categorie": "dressoirs",
-  "prijsVanaf": 899,
-  "prijsTonen": true,
-  "omschrijving": "Het Venice dressoir klassiek met 3 deuren is handgeschilderd wit. Voor de bovenkant kies je tussen gerecycled teakhout of wit. Het dressoir is 180 cm breed, 55 cm diep en 95 cm hoog.\n\nWil je een andere maat, dan maken we hem op maat zonder meerprijs.\n\n**Kenmerken**\n\n- Handgeschilderd wit\n- Bovenkant: gerecycled teakhout of wit\n- 3 deuren\n- Afmetingen: B 180 x D 55 x H 95 cm, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, na een vrijblijvende offerte",
+  "collectie": "venice",
   "fotos": [
     "../../assets/producten/4424/1.png",
     "../../assets/producten/4424/2.png"
   ],
+  "prijsVanaf": 999,
+  "omschrijving": "Het Venice dressoir klassiek met 3 deuren is handgeschilderd wit. Voor de bovenkant kies je tussen gerecycled teakhout of wit. Het dressoir is 180 cm breed, 45 cm diep en 95 cm hoog.\n\nWil je een andere maat, dan maken we hem op maat zonder meerprijs. Ook te leveren volledig in blank teak of in koloniale kleur. Prijs op aanvraag.\n\n**Kenmerken**\n\n- Handgeschilderd wit\n- Bovenkant: gerecycled teakhout of wit\n- 3 deuren\n- Afmetingen: B 180 x D 55 x H 95 cm, ook op maat\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, na een vrijblijvende offerte",
   "maten": [
     {
-      "label": "b180 x d55 x h95 teaktop",
-      "prijs": 949
+      "label": "b180 x d45 x h95 wit",
+      "prijs": 999
     },
     {
-      "label": "b180 x d55 x h95 wit",
-      "prijs": 899
+      "label": "b180 x d45 x h95 teaktop",
+      "prijs": 1049
     }
   ],
-  "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
+  "houtkleuren": false,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 377,
   "seoTitel": "Venice dressoir klassiek 3 deurs wit | Teakhuis",
   "seoOmschrijving": "Venice dressoir klassiek met 3 deuren, handgeschilderd wit met een top van gerecycled teak of wit. 180 cm breed, ook op maat. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/246/4424/dressoirs/venice-dressoir-klassiek-3-deurs",
-  "collectie": "venice"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/246/4424/dressoirs/venice-dressoir-klassiek-3-deurs"
 }
