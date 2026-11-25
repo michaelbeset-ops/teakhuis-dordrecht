@@ -1,26 +1,26 @@
 {
   "titel": "Venice boekenkast",
   "categorie": "teak-boekenkasten",
-  "prijsVanaf": 449,
-  "prijsTonen": true,
-  "omschrijving": "De Venice boekenkast is een fraaie witte kast die met de hand is geschilderd. Hij geeft een lichte uitstraling aan je woonkamer of studeerkamer.\n\nDe kast is op maat te maken, zonder meerprijs. Je krijgt eerst een vrijblijvende offerte.\n\n**Kenmerken**\n\n- Handgeschilderd wit\n- Ook op maat te maken, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, na een vrijblijvende offerte",
+  "collectie": "venice",
   "fotos": [
     "../../assets/producten/4458/1.png"
   ],
+  "prijsVanaf": 599,
+  "omschrijving": "De Venice boekenkast is een fraaie witte kast die met de hand is geschilderd. Hij geeft een lichte uitstraling aan je woonkamer of studeerkamer.\n\nDe kast is op maat te maken, zonder meerprijs. Je krijgt eerst een vrijblijvende offerte. Ook leverbaar in blank teak of koloniale kleur. Prijs op aanvraag.\n\n**Kenmerken**\n\n- Handgeschilderd wit\n- Ook op maat te maken, zonder meerprijs\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, na een vrijblijvende offerte",
   "maten": [
     {
       "label": "h200 x b60 x d40",
-      "prijs": 449
+      "prijs": 599
     }
   ],
-  "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
+  "houtkleuren": false,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 457,
   "seoTitel": "Venice boekenkast handgeschilderd wit | Teakhuis",
   "seoOmschrijving": "Venice boekenkast, met de hand wit geschilderd en gemaakt in Indonesië. Ook op maat te maken zonder meerprijs. Vraag vrijblijvend een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/180/4458/teak-boekenkasten/venice-boekenkast",
-  "collectie": "venice"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/180/4458/teak-boekenkasten/venice-boekenkast"
 }
