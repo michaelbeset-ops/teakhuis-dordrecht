@@ -1,33 +1,33 @@
 {
   "titel": "Venice eettafel Cuba, met of zonder laden",
   "categorie": "teak-eettafels",
-  "prijsVanaf": 609,
-  "prijsTonen": true,
-  "omschrijving": "De Venice eettafel Cuba is een strakke, mooi afgewerkte tafel met een handgeschilderd wit frame en een blad van gerecycled teakhout. Je kunt hem met of zonder laden bestellen.\n\nDe tafel is leverbaar van 160 tot 280 cm lang. Past dat niet, dan maken we hem op maat zonder meerprijs.\n\n**Kenmerken**\n\n- Handgeschilderd wit frame met blad van gerecycled teakhout\n- Met of zonder laden\n- Leverbaar van 160 tot 280 cm, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, na een vrijblijvende offerte",
+  "collectie": "venice",
   "fotos": [
-    "../../assets/producten/4259/1.png",
-    "../../assets/producten/4259/2.png"
+    "../../assets/producten/4259/2.png",
+    "../../assets/producten/4259/1.png"
   ],
+  "prijsVanaf": 609,
+  "omschrijving": "De Venice eettafel Cuba is een strakke, mooi afgewerkte tafel met een handgeschilderd wit frame en een blad van gerecycled teakhout. Het witte onderstel met teakhouten top, gecombineerd met de poten geven de tafel een landelijke uitstraling.\n\nDe tafel is leverbaar van 160 tot 280 cm lang. Past dat niet, dan maken we hem op maat zonder meerprijs.\n\n**Kenmerken**\n\n- Handgeschilderd wit frame met blad van gerecycled teakhout\n- Met of zonder laden\n- Leverbaar van 160 tot 280 cm, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, na een vrijblijvende offerte",
   "maten": [
     {
       "label": "160 x 90 x 78 zonder laden",
       "prijs": 609
     },
     {
-      "label": "180 x 95 x 78 zonder laden",
+      "label": "180 x 90 x 78 zonder laden",
       "prijs": 659
     },
     {
-      "label": "200 x 100 x 78 zonder laden",
-      "prijs": 719
+      "label": "200 x 95 x 78 zonder laden",
+      "prijs": 749
     },
     {
-      "label": "220 x 100 x 78 zonder laden",
-      "prijs": 795
+      "label": "220 x 95 x 78 zonder laden",
+      "prijs": 819
     },
     {
       "label": "240 x 100 x 78 zonder laden",
-      "prijs": 909
+      "prijs": 919
     },
     {
       "label": "260 x 100 x 78 zonder laden",
@@ -35,7 +35,7 @@
     },
     {
       "label": "280 x 100 x 78",
-      "prijs": 1109
+      "prijs": 1099
     },
     {
       "label": "160 x 90 x 78 met laden",
@@ -47,11 +47,11 @@
     },
     {
       "label": "200 x 90 x 78 met laden",
-      "prijs": 779
+      "prijs": 799
     },
     {
       "label": "220 x 90 x 78 met laden",
-      "prijs": 855
+      "prijs": 869
     },
     {
       "label": "240 x 90 x 78 met laden",
@@ -59,21 +59,21 @@
     },
     {
       "label": "260 x 90 x 78 met laden",
-      "prijs": 1069
+      "prijs": 1049
     },
     {
       "label": "280 x 90 x 78 met laden",
-      "prijs": 1179
+      "prijs": 1149
     }
   ],
   "houtkleuren": true,
-  "uitvoeringen": [],
-  "maatwerk": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 356,
   "seoTitel": "Venice eettafel Cuba, met of zonder laden | Teakhuis",
   "seoOmschrijving": "Venice eettafel Cuba met wit handgeschilderd frame en blad van gerecycled teak, met of zonder laden. Van 160 tot 280 cm of op maat. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4259/teak-eettafels/venice-eettafel-cuba-met-of-zonder-laden",
-  "collectie": "venice"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/164/4259/teak-eettafels/venice-eettafel-cuba-met-of-zonder-laden"
 }
