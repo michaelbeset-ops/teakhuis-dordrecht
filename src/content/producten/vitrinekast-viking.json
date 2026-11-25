@@ -1,28 +1,29 @@
 {
   "titel": "Vitrinekast Viking",
   "categorie": "vitrinekasten",
-  "prijsVanaf": 1995,
-  "prijsTonen": true,
-  "omschrijving": "Vitrinekast Viking combineert oud gerecycled teakhout met staal. Dat geeft de kast een robuuste, stoere uitstraling die goed past bij de rest van de Viking collectie.\n\nOok deze kast kun je op maat laten maken, zonder meerprijs.\n\n**Kenmerken**\n\n- Materiaal: oud gerecycled teakhout en staal\n- Robuuste, stoere uitstraling\n- Ook op maat zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
+  "collectie": "viking",
   "fotos": [
+    "../../assets/producten/vitrinekast-viking-zwarte-poten.webp",
+    "../../assets/producten/viking-collectie-showroom-met-zwarte-frames.webp",
     "../../assets/producten/28725/1.jpg",
-    "../../assets/producten/28725/2.jpg",
     "../../assets/producten/28725/3.jpg"
   ],
+  "prijsVanaf": 1469,
+  "omschrijving": "Teakhout gecombineerd met staal voor een industriële look. Kan zowel in nieuw blank teak als gerecycled teak, met zwart metalen poten of rustiek blank staal.\n\nAfwijkende afmetingen en indeling is mogelijk. Vraag om een vrijblijvende prijsopgave.\n\n**Kenmerken**\n\n- Materiaal: teakhout en staal\n- Industriële look\n- Ook op maat zonder meerprijs\n- Met de hand gemaakt in Indonesië\n- Op bestelling gemaakt, eerst een vrijblijvende offerte",
   "maten": [
     {
-      "label": "B160 x D45 x H225",
-      "prijs": 1995
+      "label": "B140 x D45 x H225",
+      "prijs": 1469
     }
   ],
-  "houtkleuren": false,
-  "uitvoeringen": [],
-  "maatwerk": true,
+  "houtkleuren": true,
   "uitgelicht": false,
   "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
   "volgorde": 481,
   "seoTitel": "Vitrinekast Viking, gerecycled teak en staal | Teakhuis",
   "seoOmschrijving": "Vitrinekast Viking van oud gerecycled teakhout en staal, met een robuuste en stoere uitstraling. Ook op maat zonder meerprijs. Vraag een offerte aan.",
-  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/173/28725/vitrinekasten/vitrinekast-viking",
-  "collectie": "viking"
+  "oudeUrl": "/webshop/etxFAX7uScLCTSM6mcUYWX/173/28725/vitrinekasten/vitrinekast-viking"
 }
