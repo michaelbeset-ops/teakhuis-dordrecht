@@ -3,14 +3,20 @@
   "categorie": "teak-tv-kasten",
   "collectie": "",
   "fotos": [
-    "../../assets/producten/2328/1.jpg"
+    "../../assets/producten/2328/1.jpg",
+    "../../assets/producten/venice_2_deur_2_open_strak.webp",
+    "../../assets/producten/venice_tv_2deur_2openvak.webp"
   ],
-  "prijsVanaf": 869,
+  "prijsVanaf": 649,
   "omschrijving": "Een standaard tv-meubel in een klassieke uitvoering met dichte plint, 2 deuren en 2 open vakken.\nLeverbaar in iedere afmeting en met afwijkende indeling.\n\nKies uit vier houtkleuren.\n\n**Kenmerken**\n\n- Teakhouten tv kast of dressoir\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- In elke maat te maken, zonder meerprijs\n- Met de hand gemaakt in Indonesië, op bestelling",
   "maten": [
     {
+      "label": "B150 x D45 x H55",
+      "prijs": 649
+    },
+    {
       "label": "h=55cm d=45cm br=180cm",
-      "prijs": 869
+      "prijs": 769
     }
   ],
   "houtkleuren": true,
