@@ -9,7 +9,7 @@ export interface Contact { tel: string; telHref: string; wa: string; mail: strin
 const esc = (s: unknown) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 const absoluut = (pad: string) => new URL(pad, location.href).href;
 
-const INKT = '#17201b', GRIJS = '#55605a', GROEN = '#6aab35', DIEP = '#36641a', ZAND = '#f1eee7', LIJN = '#e3ddd1';
+const INKT = '#17201b', GRIJS = '#55605a', DIEP = '#36641a', ZAND = '#f1eee7', LIJN = '#e3ddd1';
 const FONT = "font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;";
 
 function regelHtml(r: Regel, i: number) {
@@ -24,74 +24,60 @@ function regelHtml(r: Regel, i: number) {
   const rijen = details.filter(([, v]) => v).map(([k, v]) =>
     `<tr><td style="${FONT}font-size:14px;color:${GRIJS};padding:2px 14px 2px 0;vertical-align:top;white-space:nowrap">${k}</td><td style="${FONT}font-size:14px;color:${INKT};padding:2px 0;font-weight:600">${esc(v)}</td></tr>`).join('');
   const foto = r.foto
-    ? `<a href="${esc(link)}"><img src="${esc(absoluut(r.foto))}" width="96" height="96" alt="${esc(r.titel)}" style="display:block;width:96px;height:96px;object-fit:contain;background:#ffffff;border-radius:6px;border:1px solid ${LIJN}"></a>`
-    : `<div style="width:96px;height:96px;background:${ZAND};border-radius:6px"></div>`;
+    ? `<a href="${esc(link)}"><img src="${esc(absoluut(r.foto))}" width="96" height="96" alt="${esc(r.titel)}" style="display:block;width:96px;height:96px;object-fit:contain;background:#ffffff;border:1px solid ${LIJN}"></a>`
+    : `<div style="width:96px;height:96px;background:${ZAND}"></div>`;
   return `
   <tr><td style="padding:20px 0;border-top:${i ? `1px solid ${LIJN}` : '0'}">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
       <td width="96" style="vertical-align:top;padding-right:18px">${foto}</td>
       <td style="vertical-align:top">
-        <p style="${FONT}margin:0 0 8px;font-size:17px;line-height:1.3;font-weight:700;color:${INKT}">${r.aantal > 1 ? `<span style="color:${DIEP}">${r.aantal}&times;</span> ` : ''}${esc(r.titel)}</p>
+        <p style="${FONT}margin:0 0 6px;font-size:16px;line-height:1.3;font-weight:700;color:${INKT}">${r.aantal > 1 ? `<span style="color:${DIEP}">${r.aantal}&times;</span> ` : ''}${esc(r.titel)}</p>
         <table role="presentation" cellpadding="0" cellspacing="0">${rijen}</table>
-        <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:14px"><tr><td style="background:${GROEN};border-radius:6px">
-          <a href="${esc(link)}" style="${FONT}display:inline-block;padding:10px 18px;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none">Bekijk op de site &rarr;</a>
-        </td></tr></table>
-        <p style="${FONT}margin:8px 0 0;font-size:12px;line-height:1.4;word-break:break-all"><a href="${esc(link)}" style="color:${GRIJS}">${esc(link)}</a></p>
+        <p style="${FONT}margin:10px 0 0;font-size:14px"><a href="${esc(link)}" style="color:${DIEP};font-weight:600">Bekijk op de site</a></p>
       </td>
     </tr></table>
   </td></tr>`;
 }
 
-const label = (t: string, boven = 26) => `<p style="${FONT}margin:${boven}px 0 8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${GRIJS}">${t}</p>`;
+const label = (t: string, boven = 26) => `<p style="${FONT}margin:${boven}px 0 6px;font-size:15px;font-weight:700;color:${INKT}">${t}</p>`;
 const meubels = (regels: Regel[], kop: string) => (regels.length ? `${label(kop)}<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${regels.map(regelHtml).join('')}</table>` : '');
-const bericht = (k: Klant, kop: string) => (k.bericht ? `${label(kop, 22)}<div style="${FONT}background:${ZAND};border-radius:8px;padding:14px 16px;font-size:15px;line-height:1.55;color:${INKT};white-space:pre-wrap">${esc(k.bericht)}</div>` : '');
+const bericht = (k: Klant, kop: string) => (k.bericht ? `${label(kop, 22)}<div style="${FONT}border-left:3px solid ${LIJN};padding:2px 0 2px 14px;font-size:15px;line-height:1.55;color:${INKT};white-space:pre-wrap">${esc(k.bericht)}</div>` : '');
 
 // De vaste omlijsting: logo en ondertitel boven een witte kaart, met een regel uitleg eronder.
 function omhulsel(logo: string, sub: string, inhoud: string, voet: string) {
   return `<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:${ZAND}">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${ZAND}"><tr><td align="center" style="padding:24px 12px">
+<body style="margin:0;padding:0;background:#ffffff">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff"><tr><td align="center" style="padding:24px 16px">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px">
-    <tr><td style="padding:0 4px 16px">
+    <tr><td style="padding:0 0 20px;border-bottom:1px solid ${LIJN}">
       <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-        ${logo ? `<td style="padding-right:12px"><img src="${esc(logo)}" width="44" height="44" alt="Teakhuis" style="display:block;width:44px;height:44px;border-radius:3px"></td>` : ''}
-        <td style="${FONT}"><span style="display:block;font-size:17px;font-weight:800;color:${INKT}">Teakhuis</span><span style="display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${DIEP}">${sub}</span></td>
+        ${logo ? `<td style="padding-right:12px"><img src="${esc(logo)}" width="40" height="40" alt="Teakhuis" style="display:block;width:40px;height:40px"></td>` : ''}
+        <td style="${FONT}"><span style="display:block;font-size:17px;font-weight:700;color:${INKT}">Teakhuis</span>${sub ? `<span style="display:block;font-size:13px;color:${GRIJS}">${sub}</span>` : ''}</td>
       </tr></table>
     </td></tr>
-    <tr><td style="background:#ffffff;border-radius:10px;padding:28px 24px">${inhoud}</td></tr>
-    <tr><td style="padding:14px 4px 0;${FONT}font-size:12px;line-height:1.5;color:${GRIJS}">${voet}</td></tr>
+    <tr><td style="padding:24px 0">${inhoud}</td></tr>
+    <tr><td style="padding:14px 0 0;border-top:1px solid ${LIJN};${FONT}font-size:12px;line-height:1.5;color:${GRIJS}">${voet}</td></tr>
   </table>
 </td></tr></table>
 </body></html>`;
 }
 
-// Bevestiging voor de klant: bedankt, wat je aanvroeg, hoe het verder gaat en hoe je Han bereikt.
+// Bevestiging voor de klant: een gewone, persoonlijke mail van Han met wat de klant aanvroeg en hoe het verder gaat.
+const p = (t: string, boven = 14) => `<p style="${FONT}margin:${boven}px 0 0;font-size:15px;line-height:1.6;color:${INKT}">${t}</p>`;
+const groet = (c: Contact) => p(`Met vriendelijke groet,<br>Han<br><span style="color:${GRIJS}">Teakhuis &middot; <a href="${esc(c.telHref)}" style="color:${GRIJS};white-space:nowrap">${esc(c.tel)}</a></span>`, 24);
+const aanhef = (naam: string) => { const v = naam.trim().split(/\s+/)[0] || ''; return p(v ? `Hoi ${esc(v)},` : 'Hallo,', 0); };
+
 export function bevestigingHtml(regels: Regel[], k: Klant, logo: string, c: Contact) {
-  const voornaam = k.naam.trim().split(/\s+/)[0] || '';
-  const stappen = [
-    ['Han neemt contact op', 'Hij bekijkt je aanvraag en belt of mailt je om je wensen, maten en kleur door te nemen.'],
-    ['Schets en prijsopgave', 'Je krijgt een tekening met je maten en een prijs. Vrijblijvend, je zit nergens aan vast.'],
-    ['Akkoord? Dan wordt hij gemaakt', 'Je betaalt 20% aan en je meubel wordt met de hand gemaakt en bij je thuis afgeleverd.'],
-  ].map(([kop, tekst], i) => `<tr>
-      <td width="40" style="vertical-align:top;padding:8px 0"><span style="${FONT}display:inline-block;width:28px;height:28px;border-radius:50%;background:${GROEN};color:${INKT};font-size:14px;font-weight:800;line-height:28px;text-align:center">${i + 1}</span></td>
-      <td style="${FONT}vertical-align:top;padding:8px 0"><span style="display:block;font-size:15px;font-weight:700;color:${INKT}">${kop}</span><span style="display:block;margin-top:2px;font-size:14px;line-height:1.5;color:${GRIJS}">${tekst}</span></td>
-    </tr>`).join('');
   const inhoud = `
-      <h1 style="${FONT}margin:0;font-size:24px;line-height:1.25;color:${INKT}">Bedankt voor je aanvraag${voornaam ? `, ${esc(voornaam)}` : ''}!</h1>
-      <p style="${FONT}margin:10px 0 0;font-size:15px;line-height:1.6;color:${GRIJS}">We hebben je aanvraag goed ontvangen. Han bekijkt hem persoonlijk en neemt contact met je op. Hieronder zie je wat je hebt aangevraagd.</p>
+      ${aanhef(k.naam)}
+      ${p('Bedankt voor je offerteaanvraag. Ik heb hem goed ontvangen en kijk er zelf naar. Hieronder zie je nog even wat je hebt aangevraagd.')}
       ${meubels(regels, 'Je aanvraag')}
       ${bericht(k, 'Je vragen of wensen')}
-      ${label('Zo gaat het verder')}
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${stappen}</table>
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:22px;background:${ZAND};border-radius:8px"><tr><td style="padding:18px 18px 16px">
-        <p style="${FONT}margin:0;font-size:15px;line-height:1.5;color:${INKT}"><strong>Vraag of iets vergeten?</strong> Bel of app Han, de eigenaar: <a href="${esc(c.telHref)}" style="color:${DIEP};font-weight:700;white-space:nowrap">${esc(c.tel)}</a></p>
-        <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:14px"><tr>
-          <td style="background:${GROEN};border-radius:6px"><a href="${esc(c.wa)}" style="${FONT}display:inline-block;padding:10px 18px;font-size:14px;font-weight:700;color:${INKT};text-decoration:none">WhatsApp Han</a></td>
-          <td width="10"></td>
-          <td style="border:1px solid ${INKT};border-radius:6px"><a href="${esc(c.telHref)}" style="${FONT}display:inline-block;padding:9px 18px;font-size:14px;font-weight:700;color:${INKT};text-decoration:none">Bellen</a></td>
-        </tr></table>
-      </td></tr></table>`;
-  return omhulsel(logo, 'Je offerteaanvraag', inhoud, `Je ontvangt deze mail omdat je via de website van Teakhuis een offerte aanvroeg. Een antwoord op deze mail komt bij Teakhuis terecht (${esc(c.mail)}).`);
+      ${label('Hoe gaat het verder?')}
+      ${p('Ik bel of mail je om je wensen, maten en kleur door te nemen. Daarna krijg je een tekening met je maten en een prijs. Dat is vrijblijvend, je zit nergens aan vast. Ga je akkoord, dan betaal je 20% aan en wordt je meubel met de hand gemaakt en bij je thuis afgeleverd.', 0)}
+      ${p(`Vraag of iets vergeten? Bel me op <a href="${esc(c.telHref)}" style="color:${DIEP};font-weight:600;white-space:nowrap">${esc(c.tel)}</a> of stuur een <a href="${esc(c.wa)}" style="color:${DIEP};font-weight:600">WhatsApp</a>.`)}
+      ${groet(c)}`;
+  return omhulsel(logo, '', inhoud, `Je krijgt deze mail omdat je via teakhuis.nl een offerte aanvroeg. Antwoorden kan gewoon, dan komt je mail bij mij terecht (${esc(c.mail)}).`);
 }
 
 export function mailHtml(regels: Regel[], k: Klant, logo = '') {
@@ -104,8 +90,8 @@ export function mailHtml(regels: Regel[], k: Klant, logo = '') {
     ['Woonplaats', k.plaats ? esc(k.plaats) : '<span style="color:#8a938e">niet ingevuld</span>'],
   ];
   const knoppen = [
-    `<td style="background:${INKT};border-radius:6px"><a href="mailto:${esc(k.email)}?subject=${encodeURIComponent('Je offerteaanvraag bij Teakhuis')}" style="${FONT}display:inline-block;padding:11px 18px;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none">Beantwoorden</a></td>`,
-    k.telefoon ? `<td width="10"></td><td style="border:1px solid ${INKT};border-radius:6px"><a href="tel:${esc(tel)}" style="${FONT}display:inline-block;padding:10px 18px;font-size:14px;font-weight:700;color:${INKT};text-decoration:none">Bellen</a></td>` : '',
+    `<td style="background:${INKT};border-radius:4px"><a href="mailto:${esc(k.email)}?subject=${encodeURIComponent('Je offerteaanvraag bij Teakhuis')}" style="${FONT}display:inline-block;padding:11px 18px;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none">Beantwoorden</a></td>`,
+    k.telefoon ? `<td width="10"></td><td style="border:1px solid ${INKT};border-radius:4px"><a href="tel:${esc(tel)}" style="${FONT}display:inline-block;padding:10px 18px;font-size:14px;font-weight:700;color:${INKT};text-decoration:none">Bellen</a></td>` : '',
   ].join('');
 
   const inhoud = `
@@ -124,7 +110,7 @@ export function mailHtml(regels: Regel[], k: Klant, logo = '') {
 // Maatwerkaanvraag (formulier op maatwerk/aanvragen/): geen meubellijst, wel omschrijving, maten, adres en foto's.
 export interface Maatwerk { naam: string; email: string; telefoon: string; adres: string; omschrijving: string; maten: string; fotos: number }
 
-const blok = (kop: string, tekst: string, boven = 22) => (tekst ? `${label(kop, boven)}<div style="${FONT}background:${ZAND};border-radius:8px;padding:14px 16px;font-size:15px;line-height:1.55;color:${INKT};white-space:pre-wrap">${esc(tekst)}</div>` : '');
+const blok = (kop: string, tekst: string, boven = 22) => (tekst ? `${label(kop, boven)}<div style="${FONT}border-left:3px solid ${LIJN};padding:2px 0 2px 14px;font-size:15px;line-height:1.55;color:${INKT};white-space:pre-wrap">${esc(tekst)}</div>` : '');
 const fotoRegel = (n: number, jij: boolean) => (n ? `<p style="${FONT}margin:16px 0 0;font-size:14px;color:${INKT}"><strong>${n} ${n === 1 ? 'foto' : "foto's"}</strong> ${jij ? 'meegestuurd' : 'als bijlage bij deze mail'}.</p>` : '');
 
 export function maatwerkHtml(m: Maatwerk, logo = '') {
@@ -147,37 +133,22 @@ export function maatwerkHtml(m: Maatwerk, logo = '') {
         ${contact.map(([a, b]) => `<tr><td style="${FONT}font-size:14px;color:${GRIJS};padding:9px 12px 9px 0;border-bottom:1px solid ${LIJN};width:110px">${a}</td><td style="${FONT}font-size:15px;color:${INKT};padding:9px 0;border-bottom:1px solid ${LIJN}">${b}</td></tr>`).join('')}
       </table>
       <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:20px"><tr>
-        <td style="background:${INKT};border-radius:6px"><a href="mailto:${esc(m.email)}?subject=${encodeURIComponent('Je maatwerkaanvraag bij Teakhuis')}" style="${FONT}display:inline-block;padding:11px 18px;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none">Beantwoorden</a></td>
-        ${m.telefoon ? `<td width="10"></td><td style="border:1px solid ${INKT};border-radius:6px"><a href="tel:${esc(tel)}" style="${FONT}display:inline-block;padding:10px 18px;font-size:14px;font-weight:700;color:${INKT};text-decoration:none">Bellen</a></td>` : ''}
+        <td style="background:${INKT};border-radius:4px"><a href="mailto:${esc(m.email)}?subject=${encodeURIComponent('Je maatwerkaanvraag bij Teakhuis')}" style="${FONT}display:inline-block;padding:11px 18px;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none">Beantwoorden</a></td>
+        ${m.telefoon ? `<td width="10"></td><td style="border:1px solid ${INKT};border-radius:4px"><a href="tel:${esc(tel)}" style="${FONT}display:inline-block;padding:10px 18px;font-size:14px;font-weight:700;color:${INKT};text-decoration:none">Bellen</a></td>` : ''}
       </tr></table>`;
   return omhulsel(logo, 'Maatwerk via de website', inhoud, `Op "Beantwoorden" drukken in je mailprogramma stuurt je antwoord direct naar ${esc(m.email)}.`);
 }
 
 export function maatwerkBevestigingHtml(m: Maatwerk, logo: string, c: Contact) {
-  const voornaam = m.naam.trim().split(/\s+/)[0] || '';
-  const stappen = [
-    ['Han neemt contact op', 'Hij bekijkt je idee en stelt waar nodig wat vragen.'],
-    ['Vrijblijvend voorstel', 'Samen werken we het ontwerp uit tot alles klopt. Daarna krijg je een voorstel met prijs.'],
-    ['Akkoord? Dan wordt hij gemaakt', 'Na 20% aanbetaling maken onze vakmensen je meubel. Meestal ben je binnen 3 tot 5 maanden klaar.'],
-  ].map(([kop, tekst], i) => `<tr>
-      <td width="40" style="vertical-align:top;padding:8px 0"><span style="${FONT}display:inline-block;width:28px;height:28px;border-radius:50%;background:${GROEN};color:${INKT};font-size:14px;font-weight:800;line-height:28px;text-align:center">${i + 1}</span></td>
-      <td style="${FONT}vertical-align:top;padding:8px 0"><span style="display:block;font-size:15px;font-weight:700;color:${INKT}">${kop}</span><span style="display:block;margin-top:2px;font-size:14px;line-height:1.5;color:${GRIJS}">${tekst}</span></td>
-    </tr>`).join('');
   const inhoud = `
-      <h1 style="${FONT}margin:0;font-size:24px;line-height:1.25;color:${INKT}">Bedankt voor je aanvraag${voornaam ? `, ${esc(voornaam)}` : ''}!</h1>
-      <p style="${FONT}margin:10px 0 0;font-size:15px;line-height:1.6;color:${GRIJS}">We hebben je maatwerkaanvraag goed ontvangen. Han bekijkt hem persoonlijk en neemt contact met je op.</p>
+      ${aanhef(m.naam)}
+      ${p('Bedankt voor je maatwerkaanvraag. Ik heb hem goed ontvangen en kijk er zelf naar.')}
       ${blok('Je wensen', m.omschrijving)}
       ${blok('Afmetingen', m.maten)}
       ${fotoRegel(m.fotos, true)}
-      ${label('Zo gaat het verder')}
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${stappen}</table>
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:22px;background:${ZAND};border-radius:8px"><tr><td style="padding:18px 18px 16px">
-        <p style="${FONT}margin:0;font-size:15px;line-height:1.5;color:${INKT}"><strong>Nog een foto of schets?</strong> Stuur hem via WhatsApp, of bel Han: <a href="${esc(c.telHref)}" style="color:${DIEP};font-weight:700;white-space:nowrap">${esc(c.tel)}</a></p>
-        <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:14px"><tr>
-          <td style="background:${GROEN};border-radius:6px"><a href="${esc(c.wa)}" style="${FONT}display:inline-block;padding:10px 18px;font-size:14px;font-weight:700;color:${INKT};text-decoration:none">WhatsApp Han</a></td>
-          <td width="10"></td>
-          <td style="border:1px solid ${INKT};border-radius:6px"><a href="${esc(c.telHref)}" style="${FONT}display:inline-block;padding:9px 18px;font-size:14px;font-weight:700;color:${INKT};text-decoration:none">Bellen</a></td>
-        </tr></table>
-      </td></tr></table>`;
-  return omhulsel(logo, 'Je maatwerkaanvraag', inhoud, `Je ontvangt deze mail omdat je via de website van Teakhuis maatwerk aanvroeg. Een antwoord op deze mail komt bij Teakhuis terecht (${esc(c.mail)}).`);
+      ${label('Hoe gaat het verder?')}
+      ${p('Ik bekijk je idee en stel waar nodig nog wat vragen. Samen werken we het ontwerp uit tot alles klopt, daarna krijg je een voorstel met prijs. Ga je akkoord, dan maken onze vakmensen je meubel na 20% aanbetaling. Meestal is hij binnen 3 tot 5 maanden klaar.', 0)}
+      ${p(`Heb je nog een foto of schets? Stuur hem via <a href="${esc(c.wa)}" style="color:${DIEP};font-weight:600">WhatsApp</a>, of bel me op <a href="${esc(c.telHref)}" style="color:${DIEP};font-weight:600;white-space:nowrap">${esc(c.tel)}</a>.`)}
+      ${groet(c)}`;
+  return omhulsel(logo, '', inhoud, `Je krijgt deze mail omdat je via teakhuis.nl maatwerk aanvroeg. Antwoorden kan gewoon, dan komt je mail bij mij terecht (${esc(c.mail)}).`);
 }
