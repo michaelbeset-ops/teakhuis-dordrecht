@@ -1,0 +1,40 @@
+{
+  "titel": "Dressoir Java",
+  "categorie": "dressoirs",
+  "collectie": "overig-blank-teeak",
+  "fotos": [
+    "../../assets/producten/2333/1.jpg",
+    "../../assets/producten/dressoir_java_3_deurs_blank_teak.webp",
+    "../../assets/producten/dressoir-java-4-deurs.webp",
+    "../../assets/producten/dressoir_java_2_deuren_6_lades.webp",
+    "../../assets/producten/dressoir-java_4_deurs_blank.webp",
+    "../../assets/producten/dressoir-15.webp",
+    "../../assets/producten/dressoir_java_4_deurs_wit.webp"
+  ],
+  "prijsVanaf": 999,
+  "omschrijving": "Een klassiek dressoir gemaakt van massief teak, wat er standaard in verschillende afmetingen en indelingen is. Kies de grepen, de onderkangt, de kleur, het soort panelen en de afmeting. Staat de gewenste uitvoering of afmeting er nkiet tussen? Dan maken wij deze op maat.\n\n**Kenmerken**\n\n- Lades en deuren\n- Leverbaar in 3 standaardmaten, ook op maat\n- Houtkleuren: Blank teak, Thee kleur, Koloniale kleur of Wit\n- Met de hand gemaakt in Indonesië, op bestelling",
+  "maten": [
+    {
+      "label": "h=90cm br=150cm d=50cm",
+      "prijs": 999
+    },
+    {
+      "label": "h=90cm br=180cm d=50cm",
+      "prijs": 1149
+    },
+    {
+      "label": "h=90cm br=200cm d=50cm 4 deuren",
+      "prijs": 1299
+    }
+  ],
+  "houtkleuren": true,
+  "uitgelicht": false,
+  "zichtbaar": true,
+  "uitvoeringen": [],
+  "prijsTonen": true,
+  "maatwerk": true,
+  "volgorde": 365,
+  "seoTitel": "",
+  "seoOmschrijving": "",
+  "oudeUrl": ""
+}
